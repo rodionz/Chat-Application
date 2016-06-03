@@ -33,6 +33,7 @@ namespace ServerBI
         public static void ServerOnline(ServerData sData)
 
           {
+            ServerData.SERVERONLINE = true;
 
             Task t1 = Task.Run(() => StartListening(sData));
           
@@ -45,9 +46,11 @@ namespace ServerBI
         public static void StartListening(ServerData Sdat)
         {
 
-            for (int i = 0; i < 10; i++)
+          while (true)
+
             {
-                somethinghappend();
+
+
             }
             //TcpListener listener = new TcpListener(IPAddress.Parse(Sdat.IPofServer), Sdat.PortofServer);
            
