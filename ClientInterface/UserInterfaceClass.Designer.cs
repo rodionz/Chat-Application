@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.NoServersOnlineLabel = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -198,12 +199,23 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "You Are Online";
             // 
+            // NoServersOnlineLabel
+            // 
+            this.NoServersOnlineLabel.AutoSize = true;
+            this.NoServersOnlineLabel.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoServersOnlineLabel.ForeColor = System.Drawing.Color.Tomato;
+            this.NoServersOnlineLabel.Location = new System.Drawing.Point(44, 465);
+            this.NoServersOnlineLabel.Name = "NoServersOnlineLabel";
+            this.NoServersOnlineLabel.Size = new System.Drawing.Size(0, 23);
+            this.NoServersOnlineLabel.TabIndex = 17;
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(932, 562);
+            this.Controls.Add(this.NoServersOnlineLabel);
             this.Controls.Add(this.GreenLightPanel);
             this.Controls.Add(this.RedLightPanel);
             this.Controls.Add(this.DisconnectFromServerButton);
@@ -226,6 +238,7 @@
             this.GreenLightPanel.ResumeLayout(false);
             this.GreenLightPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -248,6 +261,7 @@
         private System.Windows.Forms.Panel GreenLightPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label NoServersOnlineLabel;
     }
 }
 

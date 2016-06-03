@@ -26,7 +26,7 @@ namespace ClientInterface
         UserData new_user;
 
         //NewUserEventArgs NUEA = new NewUserEventArgs();
-
+        
 
         private void ConfirmIP_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace ClientInterface
         {
 
 
-            var listofnames = from n in UserInterfaceClass.Statickist
+            var listofnames = from n in UserData.StaticlistofUsers
                               select (n.Username);
 
 

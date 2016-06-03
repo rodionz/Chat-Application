@@ -18,15 +18,17 @@ namespace ClientInterface
             InitializeComponent();
             //UserData.StaticlistofUsers
         }
-        //UserData uData = new UserData(1);
+        
 
-        //MessageData MesData = new MessageData();
+        MessageData MesData = new MessageData();
 
         SignIn registration = new SignIn();
 
+        UserData uData;
+
         //CommonTypes.UserData.StaticlistofUsers
 
-       //public static UserData.List
+        //public static UserData.List
 
         private void ColorChoosing_Click(object sender, EventArgs e)
         {
@@ -62,14 +64,27 @@ namespace ClientInterface
 
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
-            registration.ShowDialog();
-            if (ClientUiBooleans.UserIsValid)
+
+            if (ServerData.SERVERONLINE)
             {
-                RedLightPanel.Visible = false;
-                GreenLightPanel.Visible = true;
+                uData = new UserData(UserData.StaticlistofUsers.Count);
+
+                registration.ShowDialog();
+                if (ClientUiBooleans.UserIsValid)
+                {
+                    RedLightPanel.Visible = false;
+                    GreenLightPanel.Visible = true;
+                }
+            }
+
+            else
+            {
+
+                NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
+
+
             }
         }
-
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
             MesData.Dt = DateTime.Now;
