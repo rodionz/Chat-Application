@@ -33,7 +33,7 @@ namespace ServerBI
         public static void ServerOnline(ServerData sData)
 
           {
-            ServerData.SERVERONLINE = true;
+            
 
             Task t1 = Task.Run(() => StartListening(sData));
           

@@ -25,7 +25,7 @@ namespace ClientInterface
         public event EventHandler newUsercreated;
         UserData new_user;
 
-        //NewUserEventArgs NUEA = new NewUserEventArgs();
+       
         
 
         private void ConfirmIP_Click(object sender, EventArgs e)

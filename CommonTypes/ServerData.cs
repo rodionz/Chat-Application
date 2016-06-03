@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CommonTypes
 {
-   public class ServerData
+   public class ServerData 
     {
 
         public string IPofServer
@@ -19,7 +20,31 @@ namespace CommonTypes
        public static ServerData CommonSd
         { get; set; }
 
-        public static bool SERVERONLINE = false;
+        public static bool SERVERONLINE
+        {
+            get
+            {
+                if (CommonSd.IPofServer != null && CommonSd.PortofServer != 0)
+                    return true;
+
+                else
+                    return false;
+
+
+
+            }
+
+
+        }
+
+        
+
+        public static bool ServerOnlineFunc()
+        {
+
+
+            return false;
+        }
 
     }
 }

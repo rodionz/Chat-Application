@@ -20,12 +20,10 @@ namespace ServerInterface
 
         }
 
-        //List<UserData> StaticlistofAllUsers;
-
 
         ServerData sData = new ServerData();
 
-        public event EventHandler ServerisOnline;
+      
 
         private void StartServerButton_Click(object sender, EventArgs e)
         {
@@ -35,18 +33,13 @@ namespace ServerInterface
             GreenLightPanel.Visible = true;
 
 
-            //ServerData.CommonSd = sData;
-
-            //StaticlistofAllUsers = UserData.StaticlistofUsers;
+         
 
             UserData.StaticlistofUsers = new List<UserData>();
 
             ServerLogic.ServerOnline(sData);
 
-            //ServerisOnline += ServerLogic.StartListening(sData);
-
-            //////ServerisOnline(this, sData);
-
+         
             
 
            
@@ -89,11 +82,15 @@ namespace ServerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            RedLightPanel.Visible = false;
+            GreenLightPanel.Visible = true;
             ServerLogic.somethinghappend += PrintSomething;
             sData.IPofServer = "127.0.0.1";
             sData.PortofServer = 60000;
+          
             ServerLogic.ServerOnline(sData);
+           
+           
         }
 
         public void PrintSomething()

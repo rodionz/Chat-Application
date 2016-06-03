@@ -45,6 +45,15 @@ namespace ClientBL
         }
 
 
+        public static void IPAndPortValidation()
+
+        {
+
+
+
+        }
+           
+
 
 
         public static void ConnecttoServer (UserData uData)
