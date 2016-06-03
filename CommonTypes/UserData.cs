@@ -35,5 +35,7 @@ namespace CommonTypes
         }
 
       public  List<UserData> listofUsers;
+
+        public static List<UserData> StaticlistofUsers;
     }
 }

@@ -17,7 +17,10 @@ namespace ServerInterface
         public ServerInterfaceClass()
         {
             InitializeComponent();
+
         }
+
+        //List<UserData> StaticlistofAllUsers;
 
 
         ServerData sData = new ServerData();
@@ -30,9 +33,13 @@ namespace ServerInterface
             Sr.ShowDialog();
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
-           
+
 
             //ServerData.CommonSd = sData;
+
+            //StaticlistofAllUsers = UserData.StaticlistofUsers;
+
+            UserData.StaticlistofUsers = new List<UserData>();
 
             ServerLogic.ServerOnline(sData);
 
@@ -82,6 +89,7 @@ namespace ServerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             ServerLogic.somethinghappend += PrintSomething;
             sData.IPofServer = "127.0.0.1";
             sData.PortofServer = 60000;

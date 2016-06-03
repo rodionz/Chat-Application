@@ -16,15 +16,17 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
+            //UserData.StaticlistofUsers
         }
-        UserData uData = new UserData(1);
+        //UserData uData = new UserData(1);
 
-        MessageData MesData = new MessageData();
+        //MessageData MesData = new MessageData();
 
         SignIn registration = new SignIn();
 
+        //CommonTypes.UserData.StaticlistofUsers
 
-       public static List<UserData> ListofUsers = new List<UserData>();
+       //public static UserData.List
 
         private void ColorChoosing_Click(object sender, EventArgs e)
         {

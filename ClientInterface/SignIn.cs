@@ -125,7 +125,7 @@ namespace ClientInterface
         {
 
 
-            var listofnames = from n in UserInterfaceClass.ListofUsers
+            var listofnames = from n in UserInterfaceClass.Statickist
                               select (n.Username);
 
 
@@ -162,9 +162,9 @@ namespace ClientInterface
             if (ClientUiBooleans.UserIsValid)
             {
 
-                new_user = new UserData(new_user.listofUsers.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() };
+                new_user = new UserData(UserData.StaticlistofUsers.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() };
                 new_user.listofUsers.Add(new_user);
-                UserInterfaceClass.ListofUsers.Add(new UserData(UserInterfaceClass.ListofUsers.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() });
+                //UserInterfaceClass.Statickist.Add(new UserData(UserInterfaceClass.Statickist.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() });
                 //newUsercreated(this, NUEA);
                 //new_user = UserInterfaceClass.ListofUsers.LastOrDefault();
                 //new_user.listofUsers
