@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonTypes;
+using ClientBL;
+
 
 namespace ClientInterface
 {
@@ -88,8 +90,9 @@ namespace ClientInterface
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
             MesData.Dt = DateTime.Now;
-            //MesData.Messagecolor = 
-            //MesData.Textmessage =
+            MesData.Messagecolor = this.TextMessages.ForeColor;
+            MesData.Textmessage = this.TextMessages.Text;
+            MesData.Userfont = this.TextMessages.Font;
         }
 
      

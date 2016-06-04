@@ -45,13 +45,23 @@ namespace ClientBL
         }
 
 
-        public static void IPAndPortValidation()
+        //public static bool IPAndPortValidation(UserData preuData)
 
-        {
+        //{
+        //    TcpClient  preclient = new TcpClient();
 
+        //    try
+        //    {
+        //        preclient.Connect(preuData.UserIP, preuData.UserPort);
+        //        return true;
+        //    }
 
+        //    catch
+        //    {
 
-        }
+        //    }
+
+        //}
            
 
 
