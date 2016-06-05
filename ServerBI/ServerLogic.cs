@@ -14,10 +14,19 @@ namespace ServerBI
     public class ServerLogic
     {
         public delegate void Something();
-        public static event Something somethinghappend ; 
+        public static event Something somethinghappend ;
+
+
+        public static List<UserData> listofUsersontheserver;
+
+
+
+
 
    
         public static void ServerOnline(ServerData sData)
+
+            
 
           {
 
@@ -34,6 +43,8 @@ namespace ServerBI
 
         public static void StartListening(TcpListener serv)
         {
+            listofUsersontheserver = new List<UserData>();
+
             try
             {
                 serv.Start();
@@ -45,8 +56,20 @@ namespace ServerBI
                     using (Stream s = client.GetStream())
                     {
                         BinaryFormatter bf = new BinaryFormatter();
-                            bf.Deserialize(s);
+                         MessageData mData = (MessageData)bf.Deserialize(s);
+                        mData.listofUsers = listofUsersontheserver;
 
+                        // IP and Port Validation
+                        if (mData.Userdat.Username == "IPandportTest")
+                        {
+                            bf.Serialize(s, mData);
+                        }
+
+                        else
+                        {
+
+
+                        }
 
                     }
 

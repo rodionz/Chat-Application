@@ -29,7 +29,7 @@ namespace ClientBL
 
 
 
-
+      
 
 
 
@@ -45,20 +45,22 @@ namespace ClientBL
         }
 
 
-        public static void IPAndPortValidation(UserData preuData)
+        public static void IPAndPortValidation(MessageData premesData)
 
         {
-            preuData.Username = "IPandportTest";
+            MessageData returning;
+            premesData.Userdat.Username = "IPandportTest";
             TcpClient preclient = new TcpClient();
 
             try
             {
-                preclient.Connect(preuData.UserIP, preuData.UserPort);
+                preclient.Connect(premesData.Userdat.UserIP, premesData.Userdat.UserPort);
 
                 using (Stream str = preclient.GetStream())
                 {
                     BinaryFormatter bFormat = new BinaryFormatter();
-                    bFormat.Serialize(str, preuData);
+                    bFormat.Serialize(str, premesData);
+                      returning = (MessageData)bFormat.Deserialize(str);
                 }
                
             }

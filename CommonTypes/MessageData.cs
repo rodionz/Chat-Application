@@ -23,5 +23,13 @@ namespace CommonTypes
 
         public Font Userfont
         { get; set; }
+
+
+        /* 
+        Using of List of UserDta objects inside of MessgageData class was intended. 
+        It has been used when we validate User's IP and Port whith the server, server returns list of
+        connected user, inside of MessageData object
+    */
+        public List<UserData> listofUsers;
     }
 }
