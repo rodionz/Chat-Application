@@ -29,9 +29,22 @@ namespace CommonTypes
         { get; set; }
 
 
+
+        public UserData()
+        {
+
+
+        }
+
         public UserData(int numofuser)
-            {
+        {
             this.Userid = numofuser;
+        }
+
+        public UserData(string IP, int PORT)
+        {
+            this.UserIP = IP;
+            this.UserPort = PORT;
         }
 
       public  List<UserData> listofUsers;

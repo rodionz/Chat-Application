@@ -45,7 +45,7 @@ namespace ClientBL
         }
 
 
-        public static void IPAndPortValidation(MessageData premesData)
+        public static bool IPAndPortValidation(MessageData premesData)
 
         {
             MessageData returning;
@@ -62,12 +62,12 @@ namespace ClientBL
                     bFormat.Serialize(str, premesData);
                       returning = (MessageData)bFormat.Deserialize(str);
                 }
-               
+                return true;
             }
 
             catch
             {
-
+                return false;
             }
 
             finally

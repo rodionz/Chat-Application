@@ -24,6 +24,8 @@ namespace ClientInterface
         IPAddress clientIpAddr;
         public event EventHandler newUsercreated;
         UserData new_user;
+        MessageData mData;
+        
 
        
         
@@ -39,40 +41,45 @@ namespace ClientInterface
             string adress = string.Join(separator, str);
             bool b = IPAddress.TryParse(adress, out clientIpAddr);
 
-            if (b == true)
+            int userPort = int.Parse(portTextBox.Text);
+
+            if (!b)
             {
-                //
-                //ToChange IP
-                //
-                if (clientIpAddr.ToString() == "127.0.0.1")
+                IPandPortlabel.ForeColor = Color.Red;
+                IPandPortlabel.Text = "Illigal IP, please enter IP adress in correct format";
+            }
+
+            //else if(!ClientUiBooleans.)
+
+            else
+            {
+                mData = new MessageData() { Userdat = new UserData(adress, userPort) };
+                bool ipandportvalid = UserLogic.IPAndPortValidation(mData);
+
+
+                if (ipandportvalid)
                 {
-                   IPlabel.ForeColor = Color.Lime;
-                   IPlabel.Text = "IP Confimed";
-                    ClientUiBooleans.IPconfirmed = true;
+                    IPandPortlabel.ForeColor = Color.Lime;
+                    IPandPortlabel.Text = "";
                 }
 
                 else
                 {
-                    IPlabel.ForeColor = Color.Red;
-                    IPlabel.Text = "IP was rejected by the server, please enter corect IP adress of the server ";
 
                 }
-            }
-            else
-            {
-                IPlabel.ForeColor = Color.Red;
-                IPlabel.Text = "Illigal IP, please enter IP adress in correct format";
-
+                //IPconfirmationLabel.ForeColor = Color.Lime;
+                // PortLabel.Text = "Port Confirmed";
+                ClientUiBooleans.PORTconfirmed = true;
 
             }
-
+        
             
         }
 
         private void clearIP_Click(object sender, EventArgs e)
         {
             IPmaskedTextBox.Clear();
-            IPlabel.Text = "";
+            IPandPortlabel.Text = "";
         }
 
         private void UsernameClearButton_Click(object sender, EventArgs e)
@@ -84,7 +91,7 @@ namespace ClientInterface
         private void Clearportbutton_Click(object sender, EventArgs e)
         {
             portTextBox.Clear();
-            PortLabel.Text = "";
+           
         }
 
         private void ClearAll()
@@ -94,32 +101,7 @@ namespace ClientInterface
             portTextBox.Clear();
         }
 
-        private void PortConfirmationButtom_Click(object sender, EventArgs e)
-        {
-            //
-            //ToChange port
-            //
-
-
-
-            if (portTextBox.Text == 6000.ToString())
-            {
-                PortLabel.ForeColor = Color.Lime;
-               PortLabel.Text = "Port Confirmed";
-                ClientUiBooleans.PORTconfirmed = true;
-
-            }
-
-
-            else
-
-            {
-               PortLabel.ForeColor = Color.Red;
-                PortLabel.Text = "Port Denied, please try again.";
-
-
-            }
-        }
+     
 
         private void NicknameConfirmationButton_Click(object sender, EventArgs e)
         {

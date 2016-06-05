@@ -18,14 +18,7 @@ namespace ClientInterface
                     return true;
                 else
                     return false;
-
-
-
             }
-
-            
-
-
         }
 
 
