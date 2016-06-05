@@ -25,6 +25,7 @@ namespace ClientInterface
         public event EventHandler newUsercreated;
         UserData new_user;
         MessageData mData;
+        internal int userPort;
         
 
        
@@ -41,7 +42,7 @@ namespace ClientInterface
             string adress = string.Join(separator, str);
             bool b = IPAddress.TryParse(adress, out clientIpAddr);
 
-            int userPort = int.Parse(portTextBox.Text);
+         userPort = int.Parse(portTextBox.Text);
 
             if (!b)
             {
@@ -57,7 +58,7 @@ namespace ClientInterface
                 bool ipandportvalid = UserLogic.IPAndPortValidation(mData);
 
 
-                if (ipandportvalid)
+                if (userPort.PortisValid())
                 {
                     IPandPortlabel.ForeColor = Color.Lime;
                     IPandPortlabel.Text = "";
@@ -69,7 +70,7 @@ namespace ClientInterface
                 }
                 //IPconfirmationLabel.ForeColor = Color.Lime;
                 // PortLabel.Text = "Port Confirmed";
-                ClientUiBooleans.PORTconfirmed = true;
+                //ClientUiBooleans.PortValid = true;
 
             }
         

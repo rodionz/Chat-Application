@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientInterface
 {
-    class ClientUiBooleans
+   static class ClientUiBooleans
     {
 
        
@@ -14,7 +14,7 @@ namespace ClientInterface
         {
             get
             {
-                if (nicknameconfirmed && portconfirmed && ipconfirmed)
+                if (nicknameconfirmed && PortValid && ipconfirmed)
                     return true;
                 else
                     return false;
@@ -40,14 +40,26 @@ namespace ClientInterface
         }
 
 
+       private static bool PortValid;
 
-        internal static bool portconfirmed = false;
-        internal static bool PORTconfirmed
+        public static bool PortisValid(this int num)
         {
-            get { return portconfirmed; }
-            set { portconfirmed = value; }
+            if (num > 10000 && num < 65535)
+            {
+                PortValid = true;
+                return true;
+            }
+            else
+            {
+                PortValid = false;
+                return false;
+            }
 
         }
+
+
+
+
 
 
         public static void ResetBooleans()
@@ -57,7 +69,7 @@ namespace ClientInterface
             
             nicknameconfirmed = false;
             ipconfirmed = false;
-            portconfirmed = false;
+            PortValid = false;
 
         }
 
