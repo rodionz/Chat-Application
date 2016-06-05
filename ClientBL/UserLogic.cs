@@ -91,7 +91,7 @@ namespace ClientBL
             }
         }
 
-        public void SendMessage()
+        public static void SendMessage(MessageData mData)
         {
 
         }
@@ -103,5 +103,15 @@ namespace ClientBL
 
         public event EventHandler MessageRecieved;
 
+        public static void ColorwasChanged(UserData uData)
+        {
+
+
+        }
+
+        public static void FontwasChanged(UserData uData)
+        {
+
+        }
     }
 }

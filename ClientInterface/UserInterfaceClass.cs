@@ -93,18 +93,22 @@ namespace ClientInterface
             MesData.Messagecolor = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
             MesData.Userfont = this.TextMessages.Font;
+            UserLogic.SendMessage(MesData);
         }
 
      
 
         private void TextMessages_FontChanged(object sender, EventArgs e)
         {
+            uData.Usercolor = this.TextMessages.ForeColor;
 
+            UserLogic.ColorwasChanged(uData);
         }
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
-
+            uData.Ufont = this.TextMessages.Font;
+            UserLogic.FontwasChanged(uData);
         }
     }
 }
