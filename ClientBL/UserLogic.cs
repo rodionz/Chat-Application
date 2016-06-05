@@ -45,24 +45,36 @@ namespace ClientBL
         }
 
 
-        //public static bool IPAndPortValidation(UserData preuData)
+        public static void IPAndPortValidation(UserData preuData)
 
-        //{
-        //    TcpClient  preclient = new TcpClient();
+        {
+            preuData.Username = "IPandportTest";
+            TcpClient preclient = new TcpClient();
 
-        //    try
-        //    {
-        //        preclient.Connect(preuData.UserIP, preuData.UserPort);
-        //        return true;
-        //    }
+            try
+            {
+                preclient.Connect(preuData.UserIP, preuData.UserPort);
 
-        //    catch
-        //    {
+                using (Stream str = preclient.GetStream())
+                {
+                    BinaryFormatter bFormat = new BinaryFormatter();
+                    bFormat.Serialize(str, preuData);
+                }
+               
+            }
 
-        //    }
+            catch
+            {
 
-        //}
-           
+            }
+
+            finally
+            {
+                preclient.Close();
+            }
+
+        }
+
 
 
 

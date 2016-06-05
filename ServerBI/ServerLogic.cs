@@ -17,25 +17,14 @@ namespace ServerBI
         public static event Something somethinghappend ; 
 
    
-
-        //public  string IPAdress
-        //{ get; set; }
-
-        //public int Serverport
-        //{ get; set; }
-
-        //public List<UserData>  udl
-        //{ get; set; }
-
-
-
-
         public static void ServerOnline(ServerData sData)
 
           {
-            
 
-            Task t1 = Task.Run(() => StartListening(sData));
+            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPofServer), sData.PortofServer);
+
+            
+            Task t1 = Task.Run(() => StartListening(server));
           
             //Task t2 = new Task();
 
@@ -43,15 +32,33 @@ namespace ServerBI
 
 
 
-        public static void StartListening(ServerData Sdat)
+        public static void StartListening(TcpListener serv)
         {
-
-          while (true)
-
+            try
             {
+                serv.Start();
 
+                while (true)
+
+                {
+                  TcpClient client =  serv.AcceptTcpClient();
+                    using (Stream s = client.GetStream())
+                    {
+                        BinaryFormatter bf = new BinaryFormatter();
+                            bf.Deserialize(s);
+
+
+                    }
+
+
+                }
+            }
+            finally
+            {
+                serv.Stop();
 
             }
+
             //TcpListener listener = new TcpListener(IPAddress.Parse(Sdat.IPofServer), Sdat.PortofServer);
            
 
