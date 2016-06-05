@@ -72,7 +72,7 @@ namespace ClientInterface
                 uData = new UserData(UserData.StaticlistofUsers.Count);
 
                 registration.ShowDialog();
-                if (ClientUiBooleans.UserIsValid)
+                if (ClientBools.UserIsValid)
                 {
                     RedLightPanel.Visible = false;
                     GreenLightPanel.Visible = true;

@@ -14,28 +14,11 @@ namespace ClientBL
     public class UserLogic
     {
 
-        //public string IPadress
-        //{ get; set; }
-
-        //public int UserPort
-        //{ get; set; }
-
-        //public UserData Ud
-        //{ get; set; }
-
-
-        //public MessageData Md
-        //{ get; set; }
+        public static List<UserData> listofUserfortheUsers;
 
 
 
-      
-
-
-
-
-
-            public static void MainClienFinction(UserData uData)
+        public static void MainClienFinction(UserData uData)
 
 
         {
@@ -61,6 +44,7 @@ namespace ClientBL
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(str, premesData);
                       returning = (MessageData)bFormat.Deserialize(str);
+                    listofUserfortheUsers = returning.listofUsers;
                 }
                 return true;
             }

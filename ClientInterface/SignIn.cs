@@ -50,7 +50,12 @@ namespace ClientInterface
                 IPandPortlabel.Text = "Illigal IP, please enter IP adress in correct format";
             }
 
-            //else if(!ClientUiBooleans.)
+           else if(!userPort.PortisValid())
+            {
+                IPandPortlabel.ForeColor = Color.Red;
+                IPandPortlabel.Text = "Port Number is Illigal \n Pelease choose port \n from 10000 to 65535";
+
+            }
 
             else
             {
@@ -58,15 +63,17 @@ namespace ClientInterface
                 bool ipandportvalid = UserLogic.IPAndPortValidation(mData);
 
 
-                if (userPort.PortisValid())
+                if (ipandportvalid)
                 {
                     IPandPortlabel.ForeColor = Color.Lime;
-                    IPandPortlabel.Text = "";
+                    IPandPortlabel.Text = "IP Adress and Port are Confirmed";
+                    
                 }
 
                 else
                 {
-
+                    IPandPortlabel.ForeColor = Color.Red;
+                    IPandPortlabel.Text = "Service is Unavavailble, please try another adress or port";
                 }
                 //IPconfirmationLabel.ForeColor = Color.Lime;
                 // PortLabel.Text = "Port Confirmed";
@@ -120,7 +127,7 @@ namespace ClientInterface
                 {
                     NameLabel.ForeColor = Color.Lime;
                     NameLabel.Text = "UserName confirmed";
-                    ClientUiBooleans.NicnameConfirmed = true;
+                    ClientBools.NicnameConfirmed = true;
                 }
 
                 else
@@ -142,7 +149,7 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            if (ClientUiBooleans.UserIsValid)
+            if (ClientBools.UserIsValid)
             {
 
                 new_user = new UserData(UserData.StaticlistofUsers.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() };
@@ -154,7 +161,7 @@ namespace ClientInterface
 
                 UserLogic.MainClienFinction( new_user);
             
-                ClientUiBooleans.ResetBooleans();
+                ClientBools.ResetBooleans();
                 ClearAll();
                 Close();
             }
