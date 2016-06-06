@@ -34,6 +34,7 @@ namespace ClientInterface
 
         private void ColorChoosing_Click(object sender, EventArgs e)
         {
+            
             colorDialog1.AllowFullOpen = true;
             colorDialog1.AnyColor = true;
             DialogResult result = colorDialog1.ShowDialog();

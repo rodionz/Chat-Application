@@ -18,6 +18,7 @@ namespace ClientInterface
         public SignIn()
         {
             InitializeComponent();
+            UserLogic.NoServer += UserEvenHandlers.NoServerHandler;
         }
 
         ServerData Sdata;
@@ -28,7 +29,7 @@ namespace ClientInterface
         internal int userPort;
         internal List<UserData> localListofUsers;
        
-
+        
        
         
 

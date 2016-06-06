@@ -14,6 +14,11 @@ namespace ClientBL
     public class UserLogic
     {
 
+        public  delegate void Exseptions();
+
+        public static event Exseptions NoServer;
+
+
         public static List<UserData> listofUserfortheUsers;
 
         public static bool ipandportvalid;
@@ -40,28 +45,28 @@ namespace ClientBL
             premesData.Userdat.Username = "IPandportTest";
             TcpClient preclient = new TcpClient();
 
-            //try
-            //{
+            try
+            {
                 preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
                 NetworkStream netStream = preclient.GetStream();
-                
-                    BinaryFormatter bFormat = new BinaryFormatter();
-                    bFormat.Serialize(netStream, premesData);
-                    returning = (MessageData)bFormat.Deserialize(netStream);
-                    listofUserfortheUsers = returning.listofUsers;
-            ipandportvalid = true;
-                
-            //}
 
-            //catch
-            //{
-                
-            //}
+                BinaryFormatter bFormat = new BinaryFormatter();
+                bFormat.Serialize(netStream, premesData);
+                returning = (MessageData)bFormat.Deserialize(netStream);
+                listofUserfortheUsers = returning.listofUsers;
+                ipandportvalid = true;
+
+            }
+
+            catch (SocketException SE)
+            {
+                NoServer();
+            }
 
             //finally
             //{
-               
+
             //}
 
         }
