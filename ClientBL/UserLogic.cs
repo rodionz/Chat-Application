@@ -61,7 +61,7 @@ namespace ClientBL
 
             finally
             {
-                preclient.Close();
+               
             }
 
         }

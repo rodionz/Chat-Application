@@ -185,6 +185,12 @@ namespace ClientInterface
             }
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserData ud = new UserData() { IPadress = "127.0.0.1", Portnumber = 60000 };
+            mData = new MessageData() { Userdat = ud };
+            UserLogic.IPAndPortValidation(mData);
+
+        }
     }
 }
