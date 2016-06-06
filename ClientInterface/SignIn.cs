@@ -26,7 +26,8 @@ namespace ClientInterface
         UserData new_user;
         MessageData mData;
         internal int userPort;
-        
+        internal List<UserData> localListofUsers;
+       
 
        
         
@@ -190,7 +191,8 @@ namespace ClientInterface
             UserData ud = new UserData() { IPadress = "127.0.0.1", Portnumber = 60000 };
             mData = new MessageData(ud); 
             UserLogic.IPAndPortValidation(mData);
-
+            localListofUsers = UserLogic.listofUserfortheUsers;
+            ClientBools.IPandPortconfirmed = UserLogic.ipandportvalid;
         }
     }
 }

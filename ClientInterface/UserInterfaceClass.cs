@@ -57,7 +57,7 @@ namespace ClientInterface
 
             if (result == DialogResult.OK)
             {
-                uData.Userfont = fontDialog1.Font;
+                uData.font = fontDialog1.Font;
                 this.TextMessages.Font = fontDialog1.Font;
             
 
@@ -93,7 +93,7 @@ namespace ClientInterface
             MesData.Dt = DateTime.Now;
             MesData.color = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
-            MesData.Userfont = this.TextMessages.Font;
+            MesData.font = this.TextMessages.Font;
             UserLogic.SendMessage(MesData);
         }
 
@@ -108,7 +108,7 @@ namespace ClientInterface
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
-            uData.Userfont = this.TextMessages.Font;
+            uData.font = this.TextMessages.Font;
             UserLogic.FontwasChanged(uData);
         }
     }

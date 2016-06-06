@@ -50,7 +50,7 @@ namespace ClientBL
                     bFormat.Serialize(netStream, premesData);
                     returning = (MessageData)bFormat.Deserialize(netStream);
                     listofUserfortheUsers = returning.listofUsers;
-              
+            ipandportvalid = true;
                 
             //}
 

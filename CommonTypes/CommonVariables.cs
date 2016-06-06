@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CommonTypes
 {
+    [Serializable]
      public abstract  class CommonVariables
     {
 
@@ -22,7 +23,7 @@ namespace CommonTypes
         public UserData Userdat
         { get; set; }
 
-        public Font Userfont
+        public Font font
         { get; set; }
 
         public string IPadress
