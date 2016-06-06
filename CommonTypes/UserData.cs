@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace CommonTypes
 {
+    [Serializable]
     public class UserData : CommonVariables
     {
 

@@ -7,11 +7,18 @@ using System.Drawing;
 
 namespace CommonTypes
 {
+    [Serializable]
   public  class MessageData : CommonVariables
     {
-       
 
-    
+
+        public MessageData() { }
+
+        public MessageData(UserData ud)
+        {
+            this.Userdat = ud;
+
+        }
         
     }
 }

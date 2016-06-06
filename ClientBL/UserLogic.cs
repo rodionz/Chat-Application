@@ -40,8 +40,8 @@ namespace ClientBL
             premesData.Userdat.Username = "IPandportTest";
             TcpClient preclient = new TcpClient();
 
-            try
-            {
+            //try
+            //{
                 preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
                 NetworkStream netStream = preclient.GetStream();
@@ -52,17 +52,17 @@ namespace ClientBL
                     listofUserfortheUsers = returning.listofUsers;
               
                 
-            }
+            //}
 
-            catch
-            {
+            //catch
+            //{
                 
-            }
+            //}
 
-            finally
-            {
+            //finally
+            //{
                
-            }
+            //}
 
         }
 
