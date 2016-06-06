@@ -31,7 +31,7 @@ namespace ClientInterface
         }
 
 
-        internal static bool ipandportconfirmed = false;
+       private static bool ipandportconfirmed = false;
         internal static bool IPandPortconfirmed
         {
             get { return ipandportconfirmed; }

@@ -66,26 +66,27 @@ namespace ClientInterface
 
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
+            registration.ShowDialog();
 
-            if (ServerData.SERVERONLINE)
-            {
-                uData = new UserData(UserData.StaticlistofUsers.Count);
+            //if (ServerData.SERVERONLINE)
+            //{
+            //    uData = new UserData(UserData.StaticlistofUsers.Count);
 
-                registration.ShowDialog();
-                if (ClientBools.UserIsValid)
-                {
-                    RedLightPanel.Visible = false;
-                    GreenLightPanel.Visible = true;
-                }
-            }
+            //    registration.ShowDialog();
+            //    if (ClientBools.UserIsValid)
+            //    {
+            //        RedLightPanel.Visible = false;
+            //        GreenLightPanel.Visible = true;
+            //    }
+            //}
 
-            else
-            {
+            //else
+            //{
 
-                NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
+            //    NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
 
 
-            }
+            //}
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {

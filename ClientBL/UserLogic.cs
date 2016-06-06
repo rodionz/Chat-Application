@@ -39,13 +39,13 @@ namespace ClientBL
             {
                 preclient.Connect(premesData.Userdat.UserIP, premesData.Userdat.UserPort);
 
-                using (Stream str = preclient.GetStream())
-                {
+                NetworkStream netStream = preclient.GetStream();
+                
                     BinaryFormatter bFormat = new BinaryFormatter();
-                    bFormat.Serialize(str, premesData);
-                      returning = (MessageData)bFormat.Deserialize(str);
+                    bFormat.Serialize(netStream, premesData);
+                      returning = (MessageData)bFormat.Deserialize(netStream);
                     listofUserfortheUsers = returning.listofUsers;
-                }
+                
                 return true;
             }
 

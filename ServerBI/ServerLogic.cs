@@ -53,16 +53,15 @@ namespace ServerBI
 
                 {
                   TcpClient client =  serv.AcceptTcpClient();
-                    using (Stream s = client.GetStream())
-                    {
+                    NetworkStream netStream = client.GetStream();
                         BinaryFormatter bf = new BinaryFormatter();
-                         MessageData mData = (MessageData)bf.Deserialize(s);
+                         MessageData mData = (MessageData)bf.Deserialize(netStream);
                         mData.listofUsers = listofUsersontheserver;
 
                         // IP and Port Validation
                         if (mData.Userdat.Username == "IPandportTest")
                         {
-                            bf.Serialize(s, mData);
+                            bf.Serialize(netStream, mData);
                         }
 
                         else
@@ -71,7 +70,7 @@ namespace ServerBI
 
                         }
 
-                    }
+                 
 
 
                 }

@@ -46,14 +46,14 @@ namespace ClientInterface
 
             if (!b)
             {
-                IPandPortlabel.ForeColor = Color.Red;
-                IPandPortlabel.Text = "Illigal IP, please enter IP adress in correct format";
+                WarningLabel.ForeColor = Color.Red;
+                WarningLabel.Text = "Illigal IP, please enter IP adress in correct format";
             }
 
            else if(!userPort.PortisValid())
             {
-                IPandPortlabel.ForeColor = Color.Red;
-                IPandPortlabel.Text = "Port Number is Illigal \n Pelease choose port \n from 10000 to 65535";
+                WarningLabel.ForeColor = Color.Red;
+                WarningLabel.Text = "Port Number is Illigal \n Pelease choose port \n from 10000 to 65535";
 
             }
 
@@ -65,15 +65,15 @@ namespace ClientInterface
 
                 if (ipandportvalid)
                 {
-                    IPandPortlabel.ForeColor = Color.Lime;
-                    IPandPortlabel.Text = "IP Adress and Port are Confirmed";
+                    WarningLabel.ForeColor = Color.Lime;
+                    WarningLabel.Text = "IP Adress and Port are Confirmed";
                     
                 }
 
                 else
                 {
-                    IPandPortlabel.ForeColor = Color.Red;
-                    IPandPortlabel.Text = "Service is Unavavailble, please try another adress or port";
+                    WarningLabel.ForeColor = Color.Red;
+                    WarningLabel.Text = "Service is Unavavailble, please try another adress or port";
                 }
                 //IPconfirmationLabel.ForeColor = Color.Lime;
                 // PortLabel.Text = "Port Confirmed";
@@ -87,13 +87,13 @@ namespace ClientInterface
         private void clearIP_Click(object sender, EventArgs e)
         {
             IPmaskedTextBox.Clear();
-            IPandPortlabel.Text = "";
+            WarningLabel.Text = "";
         }
 
         private void UsernameClearButton_Click(object sender, EventArgs e)
         {
             UserNameBox.Clear();
-            NameLabel.Text = "";
+            WarningLabel.Text = "";
         }
 
         private void Clearportbutton_Click(object sender, EventArgs e)
@@ -115,36 +115,47 @@ namespace ClientInterface
         {
 
 
-            var listofnames = from n in UserData.StaticlistofUsers
-                              select (n.Username);
-
-
-            bool a = listofnames.Contains(UserNameBox.Text);
-
-            if (UserNameBox.Text != "")
+            if (ClientBools.IPandPortconfirmed)
             {
-                if (!a)
+
+
+                var listofnames = from n in UserData.StaticlistofUsers
+                                  select (n.Username);
+
+
+                bool a = listofnames.Contains(UserNameBox.Text);
+
+                if (UserNameBox.Text != "")
                 {
-                    NameLabel.ForeColor = Color.Lime;
-                    NameLabel.Text = "UserName confirmed";
-                    ClientBools.NicnameConfirmed = true;
+                    if (!a)
+                    {
+                        WarningLabel.ForeColor = Color.Lime;
+                        WarningLabel.Text = "UserName confirmed";
+                        ClientBools.NicnameConfirmed = true;
+                    }
+
+                    else
+                    {
+                        WarningLabel.ForeColor = Color.Red;
+                        WarningLabel.Text = "UserName already take, please choose another one";
+
+
+                    }
                 }
 
                 else
                 {
-                    NameLabel.ForeColor = Color.Red;
-                    NameLabel.Text = "UserName already take, please choose another one";
-
-
+                    WarningLabel.ForeColor = Color.Red;
+                    WarningLabel.Text = "Name is illigal";
                 }
+
             }
 
             else
             {
-                NameLabel.ForeColor = Color.Red;
-                NameLabel.Text = "Name is illigal";
+                WarningLabel.ForeColor = Color.Red;
+                WarningLabel.Text = "Please confiirm IP Adress and port before choosing Username";
             }
-
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
