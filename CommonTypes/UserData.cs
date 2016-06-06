@@ -30,9 +30,7 @@ namespace CommonTypes
             this.Portnumber = PORT;
         }
 
-      //public  List<UserData> listofUsers;
-
-      //  public static List<UserData> StaticlistofUsers;
+    
 
         
     }

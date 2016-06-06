@@ -10,32 +10,6 @@ namespace CommonTypes
      public abstract  class CommonVariables
     {
 
-      
-        //public static bool SERVERONLINE
-        //{
-        //    get
-        //    {
-        //        if (CommonSd.IPofServer != null && CommonSd.PortofServer != 0)
-        //            return true;
-
-        //        else
-        //            return false;
-
-        //    }
-        //}
-
-
-
-        //public static bool ServerOnlineFunc()
-        //{
-
-
-        //    return false;
-        //}
-
-
-
-
         public string Textmessage
         { get; set; }
 
@@ -71,7 +45,7 @@ namespace CommonTypes
 
        
 
-       
+       // Attention!! Need to delet one
 
         public List<UserData> listofUsers;
 
