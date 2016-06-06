@@ -40,7 +40,7 @@ namespace ServerInterface
                 ServerBools.ResetBools();
                 ipConfirmLabel.ForeColor = Color.Lime;
                 ipConfirmLabel.Text = "IP is Valid";
-                serData.IPofServer = adress;
+                serData.IPadress = adress;
                 //IPisChanged(this, serData);
                 //Close();
             }

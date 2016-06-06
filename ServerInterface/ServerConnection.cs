@@ -36,7 +36,7 @@ namespace ServerInterface
 
             if (b)
             {
-                Sdata.IPofServer = adress;
+                Sdata.IPadress = adress;
                  ipConfirmLabel.ForeColor = Color.Lime;
                 ipConfirmLabel.Text = "IP is Valid";
                 ServerBools.IPisVAlid = true;
@@ -55,7 +55,7 @@ namespace ServerInterface
 
             if (portnum.PortisValid())
             {
-                Sdata.PortofServer = portnum;
+                Sdata.Portnumber = portnum;
                 portConfirmLabel.ForeColor = Color.Lime;
                 portConfirmLabel.Text = "Port is Valid";
                 ServerBools.PortValid = true;

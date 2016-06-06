@@ -40,7 +40,7 @@ namespace ClientInterface
 
             if (result == DialogResult.OK)
             {
-                uData.Usercolor = colorDialog1.Color;
+                uData.color = colorDialog1.Color;
                 this.TextMessages.ForeColor = colorDialog1.Color;
               
             }
@@ -57,7 +57,7 @@ namespace ClientInterface
 
             if (result == DialogResult.OK)
             {
-                uData.Ufont = fontDialog1.Font;
+                uData.Userfont = fontDialog1.Font;
                 this.TextMessages.Font = fontDialog1.Font;
             
 
@@ -91,7 +91,7 @@ namespace ClientInterface
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
             MesData.Dt = DateTime.Now;
-            MesData.Messagecolor = this.TextMessages.ForeColor;
+            MesData.color = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
             MesData.Userfont = this.TextMessages.Font;
             UserLogic.SendMessage(MesData);
@@ -101,14 +101,14 @@ namespace ClientInterface
 
         private void TextMessages_FontChanged(object sender, EventArgs e)
         {
-            uData.Usercolor = this.TextMessages.ForeColor;
+            uData.color = this.TextMessages.ForeColor;
 
             UserLogic.ColorwasChanged(uData);
         }
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
-            uData.Ufont = this.TextMessages.Font;
+            uData.Userfont = this.TextMessages.Font;
             UserLogic.FontwasChanged(uData);
         }
     }

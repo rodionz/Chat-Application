@@ -16,6 +16,11 @@ namespace ClientBL
 
         public static List<UserData> listofUserfortheUsers;
 
+        public static bool ipandportvalid;
+
+
+
+
 
 
         public static void MainClienFinction(UserData uData)
@@ -28,7 +33,7 @@ namespace ClientBL
         }
 
 
-        public static bool IPAndPortValidation(MessageData premesData)
+        public static void  IPAndPortValidation(MessageData premesData)
 
         {
             MessageData returning;
@@ -37,21 +42,21 @@ namespace ClientBL
 
             try
             {
-                preclient.Connect(premesData.Userdat.UserIP, premesData.Userdat.UserPort);
+                preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
                 NetworkStream netStream = preclient.GetStream();
                 
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
-                      returning = (MessageData)bFormat.Deserialize(netStream);
+                    returning = (MessageData)bFormat.Deserialize(netStream);
                     listofUserfortheUsers = returning.listofUsers;
+              
                 
-                return true;
             }
 
             catch
             {
-                return false;
+                
             }
 
             finally
@@ -70,7 +75,7 @@ namespace ClientBL
 
             try
             {
-                client.Connect(IPAddress.Loopback, uData.UserPort );
+                client.Connect(IPAddress.Loopback, uData.Portnumber );
 
                 using (Stream str = client.GetStream())
                 {

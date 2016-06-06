@@ -85,8 +85,8 @@ namespace ServerInterface
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
             ServerLogic.somethinghappend += PrintSomething;
-            sData.IPofServer = "127.0.0.1";
-            sData.PortofServer = 60000;
+            sData.IPadress = "127.0.0.1";
+            sData.Portnumber = 60000;
           
             ServerLogic.ServerOnline(sData);
            

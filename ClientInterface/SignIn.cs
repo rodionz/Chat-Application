@@ -60,10 +60,10 @@ namespace ClientInterface
             else
             {
                 mData = new MessageData() { Userdat = new UserData(adress, userPort) };
-                bool ipandportvalid = UserLogic.IPAndPortValidation(mData);
+               UserLogic.IPAndPortValidation(mData);
 
 
-                if (ipandportvalid)
+                if ( UserLogic.ipandportvalid)
                 {
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
@@ -163,7 +163,7 @@ namespace ClientInterface
             if (ClientBools.UserIsValid)
             {
 
-                new_user = new UserData(UserData.StaticlistofUsers.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() };
+                new_user = new UserData(UserData.StaticlistofUsers.Count) { Username = this.UserNameBox.Text, IPadress = clientIpAddr.ToString() };
                 new_user.listofUsers.Add(new_user);
                 //UserInterfaceClass.Statickist.Add(new UserData(UserInterfaceClass.Statickist.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() });
                 //newUsercreated(this, NUEA);

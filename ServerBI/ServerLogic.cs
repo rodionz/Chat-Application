@@ -30,7 +30,7 @@ namespace ServerBI
 
           {
 
-            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPofServer), sData.PortofServer);
+            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);
 
             
             Task t1 = Task.Run(() => StartListening(server));

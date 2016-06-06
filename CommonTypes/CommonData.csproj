@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonVariables.cs" />
     <Compile Include="MessageData.cs" />
     <Compile Include="ServerData.cs" />
     <Compile Include="UserData.cs" />

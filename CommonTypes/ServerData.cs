@@ -7,35 +7,10 @@ using System.Threading.Tasks;
 
 namespace CommonTypes
 {
-   public class ServerData 
+   public class ServerData : CommonVariables
     {
 
-        public string IPofServer
-        { get; set; }
-
-        public int PortofServer
-        { get; set; }
-
-
-       public static ServerData CommonSd
-        { get; set; }
-
-        public static bool SERVERONLINE
-        {
-            get
-            {
-                if (CommonSd.IPofServer != null && CommonSd.PortofServer != 0)
-                    return true;
-
-                else
-                    return false;
-
-
-
-            }
-
-
-        }
+     
 
         
 
