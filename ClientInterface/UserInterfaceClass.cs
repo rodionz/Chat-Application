@@ -86,7 +86,7 @@ namespace ClientInterface
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
-            MesData.Dt = DateTime.Now;
+            MesData.Time = DateTime.Now;
             MesData.color = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
             MesData.font = this.TextMessages.Font;

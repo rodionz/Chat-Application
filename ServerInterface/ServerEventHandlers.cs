@@ -34,7 +34,7 @@ namespace ServerInterface
             else
             {
                 CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
-                HistoryListbox.Items.Add(mymesdata.Textmessage);
+                HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString() );
             }
         }
 

@@ -13,7 +13,7 @@ namespace CommonTypes
 
     {
 
-        public DateTime Dt
+        public DateTime Time
         { get; set; }
 
         public Color color
