@@ -77,26 +77,20 @@ namespace ClientBL
         public static void ConnecttoServer (UserData uData)
         {
             TcpClient client = new TcpClient();
+            MessageData returning;
 
-            //try
-            //{
-                client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
+            client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
 
                 using (NetworkStream usernetstream = client.GetStream())
                 {
 
                     BinaryFormatter Bformat = new BinaryFormatter();
-                        Bformat.Serialize(usernetstream, new MessageData(uData));
+                    Bformat.Serialize(usernetstream, new MessageData(uData));
+                    returning = (MessageData)Bformat.Deserialize(usernetstream);
                    
                 }
 
-            //}
-
-
-            //finally
-            //{
-                //client.Close();
-            //}
+           
         }
 
         public static void SendMessage(MessageData mData)
