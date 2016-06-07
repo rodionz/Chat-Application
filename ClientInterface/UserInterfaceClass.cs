@@ -18,7 +18,7 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
-            //UserData.StaticlistofUsers
+            
         }
         
 
@@ -28,9 +28,7 @@ namespace ClientInterface
 
         UserData uData;
 
-        //CommonTypes.UserData.StaticlistofUsers
-
-        //public static UserData.List
+        
 
         private void ColorChoosing_Click(object sender, EventArgs e)
         {

@@ -36,7 +36,6 @@ namespace ServerInterface
 
          
 
-            UserData.StaticlistofUsers = new List<UserData>();
 
             ServerLogic.ServerOnline(sData);
 

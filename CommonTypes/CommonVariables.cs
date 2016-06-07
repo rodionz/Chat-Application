@@ -34,20 +34,12 @@ namespace CommonTypes
         public static ServerData CommonSd
         { get; set; }
 
-
         public string Username
         { get; set; }
 
-       
-
-      
-
-       
-
-       // Attention!! Need to delet one
 
         public List<UserData> listofUsers;
 
-        public static List<UserData> StaticlistofUsers;
+        
     }
 }
