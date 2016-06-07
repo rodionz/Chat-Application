@@ -17,6 +17,7 @@ namespace ServerInterface
         public ServerInterfaceClass()
         {
             InitializeComponent();
+            ServerLogic.newuserconnected += ServerEventHandlers.NewUserEvenHandler;
 
         }
 
@@ -84,7 +85,7 @@ namespace ServerInterface
         {
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
-            ServerLogic.somethinghappend += PrintSomething;
+            //ServerLogic.somethinghappend += PrintSomething;
             sData.IPadress = "127.0.0.1";
             sData.Portnumber = 60000;
           
@@ -95,7 +96,7 @@ namespace ServerInterface
 
         public void PrintSomething()
         {
-           listBox1.Items.Add ( "Hello World");
+           ChatListBox.Items.Add ( "Hello World");
         }
     }
 }

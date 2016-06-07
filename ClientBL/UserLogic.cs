@@ -33,7 +33,7 @@ namespace ClientBL
 
         {
             
-            ConnecttoServer(uData);
+         Task t1 = Task.Run(() =>   ConnecttoServer(uData));
 
         }
 
@@ -49,14 +49,14 @@ namespace ClientBL
             {
                 preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
-                NetworkStream netStream = preclient.GetStream();
-
-                BinaryFormatter bFormat = new BinaryFormatter();
-                bFormat.Serialize(netStream, premesData);
-                returning = (MessageData)bFormat.Deserialize(netStream);
-                listofUserfortheUsers = returning.listofUsers;
-                ipandportvalid = true;
-
+                using (NetworkStream netStream = preclient.GetStream())
+                {
+                    BinaryFormatter bFormat = new BinaryFormatter();
+                    bFormat.Serialize(netStream, premesData);
+                    returning = (MessageData)bFormat.Deserialize(netStream);
+                    listofUserfortheUsers = returning.listofUsers;
+                    ipandportvalid = true;
+                }
             }
 
             catch (SocketException SE)
@@ -64,10 +64,10 @@ namespace ClientBL
                 NoServer();
             }
 
-            //finally
-            //{
-
-            //}
+            finally
+            {
+                preclient.Close();
+            }
 
         }
 
@@ -80,14 +80,14 @@ namespace ClientBL
 
             try
             {
-                client.Connect(IPAddress.Loopback, uData.Portnumber );
+                client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
 
-                using (Stream str = client.GetStream())
+                using (NetworkStream usernetstream = client.GetStream())
                 {
 
                     BinaryFormatter Bformat = new BinaryFormatter();
-                    //Bformat.Serialize(str,object)
-
+                        Bformat.Serialize(usernetstream, uData);
+                   
                 }
 
             }

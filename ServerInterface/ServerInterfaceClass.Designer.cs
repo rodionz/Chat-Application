@@ -33,6 +33,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabChat = new System.Windows.Forms.TabPage();
+            this.ChatListBox = new System.Windows.Forms.ListBox();
             this.StartServerButton = new System.Windows.Forms.Button();
             this.ChangeIpButton = new System.Windows.Forms.Button();
             this.ChangePortButton = new System.Windows.Forms.Button();
@@ -44,9 +45,12 @@
             this.RedLamp = new System.Windows.Forms.PictureBox();
             this.StopServerButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.HistoryListbox = new System.Windows.Forms.ListBox();
+            this.CurrentUsersListbox = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.tabChat.SuspendLayout();
             this.GreenLightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
@@ -78,6 +82,7 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage4.Controls.Add(this.CurrentUsersListbox);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -88,6 +93,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage5.Controls.Add(this.HistoryListbox);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -97,7 +103,7 @@
             // 
             // tabChat
             // 
-            this.tabChat.Controls.Add(this.listBox1);
+            this.tabChat.Controls.Add(this.ChatListBox);
             this.tabChat.Location = new System.Drawing.Point(4, 22);
             this.tabChat.Name = "tabChat";
             this.tabChat.Padding = new System.Windows.Forms.Padding(3);
@@ -106,6 +112,14 @@
             this.tabChat.Text = "Chat";
             this.tabChat.UseVisualStyleBackColor = true;
             this.tabChat.Click += new System.EventHandler(this.tabChat_Click);
+            // 
+            // ChatListBox
+            // 
+            this.ChatListBox.FormattingEnabled = true;
+            this.ChatListBox.Location = new System.Drawing.Point(48, 17);
+            this.ChatListBox.Name = "ChatListBox";
+            this.ChatListBox.Size = new System.Drawing.Size(315, 212);
+            this.ChatListBox.TabIndex = 0;
             // 
             // StartServerButton
             // 
@@ -217,13 +231,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
+            // HistoryListbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(48, 17);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(315, 212);
-            this.listBox1.TabIndex = 0;
+            this.HistoryListbox.FormattingEnabled = true;
+            this.HistoryListbox.Location = new System.Drawing.Point(20, 7);
+            this.HistoryListbox.Name = "HistoryListbox";
+            this.HistoryListbox.Size = new System.Drawing.Size(366, 238);
+            this.HistoryListbox.TabIndex = 0;
+            // 
+            // CurrentUsersListbox
+            // 
+            this.CurrentUsersListbox.FormattingEnabled = true;
+            this.CurrentUsersListbox.Location = new System.Drawing.Point(18, 17);
+            this.CurrentUsersListbox.Name = "CurrentUsersListbox";
+            this.CurrentUsersListbox.Size = new System.Drawing.Size(368, 225);
+            this.CurrentUsersListbox.TabIndex = 0;
             // 
             // ServerInterfaceClass
             // 
@@ -243,6 +265,8 @@
             this.Text = "ServerUi";
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.tabChat.ResumeLayout(false);
             this.GreenLightPanel.ResumeLayout(false);
             this.GreenLightPanel.PerformLayout();
@@ -272,7 +296,9 @@
         private System.Windows.Forms.Button StopServerButton;
         private System.Windows.Forms.TabPage tabChat;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ChatListBox;
+        private System.Windows.Forms.ListBox CurrentUsersListbox;
+        private System.Windows.Forms.ListBox HistoryListbox;
     }
 }
 

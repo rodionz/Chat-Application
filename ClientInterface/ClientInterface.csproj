@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewUserEventArgs.cs" />
     <Compile Include="UserEvenHandlers.cs" />
     <Compile Include="UserInterfaceClass.cs">
       <SubType>Form</SubType>

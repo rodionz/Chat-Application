@@ -74,6 +74,7 @@
       <DependentUpon>ChangePortDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ServerBools.cs" />
+    <Compile Include="ServerEventHandlers.cs" />
     <Compile Include="ServerInterfaceClass.cs">
       <SubType>Form</SubType>
     </Compile>

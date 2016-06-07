@@ -13,8 +13,8 @@ namespace ServerBI
 {
     public class ServerLogic
     {
-        public delegate void Something();
-        public static event Something somethinghappend ;
+        public delegate void Something(MessageData delMesData);
+        public static event Something newuserconnected ;
 
 
         public static List<UserData> listofUsersontheserver;
@@ -52,27 +52,37 @@ namespace ServerBI
                 while (true)
 
                 {
-                  TcpClient client =  serv.AcceptTcpClient();
-                    NetworkStream netStream = client.GetStream();
+                    //TcpClient client = serv.AcceptTcpClientAsync()
+                  //Task start =  Task.Run(() =>
+                  //  {
+                        TcpClient client = serv.AcceptTcpClient();
+                        //Task<TcpClient> client = serv.AcceptTcpClientAsync();
+                        NetworkStream netStream = client.GetStream();
+
+                        //NetworkStream netStream = client.GetAwaiter();
+
+
                         BinaryFormatter bf = new BinaryFormatter();
-                         MessageData mData = (MessageData)bf.Deserialize(netStream);
+                        MessageData mData = (MessageData)bf.Deserialize(netStream);
                         mData.listofUsers = listofUsersontheserver;
 
                         // IP and Port Validation
-                        if (mData.Userdat.Username == "IPandportTest")
+                      if  (mData.Userdat.Username == "IPandportTest")
                         {
                             bf.Serialize(netStream, mData);
+                           
                         }
 
                         else
                         {
-
+                        mData.Textmessage = mData.Username.ToString() + "Is Online now";
+                        newuserconnected(mData);
+                        bf.Serialize(netStream, mData);
 
                         }
 
-                 
 
-
+                    //});
                 }
             }
             finally
@@ -81,31 +91,8 @@ namespace ServerBI
 
             }
 
-            //TcpListener listener = new TcpListener(IPAddress.Parse(Sdat.IPofServer), Sdat.PortofServer);
-           
-
-            //try
-            //{
-            //    listener.Start();
-            //    TcpClient talker = listener.AcceptTcpClient();
-            //    //    TcpClient talker = listener.AcceptTcpClientAsync();
-            //    using (Stream str = talker.GetStream())
-            //    {
-
-
-            //    }
-
-            //}
-
-            //finally
-            //{
-            //    listener.Stop();
-            //}
-
-
         }
-
-
+            
         public static void StopListening()
 
         {
