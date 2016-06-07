@@ -14,7 +14,7 @@ namespace ClientInterface
         {
             get
             {
-                if (nicknameconfirmed && PortValid && ipandportconfirmed)
+                if (NicnameConfirmed && PortValid && IPandPortconfirmed)
                     return true;
                 else
                     return false;
@@ -22,22 +22,15 @@ namespace ClientInterface
         }
 
 
-        private static bool nicknameconfirmed = false;
+        
         internal static bool NicnameConfirmed
-        {
-            get { return nicknameconfirmed; }
-
-            set { nicknameconfirmed = value; }
-        }
+        { get;set;}
 
 
-       private static bool ipandportconfirmed = false;
+       
         internal static bool IPandPortconfirmed
-        {
-            get { return ipandportconfirmed; }
-
-            set { ipandportconfirmed = value; }
-        }
+        { get; set; }
+     
 
 
        private static bool PortValid;
@@ -66,9 +59,9 @@ namespace ClientInterface
 
         {
 
-            
-            nicknameconfirmed = false;
-            ipandportconfirmed = false;
+
+            NicnameConfirmed = false;
+            IPandPortconfirmed = false;
             PortValid = false;
 
         }

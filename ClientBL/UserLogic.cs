@@ -66,7 +66,7 @@ namespace ClientBL
 
             finally
             {
-                preclient.Close();
+                //preclient.Close();
             }
 
         }
@@ -78,8 +78,8 @@ namespace ClientBL
         {
             TcpClient client = new TcpClient();
 
-            try
-            {
+            //try
+            //{
                 client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
 
                 using (NetworkStream usernetstream = client.GetStream())
@@ -90,13 +90,13 @@ namespace ClientBL
                    
                 }
 
-            }
+            //}
 
 
-            finally
-            {
-                client.Close();
-            }
+            //finally
+            //{
+                //client.Close();
+            //}
         }
 
         public static void SendMessage(MessageData mData)

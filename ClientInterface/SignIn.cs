@@ -140,16 +140,16 @@ namespace ClientInterface
                 {
                     if (!a)
                     {
-                        WarningLabel.ForeColor = Color.Lime;
-                        WarningLabel.Text = "UserName confirmed";
+                        NickNameConfirmationLabel.ForeColor = Color.Lime;
+                        NickNameConfirmationLabel.Text = "UserName confirmed";
                         userNIckname = UserNameBox.Text;
                         ClientBools.NicnameConfirmed = true;
                     }
 
                     else
                     {
-                        WarningLabel.ForeColor = Color.Red;
-                        WarningLabel.Text = "UserName already take, please choose another one";
+                        NickNameConfirmationLabel.ForeColor = Color.Red;
+                        NickNameConfirmationLabel.Text = "UserName already take, please choose another one";
 
 
                     }
@@ -180,7 +180,7 @@ namespace ClientInterface
              
                 UserLogic.MainClienFinction( new_user);
             
-                ClientBools.ResetBooleans();
+               
                 ClearAll();
                 Close();
             }

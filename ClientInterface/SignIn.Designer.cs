@@ -40,7 +40,6 @@
             this.ConfirmIPandPort = new System.Windows.Forms.Button();
             this.NicknameConfirmationButton = new System.Windows.Forms.Button();
             this.ConnectButton = new System.Windows.Forms.Button();
-            this.IPconfirmationLabel = new System.Windows.Forms.Label();
             this.NickNameConfirmationLabel = new System.Windows.Forms.Label();
             this.portConfirmationLabel = new System.Windows.Forms.Label();
             this.WarningLabel = new System.Windows.Forms.Label();
@@ -80,7 +79,7 @@
             // 
             // IPmaskedTextBox
             // 
-            this.IPmaskedTextBox.Location = new System.Drawing.Point(318, 33);
+            this.IPmaskedTextBox.Location = new System.Drawing.Point(318, 25);
             this.IPmaskedTextBox.Mask = " ###.###.###.###";
             this.IPmaskedTextBox.Name = "IPmaskedTextBox";
             this.IPmaskedTextBox.Size = new System.Drawing.Size(108, 20);
@@ -95,7 +94,7 @@
             // 
             // portTextBox
             // 
-            this.portTextBox.Location = new System.Drawing.Point(318, 84);
+            this.portTextBox.Location = new System.Drawing.Point(318, 81);
             this.portTextBox.Mask = "00000";
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(108, 20);
@@ -105,7 +104,7 @@
             // clearIP
             // 
             this.clearIP.BackColor = System.Drawing.Color.Red;
-            this.clearIP.Location = new System.Drawing.Point(559, 33);
+            this.clearIP.Location = new System.Drawing.Point(559, 22);
             this.clearIP.Name = "clearIP";
             this.clearIP.Size = new System.Drawing.Size(66, 23);
             this.clearIP.TabIndex = 20;
@@ -127,7 +126,7 @@
             // Clearportbutton
             // 
             this.Clearportbutton.BackColor = System.Drawing.Color.Red;
-            this.Clearportbutton.Location = new System.Drawing.Point(559, 85);
+            this.Clearportbutton.Location = new System.Drawing.Point(559, 78);
             this.Clearportbutton.Name = "Clearportbutton";
             this.Clearportbutton.Size = new System.Drawing.Size(66, 23);
             this.Clearportbutton.TabIndex = 22;
@@ -160,7 +159,7 @@
             // ConnectButton
             // 
             this.ConnectButton.Font = new System.Drawing.Font("David", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.ConnectButton.Location = new System.Drawing.Point(330, 296);
+            this.ConnectButton.Location = new System.Drawing.Point(318, 348);
             this.ConnectButton.Name = "ConnectButton";
             this.ConnectButton.Size = new System.Drawing.Size(120, 32);
             this.ConnectButton.TabIndex = 26;
@@ -168,26 +167,16 @@
             this.ConnectButton.UseVisualStyleBackColor = true;
             this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
             // 
-            // IPconfirmationLabel
-            // 
-            this.IPconfirmationLabel.AutoSize = true;
-            this.IPconfirmationLabel.Font = new System.Drawing.Font("Narkisim", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.IPconfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.IPconfirmationLabel.Location = new System.Drawing.Point(840, 70);
-            this.IPconfirmationLabel.Name = "IPconfirmationLabel";
-            this.IPconfirmationLabel.Size = new System.Drawing.Size(252, 47);
-            this.IPconfirmationLabel.TabIndex = 27;
-            this.IPconfirmationLabel.Text = "HELOOOO";
-            // 
             // NickNameConfirmationLabel
             // 
             this.NickNameConfirmationLabel.AutoSize = true;
             this.NickNameConfirmationLabel.Font = new System.Drawing.Font("Narkisim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.NickNameConfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(840, 122);
+            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 298);
             this.NickNameConfirmationLabel.Name = "NickNameConfirmationLabel";
-            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(0, 16);
+            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(71, 16);
             this.NickNameConfirmationLabel.TabIndex = 28;
+            this.NickNameConfirmationLabel.Text = "Nickname";
             // 
             // portConfirmationLabel
             // 
@@ -203,7 +192,7 @@
             // 
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningLabel.Location = new System.Drawing.Point(252, 194);
+            this.WarningLabel.Location = new System.Drawing.Point(240, 179);
             this.WarningLabel.Name = "WarningLabel";
             this.WarningLabel.Size = new System.Drawing.Size(174, 19);
             this.WarningLabel.TabIndex = 30;
@@ -213,7 +202,7 @@
             // 
             this.ConnectLabel.AutoSize = true;
             this.ConnectLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectLabel.Location = new System.Drawing.Point(180, 351);
+            this.ConnectLabel.Location = new System.Drawing.Point(339, 316);
             this.ConnectLabel.Name = "ConnectLabel";
             this.ConnectLabel.Size = new System.Drawing.Size(75, 19);
             this.ConnectLabel.TabIndex = 33;
@@ -240,7 +229,6 @@
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.portConfirmationLabel);
             this.Controls.Add(this.NickNameConfirmationLabel);
-            this.Controls.Add(this.IPconfirmationLabel);
             this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.NicknameConfirmationButton);
             this.Controls.Add(this.ConfirmIPandPort);
@@ -274,7 +262,6 @@
         public System.Windows.Forms.Button ConfirmIPandPort;
         public System.Windows.Forms.Button NicknameConfirmationButton;
         public System.Windows.Forms.Button ConnectButton;
-        private System.Windows.Forms.Label IPconfirmationLabel;
         private System.Windows.Forms.Label NickNameConfirmationLabel;
         private System.Windows.Forms.Label portConfirmationLabel;
         private System.Windows.Forms.Label WarningLabel;

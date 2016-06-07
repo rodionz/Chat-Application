@@ -74,6 +74,7 @@ namespace ClientInterface
             {
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
+                ClientBools.ResetBooleans();
             }
 
 
@@ -81,7 +82,7 @@ namespace ClientInterface
             {
 
                 NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
-
+                ClientBools.ResetBooleans();
 
             }
         }
