@@ -13,24 +13,27 @@ namespace ServerInterface
 {
 
     public partial class ServerInterfaceClass : Form
-    { 
+    {
 
-    
+        delegate void SetTextCallback(MessageData mdata);
 
 
         public  void NewUserEvenHandler(MessageData mymesdata)
+
         {
-            try
-            {
+         
                 HistoryListbox.Items.Add(mymesdata.Textmessage);
-                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
+
+            if (CurrentUsersListbox.InvokeRequired)
+            {
+                SetTextCallback stc = new SetTextCallback(NewUserEvenHandler);
+                this.Invoke(stc, new object[] { mymesdata });
+
             }
 
-            catch (InvalidOperationException IOE)
+            else
             {
-                HistoryListbox.Items.Add(mymesdata.Textmessage);
                 CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
-
             }
         }
 
