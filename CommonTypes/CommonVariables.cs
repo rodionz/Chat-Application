@@ -11,8 +11,7 @@ namespace CommonTypes
      public abstract  class CommonVariables
     {
 
-        public string Textmessage
-        { get; set; }
+      
 
         public DateTime Dt
         { get; set; }

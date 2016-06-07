@@ -203,7 +203,7 @@
             // 
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningLabel.Location = new System.Drawing.Point(180, 193);
+            this.WarningLabel.Location = new System.Drawing.Point(252, 194);
             this.WarningLabel.Name = "WarningLabel";
             this.WarningLabel.Size = new System.Drawing.Size(174, 19);
             this.WarningLabel.TabIndex = 30;

@@ -9,7 +9,14 @@ namespace CommonTypes
 {
     [Serializable]
   public  class MessageData : CommonVariables
+
+
+
     {
+
+
+        public string Textmessage
+        { get; set; }
 
 
         public MessageData() { }

@@ -76,7 +76,11 @@ namespace ClientInterface
                 {
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
-                    
+                    ConfirmIPandPort.Visible = false;
+                    localListofUsers = UserLogic.listofUserfortheUsers;
+                    ClientBools.IPandPortconfirmed = UserLogic.ipandportvalid;
+
+
                 }
 
                 else
@@ -128,7 +132,7 @@ namespace ClientInterface
             {
 
 
-                var listofnames = from n in UserData.StaticlistofUsers
+                var listofnames = from n in localListofUsers
                                   select (n.Username);
 
 
@@ -172,13 +176,9 @@ namespace ClientInterface
             if (ClientBools.UserIsValid)
             {
 
-                new_user = new UserData(UserData.StaticlistofUsers.Count) { Username = this.UserNameBox.Text, IPadress = clientIpAddr.ToString() };
-                new_user.listofUsers.Add(new_user);
-                //UserInterfaceClass.Statickist.Add(new UserData(UserInterfaceClass.Statickist.Count) { Username = this.UserNameBox.Text, UserIP = clientIpAddr.ToString() });
-                //newUsercreated(this, NUEA);
-                //new_user = UserInterfaceClass.ListofUsers.LastOrDefault();
-                //new_user.listofUsers
-
+                new_user = new UserData(localListofUsers.Count) { Username = this.UserNameBox.Text, IPadress = clientIpAddr.ToString() };
+            
+             
                 UserLogic.MainClienFinction( new_user);
             
                 ClientBools.ResetBooleans();
