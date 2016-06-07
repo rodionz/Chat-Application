@@ -17,7 +17,7 @@ namespace ServerInterface
         public ServerInterfaceClass()
         {
             InitializeComponent();
-            ServerLogic.newuserconnected += ServerEventHandlers.NewUserEvenHandler;
+            ServerLogic.newuserconnected += NewUserEvenHandler;
 
         }
 

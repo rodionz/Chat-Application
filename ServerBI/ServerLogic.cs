@@ -75,7 +75,7 @@ namespace ServerBI
 
                         else
                         {
-                        mData.Textmessage = mData.Username.ToString() + "Is Online now";
+                        mData.Textmessage = mData.Userdat.Username.ToString() + "Is Online now";
                         newuserconnected(mData);
                         bf.Serialize(netStream, mData);
 

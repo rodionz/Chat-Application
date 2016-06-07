@@ -86,7 +86,7 @@ namespace ClientBL
                 {
 
                     BinaryFormatter Bformat = new BinaryFormatter();
-                        Bformat.Serialize(usernetstream, uData);
+                        Bformat.Serialize(usernetstream, new MessageData(uData));
                    
                 }
 

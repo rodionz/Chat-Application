@@ -11,14 +11,30 @@ using CommonTypes;
 
 namespace ServerInterface
 {
-    class ServerEventHandlers
-    {
+
+    public partial class ServerInterfaceClass : Form
+    { 
+
+    
 
 
-        public static void NewUserEvenHandler(MessageData mymesdata)
+        public  void NewUserEvenHandler(MessageData mymesdata)
         {
+            try
+            {
+                HistoryListbox.Items.Add(mymesdata.Textmessage);
+                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
+            }
 
+            catch (InvalidOperationException IOE)
+            {
+                HistoryListbox.Items.Add(mymesdata.Textmessage);
+                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
+
+            }
         }
 
-    }
+    
+
+}
 }
