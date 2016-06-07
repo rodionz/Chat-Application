@@ -22,7 +22,7 @@ namespace ServerInterface
 
         {
          
-                HistoryListbox.Items.Add(mymesdata.Textmessage);
+                
 
             if (CurrentUsersListbox.InvokeRequired)
             {
@@ -34,6 +34,7 @@ namespace ServerInterface
             else
             {
                 CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
+                HistoryListbox.Items.Add(mymesdata.Textmessage);
             }
         }
 
