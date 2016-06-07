@@ -26,6 +26,8 @@ namespace ClientInterface
         public event EventHandler newUsercreated;
         UserData new_user;
         MessageData mData;
+        internal string userNIckname;
+        internal string IPasString;
         internal int userPort;
         internal List<UserData> localListofUsers;
        
@@ -41,8 +43,8 @@ namespace ClientInterface
             char[] delimit = { ' ' };
             string[] str = IPmaskedTextBox.Text.Split();
             string separator = "";
-            string adress = string.Join(separator, str);
-            bool b = IPAddress.TryParse(adress, out clientIpAddr);
+            IPasString = string.Join(separator, str);
+            bool b = IPAddress.TryParse(IPasString, out clientIpAddr);
 
 
             
@@ -68,7 +70,7 @@ namespace ClientInterface
 
             else
             {
-                mData = new MessageData() { Userdat = new UserData(adress, userPort) };
+                mData = new MessageData() { Userdat = new UserData(IPasString, userPort) };
                UserLogic.IPAndPortValidation(mData);
 
 
@@ -79,8 +81,6 @@ namespace ClientInterface
                     ConfirmIPandPort.Visible = false;
                     localListofUsers = UserLogic.listofUserfortheUsers;
                     ClientBools.IPandPortconfirmed = UserLogic.ipandportvalid;
-
-
                 }
 
                 else
@@ -88,9 +88,7 @@ namespace ClientInterface
                     WarningLabel.ForeColor = Color.Red;
                     WarningLabel.Text = "Service is Unavavailble, please try another adress or port";
                 }
-                //IPconfirmationLabel.ForeColor = Color.Lime;
-                // PortLabel.Text = "Port Confirmed";
-                //ClientUiBooleans.PortValid = true;
+               
 
             }
         
@@ -144,6 +142,7 @@ namespace ClientInterface
                     {
                         WarningLabel.ForeColor = Color.Lime;
                         WarningLabel.Text = "UserName confirmed";
+                        userNIckname = UserNameBox.Text;
                         ClientBools.NicnameConfirmed = true;
                     }
 
@@ -176,7 +175,7 @@ namespace ClientInterface
             if (ClientBools.UserIsValid)
             {
 
-                new_user = new UserData(localListofUsers.Count) { Username = this.UserNameBox.Text, IPadress = clientIpAddr.ToString() };
+                new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
             
              
                 UserLogic.MainClienFinction( new_user);

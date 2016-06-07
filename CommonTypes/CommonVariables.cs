@@ -9,9 +9,9 @@ namespace CommonTypes
 {
     [Serializable]
      public abstract  class CommonVariables
-    {
 
-      
+
+    {
 
         public DateTime Dt
         { get; set; }
@@ -40,8 +40,7 @@ namespace CommonTypes
 
        
 
-        public int Userid
-        { get; set; }
+      
 
        
 
