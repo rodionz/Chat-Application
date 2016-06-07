@@ -44,9 +44,16 @@ namespace ClientInterface
             string adress = string.Join(separator, str);
             bool b = IPAddress.TryParse(adress, out clientIpAddr);
 
-         userPort = int.Parse(portTextBox.Text);
 
-            if (!b)
+            
+         bool portvalid = int.TryParse(portTextBox.Text, out userPort);
+
+            if(!portvalid)
+            {
+                MessageBox.Show("Please Fill Number of Port and IPAdress", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+           else if (!b)
             {
                 WarningLabel.ForeColor = Color.Red;
                 WarningLabel.Text = "Illigal IP, please enter IP adress in correct format";
