@@ -41,7 +41,16 @@ namespace ServerInterface
     
         public void MessagesentHandler(MessageData mData)
         {
+            if(ChatListBox.InvokeRequired)
+            {
+                SetTextCallback messent = new SetTextCallback(MessagesentHandler);
+                this.Invoke(messent, new object[] { mData });
+            }
 
+            else
+            {
+                ChatListBox.Items.Add(mData.Textmessage);
+            }
         }
 
 }

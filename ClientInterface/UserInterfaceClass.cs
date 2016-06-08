@@ -92,6 +92,7 @@ namespace ClientInterface
             MesData.Textmessage = this.TextMessages.Text;
             MesData.font = this.TextMessages.Font;
             MesData.Userdat = uData;
+            MesData.ActionCode = 3;
             UserLogic.MainClienFinction(MesData);
 
         }
