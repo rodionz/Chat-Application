@@ -49,7 +49,7 @@ namespace ServerInterface
 
             else
             {
-                ChatListBox.Items.Add(mData.Textmessage);
+                ChatListBox.Items.Add( mData.Userdat.Username.ToString()+ " says: " + mData.Textmessage);
             }
         }
 
