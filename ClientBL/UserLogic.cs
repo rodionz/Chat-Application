@@ -85,15 +85,22 @@ namespace ClientBL
 
             client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
 
-                using (NetworkStream usernetstream = client.GetStream())
-                {
 
-                    BinaryFormatter Bformat = new BinaryFormatter();
-                    Bformat.Serialize(usernetstream, new MessageData(uData, 2));
-                    returning = (MessageData)Bformat.Deserialize(usernetstream);
-                   
-                }
+            NetworkStream usernetstream = client.GetStream();
+            
 
+                BinaryFormatter Bformat = new BinaryFormatter();
+
+                Bformat.Serialize(usernetstream, new MessageData(uData, 2));
+                returning = (MessageData)Bformat.Deserialize(usernetstream);
+                //if (returning.ActionCode == 3)
+                //{
+                //    MessageRecieved(returning);
+                //}
+
+                Task UserOnline = Task.Run(() => UserisOnline(usernetstream));
+
+            
            
         }
 
@@ -109,14 +116,35 @@ namespace ClientBL
 
                 BinaryFormatter Bformat = new BinaryFormatter();
                 Bformat.Serialize(usernetstream, mData);
-                returning = (MessageData)Bformat.Deserialize(usernetstream);
+                //returning = (MessageData)Bformat.Deserialize(usernetstream);
 
-                if(returning.ActionCode == 3)
-                {
-                    MessageRecieved(returning);
-                }
+               
 
             }
+        }
+
+
+
+        public static void UserisOnline(NetworkStream online)
+        {
+            MessageData returning;
+            BinaryFormatter Bformat = new BinaryFormatter();
+            while(true)
+            {
+                //if (online.DataAvailable)
+                //{
+                    returning = (MessageData)Bformat.Deserialize(online);
+                    if (returning.ActionCode == 3)
+                    {
+                        MessageRecieved(returning);
+                    }
+
+
+                //}
+
+
+            }
+
         }
 
         public void Disconnect()
