@@ -15,12 +15,8 @@ namespace ClientBL
     {
 
         public  delegate void Exseptions();
-
         public static event Exseptions NoServer;
-
-
         public static List<UserData> listofUserfortheUsers;
-
         public static bool ipandportvalid;
 
 
@@ -30,11 +26,8 @@ namespace ClientBL
 
         public static void MainClienFinction(UserData uData)
 
-
-        {
-            
+        {            
          Task t1 = Task.Run(() =>   ConnecttoServer(uData));
-
         }
 
 

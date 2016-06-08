@@ -15,8 +15,6 @@ namespace ServerBI
     {
         public delegate void Something(MessageData delMesData);
         public static event Something newuserconnected ;
-
-
         public static List<UserData> listofUsersontheserver;
 
 
@@ -25,43 +23,26 @@ namespace ServerBI
 
    
         public static void ServerOnline(ServerData sData)
-
-            
-
+       
           {
-
-            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);
-
-            
-            Task t1 = Task.Run(() => StartListening(server));
-          
-            //Task t2 = new Task();
-
+            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);            
+            Task t1 = Task.Run(() => StartListening(server));        
           }
 
 
 
         public static void StartListening(TcpListener serv)
+
         {
             listofUsersontheserver = new List<UserData>();
-
             try
             {
                 serv.Start();
-
                 while (true)
-
                 {
-                    //TcpClient client = serv.AcceptTcpClientAsync()
-                  //Task start =  Task.Run(() =>
-                  //  {
-                        TcpClient client = serv.AcceptTcpClient();
-                        //Task<TcpClient> client = serv.AcceptTcpClientAsync();
-                        NetworkStream netStream = client.GetStream();
-
-                        //NetworkStream netStream = client.GetAwaiter();
-
-
+               
+                        TcpClient client = serv.AcceptTcpClient();                        
+                        NetworkStream netStream = client.GetStream();                       
                         BinaryFormatter bf = new BinaryFormatter();
                         MessageData mData = (MessageData)bf.Deserialize(netStream);
                         mData.listofUsers = listofUsersontheserver;
@@ -78,11 +59,9 @@ namespace ServerBI
                         mData.Time = DateTime.Now;
                             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
                             newuserconnected(mData);
+                        listofUsersontheserver.Add(mData.Userdat);
                             bf.Serialize(netStream, mData);                     
-                        }
-
-
-                    //});
+                        }                    
                 }
             }
             finally
