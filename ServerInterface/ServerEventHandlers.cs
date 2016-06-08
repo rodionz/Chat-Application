@@ -15,7 +15,7 @@ namespace ServerInterface
     public partial class ServerInterfaceClass : Form
     {
 
-        delegate void SetTextCallback(MessageData mdata);
+        delegate void LocalHandler(MessageData mdata);
 
 
         public  void NewUserEvenHandler(MessageData mymesdata)
@@ -26,7 +26,7 @@ namespace ServerInterface
 
             if (CurrentUsersListbox.InvokeRequired)
             {
-                SetTextCallback stc = new SetTextCallback(NewUserEvenHandler);
+                LocalHandler stc = new LocalHandler(NewUserEvenHandler);
                 this.Invoke(stc, new object[] { mymesdata });
 
             }
@@ -43,7 +43,7 @@ namespace ServerInterface
         {
             if(ChatListBox.InvokeRequired)
             {
-                SetTextCallback messent = new SetTextCallback(MessagesentHandler);
+                LocalHandler messent = new LocalHandler(MessagesentHandler);
                 this.Invoke(messent, new object[] { mData });
             }
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
+            this.ChatListBox = new System.Windows.Forms.ListBox();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -57,19 +57,11 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.ChatListBox);
             this.panel5.Location = new System.Drawing.Point(205, 22);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(330, 235);
             this.panel5.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(23, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 202);
-            this.textBox1.TabIndex = 0;
             // 
             // panel6
             // 
@@ -209,6 +201,14 @@
             this.NoServersOnlineLabel.Size = new System.Drawing.Size(0, 23);
             this.NoServersOnlineLabel.TabIndex = 17;
             // 
+            // ChatListBox
+            // 
+            this.ChatListBox.FormattingEnabled = true;
+            this.ChatListBox.Location = new System.Drawing.Point(23, 16);
+            this.ChatListBox.Name = "ChatListBox";
+            this.ChatListBox.Size = new System.Drawing.Size(283, 199);
+            this.ChatListBox.TabIndex = 0;
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +228,6 @@
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
@@ -245,7 +244,6 @@
         #endregion
 
         public System.Windows.Forms.Panel panel5;
-        public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.TextBox TextMessages;
         public System.Windows.Forms.Button sendmessageButton;
@@ -262,6 +260,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label NoServersOnlineLabel;
+       internal System.Windows.Forms.ListBox ChatListBox;
     }
 }
 

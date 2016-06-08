@@ -18,6 +18,7 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
+            UserLogic.MessageRecieved += MessageHandler;
             
         }
         

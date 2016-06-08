@@ -72,6 +72,7 @@ namespace ServerBI
                     {
 
                         messgesent(mData);
+                        bf.Serialize(netStream, mData);
                     }                 
                 }
             }

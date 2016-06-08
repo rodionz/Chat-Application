@@ -297,7 +297,7 @@
         private System.Windows.Forms.TabPage tabChat;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox ChatListBox;
-        private System.Windows.Forms.ListBox CurrentUsersListbox;
+        internal System.Windows.Forms.ListBox CurrentUsersListbox;
         private System.Windows.Forms.ListBox HistoryListbox;
     }
 }

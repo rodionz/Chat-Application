@@ -18,7 +18,7 @@ namespace ClientInterface
         public SignIn()
         {
             InitializeComponent();
-            UserLogic.NoServer += UserEvenHandlers.NoServerHandler;
+            UserLogic.NoServer += UserInterfaceClass.NoServerHandler;
         }
 
         ServerData Sdata;

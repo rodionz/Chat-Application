@@ -15,7 +15,9 @@ namespace ClientBL
     {
 
         public  delegate void Exseptions();
+        public delegate void ClientBLEvents(MessageData mDAta);
         public static event Exseptions NoServer;
+        public static event ClientBLEvents MessageRecieved;
         public static List<UserData> listofUserfortheUsers;
         public static bool ipandportvalid;
 
@@ -109,6 +111,11 @@ namespace ClientBL
                 Bformat.Serialize(usernetstream, mData);
                 returning = (MessageData)Bformat.Deserialize(usernetstream);
 
+                if(returning.ActionCode == 3)
+                {
+                    MessageRecieved(returning);
+                }
+
             }
         }
 
@@ -117,7 +124,7 @@ namespace ClientBL
 
         }
 
-        public event EventHandler MessageRecieved;
+      
 
         public static void ColorwasChanged(UserData uData)
         {
