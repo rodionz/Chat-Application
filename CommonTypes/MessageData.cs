@@ -18,12 +18,21 @@ namespace CommonTypes
         public string Textmessage
         { get; set; }
 
+        public int ActionCode
+        { get; set; }
 
         public MessageData() { }
 
         public MessageData(UserData ud)
         {
             this.Userdat = ud;
+
+        }
+
+        public MessageData(UserData ud, int code)
+        {
+            this.Userdat = ud;
+            this.ActionCode = code;
 
         }
         

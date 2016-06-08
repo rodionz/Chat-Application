@@ -18,6 +18,7 @@ namespace ServerInterface
         {
             InitializeComponent();
             ServerLogic.newuserconnected += NewUserEvenHandler;
+            ServerLogic.messgesent += MessagesentHandler;
 
         }
 

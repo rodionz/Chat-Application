@@ -39,6 +39,10 @@ namespace ServerInterface
         }
 
     
+        public void MessagesentHandler(MessageData mData)
+        {
+
+        }
 
 }
 }

@@ -44,7 +44,7 @@ namespace ClientBL
 
         {
             MessageData returning;
-            premesData.Userdat.Username = "IPandportTest";
+            premesData.ActionCode = 1;
             TcpClient preclient = new TcpClient();
 
             try
@@ -87,7 +87,7 @@ namespace ClientBL
                 {
 
                     BinaryFormatter Bformat = new BinaryFormatter();
-                    Bformat.Serialize(usernetstream, new MessageData(uData));
+                    Bformat.Serialize(usernetstream, new MessageData(uData, 2));
                     returning = (MessageData)Bformat.Deserialize(usernetstream);
                    
                 }

@@ -13,8 +13,10 @@ namespace ServerBI
 {
     public class ServerLogic
     {
-        public delegate void Something(MessageData delMesData);
-        public static event Something newuserconnected ;
+        public delegate void ServerActivity(MessageData delMesData);
+        public static event ServerActivity newuserconnected ;
+        public static event ServerActivity messgesent;
+
         public static List<UserData> listofUsersontheserver;
 
 
@@ -48,20 +50,29 @@ namespace ServerBI
                         mData.listofUsers = listofUsersontheserver;
 
                         // IP and Port Validation
-                      if  (mData.Userdat.Username == "IPandportTest")
+                      if  (mData.ActionCode == 1)
                         {
                             bf.Serialize(netStream, mData);
                            
                         }
 
-                        else
+                      //User Connection
+                        else if (mData.ActionCode == 2)
                         {
                         mData.Time = DateTime.Now;
                             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
                             newuserconnected(mData);
                         listofUsersontheserver.Add(mData.Userdat);
                             bf.Serialize(netStream, mData);                     
-                        }                    
+                        }   
+                      
+                      //Messages
+                      else if(mData.ActionCode == 3)
+
+                    {
+
+                        messgesent(mData);
+                    }                 
                 }
             }
             finally
