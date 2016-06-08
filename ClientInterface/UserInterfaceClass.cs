@@ -73,6 +73,7 @@ namespace ClientInterface
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
                 ClientBools.ResetBooleans();
+                uData = registration.new_user;
             }
 
 
@@ -90,10 +91,10 @@ namespace ClientInterface
             MesData.color = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
             MesData.font = this.TextMessages.Font;
-            UserLogic.SendMessage(MesData);
-        }
+            MesData.Userdat = uData;
+            UserLogic.MainClienFinction(MesData);
 
-     
+        }
 
         private void TextMessages_FontChanged(object sender, EventArgs e)
         {

@@ -24,7 +24,7 @@ namespace ClientInterface
         ServerData Sdata;
         IPAddress clientIpAddr;
         public event EventHandler newUsercreated;
-        UserData new_user;
+         internal   UserData new_user;
         MessageData mData;
         internal string userNIckname;
         internal string IPasString;
