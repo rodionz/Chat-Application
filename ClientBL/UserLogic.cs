@@ -31,6 +31,15 @@ namespace ClientBL
         }
 
 
+
+        public static void MainClienFinction(MessageData mesData)
+
+        {
+            Task t2 = Task.Run(() => SendMessage(mesData));
+        }
+
+
+
         public static void  IPAndPortValidation(MessageData premesData)
 
         {
@@ -88,7 +97,19 @@ namespace ClientBL
 
         public static void SendMessage(MessageData mData)
         {
+            TcpClient client = new TcpClient();
+            MessageData returning;
 
+            client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+
+            using (NetworkStream usernetstream = client.GetStream())
+            {
+
+                BinaryFormatter Bformat = new BinaryFormatter();
+                Bformat.Serialize(usernetstream, mData);
+                returning = (MessageData)Bformat.Deserialize(usernetstream);
+
+            }
         }
 
         public void Disconnect()
