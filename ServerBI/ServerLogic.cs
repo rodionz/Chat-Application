@@ -47,33 +47,43 @@ namespace ServerBI
                         NetworkStream netStream = client.GetStream();                       
                         BinaryFormatter bf = new BinaryFormatter();
                         MessageData mData = (MessageData)bf.Deserialize(netStream);
-                        mData.listofUsers = listofUsersontheserver;
+                        
 
-                        // IP and Port Validation
-                      if  (mData.ActionCode == 1)
-                        {
+
+
+
+                    switch(mData.action)
+
+                    {       // IP and Port Validation
+                        case ClientAction.IpandPortValidaton:
+                            mData.listofUsers = listofUsersontheserver;
                             bf.Serialize(netStream, mData);
-                           
-                        }
+                            break;
 
-                      //User Connection
-                        else if (mData.ActionCode == 2)
-                        {
-                        mData.Time = DateTime.Now;
+
+
+                        //User Connection
+
+                        case ClientAction.Connection:
+                            mData.Time = DateTime.Now;
                             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
                             newuserconnected(mData);
-                        listofUsersontheserver.Add(mData.Userdat);
-                            bf.Serialize(netStream, mData);                     
-                        }   
-                      
-                      //Messages
-                      else if(mData.ActionCode == 3)
+                            listofUsersontheserver.Add(mData.Userdat);
+                            bf.Serialize(netStream, mData);
+                            break;
 
-                    {
+                        //Messages
+                        case ClientAction.Sendmessage:
+                            messgesent(mData);
+                            bf.Serialize(netStream, mData);
+                            break;
 
-                        messgesent(mData);
-                        bf.Serialize(netStream, mData);
-                    }                 
+                    }
+                        
+                     
+                       
+                                                       
+                                   
                 }
             }
             finally

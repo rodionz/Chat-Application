@@ -26,19 +26,12 @@ namespace ClientBL
 
 
 
-        public static void MainClienFinction(UserData uData)
-
-        {            
-         Task t1 = Task.Run(() =>   ConnecttoServer(uData));
-        }
-
-
-
         public static void MainClienFinction(MessageData mesData)
 
-        {
-            Task t2 = Task.Run(() => SendMessage(mesData));
+        {            
+         Task t1 = Task.Run(() =>   ConnecttoServer(mesData));
         }
+
 
 
 
@@ -46,7 +39,7 @@ namespace ClientBL
 
         {
             MessageData returning;
-            premesData.ActionCode = 1;
+            
             TcpClient preclient = new TcpClient();
 
             try
@@ -70,7 +63,7 @@ namespace ClientBL
 
             finally
             {
-                //preclient.Close();
+                preclient.Close();
             }
 
         }
@@ -78,46 +71,77 @@ namespace ClientBL
 
 
 
-        public static void ConnecttoServer (UserData uData)
+        public static void ConnecttoServer (MessageData mData)
         {
             TcpClient client = new TcpClient();
             MessageData returning;
+            client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
+            NetworkStream usernetstream = client.GetStream();            
+            BinaryFormatter Bformat = new BinaryFormatter();
+            Bformat.Serialize(usernetstream, mData);
+            returning = (MessageData)Bformat.Deserialize(usernetstream);
 
-            client.Connect(IPAddress.Parse (uData.IPadress), uData.Portnumber );
+            switch(returning.action)
+            {
+                case ClientAction.Connection:
 
-                using (NetworkStream usernetstream = client.GetStream())
-                {
+                    break;
 
-                    BinaryFormatter Bformat = new BinaryFormatter();
-                    Bformat.Serialize(usernetstream, new MessageData(uData, 2));
-                    returning = (MessageData)Bformat.Deserialize(usernetstream);
-                   
-                }
+                case ClientAction.Sendmessage:
+                    MessageRecieved(mData);
+                    break;
 
+
+            }
+                
+            
+
+            
            
         }
 
         public static void SendMessage(MessageData mData)
         {
-            TcpClient client = new TcpClient();
-            MessageData returning;
-
-            client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
-
-            using (NetworkStream usernetstream = client.GetStream())
-            {
-
-                BinaryFormatter Bformat = new BinaryFormatter();
-                Bformat.Serialize(usernetstream, mData);
-                returning = (MessageData)Bformat.Deserialize(usernetstream);
-
-                if(returning.ActionCode == 3)
-                {
-                    MessageRecieved(returning);
-                }
-
-            }
+            
+         
+           
         }
+
+
+
+        public static void UserisOnline(NetworkStream online)
+        {
+            
+           
+         
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void Disconnect()
         {

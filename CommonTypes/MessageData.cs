@@ -7,19 +7,25 @@ using System.Drawing;
 
 namespace CommonTypes
 {
+
+   public enum ClientAction
+    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3}
+
+
+
     [Serializable]
   public  class MessageData : CommonVariables
 
-
-
     {
+
+
+        public ClientAction action;
 
 
         public string Textmessage
         { get; set; }
 
-        public int ActionCode
-        { get; set; }
+       
 
         public MessageData() { }
 
@@ -29,10 +35,10 @@ namespace CommonTypes
 
         }
 
-        public MessageData(UserData ud, int code)
+        public MessageData(UserData ud, ClientAction act)
         {
             this.Userdat = ud;
-            this.ActionCode = code;
+            action = act;
 
         }
         

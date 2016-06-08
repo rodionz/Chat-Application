@@ -70,7 +70,7 @@ namespace ClientInterface
 
             else
             {
-                mData = new MessageData() { Userdat = new UserData(IPasString, userPort) };
+                mData = new MessageData(new UserData(IPasString, userPort), ClientAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation(mData);
 
 
@@ -176,9 +176,9 @@ namespace ClientInterface
             {
 
                 new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
-            
-             
-                UserLogic.MainClienFinction( new_user);
+                MessageData mData = new MessageData(new_user);
+                mData.action = ClientAction.Connection;
+                UserLogic.MainClienFinction(mData);
             
                
                 ClearAll();
