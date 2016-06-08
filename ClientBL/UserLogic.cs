@@ -78,7 +78,7 @@ namespace ClientBL
             client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
             NetworkStream usernetstream = client.GetStream();            
             BinaryFormatter Bformat = new BinaryFormatter();
-            Bformat.Serialize(usernetstream, new MessageData());
+            Bformat.Serialize(usernetstream, mData);
             returning = (MessageData)Bformat.Deserialize(usernetstream);
 
             switch(returning.action)
@@ -88,7 +88,7 @@ namespace ClientBL
                     break;
 
                 case ClientAction.Sendmessage:
-
+                    MessageRecieved(mData);
                     break;
 
 
