@@ -127,20 +127,21 @@ namespace ClientBL
 
         public static void UserisOnline(NetworkStream online)
         {
-            MessageData returning;
-            BinaryFormatter Bformat = new BinaryFormatter();
+            
+           
             while(true)
             {
-                //if (online.DataAvailable)
-                //{
-                    returning = (MessageData)Bformat.Deserialize(online);
-                    if (returning.ActionCode == 3)
+                NetworkStream userstream = online;
+                BinaryFormatter Bformat = new BinaryFormatter();             
+                 MessageData  returning = (MessageData)Bformat.Deserialize(online);
+                returning = (MessageData)Bformat.Deserialize(online);
+                if (returning.ActionCode == 3)
                     {
                         MessageRecieved(returning);
                     }
 
 
-                //}
+                
 
 
             }
