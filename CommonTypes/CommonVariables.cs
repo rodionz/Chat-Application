@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 
 namespace CommonTypes
 {
+    
+
+
+
+
     [Serializable]
      public abstract  class CommonVariables
 
 
     {
+
+        
+
 
         public DateTime Time
         { get; set; }
