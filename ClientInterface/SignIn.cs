@@ -70,7 +70,7 @@ namespace ClientInterface
 
             else
             {
-                mData = new MessageData(new UserData(IPasString, userPort), ClientAction.IpandPortValidaton);
+                mData = new MessageData(new UserData(IPasString, userPort), NetworkAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation(mData);
 
 
@@ -177,8 +177,8 @@ namespace ClientInterface
 
                 new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
                 MessageData mData = new MessageData(new_user);
-                mData.action = ClientAction.Connection;
-                UserLogic.LolacAction = ClientAction.Connection;
+                mData.action = NetworkAction.Connection;
+                UserLogic.LolacAction = NetworkAction.Connection;
                 UserLogic.MainClienFinction(mData);
             
                

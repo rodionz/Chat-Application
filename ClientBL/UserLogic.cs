@@ -20,7 +20,7 @@ namespace ClientBL
         public static event ClientBLEvents MessageRecieved;
         public static List<UserData> listofUserfortheUsers;
         public static bool GlobalValidIpandPort;
-        public static  ClientAction LolacAction;
+        public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
 
 
@@ -78,43 +78,43 @@ namespace ClientBL
             TcpClient client = new TcpClient();
             MessageData returning;
             client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
-            //NetworkStream usernetstream = client.GetStream();            
+            NetworkStream usernetstream;
             BinaryFormatter Bformat = new BinaryFormatter();
-            //Bformat.Serialize(usernetstream, mData);
-            //returning = (MessageData)Bformat.Deserialize(usernetstream);
+           
 
-            Task Serverisonline = Task.Run(() =>
-            {
-                NetworkStream usernetstream = client.GetStream();
-
-                while (true)
+           
+            while (true)
                 {
-                    //NetworkStream usernetstream = client.GetStream();
+               
 
                     switch (LolacAction)
                     {
-                        case ClientAction.Connection:
-                            Bformat.Serialize(usernetstream, mData);
-                            returning = (MessageData)Bformat.Deserialize(usernetstream);
-                            LolacAction = ClientAction.None;
+                        case NetworkAction.Connection:
+                        usernetstream = client.GetStream();
+                        Bformat.Serialize(usernetstream, mData);
+                            //returning = (MessageData)Bformat.Deserialize(usernetstream);
+                            LolacAction = NetworkAction.None;
                             break;
 
-                        case ClientAction.Sendmessage:
-                           
-                            Bformat.Serialize(usernetstream, LockalmesData);
-                            LolacAction = ClientAction.ReceiveMesg;
-                            returning = (MessageData)Bformat.Deserialize(usernetstream);
-                            LolacAction = ClientAction.None;
-                            MessageRecieved(LockalmesData);
+                        case NetworkAction.Sendmessage:
+                        usernetstream = client.GetStream();
+                        Bformat.Serialize(usernetstream, LockalmesData);
+                        LolacAction = NetworkAction.ReceiveMesg;
+                        //returning = (MessageData)Bformat.Deserialize(innersetrem);
+                        //LolacAction = NetworkAction.None;
+                            //MessageRecieved(LockalmesData);
                             break;
 
-                        case ClientAction.ReceiveMesg:
-                            returning = (MessageData)Bformat.Deserialize(usernetstream);
-                            LolacAction = ClientAction.None;
-                            MessageRecieved(LockalmesData);
-                            break;
+                        case NetworkAction.ReceiveMesg:
+                        usernetstream = client.GetStream();
+                        //somethin wrong here
+                        returning = (MessageData)Bformat.Deserialize(usernetstream);
 
-                        case ClientAction.None:
+                        LolacAction = NetworkAction.None;
+                        //MessageRecieved(LockalmesData);
+                        break;
+
+                        case NetworkAction.None:
                             break;
 
                     }
@@ -122,7 +122,7 @@ namespace ClientBL
 
 
                 }
-            });
+            //});
         }
 
         public static void SendMessage(MessageData mData)

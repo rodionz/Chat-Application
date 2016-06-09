@@ -93,10 +93,10 @@ namespace ClientInterface
             MesData.Textmessage = this.TextMessages.Text;
             MesData.font = this.TextMessages.Font;
             MesData.Userdat = uData;
-            MesData.action = ClientAction.Sendmessage;
+            MesData.action = NetworkAction.Sendmessage;
             //UserLogic.MainClienFinction(MesData);
             UserLogic.LockalmesData = MesData;
-            UserLogic.LolacAction = ClientAction.Sendmessage;
+            UserLogic.LolacAction = NetworkAction.Sendmessage;
         }
 
         private void TextMessages_FontChanged(object sender, EventArgs e)

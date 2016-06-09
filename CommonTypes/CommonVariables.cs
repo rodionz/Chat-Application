@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace CommonTypes
 {
-    
 
+    public enum NetworkAction
+    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, None = 99 }
 
 
 

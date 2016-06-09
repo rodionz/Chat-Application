@@ -8,8 +8,7 @@ using System.Drawing;
 namespace CommonTypes
 {
     
-   public enum ClientAction
-    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3, ReceiveMesg = 4, None = 99}
+  
 
 
 
@@ -19,7 +18,7 @@ namespace CommonTypes
     {
 
 
-        public ClientAction action;
+        public NetworkAction action;
 
 
         public string Textmessage
@@ -35,7 +34,7 @@ namespace CommonTypes
 
         }
 
-        public MessageData(UserData ud, ClientAction act)
+        public MessageData(UserData ud, NetworkAction act)
         {
             this.Userdat = ud;
             action = act;

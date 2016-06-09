@@ -18,6 +18,7 @@ namespace ServerBI
         public static event ServerActivity messgesent;
 
         public static List<UserData> listofUsersontheserver;
+        public static TcpClient client;
 
 
 
@@ -28,35 +29,55 @@ namespace ServerBI
        
           {
             TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);            
-            Task t1 = Task.Run(() => StartListening(server));        
+            Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
 
 
 
-        public static void StartListening(TcpListener serv)
+        public static void StartListening(TcpListener serv, NetworkAction NecAct)
 
         {
             listofUsersontheserver = new List<UserData>();
-            try
-            {
+            //try
+            //{
                 serv.Start();
-                
-                while (true)
-                {
+
+            while (true)
+            {
+                //TcpClient client = serv.AcceptTcpClient();
+                ////TcpClient client = serv.AcceptTcpClient();                        
+                //NetworkStream netStream = client.GetStream();                       
+                //    BinaryFormatter bf = new BinaryFormatter();
+                //    MessageData mData = (MessageData)bf.Deserialize(netStream);
+
+
+               
                     TcpClient client = serv.AcceptTcpClient();
-                    //TcpClient client = serv.AcceptTcpClient();                        
-                    NetworkStream netStream = client.GetStream();                       
-                        BinaryFormatter bf = new BinaryFormatter();
-                        MessageData mData = (MessageData)bf.Deserialize(netStream);
-                        
+                    NecAct = NetworkAction.None;
+
+
+              
+                    //TcpClient client = serv.AcceptTcpClient();
+                    NetworkStream netStream = client.GetStream();
+
+                    BinaryFormatter bf = new BinaryFormatter();
+                    MessageData mData = (MessageData)bf.Deserialize(netStream);
 
 
 
 
-                    switch(mData.action)
+
+                    switch (mData.action)
 
                     {       // IP and Port Validation
-                        case ClientAction.IpandPortValidaton:
+                        case NetworkAction.IpandPortValidaton:
+                            //TcpClient client = serv.AcceptTcpClient();
+                            //TcpClient client = serv.AcceptTcpClient();                        
+                            //NetworkStream netStream = client.GetStream();
+
+                            //MessageData mData = (MessageData)bf.Deserialize(netStream);
+
+
                             mData.listofUsers = listofUsersontheserver;
                             bf.Serialize(netStream, mData);
                             break;
@@ -65,34 +86,36 @@ namespace ServerBI
 
                         //User Connection
 
-                        case ClientAction.Connection:
+                        case NetworkAction.Connection:
                             mData.Time = DateTime.Now;
                             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
-                            newuserconnected(mData);
-                            listofUsersontheserver.Add(mData.Userdat);
-                            bf.Serialize(netStream, mData);
+                        //!!!!!!  Redo !!!!!
+                        newuserconnected(mData);
+
+                        listofUsersontheserver.Add(mData.Userdat);
+                            //bf.Serialize(netStream, mData);
                             break;
 
                         //Messages
-                        case ClientAction.Sendmessage:
+                        case NetworkAction.Sendmessage:
                             messgesent(mData);
                             bf.Serialize(netStream, mData);
                             break;
 
                     }
-                        
-                     
-                       
-                                                       
-                                   
-                }
-            }
-            finally
-            {
-                serv.Stop();
 
-            }
 
+
+
+
+                //}
+                //}
+                //finally
+                //{
+                //    serv.Stop();
+
+                //}
+            }
         }
             
         public static void StopListening()
