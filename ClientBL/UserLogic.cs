@@ -85,11 +85,11 @@ namespace ClientBL
 
             Task Serverisonline = Task.Run(() =>
             {
-
+                NetworkStream usernetstream = client.GetStream();
 
                 while (true)
                 {
-                    NetworkStream usernetstream = client.GetStream();
+                    //NetworkStream usernetstream = client.GetStream();
 
                     switch (LolacAction)
                     {
@@ -100,11 +100,18 @@ namespace ClientBL
                             break;
 
                         case ClientAction.Sendmessage:
-                            MessageRecieved(mData);
+                           
+                            Bformat.Serialize(usernetstream, LockalmesData);
+                            LolacAction = ClientAction.ReceiveMesg;
+                            returning = (MessageData)Bformat.Deserialize(usernetstream);
+                            LolacAction = ClientAction.None;
+                            MessageRecieved(LockalmesData);
                             break;
 
                         case ClientAction.ReceiveMesg:
-
+                            returning = (MessageData)Bformat.Deserialize(usernetstream);
+                            LolacAction = ClientAction.None;
+                            MessageRecieved(LockalmesData);
                             break;
 
                         case ClientAction.None:

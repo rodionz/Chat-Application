@@ -40,11 +40,12 @@ namespace ServerBI
             try
             {
                 serv.Start();
+                
                 while (true)
                 {
-               
-                        TcpClient client = serv.AcceptTcpClient();                        
-                        NetworkStream netStream = client.GetStream();                       
+                    TcpClient client = serv.AcceptTcpClient();
+                    //TcpClient client = serv.AcceptTcpClient();                        
+                    NetworkStream netStream = client.GetStream();                       
                         BinaryFormatter bf = new BinaryFormatter();
                         MessageData mData = (MessageData)bf.Deserialize(netStream);
                         

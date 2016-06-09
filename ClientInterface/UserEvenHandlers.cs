@@ -36,6 +36,8 @@ namespace ClientInterface
 
             else
             {
+                ChatListBox.ForeColor = mData.color;
+                ChatListBox.Font = mData.font;
                 ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);
             }
 
