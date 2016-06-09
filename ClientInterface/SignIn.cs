@@ -178,6 +178,7 @@ namespace ClientInterface
                 new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
                 MessageData mData = new MessageData(new_user);
                 mData.action = ClientAction.Connection;
+                UserLogic.LolacAction = ClientAction.Connection;
                 UserLogic.MainClienFinction(mData);
             
                

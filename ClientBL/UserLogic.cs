@@ -78,28 +78,44 @@ namespace ClientBL
             TcpClient client = new TcpClient();
             MessageData returning;
             client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
-            NetworkStream usernetstream = client.GetStream();            
+            //NetworkStream usernetstream = client.GetStream();            
             BinaryFormatter Bformat = new BinaryFormatter();
-            Bformat.Serialize(usernetstream, mData);
-            returning = (MessageData)Bformat.Deserialize(usernetstream);
+            //Bformat.Serialize(usernetstream, mData);
+            //returning = (MessageData)Bformat.Deserialize(usernetstream);
 
-            switch(LolacAction)
+            Task Serverisonline = Task.Run(() =>
             {
-                case ClientAction.Connection:
-
-                    break;
-
-                case ClientAction.Sendmessage:
-                    MessageRecieved(mData);
-                    break;
 
 
-            }
-                
-            
+                while (true)
+                {
+                    NetworkStream usernetstream = client.GetStream();
 
-            
-           
+                    switch (LolacAction)
+                    {
+                        case ClientAction.Connection:
+                            Bformat.Serialize(usernetstream, mData);
+                            returning = (MessageData)Bformat.Deserialize(usernetstream);
+                            LolacAction = ClientAction.None;
+                            break;
+
+                        case ClientAction.Sendmessage:
+                            MessageRecieved(mData);
+                            break;
+
+                        case ClientAction.ReceiveMesg:
+
+                            break;
+
+                        case ClientAction.None:
+                            break;
+
+                    }
+
+
+
+                }
+            });
         }
 
         public static void SendMessage(MessageData mData)

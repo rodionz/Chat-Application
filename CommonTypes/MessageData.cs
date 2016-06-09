@@ -7,9 +7,9 @@ using System.Drawing;
 
 namespace CommonTypes
 {
-
+    
    public enum ClientAction
-    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3, None = 99}
+    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3, ReceiveMesg = 4, None = 99}
 
 
 
