@@ -9,7 +9,7 @@ namespace CommonTypes
 {
 
    public enum ClientAction
-    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3}
+    {IpandPortValidaton = 1, Connection = 2, Sendmessage= 3, None = 99}
 
 
 

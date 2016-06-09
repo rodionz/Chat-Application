@@ -74,13 +74,13 @@ namespace ClientInterface
                UserLogic.IPAndPortValidation(mData);
 
 
-                if ( UserLogic.ipandportvalid)
+                if ( UserLogic.GlobalValidIpandPort)
                 {
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
                     ConfirmIPandPort.Visible = false;
                     localListofUsers = UserLogic.listofUserfortheUsers;
-                    ClientBools.IPandPortconfirmed = UserLogic.ipandportvalid;
+                    ClientBools.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
                 }
 
                 else

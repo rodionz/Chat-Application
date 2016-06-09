@@ -19,7 +19,9 @@ namespace ClientBL
         public static event Exseptions NoServer;
         public static event ClientBLEvents MessageRecieved;
         public static List<UserData> listofUserfortheUsers;
-        public static bool ipandportvalid;
+        public static bool GlobalValidIpandPort;
+        public static  ClientAction LolacAction;
+        public static MessageData LockalmesData;
 
 
 
@@ -52,7 +54,7 @@ namespace ClientBL
                     bFormat.Serialize(netStream, premesData);
                     returning = (MessageData)bFormat.Deserialize(netStream);
                     listofUserfortheUsers = returning.listofUsers;
-                    ipandportvalid = true;
+                    GlobalValidIpandPort = true;
                 }
             }
 
@@ -81,7 +83,7 @@ namespace ClientBL
             Bformat.Serialize(usernetstream, mData);
             returning = (MessageData)Bformat.Deserialize(usernetstream);
 
-            switch(returning.action)
+            switch(LolacAction)
             {
                 case ClientAction.Connection:
 
