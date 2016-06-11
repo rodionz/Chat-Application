@@ -97,7 +97,7 @@ namespace ClientBL
                             break;
 
                         case NetworkAction.Sendmessage:
-                        usernetstream = client.GetStream();
+                        //usernetstream = client.GetStream();
                         Bformat.Serialize(usernetstream, LockalmesData);
                         LolacAction = NetworkAction.ReceiveMesg;
                         //returning = (MessageData)Bformat.Deserialize(innersetrem);
@@ -106,7 +106,7 @@ namespace ClientBL
                             break;
 
                         case NetworkAction.ReceiveMesg:
-                        usernetstream = client.GetStream();
+                        //usernetstream = client.GetStream();
                         //somethin wrong here
                         returning = (MessageData)Bformat.Deserialize(usernetstream);
 

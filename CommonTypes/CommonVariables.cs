@@ -19,8 +19,9 @@ namespace CommonTypes
 
     {
 
-        
 
+        public  int StreamIndex
+        { get; set; }
 
         public DateTime Time
         { get; set; }

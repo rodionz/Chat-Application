@@ -11,9 +11,10 @@ namespace CommonTypes
     public class UserData : CommonVariables
     {
 
-        public int Userid
+        public  int Userid
         { get; set; }
 
+    
 
         public UserData()
         {

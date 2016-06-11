@@ -19,15 +19,17 @@ namespace ServerBI
 
         public static List<UserData> listofUsersontheserver;
         public static TcpClient client;
-        List<TcpClient> Clients = new List<TcpClient>();
-
+        public static NetworkStream netStream;
+        public static   List<TcpClient> Clients = new List<TcpClient>();
+        public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
 
 
  
         public static void ServerOnline(ServerData sData)
        
           {
-            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);            
+            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);
+            ServerBools.ServerisOnline = true;            
             Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
 
@@ -35,52 +37,85 @@ namespace ServerBI
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
 
         {
+            BinaryFormatter bf = new BinaryFormatter();
             listofUsersontheserver = new List<UserData>();           
              serv.Start();
 
-            while (true)
-            {                         
-                    TcpClient client = serv.AcceptTcpClient();
-                    NecAct = NetworkAction.None;           
-                    NetworkStream netStream = client.GetStream();
-                    BinaryFormatter bf = new BinaryFormatter();
-                    MessageData mData = (MessageData)bf.Deserialize(netStream);
+            while (ServerBools.ServerisOnline)
+            {
+                Task<NetworkStream> AccepttonewClientsTAsk = Task<NetworkStream>.Factory.StartNew(() =>
+                {
 
-                    switch (mData.action)
+                    while (true)
+                    {
+                        TcpClient client = serv.AcceptTcpClient();
+                        NetworkStream netStr = client.GetStream();
+                    
+                    return netStr;
+                    }
 
-                    {       
-                        case NetworkAction.IpandPortValidaton:
-                            
+                });
 
-                            mData.listofUsers = listofUsersontheserver;
-                            bf.Serialize(netStream, mData);
-                            break;
+                NetworkStream netStream = AccepttonewClientsTAsk.Result;
+
+
+                                                                                            
+           
+
+                Task<MessageData> StartListeningtoMessages = Task<MessageData>.Factory.StartNew(() =>
+                {
+                    NecAct = NetworkAction.None;
                   
-                        case NetworkAction.Connection:
-                            mData.Time = DateTime.Now;
-                            mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
-                        //!!!!!!  Redo !!!!!
-                        newuserconnected(mData);
 
+                    while (!netStream.DataAvailable)
+                    {
+
+                    }
+                    MessageData messagData = (MessageData)bf.Deserialize(netStream);
+
+                    return messagData;
+                });
+
+                MessageData mData = StartListeningtoMessages.Result; 
+              
+
+                switch (mData.action)
+
+                {
+                    case NetworkAction.IpandPortValidaton:
+
+
+                        mData.listofUsers = listofUsersontheserver;
+                        bf.Serialize(netStream, mData);
+                        break;
+
+                    case NetworkAction.Connection:
+                        StreamsofClients.Add(netStream);
+                        mData.Time = DateTime.Now;
+                        mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";                       
+                        newuserconnected(mData);
+                        mData.StreamIndex = StreamsofClients.Count;
                         listofUsersontheserver.Add(mData.Userdat);
                         bf.Serialize(netStream, mData);
                         break;
 
-                        //Messages
-                        case NetworkAction.Sendmessage:
-                            messgesent(mData);
-                            bf.Serialize(netStream, mData);
-                            break;
+                    //Messages
+                    case NetworkAction.Sendmessage:
+                        messgesent(mData);
+                        bf.Serialize(netStream, mData);
+                        break;
 
-                    }            
+                }
+
+                //}
             }
         }
+
+        private static void AcceptingnewClients(TcpListener serv)
+        {
            
-        
-        
-        
-        
-         
+        }
+
         public static void StopListening()
 
         {
