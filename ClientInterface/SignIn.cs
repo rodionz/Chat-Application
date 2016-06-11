@@ -71,7 +71,7 @@ namespace ClientInterface
             else
             {
                 mData = new MessageData(new UserData(IPasString, userPort), NetworkAction.IpandPortValidaton);
-               UserLogic.IPAndPortValidation(mData);
+                UserLogic.MainClienFinction(mData, NetworkAction.IpandPortValidaton);
 
 
                 if ( UserLogic.GlobalValidIpandPort)
@@ -178,8 +178,8 @@ namespace ClientInterface
                 new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
                 MessageData mData = new MessageData(new_user);
                 mData.action = NetworkAction.Connection;
-                UserLogic.LolacAction = NetworkAction.Connection;
-                UserLogic.MainClienFinction(mData);
+                //UserLogic.LolacAction = NetworkAction.Connection;
+                UserLogic.MainClienFinction(mData, NetworkAction.Connection);
             
                
                 ClearAll();

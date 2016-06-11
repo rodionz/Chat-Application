@@ -22,40 +22,53 @@ namespace ClientBL
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
+        public static TcpClient client;
+        public static NetworkStream localNetStream;
+        public static BinaryFormatter bFormatt;
 
 
 
 
-
-
-        public static void MainClienFinction(MessageData mesData)
-
-        {            
-         Task t1 = Task.Run(() =>   ConnecttoServer(mesData));
-        }
-
-
-
-
-        public static void  IPAndPortValidation(MessageData premesData)
+        public static void MainClienFinction(MessageData mesData, NetworkAction action)
 
         {
-            MessageData returning;
-            
-            TcpClient preclient = new TcpClient();
+            //TcpClient client;
 
+            if (action == NetworkAction.Connection)
+            {
+                 client = new TcpClient();
+                Task t1 = Task.Run(() => ConnecttoServer(mesData, client));
+            }
+
+
+            else if (action == NetworkAction.IpandPortValidaton)
+            {
+                TcpClient client2 = new TcpClient();
+                Task t2 = Task.Run(() => IpandPortValidaton(mesData, client2));
+
+            }
+        }
+
+        private static void IpandPortValidaton(MessageData mesData, TcpClient client2)
+        {
+            MessageData returning;
             try
             {
-                preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
+                client2.Connect(mesData.Userdat.IPadress, mesData.Userdat.Portnumber);
 
-                using (NetworkStream netStream = preclient.GetStream())
-                {
-                    BinaryFormatter bFormat = new BinaryFormatter();
-                    bFormat.Serialize(netStream, premesData);
-                    returning = (MessageData)bFormat.Deserialize(netStream);
-                    listofUserfortheUsers = returning.listofUsers;
+                NetworkStream netStream = client2.GetStream();
+              
                     GlobalValidIpandPort = true;
-                }
+                   BinaryFormatter aFormatt = new BinaryFormatter();
+               
+
+                    aFormatt.Serialize(netStream, mesData);
+                if (netStream.DataAvailable)
+                {
+                    returning = (MessageData)aFormatt.Deserialize(netStream);
+                    listofUserfortheUsers = returning.listofUsers;
+                }  
+                
             }
 
             catch (SocketException SE)
@@ -63,83 +76,25 @@ namespace ClientBL
                 NoServer();
             }
 
-            finally
+            //finally
+            //{
+                //client2.Close();
+            //}
+        }
+
+        private static void ConnecttoServer(MessageData mesData, TcpClient client)
+        {
+            NetworkStream stream;
+            client.Connect(IPAddress.Parse(mesData.Userdat.IPadress), mesData.Userdat.Portnumber);
+
+            while(true)
             {
-                preclient.Close();
+                stream = client.GetStream();
+                BinaryFormatter bFormatter = new BinaryFormatter();
+                bFormatt.Serialize(stream, mesData);
+
+
             }
-
-        }
-
-
-
-
-        public static void ConnecttoServer (MessageData mData)
-        {
-            TcpClient client = new TcpClient();
-            MessageData returning;
-            client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
-            NetworkStream usernetstream;
-            BinaryFormatter Bformat = new BinaryFormatter();
-           
-
-           
-            while (true)
-                {
-               
-
-                    switch (LolacAction)
-                    {
-                        case NetworkAction.Connection:
-                        usernetstream = client.GetStream();
-                        Bformat.Serialize(usernetstream, mData);
-                            //returning = (MessageData)Bformat.Deserialize(usernetstream);
-                            LolacAction = NetworkAction.None;
-                            break;
-
-                        case NetworkAction.Sendmessage:
-                        usernetstream = client.GetStream();
-                        Bformat.Serialize(usernetstream, LockalmesData);
-                        LolacAction = NetworkAction.ReceiveMesg;
-                        //returning = (MessageData)Bformat.Deserialize(innersetrem);
-                        //LolacAction = NetworkAction.None;
-                            //MessageRecieved(LockalmesData);
-                            break;
-
-                        case NetworkAction.ReceiveMesg:
-                        usernetstream = client.GetStream();
-                        //somethin wrong here
-                        returning = (MessageData)Bformat.Deserialize(usernetstream);
-
-                        LolacAction = NetworkAction.None;
-                        //MessageRecieved(LockalmesData);
-                        break;
-
-                        case NetworkAction.None:
-                            break;
-
-                    }
-
-
-
-                }
-            //});
-        }
-
-        public static void SendMessage(MessageData mData)
-        {
-            
-         
-           
-        }
-
-
-
-        public static void UserisOnline(NetworkStream online)
-        {
-            
-           
-         
-
         }
 
 
@@ -149,41 +104,104 @@ namespace ClientBL
 
 
 
+        //public static void MainClienFinction(MessageData mesData, NetworkAction action)
+
+        //{
+        //    Task t2 = Task.Run(() => ConnecttoServer(mesData));
+        //}
+
+
+        //public static void  IPAndPortValidation(MessageData premesData)
+
+        //{
+        //    MessageData returning;
+
+        //    TcpClient preclient = new TcpClient();
+
+        //    try
+        //    {
+        //        preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
+
+        //        using (NetworkStream netStream = preclient.GetStream())
+        //        {
+        //            bFormatt = new BinaryFormatter();
+        //            bFormatt.Serialize(netStream, premesData);
+        //            returning = (MessageData)bFormatt.Deserialize(netStream);
+        //            listofUserfortheUsers = returning.listofUsers;
+        //            GlobalValidIpandPort = true;
+        //        }
+        //    }
+
+        //    catch (SocketException SE)
+        //    {
+        //        NoServer();
+        //    }
+
+        //    finally
+        //    {
+        //        preclient.Close();
+        //    }
+
+        //}
+
+
+
+
+        //public static void ConnecttoServer (MessageData mData,TcpClient client)
+        //{
+
+        //    client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
+        //    bFormatt = new BinaryFormatter();
+        //    localNetStream = client.GetStream();
+        //    Task listenig = Task.Run(() => StarListentoIncomingMessages(localNetStream));
+        //    //bFormatt.Serialize(localNetStream, mData);
+
+
+        //}
+
+        //private static void StarListentoIncomingMessages(NetworkStream userNetstrem)
+        //{
+        //    while(true)
+        //    {
+        //        if (userNetstrem.DataAvailable)
+        //        {
+        //            bFormatt = new BinaryFormatter();
+        //            LockalmesData = (MessageData)bFormatt.Deserialize(localNetStream);
+        //            MessageRecieved(LockalmesData);
+        //        }
+        //    }
+        //}
+
+
+        //private static void SendMessage(MessageData mesData, TcpClient clien3)
+        //{
+
+        //    //clien3.Connect(IPAddress.Parse(mesData.Userdat.IPadress), mesData.Userdat.Portnumber);
+        //   NetworkStream sendmessagstrem = clien3.GetStream();
+        //   bFormatt = new BinaryFormatter();
+        //    bFormatt.Serialize(localNetStream, mesData);
+        //}
 
 
 
 
 
+        //public void Disconnect()
+        //{
+
+        //}
 
 
 
+        //public static void ColorwasChanged(UserData uData)
+        //{
 
 
+        //}
 
+        //public static void FontwasChanged(UserData uData)
+        //{
 
-
-
-
-
-
-
-
-        public void Disconnect()
-        {
-
-        }
-
-      
-
-        public static void ColorwasChanged(UserData uData)
-        {
-
-
-        }
-
-        public static void FontwasChanged(UserData uData)
-        {
-
-        }
+        //}
     }
 }

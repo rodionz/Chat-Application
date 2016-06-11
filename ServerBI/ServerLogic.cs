@@ -17,113 +17,129 @@ namespace ServerBI
         public static event ServerActivity newuserconnected ;
         public static event ServerActivity messgesent;
 
-        public static List<UserData> listofUsersontheserver;
+        public static List<UserData> listofUsersontheserver = new List<UserData>();
         public static TcpClient client;
+        NetworkStream netStream;
+        //BinaryFormatter bf;
+       
 
 
 
 
-
-   
         public static void ServerOnline(ServerData sData)
        
           {
-            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);            
-            Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
+                      
+            Task t1 = Task.Run(() => StartListening(sData));        
           }
 
 
 
-        public static void StartListening(TcpListener serv, NetworkAction NecAct)
+        public static void StartListening(ServerData sData)
 
         {
-            listofUsersontheserver = new List<UserData>();
-            //try
-            //{
-                serv.Start();
+            MessageData mData;
+            TcpClient client;
+            TcpListener server;
+            NetworkStream netStream;
+            server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
+            server.Start();
+             client = server.AcceptTcpClient();
 
-            while (true)
+            while(client.Connected)
             {
-                //TcpClient client = serv.AcceptTcpClient();
-                ////TcpClient client = serv.AcceptTcpClient();                        
-                //NetworkStream netStream = client.GetStream();                       
-                //    BinaryFormatter bf = new BinaryFormatter();
-                //    MessageData mData = (MessageData)bf.Deserialize(netStream);
+                netStream = client.GetStream();
+             
+                BinaryFormatter bFormatt = new BinaryFormatter();
+                mData = (MessageData)bFormatt.Deserialize(netStream);
+                
+                switch(mData.action)
+                {
+                    case NetworkAction.IpandPortValidaton:
+                        mData.listofUsers = listofUsersontheserver;
+                        bFormatt.Serialize(netStream, mData);
+                        mData.action = NetworkAction.None;
+                       
+                        break;
 
 
-               
-                    TcpClient client = serv.AcceptTcpClient();
-                    NecAct = NetworkAction.None;
+                
 
 
-              
-                    //TcpClient client = serv.AcceptTcpClient();
-                    NetworkStream netStream = client.GetStream();
-
-                    BinaryFormatter bf = new BinaryFormatter();
-                    MessageData mData = (MessageData)bf.Deserialize(netStream);
+                }
 
 
-
-
-
-                    switch (mData.action)
-
-                    {       // IP and Port Validation
-                        case NetworkAction.IpandPortValidaton:
-                            //TcpClient client = serv.AcceptTcpClient();
-                            //TcpClient client = serv.AcceptTcpClient();                        
-                            //NetworkStream netStream = client.GetStream();
-
-                            //MessageData mData = (MessageData)bf.Deserialize(netStream);
-
-
-                            mData.listofUsers = listofUsersontheserver;
-                            bf.Serialize(netStream, mData);
-                            break;
-
-
-
-                        //User Connection
-
-                        case NetworkAction.Connection:
-                            mData.Time = DateTime.Now;
-                            mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
-                        //!!!!!!  Redo !!!!!
-                        newuserconnected(mData);
-
-                        listofUsersontheserver.Add(mData.Userdat);
-                            //bf.Serialize(netStream, mData);
-                            break;
-
-                        //Messages
-                        case NetworkAction.Sendmessage:
-                            messgesent(mData);
-                            bf.Serialize(netStream, mData);
-                            break;
-
-                    }
-
-
-
-
-
-                //}
-                //}
-                //finally
-                //{
-                //    serv.Stop();
-
-                //}
             }
+
+            ////TcpClient client = serv.AcceptTcpClient();
+
+            ////TcpClient client = serv.AcceptTcpClient();
+            //while (true)
+            //{
+            //    //TcpClient client = serv.AcceptTcpClient();
+            //    TcpClient client = serv.AcceptTcpClient();
+            //    //NecAct = NetworkAction.None;
+            //    netStream = client.GetStream();
+            //    bf = new BinaryFormatter();
+            //    //TcpClient client = serv.AcceptTcpClient();
+            //    mData = (MessageData)bf.Deserialize(netStream);
+
+            //    switch (mData.action)
+
+            //        {       // IP and Port Validation
+            //            case NetworkAction.IpandPortValidaton:
+            //            //netStream = client.GetStream();
+            //             bf = new BinaryFormatter();
+            //             //mData = (MessageData)bf.Deserialize(netStream);
+            //            mData.listofUsers = listofUsersontheserver;
+            //             bf.Serialize(netStream, mData);
+            //            mData.action = NetworkAction.None;
+            //            break;
+
+
+
+            //            //User Connection
+            //            case NetworkAction.Connection:
+            //            bf = new BinaryFormatter();
+            //            //netStream = client.GetStream();
+            //            //mData = (MessageData)bf.Deserialize(netStream);
+            //            mData.Time = DateTime.Now;
+            //            mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
+            //            //!!!!!!  Redo !!!!!
+            //            newuserconnected(mData);
+            //            listofUsersontheserver.Add(mData.Userdat);
+            //            mData.action = NetworkAction.None;
+
+            //            break;
+
+            //            //Messages -recieve from user
+            //            case NetworkAction.ReceiveMesg:
+            //            netStream = client.GetStream();
+            //            mData = (MessageData)bf.Deserialize(netStream);
+            //            messgesent(mData);
+            //            mData.action = NetworkAction.Sendmessage;
+            //            break;
+
+            //            //Messages - sent to users
+            //            case NetworkAction.Sendmessage:
+            //            bf = new BinaryFormatter();
+            //            bf.Serialize(netStream, mData);
+            //            mData.action = NetworkAction.None;
+            //            break;
+
+            //        case NetworkAction.None:
+            //            break;
+
+
+
         }
-            
-        public static void StopListening()
-
-        {
 
 
-        }
+
+
+                
+            }
+      
 
     }
-}
+

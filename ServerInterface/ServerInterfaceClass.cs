@@ -73,7 +73,7 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
-            ServerLogic.StopListening();
+            //ServerLogic.StopListening();
         }
 
         private void tabChat_Click(object sender, EventArgs e)

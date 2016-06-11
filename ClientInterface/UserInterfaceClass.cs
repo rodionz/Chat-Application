@@ -95,21 +95,22 @@ namespace ClientInterface
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
             //UserLogic.MainClienFinction(MesData);
-            UserLogic.LockalmesData = MesData;
-            UserLogic.LolacAction = NetworkAction.Sendmessage;
+            //UserLogic.LockalmesData = MesData;
+            //UserLogic.LolacAction = NetworkAction.Sendmessage;
+            UserLogic.MainClienFinction(MesData, NetworkAction.Sendmessage);
         }
 
         private void TextMessages_FontChanged(object sender, EventArgs e)
         {
             uData.color = this.TextMessages.ForeColor;
 
-            UserLogic.ColorwasChanged(uData);
+            //UserLogic.ColorwasChanged(uData);
         }
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
             uData.font = this.TextMessages.Font;
-            UserLogic.FontwasChanged(uData);
+            //UserLogic.FontwasChanged(uData);
         }
     }
 }
