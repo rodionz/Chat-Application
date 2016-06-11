@@ -22,16 +22,13 @@ namespace ServerBI
 
 
 
-
-
-   
+ 
         public static void ServerOnline(ServerData sData)
        
           {
             TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);            
             Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
-
 
 
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
@@ -57,11 +54,7 @@ namespace ServerBI
                             mData.listofUsers = listofUsersontheserver;
                             bf.Serialize(netStream, mData);
                             break;
-
-
-
-                      
-
+                  
                         case NetworkAction.Connection:
                             mData.Time = DateTime.Now;
                             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
@@ -78,22 +71,15 @@ namespace ServerBI
                             bf.Serialize(netStream, mData);
                             break;
 
-                    }
-
-
-
-
-
-                //}
-                //}
-                //finally
-                //{
-                //    serv.Stop();
-
-                //}
+                    }            
             }
         }
-            
+           
+        
+        
+        
+        
+         
         public static void StopListening()
 
         {
