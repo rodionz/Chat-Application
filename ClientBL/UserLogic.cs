@@ -32,6 +32,8 @@ namespace ClientBL
 
         {            
          Task t1 = Task.Run(() =>   ConnecttoServer(mesData));
+
+        
         }
 
 
@@ -73,74 +75,95 @@ namespace ClientBL
 
 
 
-        public static void ConnecttoServer (MessageData mData)
+        public static void ConnecttoServer(MessageData mData)
         {
             TcpClient client = new TcpClient();
             MessageData returning;
-            client.Connect(IPAddress.Parse (mData.Userdat.IPadress), mData.Userdat.Portnumber );
-            NetworkStream usernetstream;
+            client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+            NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();
-           
 
-           
-            while (true)
+            Task<NetworkStream> Connection = Task<NetworkStream>.Factory.StartNew(() =>
+            {
+                stream = client.GetStream();
+                Bformat.Serialize(stream, mData);
+                return stream;
+            });
+
+            NetworkStream usernetstream = Connection.Result;
+            LolacAction = NetworkAction.None;
+            ClientBoolsandStreams.UserisOnline = true;
+            ClientBoolsandStreams.ClientStream = usernetstream;
+
+            Task listening = Task.Run(() => StariListenToIncomingMessages(usernetstream));
+
+        }
+
+        private static void StariListenToIncomingMessages(NetworkStream usernetstream)
+        {
+            BinaryFormatter listerformatter = new BinaryFormatter();
+            MessageData incoming;
+
+            while(ClientBoolsandStreams.UserisOnline)
+            {
+                if(usernetstream.DataAvailable)
                 {
-               
-
-                    switch (LolacAction)
-                    {
-                        case NetworkAction.Connection:
-                        usernetstream = client.GetStream();
-                        Bformat.Serialize(usernetstream, mData);
-                            //returning = (MessageData)Bformat.Deserialize(usernetstream);
-                            LolacAction = NetworkAction.None;
-                            break;
-
-                        case NetworkAction.Sendmessage:
-                        //usernetstream = client.GetStream();
-                        Bformat.Serialize(usernetstream, LockalmesData);
-                        LolacAction = NetworkAction.ReceiveMesg;
-                        //returning = (MessageData)Bformat.Deserialize(innersetrem);
-                        //LolacAction = NetworkAction.None;
-                            //MessageRecieved(LockalmesData);
-                            break;
-
-                        case NetworkAction.ReceiveMesg:
-                        //usernetstream = client.GetStream();
-                        //somethin wrong here
-                        returning = (MessageData)Bformat.Deserialize(usernetstream);
-
-                        LolacAction = NetworkAction.None;
-                        //MessageRecieved(LockalmesData);
-                        break;
-
-                        case NetworkAction.None:
-                            break;
-
-                    }
-
-
+                    incoming = (MessageData)listerformatter.Deserialize(usernetstream);
+                    MessageRecieved(incoming);
 
                 }
-            //});
+
+            }
         }
 
-        public static void SendMessage(MessageData mData)
+        public static void SendMessage(MessageData outcoming)
         {
-            
-         
-           
-        }
-
-
-
-        public static void UserisOnline(NetworkStream online)
-        {
-            
-           
-         
+            BinaryFormatter sendingformatter = new BinaryFormatter();
+            sendingformatter.Serialize(ClientBoolsandStreams.ClientStream, outcoming);
 
         }
+
+
+
+        //switch (LolacAction)
+        //        {
+        //case NetworkAction.Connection:
+        //    usernetstream = client.GetStream();
+        //    Bformat.Serialize(usernetstream, mData);
+        //    returning = (MessageData)Bformat.Deserialize(usernetstream);
+        //    LolacAction = NetworkAction.None;
+        //    break;
+
+        //case NetworkAction.Sendmessage:
+        //usernetstream = client.GetStream();
+        //Bformat.Serialize(usernetstream, LockalmesData);
+        //LolacAction = NetworkAction.ReceiveMesg;
+        //returning = (MessageData)Bformat.Deserialize(innersetrem);
+        //LolacAction = NetworkAction.None;
+        //MessageRecieved(LockalmesData);
+        //break;
+
+        //case NetworkAction.ReceiveMesg:
+        //usernetstream = client.GetStream();
+        //somethin wrong here
+        //returning = (MessageData)Bformat.Deserialize(usernetstream);
+
+        //LolacAction = NetworkAction.None;
+        //MessageRecieved(LockalmesData);
+        //    break;
+
+        //    case NetworkAction.None:
+        //        break;
+
+        //}
+
+
+
+        //}
+        //});
+        //}
+
+
 
 
 

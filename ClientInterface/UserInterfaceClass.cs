@@ -95,8 +95,9 @@ namespace ClientInterface
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
             //UserLogic.MainClienFinction(MesData);
-            UserLogic.LockalmesData = MesData;
-            UserLogic.LolacAction = NetworkAction.Sendmessage;
+            //UserLogic.LockalmesData = MesData;
+            //UserLogic.LolacAction = NetworkAction.Sendmessage;
+            UserLogic.SendMessage(MesData);
         }
 
         private void TextMessages_FontChanged(object sender, EventArgs e)

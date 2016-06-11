@@ -46,13 +46,13 @@ namespace ServerBI
                 Task<NetworkStream> AccepttonewClientsTAsk = Task<NetworkStream>.Factory.StartNew(() =>
                 {
 
-                    while (true)
-                    {
+                    //while (true)
+                    //{
                         TcpClient client = serv.AcceptTcpClient();
                         NetworkStream netStr = client.GetStream();
                     
                     return netStr;
-                    }
+                    //}
 
                 });
 
