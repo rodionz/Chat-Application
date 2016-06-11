@@ -29,7 +29,7 @@ namespace ServerBI
        
           {
             TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);
-            ServerBools.ServerisOnline = true;            
+            ServerBoolsandStreams.ServerisOnline = true;            
             Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
 
@@ -38,46 +38,39 @@ namespace ServerBI
 
         {
             BinaryFormatter bf = new BinaryFormatter();
-            listofUsersontheserver = new List<UserData>();           
-             serv.Start();
+            listofUsersontheserver = new List<UserData>();
+            serv.Start();
 
-            while (ServerBools.ServerisOnline)
+            while (ServerBoolsandStreams.ServerisOnline)
             {
-                Task<NetworkStream> AccepttonewClientsTAsk = Task<NetworkStream>.Factory.StartNew(() =>
-                {
-
-                    //while (true)
-                    //{
-                        TcpClient client = serv.AcceptTcpClient();
-                        NetworkStream netStr = client.GetStream();
-                    
-                    return netStr;
-                    //}
-
-                });
-
-                NetworkStream netStream = AccepttonewClientsTAsk.Result;
-
-
-                                                                                            
+              
+               ServerBoolsandStreams.LocalClient = serv.AcceptTcpClient();              
+                Task StarttoListen = Task.Run(() => StartListeningtoMessages());              
+            }
+        }                                                                                   
            
 
-                Task<MessageData> StartListeningtoMessages = Task<MessageData>.Factory.StartNew(() =>
-                {
-                    NecAct = NetworkAction.None;
+             
+                   
                   
 
-                    while (!netStream.DataAvailable)
-                    {
 
-                    }
-                    MessageData messagData = (MessageData)bf.Deserialize(netStream);
 
-                    return messagData;
-                });
 
-                MessageData mData = StartListeningtoMessages.Result; 
-              
+        private static void StartListeningtoMessages()
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            NetworkStream netStr = ServerBoolsandStreams.LocalClient.GetStream();
+
+            while (ServerBoolsandStreams.ServerisOnline)
+
+            {
+
+                while (!netStr.DataAvailable)
+                {
+
+                }
+                MessageData mData = (MessageData)bf.Deserialize(netStr);
 
                 switch (mData.action)
 
@@ -86,34 +79,45 @@ namespace ServerBI
 
 
                         mData.listofUsers = listofUsersontheserver;
-                        bf.Serialize(netStream, mData);
+                        bf.Serialize(netStr, mData);
+                        //netStr.Close();
                         break;
 
                     case NetworkAction.Connection:
-                        StreamsofClients.Add(netStream);
+                        StreamsofClients.Add(netStr);
                         mData.Time = DateTime.Now;
-                        mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";                       
+                        mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
                         newuserconnected(mData);
                         mData.StreamIndex = StreamsofClients.Count;
                         listofUsersontheserver.Add(mData.Userdat);
-                        bf.Serialize(netStream, mData);
+                        bf.Serialize(netStr, mData);
+                        //netStr.Close();
                         break;
 
                     //Messages
                     case NetworkAction.Sendmessage:
                         messgesent(mData);
-                        bf.Serialize(netStream, mData);
+                        bf.Serialize(netStr, mData);
+                        //netStr.Close();
                         break;
-
                 }
 
-                //}
-            }
-        }
 
-        private static void AcceptingnewClients(TcpListener serv)
-        {
-           
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         public static void StopListening()

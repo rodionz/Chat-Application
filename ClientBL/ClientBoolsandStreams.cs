@@ -19,5 +19,8 @@ namespace ClientBL
 
         internal static NetworkStream ClientStream
         { get; set; }
+
+         internal static  TcpClient LocalClient
+        { get; set; }
     }
 }

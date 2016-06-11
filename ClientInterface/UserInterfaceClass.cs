@@ -104,13 +104,13 @@ namespace ClientInterface
         {
             uData.color = this.TextMessages.ForeColor;
 
-            UserLogic.ColorwasChanged(uData);
+            //UserLogic.ColorwasChanged(uData);
         }
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
             uData.font = this.TextMessages.Font;
-            UserLogic.FontwasChanged(uData);
+            //UserLogic.FontwasChanged(uData);
         }
     }
 }

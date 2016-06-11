@@ -80,36 +80,33 @@ namespace ClientBL
             TcpClient client = new TcpClient();
             MessageData returning;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+            ClientBoolsandStreams.LocalClient = client;
             NetworkStream stream;
-            BinaryFormatter Bformat = new BinaryFormatter();
-
-            Task<NetworkStream> Connection = Task<NetworkStream>.Factory.StartNew(() =>
-            {
-                stream = client.GetStream();
-                Bformat.Serialize(stream, mData);
-                return stream;
-            });
-
-            NetworkStream usernetstream = Connection.Result;
-            LolacAction = NetworkAction.None;
+            BinaryFormatter Bformat = new BinaryFormatter();   
+            stream = client.GetStream();
+            Bformat.Serialize(stream, mData);           
             ClientBoolsandStreams.UserisOnline = true;
-            ClientBoolsandStreams.ClientStream = usernetstream;
 
-            Task listening = Task.Run(() => StariListenToIncomingMessages(usernetstream));
+            stream.Flush();
+
+            Task listening = Task.Run(() => StariListenToIncomingMessages());
+
 
         }
 
-        private static void StariListenToIncomingMessages(NetworkStream usernetstream)
+        private static void StariListenToIncomingMessages()
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
             MessageData incoming;
+            NetworkStream usernetstream = ClientBoolsandStreams.LocalClient.GetStream();
 
-            while(ClientBoolsandStreams.UserisOnline)
+            while (ClientBoolsandStreams.UserisOnline)
             {
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
+                    //usernetstream.Dispose();
 
                 }
 
@@ -119,94 +116,14 @@ namespace ClientBL
         public static void SendMessage(MessageData outcoming)
         {
             BinaryFormatter sendingformatter = new BinaryFormatter();
-            sendingformatter.Serialize(ClientBoolsandStreams.ClientStream, outcoming);
+           NetworkStream localstrem = ClientBoolsandStreams.LocalClient.GetStream();
+            sendingformatter.Serialize(localstrem, outcoming);
 
         }
 
-
-
-        //switch (LolacAction)
-        //        {
-        //case NetworkAction.Connection:
-        //    usernetstream = client.GetStream();
-        //    Bformat.Serialize(usernetstream, mData);
-        //    returning = (MessageData)Bformat.Deserialize(usernetstream);
-        //    LolacAction = NetworkAction.None;
-        //    break;
-
-        //case NetworkAction.Sendmessage:
-        //usernetstream = client.GetStream();
-        //Bformat.Serialize(usernetstream, LockalmesData);
-        //LolacAction = NetworkAction.ReceiveMesg;
-        //returning = (MessageData)Bformat.Deserialize(innersetrem);
-        //LolacAction = NetworkAction.None;
-        //MessageRecieved(LockalmesData);
-        //break;
-
-        //case NetworkAction.ReceiveMesg:
-        //usernetstream = client.GetStream();
-        //somethin wrong here
-        //returning = (MessageData)Bformat.Deserialize(usernetstream);
-
-        //LolacAction = NetworkAction.None;
-        //MessageRecieved(LockalmesData);
-        //    break;
-
-        //    case NetworkAction.None:
-        //        break;
-
-        //}
+        
 
 
 
-        //}
-        //});
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public void Disconnect()
-        {
-
-        }
-
-      
-
-        public static void ColorwasChanged(UserData uData)
-        {
-
-
-        }
-
-        public static void FontwasChanged(UserData uData)
-        {
-
-        }
     }
 }
