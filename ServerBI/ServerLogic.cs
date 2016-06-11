@@ -37,46 +37,22 @@ namespace ServerBI
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
 
         {
-            listofUsersontheserver = new List<UserData>();
-            //try
-            //{
-                serv.Start();
+            listofUsersontheserver = new List<UserData>();           
+             serv.Start();
 
             while (true)
-            {
-                //TcpClient client = serv.AcceptTcpClient();
-                ////TcpClient client = serv.AcceptTcpClient();                        
-                //NetworkStream netStream = client.GetStream();                       
-                //    BinaryFormatter bf = new BinaryFormatter();
-                //    MessageData mData = (MessageData)bf.Deserialize(netStream);
-
-
-               
+            {                         
                     TcpClient client = serv.AcceptTcpClient();
-                    NecAct = NetworkAction.None;
-
-
-              
-                    //TcpClient client = serv.AcceptTcpClient();
+                    NecAct = NetworkAction.None;           
                     NetworkStream netStream = client.GetStream();
-
                     BinaryFormatter bf = new BinaryFormatter();
                     MessageData mData = (MessageData)bf.Deserialize(netStream);
 
-
-
-
-
                     switch (mData.action)
 
-                    {       // IP and Port Validation
+                    {       
                         case NetworkAction.IpandPortValidaton:
-                            //TcpClient client = serv.AcceptTcpClient();
-                            //TcpClient client = serv.AcceptTcpClient();                        
-                            //NetworkStream netStream = client.GetStream();
-
-                            //MessageData mData = (MessageData)bf.Deserialize(netStream);
-
+                            
 
                             mData.listofUsers = listofUsersontheserver;
                             bf.Serialize(netStream, mData);
@@ -84,7 +60,7 @@ namespace ServerBI
 
 
 
-                        //User Connection
+                      
 
                         case NetworkAction.Connection:
                             mData.Time = DateTime.Now;
@@ -93,8 +69,8 @@ namespace ServerBI
                         newuserconnected(mData);
 
                         listofUsersontheserver.Add(mData.Userdat);
-                            //bf.Serialize(netStream, mData);
-                            break;
+                        bf.Serialize(netStream, mData);
+                        break;
 
                         //Messages
                         case NetworkAction.Sendmessage:
