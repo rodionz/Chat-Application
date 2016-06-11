@@ -19,6 +19,7 @@ namespace ServerBI
 
         public static List<UserData> listofUsersontheserver;
         public static TcpClient client;
+        List<TcpClient> Clients = new List<TcpClient>();
 
 
 
