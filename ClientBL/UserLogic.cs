@@ -29,46 +29,35 @@ namespace ClientBL
 
 
 
-        public static void MainClienFinction(MessageData mesData, NetworkAction action)
+
+        public static void MainClienFinction(MessageData mesData)
 
         {
-            //TcpClient client;
-
-            if (action == NetworkAction.Connection)
-            {
-                 client = new TcpClient();
-                Task t1 = Task.Run(() => ConnecttoServer(mesData, client));
-            }
-
-
-            else if (action == NetworkAction.IpandPortValidaton)
-            {
-                TcpClient client2 = new TcpClient();
-                Task t2 = Task.Run(() => IpandPortValidaton(mesData, client2));
-
-            }
+            Task t1 = Task.Run(() => ConnecttoServer(mesData));
         }
 
-        private static void IpandPortValidaton(MessageData mesData, TcpClient client2)
+
+
+
+        public static void IPAndPortValidation(MessageData premesData)
+
         {
             MessageData returning;
+
+            TcpClient preclient = new TcpClient();
+
             try
             {
-                client2.Connect(mesData.Userdat.IPadress, mesData.Userdat.Portnumber);
+                preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
-                NetworkStream netStream = client2.GetStream();
-              
-                    GlobalValidIpandPort = true;
-                   BinaryFormatter aFormatt = new BinaryFormatter();
-               
-
-                    aFormatt.Serialize(netStream, mesData);
-                if (netStream.DataAvailable)
+                using (NetworkStream netStream = preclient.GetStream())
                 {
-                    returning = (MessageData)aFormatt.Deserialize(netStream);
+                    BinaryFormatter bFormat = new BinaryFormatter();
+                    bFormat.Serialize(netStream, premesData);
+                    returning = (MessageData)bFormat.Deserialize(netStream);
                     listofUserfortheUsers = returning.listofUsers;
-                }  
-                
+                    GlobalValidIpandPort = true;
+                }
             }
 
             catch (SocketException SE)
@@ -76,33 +65,67 @@ namespace ClientBL
                 NoServer();
             }
 
-            //finally
-            //{
-                //client2.Close();
-            //}
+            finally
+            {
+                preclient.Close();
+            }
+
         }
 
-        private static void ConnecttoServer(MessageData mesData, TcpClient client)
-        {
-            NetworkStream stream;
-            client.Connect(IPAddress.Parse(mesData.Userdat.IPadress), mesData.Userdat.Portnumber);
 
-            while(true)
+
+
+        public static void ConnecttoServer(MessageData mData)
+        {
+            TcpClient client = new TcpClient();
+            MessageData returning;
+            client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+            NetworkStream usernetstream;
+            BinaryFormatter Bformat = new BinaryFormatter();
+
+
+
+            while (true)
             {
-                stream = client.GetStream();
-                BinaryFormatter bFormatter = new BinaryFormatter();
-                bFormatt.Serialize(stream, mesData);
+
+
+                switch (LolacAction)
+                {
+                    case NetworkAction.Connection:
+                        usernetstream = client.GetStream();
+                        Bformat.Serialize(usernetstream, mData);
+                        //returning = (MessageData)Bformat.Deserialize(usernetstream);
+                        LolacAction = NetworkAction.None;
+                        break;
+
+                    case NetworkAction.Sendmessage:
+                        usernetstream = client.GetStream();
+                        Bformat.Serialize(usernetstream, LockalmesData);
+                        LolacAction = NetworkAction.ReceiveMesg;
+                        //returning = (MessageData)Bformat.Deserialize(innersetrem);
+                        //LolacAction = NetworkAction.None;
+                        //MessageRecieved(LockalmesData);
+                        break;
+
+                    case NetworkAction.ReceiveMesg:
+                        usernetstream = client.GetStream();
+                        //somethin wrong here
+                        returning = (MessageData)Bformat.Deserialize(usernetstream);
+
+                        LolacAction = NetworkAction.None;
+                        //MessageRecieved(LockalmesData);
+                        break;
+
+                    case NetworkAction.None:
+                        break;
+
+                }
+
 
 
             }
+            //});
         }
-
-
-
-
-
-
-
 
         //public static void MainClienFinction(MessageData mesData, NetworkAction action)
 
