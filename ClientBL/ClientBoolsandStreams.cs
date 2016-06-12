@@ -14,13 +14,16 @@ namespace ClientBL
    public class ClientBoolsandStreams
     {
 
-        internal static bool UserisOnline
+       public static bool UserisOnline
         { get; set; }
 
         internal static NetworkStream ClientStream
         { get; set; }
 
          internal static  TcpClient LocalClient
+        { get; set; }
+
+        internal static int CurrentUserID
         { get; set; }
     }
 }

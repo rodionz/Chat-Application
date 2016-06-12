@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ChatListBox = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
-            this.ChatListBox = new System.Windows.Forms.ListBox();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -62,6 +62,14 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(330, 235);
             this.panel5.TabIndex = 3;
+            // 
+            // ChatListBox
+            // 
+            this.ChatListBox.FormattingEnabled = true;
+            this.ChatListBox.Location = new System.Drawing.Point(23, 16);
+            this.ChatListBox.Name = "ChatListBox";
+            this.ChatListBox.Size = new System.Drawing.Size(283, 199);
+            this.ChatListBox.TabIndex = 0;
             // 
             // panel6
             // 
@@ -131,6 +139,7 @@
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
             this.DisconnectFromServerButton.UseVisualStyleBackColor = true;
+            this.DisconnectFromServerButton.Click += new System.EventHandler(this.DisconnectFromServerButton_Click);
             // 
             // RedLamp
             // 
@@ -200,14 +209,6 @@
             this.NoServersOnlineLabel.Name = "NoServersOnlineLabel";
             this.NoServersOnlineLabel.Size = new System.Drawing.Size(0, 23);
             this.NoServersOnlineLabel.TabIndex = 17;
-            // 
-            // ChatListBox
-            // 
-            this.ChatListBox.FormattingEnabled = true;
-            this.ChatListBox.Location = new System.Drawing.Point(23, 16);
-            this.ChatListBox.Name = "ChatListBox";
-            this.ChatListBox.Size = new System.Drawing.Size(283, 199);
-            this.ChatListBox.TabIndex = 0;
             // 
             // UserInterfaceClass
             // 

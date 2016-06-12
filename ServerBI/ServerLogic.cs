@@ -90,6 +90,7 @@ namespace ServerBI
                         newuserconnected(mData);
                         mData.StreamIndex = StreamsofClients.Count;
                         listofUsersontheserver.Add(mData.Userdat);
+                        mData.Userdat.Userid = listofUsersontheserver.Count;
                         bf.Serialize(netStr, mData);
                         //netStr.Close();
                         break;

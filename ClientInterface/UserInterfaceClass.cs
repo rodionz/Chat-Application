@@ -41,6 +41,7 @@ namespace ClientInterface
             if (result == DialogResult.OK)
             {
                 uData.color = colorDialog1.Color;
+                MesData.color = colorDialog1.Color;
                 this.TextMessages.ForeColor = colorDialog1.Color;
               
             }
@@ -58,6 +59,7 @@ namespace ClientInterface
             if (result == DialogResult.OK)
             {
                 uData.font = fontDialog1.Font;
+                MesData.font = fontDialog1.Font;
                 this.TextMessages.Font = fontDialog1.Font;
             
 
@@ -89,9 +91,9 @@ namespace ClientInterface
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
             MesData.Time = DateTime.Now;
-            MesData.color = this.TextMessages.ForeColor;
+            //MesData.color = this.TextMessages.ForeColor;
             MesData.Textmessage = this.TextMessages.Text;
-            MesData.font = this.TextMessages.Font;
+            //MesData.font = this.TextMessages.Font;
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
             //UserLogic.MainClienFinction(MesData);
@@ -111,6 +113,11 @@ namespace ClientInterface
         {
             uData.font = this.TextMessages.Font;
             //UserLogic.FontwasChanged(uData);
+        }
+
+        private void DisconnectFromServerButton_Click(object sender, EventArgs e)
+        {
+            ClientBoolsandStreams.UserisOnline = false;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace ClientBL
         public delegate void ClientBLEvents(MessageData mDAta);
         public static event Exseptions NoServer;
         public static event ClientBLEvents MessageRecieved;
+        public static event ClientBLEvents Disconnect;
         public static List<UserData> listofUserfortheUsers;
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
@@ -106,11 +107,26 @@ namespace ClientBL
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
+                    if (incoming.action == NetworkAction.Connection)
+                        ClientBoolsandStreams.CurrentUserID = incoming.Userdat.Userid;
+
+
                     //usernetstream.Dispose();
 
                 }
 
+
+                
+
             }
+            MessageData disconnect = new MessageData();
+            disconnect.Textmessage = "You are Disconnected";
+            listofUserfortheUsers.RemoveAt(ClientBoolsandStreams.CurrentUserID);
+            Disconnect(disconnect);
+            
+            //////////////////
+            /////////////////
+
         }
 
         public static void SendMessage(MessageData outcoming)
