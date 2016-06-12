@@ -18,8 +18,7 @@ namespace ServerInterface
         public ServerInterfaceClass()
         {
             InitializeComponent();
-            ServerEventHandlers.newuserconnected += NewUserEvenHandler;
-            ServerEventHandlers.messgesent += MessagesentHandler;
+           
 
         }
 
@@ -30,6 +29,7 @@ namespace ServerInterface
 
         private void StartServerButton_Click(object sender, EventArgs e)
         {
+          
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
             RedLightPanel.Visible = false;
@@ -93,6 +93,12 @@ namespace ServerInterface
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ServerInterfaceClass_Load(object sender, EventArgs e)
+        {
+            ServerEventHandlers.newuserconnected += NewUserEvenHandler;
+            ServerEventHandlers.messgesent += MessagesentHandler;
         }
     }
 }

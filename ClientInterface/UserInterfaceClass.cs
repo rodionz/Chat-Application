@@ -18,7 +18,7 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
-            UserLogic.MessageRecieved += MessageHandler;
+           
             
         }
         
@@ -119,6 +119,11 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             ClientBoolsandStreams.UserisOnline = false;
+        }
+
+        private void UserInterfaceClass_Load(object sender, EventArgs e)
+        {
+            UserLogic.MessageRecieved += MessageHandler;
         }
     }
 }

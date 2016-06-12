@@ -282,6 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
+            this.Load += new System.EventHandler(this.ServerInterfaceClass_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
