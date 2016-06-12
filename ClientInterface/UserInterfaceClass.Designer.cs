@@ -48,6 +48,7 @@
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
             this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.Userlabel = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -242,12 +243,21 @@
             this.Userlabel.Size = new System.Drawing.Size(0, 45);
             this.Userlabel.TabIndex = 19;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(653, 360);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(229, 97);
+            this.listView1.TabIndex = 20;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(960, 562);
+            this.ClientSize = new System.Drawing.Size(981, 562);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.Userlabel);
             this.Controls.Add(this.PrivateMessageButton);
             this.Controls.Add(this.NoServersOnlineLabel);
@@ -299,6 +309,7 @@
        internal System.Windows.Forms.ListBox ChatListBox;
         private System.Windows.Forms.Button PrivateMessageButton;
         private System.Windows.Forms.Label Userlabel;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

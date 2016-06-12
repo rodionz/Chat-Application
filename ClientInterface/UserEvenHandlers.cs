@@ -44,6 +44,22 @@ namespace ClientInterface
                     ChatListBox.Items.Add("You are online now");
                 }
 
+                else if (mData.action == NetworkAction.SendPrivatemessage)
+
+                {
+                    var names = from n in mData.listofUsers
+                                select n.Username; 
+
+
+                    for(int i = 0; i < mData.listofUsers.Count; i++)
+                    {
+                        listView1.Items.Add(names.ToArray()[i]);
+
+                    }
+                       
+
+                }
+
                 else
                 {
                     ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);

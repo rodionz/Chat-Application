@@ -56,10 +56,7 @@ namespace ServerInterface
             Cpd.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
@@ -67,10 +64,7 @@ namespace ServerInterface
             StartServerButton.Enabled = true;
         }
 
-        private void tabChat_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -90,10 +84,7 @@ namespace ServerInterface
            ChatListBox.Items.Add ( "Hello World");
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void ServerInterfaceClass_Load(object sender, EventArgs e)
         {

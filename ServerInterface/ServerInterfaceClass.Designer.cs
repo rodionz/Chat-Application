@@ -128,7 +128,7 @@
             this.tabChat.TabIndex = 2;
             this.tabChat.Text = "Chat";
             this.tabChat.UseVisualStyleBackColor = true;
-            this.tabChat.Click += new System.EventHandler(this.tabChat_Click);
+     
             // 
             // ChatListBox
             // 
@@ -192,7 +192,7 @@
             this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 15;
             this.label2.Text = "Server is Online";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+        
             // 
             // GreenLamp
             // 
@@ -222,7 +222,7 @@
             this.label1.Size = new System.Drawing.Size(137, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Server is Offline";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+         
             // 
             // RedLamp
             // 
