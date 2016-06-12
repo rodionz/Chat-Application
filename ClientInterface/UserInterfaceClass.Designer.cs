@@ -61,7 +61,7 @@
             this.panel5.Controls.Add(this.ChatListBox);
             this.panel5.Location = new System.Drawing.Point(205, 22);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(330, 235);
+            this.panel5.Size = new System.Drawing.Size(397, 235);
             this.panel5.TabIndex = 3;
             // 
             // ChatListBox
@@ -69,7 +69,7 @@
             this.ChatListBox.FormattingEnabled = true;
             this.ChatListBox.Location = new System.Drawing.Point(23, 16);
             this.ChatListBox.Name = "ChatListBox";
-            this.ChatListBox.Size = new System.Drawing.Size(283, 199);
+            this.ChatListBox.Size = new System.Drawing.Size(351, 199);
             this.ChatListBox.TabIndex = 0;
             // 
             // panel6
@@ -78,7 +78,7 @@
             this.panel6.Controls.Add(this.TextMessages);
             this.panel6.Location = new System.Drawing.Point(205, 282);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(341, 67);
+            this.panel6.Size = new System.Drawing.Size(397, 67);
             this.panel6.TabIndex = 4;
             // 
             // TextMessages
@@ -87,14 +87,15 @@
             this.TextMessages.Location = new System.Drawing.Point(23, 13);
             this.TextMessages.Multiline = true;
             this.TextMessages.Name = "TextMessages";
-            this.TextMessages.Size = new System.Drawing.Size(283, 39);
+            this.TextMessages.Size = new System.Drawing.Size(351, 39);
             this.TextMessages.TabIndex = 0;
             this.TextMessages.FontChanged += new System.EventHandler(this.TextMessages_FontChanged);
             this.TextMessages.ForeColorChanged += new System.EventHandler(this.TextMessages_ForeColorChanged);
             // 
             // sendmessageButton
             // 
-            this.sendmessageButton.Location = new System.Drawing.Point(607, 295);
+            this.sendmessageButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendmessageButton.Location = new System.Drawing.Point(650, 295);
             this.sendmessageButton.Name = "sendmessageButton";
             this.sendmessageButton.Size = new System.Drawing.Size(100, 39);
             this.sendmessageButton.TabIndex = 8;
@@ -104,7 +105,8 @@
             // 
             // changeFontButton
             // 
-            this.changeFontButton.Location = new System.Drawing.Point(598, 93);
+            this.changeFontButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeFontButton.Location = new System.Drawing.Point(772, 96);
             this.changeFontButton.Name = "changeFontButton";
             this.changeFontButton.Size = new System.Drawing.Size(109, 36);
             this.changeFontButton.TabIndex = 10;
@@ -114,7 +116,8 @@
             // 
             // ColorChoosing
             // 
-            this.ColorChoosing.Location = new System.Drawing.Point(598, 32);
+            this.ColorChoosing.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorChoosing.Location = new System.Drawing.Point(772, 38);
             this.ColorChoosing.Name = "ColorChoosing";
             this.ColorChoosing.Size = new System.Drawing.Size(109, 33);
             this.ColorChoosing.TabIndex = 9;
@@ -124,10 +127,11 @@
             // 
             // ConnectToserverButton
             // 
-            this.ConnectToserverButton.Font = new System.Drawing.Font("DejaVu Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.ConnectToserverButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectToserverButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.ConnectToserverButton.Location = new System.Drawing.Point(205, 408);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
-            this.ConnectToserverButton.Size = new System.Drawing.Size(124, 39);
+            this.ConnectToserverButton.Size = new System.Drawing.Size(159, 49);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
             this.ConnectToserverButton.UseVisualStyleBackColor = true;
@@ -135,10 +139,11 @@
             // 
             // DisconnectFromServerButton
             // 
-            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.DisconnectFromServerButton.Location = new System.Drawing.Point(400, 408);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";
-            this.DisconnectFromServerButton.Size = new System.Drawing.Size(168, 39);
+            this.DisconnectFromServerButton.Size = new System.Drawing.Size(202, 49);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
             this.DisconnectFromServerButton.UseVisualStyleBackColor = true;
@@ -215,7 +220,8 @@
             // 
             // PrivateMessageButton
             // 
-            this.PrivateMessageButton.Location = new System.Drawing.Point(757, 295);
+            this.PrivateMessageButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrivateMessageButton.Location = new System.Drawing.Point(799, 295);
             this.PrivateMessageButton.Name = "PrivateMessageButton";
             this.PrivateMessageButton.Size = new System.Drawing.Size(108, 39);
             this.PrivateMessageButton.TabIndex = 18;

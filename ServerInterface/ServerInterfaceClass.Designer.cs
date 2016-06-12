@@ -139,9 +139,11 @@
             // 
             // StartServerButton
             // 
+            this.StartServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.StartServerButton.Location = new System.Drawing.Point(262, 431);
             this.StartServerButton.Name = "StartServerButton";
-            this.StartServerButton.Size = new System.Drawing.Size(103, 43);
+            this.StartServerButton.Size = new System.Drawing.Size(121, 43);
             this.StartServerButton.TabIndex = 2;
             this.StartServerButton.Text = "Start Server";
             this.StartServerButton.UseVisualStyleBackColor = true;
@@ -149,9 +151,10 @@
             // 
             // ChangeIpButton
             // 
-            this.ChangeIpButton.Location = new System.Drawing.Point(752, 48);
+            this.ChangeIpButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeIpButton.Location = new System.Drawing.Point(751, 71);
             this.ChangeIpButton.Name = "ChangeIpButton";
-            this.ChangeIpButton.Size = new System.Drawing.Size(85, 43);
+            this.ChangeIpButton.Size = new System.Drawing.Size(144, 43);
             this.ChangeIpButton.TabIndex = 3;
             this.ChangeIpButton.Text = "Change IP";
             this.ChangeIpButton.UseVisualStyleBackColor = true;
@@ -159,9 +162,10 @@
             // 
             // ChangePortButton
             // 
-            this.ChangePortButton.Location = new System.Drawing.Point(751, 110);
+            this.ChangePortButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePortButton.Location = new System.Drawing.Point(750, 133);
             this.ChangePortButton.Name = "ChangePortButton";
-            this.ChangePortButton.Size = new System.Drawing.Size(86, 43);
+            this.ChangePortButton.Size = new System.Drawing.Size(145, 43);
             this.ChangePortButton.TabIndex = 4;
             this.ChangePortButton.Text = "Change Port";
             this.ChangePortButton.UseVisualStyleBackColor = true;
@@ -229,9 +233,11 @@
             // 
             // StopServerButton
             // 
-            this.StopServerButton.Location = new System.Drawing.Point(585, 431);
+            this.StopServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
+            this.StopServerButton.Location = new System.Drawing.Point(578, 431);
             this.StopServerButton.Name = "StopServerButton";
-            this.StopServerButton.Size = new System.Drawing.Size(88, 43);
+            this.StopServerButton.Size = new System.Drawing.Size(118, 43);
             this.StopServerButton.TabIndex = 19;
             this.StopServerButton.Text = "Stop Server";
             this.StopServerButton.UseVisualStyleBackColor = true;

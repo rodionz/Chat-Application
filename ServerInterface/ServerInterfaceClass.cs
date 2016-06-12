@@ -33,29 +33,17 @@ namespace ServerInterface
             Sr.ShowDialog();
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
-
-
-         
-
-
             ServerLogic.ServerOnline(sData);
             StartServerButton.Enabled = false;
 
-         
-            
-
-           
-
+                 
         }
 
         private void ChangeIpButton_Click(object sender, EventArgs e)
         {
 
-         
-
-           
+        
                 ChangeIPDialog ChipDialog = new ChangeIPDialog(sData);
-
                 ChipDialog.ShowDialog();
             
         }
