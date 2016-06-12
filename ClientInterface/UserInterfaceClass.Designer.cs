@@ -47,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
             this.PrivateMessageButton = new System.Windows.Forms.Button();
+            this.Userlabel = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -201,7 +202,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Green;
+            this.label2.ForeColor = System.Drawing.Color.Lime;
             this.label2.Location = new System.Drawing.Point(23, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 18);
@@ -228,12 +229,22 @@
             this.PrivateMessageButton.Text = "PrivateMessage";
             this.PrivateMessageButton.UseVisualStyleBackColor = true;
             // 
+            // Userlabel
+            // 
+            this.Userlabel.AutoSize = true;
+            this.Userlabel.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Userlabel.Location = new System.Drawing.Point(12, 13);
+            this.Userlabel.Name = "Userlabel";
+            this.Userlabel.Size = new System.Drawing.Size(0, 45);
+            this.Userlabel.TabIndex = 19;
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(932, 562);
+            this.Controls.Add(this.Userlabel);
             this.Controls.Add(this.PrivateMessageButton);
             this.Controls.Add(this.NoServersOnlineLabel);
             this.Controls.Add(this.GreenLightPanel);
@@ -282,6 +293,7 @@
         private System.Windows.Forms.Label NoServersOnlineLabel;
        internal System.Windows.Forms.ListBox ChatListBox;
         private System.Windows.Forms.Button PrivateMessageButton;
+        private System.Windows.Forms.Label Userlabel;
     }
 }
 

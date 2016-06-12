@@ -71,12 +71,13 @@ namespace ClientInterface
             registration.ShowDialog();
 
 
-            if (ClientBools.UserIsValid)
+            if (ClientBoolsandVariables.UserIsValid)
             {
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
-                ClientBools.ResetBooleans();
+                ClientBoolsandVariables.ResetBooleans();             
                 uData = registration.new_user;
+                this.Userlabel.Text = ClientBoolsandVariables.uNmake;
             }
 
 
@@ -84,7 +85,7 @@ namespace ClientInterface
             {
 
                 NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
-                ClientBools.ResetBooleans();
+                ClientBoolsandVariables.ResetBooleans();
 
             }
         }

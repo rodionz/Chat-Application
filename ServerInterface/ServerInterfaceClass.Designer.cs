@@ -47,6 +47,7 @@
             this.RedLamp = new System.Windows.Forms.PictureBox();
             this.StopServerButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -215,7 +216,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.ForeColor = System.Drawing.Color.Tomato;
             this.label1.Location = new System.Drawing.Point(3, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 20);
@@ -254,12 +255,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(47, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 42);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Server";
+            // 
             // ServerInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1048, 568);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.StopServerButton);
             this.Controls.Add(this.GreenLightPanel);
@@ -282,6 +294,7 @@
             this.RedLightPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -306,6 +319,7 @@
         private System.Windows.Forms.ListBox ChatListBox;
         internal System.Windows.Forms.ListBox CurrentUsersListbox;
         private System.Windows.Forms.ListBox HistoryListbox;
+        private System.Windows.Forms.Label label3;
     }
 }
 

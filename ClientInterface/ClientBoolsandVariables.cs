@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClientInterface
 {
-   static class ClientBools
+   static class ClientBoolsandVariables
     {
+
+        internal static string  uNmake;
+
+
 
        
         internal static bool UserIsValid
