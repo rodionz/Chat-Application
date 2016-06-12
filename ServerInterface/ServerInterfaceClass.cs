@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CommonTypes;
 using ServerBI;
 
+
 namespace ServerInterface
 {
     public partial class ServerInterfaceClass : Form
@@ -17,8 +18,8 @@ namespace ServerInterface
         public ServerInterfaceClass()
         {
             InitializeComponent();
-            ServerLogic.newuserconnected += NewUserEvenHandler;
-            ServerLogic.messgesent += MessagesentHandler;
+            ServerEventHandlers.newuserconnected += NewUserEvenHandler;
+            ServerEventHandlers.messgesent += MessagesentHandler;
 
         }
 

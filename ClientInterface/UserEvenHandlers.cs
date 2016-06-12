@@ -40,10 +40,14 @@ namespace ClientInterface
                 ChatListBox.Font = mData.font;
 
                 if (mData.action == NetworkAction.Connection)
+                {
                     ChatListBox.Items.Add("You are online now");
+                }
 
                 else
-                ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);
+                {
+                    ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);
+                }
             }
 
 

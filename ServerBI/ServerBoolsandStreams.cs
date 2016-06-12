@@ -19,5 +19,9 @@ namespace ServerBI
 
         internal static TcpClient LocalClient
         { get; set; }
+
+
+
+        public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
     }
 }
