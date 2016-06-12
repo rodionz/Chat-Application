@@ -46,6 +46,7 @@
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
+            this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -103,7 +104,7 @@
             // 
             // changeFontButton
             // 
-            this.changeFontButton.Location = new System.Drawing.Point(790, 32);
+            this.changeFontButton.Location = new System.Drawing.Point(598, 93);
             this.changeFontButton.Name = "changeFontButton";
             this.changeFontButton.Size = new System.Drawing.Size(109, 36);
             this.changeFontButton.TabIndex = 10;
@@ -123,9 +124,10 @@
             // 
             // ConnectToserverButton
             // 
+            this.ConnectToserverButton.Font = new System.Drawing.Font("DejaVu Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.ConnectToserverButton.Location = new System.Drawing.Point(205, 408);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
-            this.ConnectToserverButton.Size = new System.Drawing.Size(85, 39);
+            this.ConnectToserverButton.Size = new System.Drawing.Size(124, 39);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
             this.ConnectToserverButton.UseVisualStyleBackColor = true;
@@ -133,9 +135,10 @@
             // 
             // DisconnectFromServerButton
             // 
-            this.DisconnectFromServerButton.Location = new System.Drawing.Point(471, 408);
+            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Lucida Console", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectFromServerButton.Location = new System.Drawing.Point(400, 408);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";
-            this.DisconnectFromServerButton.Size = new System.Drawing.Size(75, 39);
+            this.DisconnectFromServerButton.Size = new System.Drawing.Size(168, 39);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
             this.DisconnectFromServerButton.UseVisualStyleBackColor = true;
@@ -210,12 +213,22 @@
             this.NoServersOnlineLabel.Size = new System.Drawing.Size(0, 23);
             this.NoServersOnlineLabel.TabIndex = 17;
             // 
+            // PrivateMessageButton
+            // 
+            this.PrivateMessageButton.Location = new System.Drawing.Point(757, 295);
+            this.PrivateMessageButton.Name = "PrivateMessageButton";
+            this.PrivateMessageButton.Size = new System.Drawing.Size(108, 39);
+            this.PrivateMessageButton.TabIndex = 18;
+            this.PrivateMessageButton.Text = "PrivateMessage";
+            this.PrivateMessageButton.UseVisualStyleBackColor = true;
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(932, 562);
+            this.Controls.Add(this.PrivateMessageButton);
             this.Controls.Add(this.NoServersOnlineLabel);
             this.Controls.Add(this.GreenLightPanel);
             this.Controls.Add(this.RedLightPanel);
@@ -262,6 +275,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label NoServersOnlineLabel;
        internal System.Windows.Forms.ListBox ChatListBox;
+        private System.Windows.Forms.Button PrivateMessageButton;
     }
 }
 

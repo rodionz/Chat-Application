@@ -39,6 +39,7 @@ namespace ServerInterface
 
 
             ServerLogic.ServerOnline(sData);
+            StartServerButton.Enabled = false;
 
          
             
@@ -74,6 +75,7 @@ namespace ServerInterface
         private void StopServerButton_Click(object sender, EventArgs e)
         {
             ServerLogic.StopListening();
+            StartServerButton.Enabled = true;
         }
 
         private void tabChat_Click(object sender, EventArgs e)
