@@ -152,7 +152,7 @@
             // RedLamp
             // 
             this.RedLamp.Image = global::ClientInterface.Properties.Resources.red;
-            this.RedLamp.Location = new System.Drawing.Point(50, 3);
+            this.RedLamp.Location = new System.Drawing.Point(77, 3);
             this.RedLamp.Name = "RedLamp";
             this.RedLamp.Size = new System.Drawing.Size(35, 34);
             this.RedLamp.TabIndex = 13;
@@ -161,7 +161,7 @@
             // GreenLamp
             // 
             this.GreenLamp.Image = global::ClientInterface.Properties.Resources.green;
-            this.GreenLamp.Location = new System.Drawing.Point(50, 3);
+            this.GreenLamp.Location = new System.Drawing.Point(77, 0);
             this.GreenLamp.Name = "GreenLamp";
             this.GreenLamp.Size = new System.Drawing.Size(35, 35);
             this.GreenLamp.TabIndex = 14;
@@ -171,19 +171,19 @@
             // 
             this.RedLightPanel.Controls.Add(this.label1);
             this.RedLightPanel.Controls.Add(this.RedLamp);
-            this.RedLightPanel.Location = new System.Drawing.Point(41, 109);
+            this.RedLightPanel.Location = new System.Drawing.Point(12, 109);
             this.RedLightPanel.Name = "RedLightPanel";
-            this.RedLightPanel.Size = new System.Drawing.Size(141, 82);
+            this.RedLightPanel.Size = new System.Drawing.Size(187, 82);
             this.RedLightPanel.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(3, 53);
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Tomato;
+            this.label1.Location = new System.Drawing.Point(23, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
+            this.label1.Size = new System.Drawing.Size(140, 18);
             this.label1.TabIndex = 14;
             this.label1.Text = "You are Offline";
             // 
@@ -191,20 +191,20 @@
             // 
             this.GreenLightPanel.Controls.Add(this.label2);
             this.GreenLightPanel.Controls.Add(this.GreenLamp);
-            this.GreenLightPanel.Location = new System.Drawing.Point(41, 214);
+            this.GreenLightPanel.Location = new System.Drawing.Point(12, 214);
             this.GreenLightPanel.Name = "GreenLightPanel";
-            this.GreenLightPanel.Size = new System.Drawing.Size(143, 82);
+            this.GreenLightPanel.Size = new System.Drawing.Size(172, 82);
             this.GreenLightPanel.TabIndex = 16;
             this.GreenLightPanel.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Location = new System.Drawing.Point(23, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 20);
+            this.label2.Size = new System.Drawing.Size(138, 18);
             this.label2.TabIndex = 15;
             this.label2.Text = "You Are Online";
             // 
