@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Net.Sockets;
 
 namespace CommonTypes
 {
@@ -17,6 +18,8 @@ namespace CommonTypes
 
     {
 
+
+        public  List<NetworkStream> StreamsofClients;
 
         public NetworkAction action;
 

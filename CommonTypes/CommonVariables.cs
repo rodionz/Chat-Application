@@ -9,7 +9,7 @@ namespace CommonTypes
 {
 
     public enum NetworkAction
-    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, None = 99 }
+    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, SendPrivatemessage = 5, None = 99 }
 
 
 
@@ -29,8 +29,7 @@ namespace CommonTypes
         public Color color
         { get; set; }
 
-        public UserData Userdat
-        { get; set; }
+      
 
         public Font font
         { get; set; }
@@ -44,9 +43,13 @@ namespace CommonTypes
         public static ServerData CommonSd
         { get; set; }
 
+        public UserData Userdat
+        { get; set; }
+
         public string Username
         { get; set; }
 
+      
 
         public List<UserData> listofUsers;
 

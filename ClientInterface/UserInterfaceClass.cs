@@ -125,5 +125,11 @@ namespace ClientInterface
         {
             UserLogic.MessageRecieved += MessageHandler;
         }
+
+        private void PrivateMessageButton_Click(object sender, EventArgs e)
+        {
+            MesData.action = NetworkAction.SendPrivatemessage;
+            UserLogic.SendMessage(MesData);
+        }
     }
 }

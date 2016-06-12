@@ -20,7 +20,7 @@ namespace ServerBI
         internal static TcpClient LocalClient
         { get; set; }
 
-
+        //public static List<ServerData> serverData = new List<ServerData>();
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
     }

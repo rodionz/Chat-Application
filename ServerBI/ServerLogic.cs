@@ -22,16 +22,16 @@ namespace ServerBI
         public static event ServerEvents ipandportvalidation;
         public static event ServerEvents connection;
         public static event ServerEvents publicmessage;
+        public static event ServerEvents privatemesage;
 
 
 
 
 
 
-        public static List<UserData> listofUsersontheserver;
-        public static TcpClient client;
-        public static NetworkStream netStream;
-        public static   List<TcpClient> Clients = new List<TcpClient>();
+        public static List<UserData> listofUsersontheserver;        
+      
+       
       
 
 
@@ -43,7 +43,8 @@ namespace ServerBI
             ServerBoolsandStreams.ServerisOnline = true;
             ipandportvalidation += ServerEventHandlers.ValidationHandler;
             connection += ServerEventHandlers.ConnectionHandler;
-            publicmessage += ServerEventHandlers.PublicMessageHandler;          
+            publicmessage += ServerEventHandlers.PublicMessageHandler;
+            privatemesage += ServerEventHandlers.PrivateMessageHandler;         
             Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
 
@@ -90,39 +91,26 @@ namespace ServerBI
 
                 {
                     case NetworkAction.IpandPortValidaton:
-
                         ipandportvalidation(netStr,mData);
-
-                        //mData.listofUsers = listofUsersontheserver;
-                        //bf.Serialize(netStr, mData);
-                        //netStr.Close();
+                        mData.action = NetworkAction.None;
                         break;
 
                     case NetworkAction.Connection:
-
                         connection(netStr,mData);
-
-
-                        //StreamsofClients.Add(netStr);
-                        //mData.Time = DateTime.Now;
-                        //mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
-                        //newuserconnected(mData);
-                        //mData.StreamIndex = StreamsofClients.Count;
-                        //listofUsersontheserver.Add(mData.Userdat);
-                        //mData.Userdat.Userid = listofUsersontheserver.Count;
-                        //bf.Serialize(netStr, mData);
-                        //netStr.Close();
+                        mData.action = NetworkAction.None;
                         break;
 
                     //Messages
                     case NetworkAction.Sendmessage:
-
                         publicmessage(netStr,mData);
-
-                        //messgesent(mData);
-                        //bf.Serialize(netStr, mData);
-                        //netStr.Close();
+                        mData.action = NetworkAction.None;
                         break;
+
+                    case NetworkAction.SendPrivatemessage:
+                        privatemesage(netStr, mData);
+                        mData.action = NetworkAction.None;
+                        break;
+                        
                 }
 
 

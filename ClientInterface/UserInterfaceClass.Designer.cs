@@ -95,8 +95,8 @@
             // 
             // sendmessageButton
             // 
-            this.sendmessageButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendmessageButton.Location = new System.Drawing.Point(650, 295);
+            this.sendmessageButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendmessageButton.Location = new System.Drawing.Point(644, 295);
             this.sendmessageButton.Name = "sendmessageButton";
             this.sendmessageButton.Size = new System.Drawing.Size(100, 39);
             this.sendmessageButton.TabIndex = 8;
@@ -106,10 +106,10 @@
             // 
             // changeFontButton
             // 
-            this.changeFontButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeFontButton.Location = new System.Drawing.Point(772, 96);
+            this.changeFontButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeFontButton.Location = new System.Drawing.Point(672, 116);
             this.changeFontButton.Name = "changeFontButton";
-            this.changeFontButton.Size = new System.Drawing.Size(109, 36);
+            this.changeFontButton.Size = new System.Drawing.Size(169, 36);
             this.changeFontButton.TabIndex = 10;
             this.changeFontButton.Text = "Change Font";
             this.changeFontButton.UseVisualStyleBackColor = true;
@@ -117,10 +117,10 @@
             // 
             // ColorChoosing
             // 
-            this.ColorChoosing.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColorChoosing.Location = new System.Drawing.Point(772, 38);
+            this.ColorChoosing.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorChoosing.Location = new System.Drawing.Point(672, 38);
             this.ColorChoosing.Name = "ColorChoosing";
-            this.ColorChoosing.Size = new System.Drawing.Size(109, 33);
+            this.ColorChoosing.Size = new System.Drawing.Size(169, 38);
             this.ColorChoosing.TabIndex = 9;
             this.ColorChoosing.Text = "ChooseYourColor";
             this.ColorChoosing.UseVisualStyleBackColor = true;
@@ -128,26 +128,29 @@
             // 
             // ConnectToserverButton
             // 
-            this.ConnectToserverButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectToserverButton.BackColor = System.Drawing.Color.LightGray;
+            this.ConnectToserverButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectToserverButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.ConnectToserverButton.Location = new System.Drawing.Point(205, 408);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
             this.ConnectToserverButton.Size = new System.Drawing.Size(159, 49);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
-            this.ConnectToserverButton.UseVisualStyleBackColor = true;
+            this.ConnectToserverButton.UseVisualStyleBackColor = false;
             this.ConnectToserverButton.Click += new System.EventHandler(this.ConnectToserverButton_Click);
             // 
             // DisconnectFromServerButton
             // 
-            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectFromServerButton.BackColor = System.Drawing.Color.LightGray;
+            this.DisconnectFromServerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.DisconnectFromServerButton.Location = new System.Drawing.Point(400, 408);
+            this.DisconnectFromServerButton.Location = new System.Drawing.Point(431, 408);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";
-            this.DisconnectFromServerButton.Size = new System.Drawing.Size(202, 49);
+            this.DisconnectFromServerButton.Size = new System.Drawing.Size(171, 49);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
-            this.DisconnectFromServerButton.UseVisualStyleBackColor = true;
+            this.DisconnectFromServerButton.UseVisualStyleBackColor = false;
             this.DisconnectFromServerButton.Click += new System.EventHandler(this.DisconnectFromServerButton_Click);
             // 
             // RedLamp
@@ -221,13 +224,14 @@
             // 
             // PrivateMessageButton
             // 
-            this.PrivateMessageButton.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrivateMessageButton.Location = new System.Drawing.Point(799, 295);
+            this.PrivateMessageButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrivateMessageButton.Location = new System.Drawing.Point(783, 295);
             this.PrivateMessageButton.Name = "PrivateMessageButton";
-            this.PrivateMessageButton.Size = new System.Drawing.Size(108, 39);
+            this.PrivateMessageButton.Size = new System.Drawing.Size(151, 39);
             this.PrivateMessageButton.TabIndex = 18;
             this.PrivateMessageButton.Text = "PrivateMessage";
             this.PrivateMessageButton.UseVisualStyleBackColor = true;
+            this.PrivateMessageButton.Click += new System.EventHandler(this.PrivateMessageButton_Click);
             // 
             // Userlabel
             // 
@@ -243,7 +247,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(932, 562);
+            this.ClientSize = new System.Drawing.Size(960, 562);
             this.Controls.Add(this.Userlabel);
             this.Controls.Add(this.PrivateMessageButton);
             this.Controls.Add(this.NoServersOnlineLabel);
