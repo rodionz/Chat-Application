@@ -8,18 +8,37 @@ using System.Net.Sockets;
 
 namespace CommonTypes
 {
-    
-  
 
+
+    [Serializable]
+    public class MyListboxItem
+    {
+        public Color ItemColor
+        { get; set; }
+
+        public string Message
+        { get; set; }
+
+        public MyListboxItem(Color col, string mes)
+        {
+            ItemColor = col;
+            Message = mes;
+
+        }
+            
+
+    }
 
 
     [Serializable]
   public  class MessageData : CommonVariables
 
     {
-       
 
-        public  List<NetworkStream> StreamsofClients;
+
+        public MyListboxItem listboxitem;
+
+        public List<NetworkStream> StreamsofClients;
 
         public NetworkAction action;
 

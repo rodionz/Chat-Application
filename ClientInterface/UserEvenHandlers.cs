@@ -53,7 +53,7 @@ namespace ClientInterface
 
                     for(int i = 0; i < mData.listofUsers.Count; i++)
                     {
-                        listView1.Items.Add(names.ToArray()[i]);
+                        AllUsersCombobox.Items.Add(names.ToArray()[i]);
 
                     }
                        

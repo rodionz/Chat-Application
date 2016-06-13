@@ -18,9 +18,10 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
-           
-            
+                      
         }
+
+        public 
         
 
         MessageData MesData = new MessageData();
@@ -91,15 +92,11 @@ namespace ClientInterface
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
-            MesData.Time = DateTime.Now;
-            //MesData.color = this.TextMessages.ForeColor;
+            MesData.Time = DateTime.Now;       
             MesData.Textmessage = this.TextMessages.Text;
-            //MesData.font = this.TextMessages.Font;
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
-            //UserLogic.MainClienFinction(MesData);
-            //UserLogic.LockalmesData = MesData;
-            //UserLogic.LolacAction = NetworkAction.Sendmessage;
+           //MesData.listboxitem = new MyListboxItem()
             TextMessages.Clear();
             UserLogic.SendMessage(MesData);
         }
@@ -131,6 +128,12 @@ namespace ClientInterface
         {
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
+        }
+
+        
+        private void AllUsersCombobox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            User1Label.Text = AllUsersCombobox.SelectedItem.ToString();
         }
     }
 }

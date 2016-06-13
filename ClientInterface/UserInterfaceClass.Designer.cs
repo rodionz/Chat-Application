@@ -31,6 +31,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.ChatListBox = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.User1Label = new System.Windows.Forms.Label();
+            this.SendtoLabel = new System.Windows.Forms.Label();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
             this.changeFontButton = new System.Windows.Forms.Button();
@@ -48,7 +50,7 @@
             this.NoServersOnlineLabel = new System.Windows.Forms.Label();
             this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.Userlabel = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.AllUsersCombobox = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -77,16 +79,38 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel6.Controls.Add(this.User1Label);
+            this.panel6.Controls.Add(this.SendtoLabel);
             this.panel6.Controls.Add(this.TextMessages);
             this.panel6.Location = new System.Drawing.Point(205, 282);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(397, 67);
+            this.panel6.Size = new System.Drawing.Size(397, 88);
             this.panel6.TabIndex = 4;
+            // 
+            // User1Label
+            // 
+            this.User1Label.AutoSize = true;
+            this.User1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.User1Label.Location = new System.Drawing.Point(69, 11);
+            this.User1Label.Name = "User1Label";
+            this.User1Label.Size = new System.Drawing.Size(23, 16);
+            this.User1Label.TabIndex = 2;
+            this.User1Label.Text = "All";
+            // 
+            // SendtoLabel
+            // 
+            this.SendtoLabel.AutoSize = true;
+            this.SendtoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendtoLabel.Location = new System.Drawing.Point(3, 8);
+            this.SendtoLabel.Name = "SendtoLabel";
+            this.SendtoLabel.Size = new System.Drawing.Size(65, 20);
+            this.SendtoLabel.TabIndex = 1;
+            this.SendtoLabel.Text = "Sent to:";
             // 
             // TextMessages
             // 
             this.TextMessages.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TextMessages.Location = new System.Drawing.Point(23, 13);
+            this.TextMessages.Location = new System.Drawing.Point(23, 36);
             this.TextMessages.Multiline = true;
             this.TextMessages.Name = "TextMessages";
             this.TextMessages.Size = new System.Drawing.Size(351, 39);
@@ -96,7 +120,7 @@
             // 
             // sendmessageButton
             // 
-            this.sendmessageButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendmessageButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendmessageButton.Location = new System.Drawing.Point(644, 295);
             this.sendmessageButton.Name = "sendmessageButton";
             this.sendmessageButton.Size = new System.Drawing.Size(100, 39);
@@ -225,7 +249,7 @@
             // 
             // PrivateMessageButton
             // 
-            this.PrivateMessageButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrivateMessageButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrivateMessageButton.Location = new System.Drawing.Point(783, 295);
             this.PrivateMessageButton.Name = "PrivateMessageButton";
             this.PrivateMessageButton.Size = new System.Drawing.Size(151, 39);
@@ -244,13 +268,18 @@
             this.Userlabel.Size = new System.Drawing.Size(0, 38);
             this.Userlabel.TabIndex = 19;
             // 
-            // listView1
+            // AllUsersCombobox
             // 
-            this.listView1.Location = new System.Drawing.Point(653, 360);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(229, 97);
-            this.listView1.TabIndex = 20;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.AllUsersCombobox.AccessibleName = "";
+            this.AllUsersCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllUsersCombobox.FormattingEnabled = true;
+            this.AllUsersCombobox.Location = new System.Drawing.Point(783, 363);
+            this.AllUsersCombobox.Name = "AllUsersCombobox";
+            this.AllUsersCombobox.Size = new System.Drawing.Size(151, 24);
+            this.AllUsersCombobox.TabIndex = 21;
+            this.AllUsersCombobox.Tag = "";
+            this.AllUsersCombobox.Text = "Choose Users:";
+            this.AllUsersCombobox.SelectionChangeCommitted += new System.EventHandler(this.AllUsersCombobox_SelectionChangeCommitted);
             // 
             // UserInterfaceClass
             // 
@@ -258,7 +287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(981, 562);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.AllUsersCombobox);
             this.Controls.Add(this.Userlabel);
             this.Controls.Add(this.PrivateMessageButton);
             this.Controls.Add(this.NoServersOnlineLabel);
@@ -310,7 +339,9 @@
        internal System.Windows.Forms.ListBox ChatListBox;
         private System.Windows.Forms.Button PrivateMessageButton;
         private System.Windows.Forms.Label Userlabel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ComboBox AllUsersCombobox;
+        private System.Windows.Forms.Label SendtoLabel;
+        private System.Windows.Forms.Label User1Label;
     }
 }
 

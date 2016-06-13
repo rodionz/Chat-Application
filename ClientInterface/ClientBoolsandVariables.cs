@@ -1,11 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using CommonTypes;
+using ClientBL;
 
 namespace ClientInterface
 {
+
+    //public class MyListboxItem
+    //{
+    //    public Color ItemColor
+    //    { get; set; } 
+
+    //    public string Message
+    //    { get; set; }
+
+
+    //}
+
+
+
    static class ClientBoolsandVariables
     {
 
