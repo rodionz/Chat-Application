@@ -29,6 +29,12 @@ namespace ClientInterface
    static class ClientBoolsandVariables
     {
 
+        internal static bool DrawnewLine
+        { get; set; }
+
+
+
+
         internal static string  uNmake;
 
 

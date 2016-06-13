@@ -39,12 +39,12 @@ namespace ClientInterface
                 //ChatListBox.ForeColor = mData.color;
                 //ChatListBox.Font = mData.font;
 
-                if (mData.action == NetworkAction.Connection)
-                {
-                    ChatListBox.Items.Add("You are online now");
-                }
+                //if (mData.action == NetworkAction.Connection)
+                //{
+                //    ChatListBox.Items.Add(mData.listboxitem);
+                //}
 
-                else if (mData.action == NetworkAction.RequestforListofUsers)
+                if (mData.action == NetworkAction.RequestforListofUsers)
 
                 {
                     var names = from n in mData.listofUsers
@@ -62,7 +62,8 @@ namespace ClientInterface
 
                 else
                 {
-                    ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: " + mData.listboxitem);
+                    //ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: ");
+                    ChatListBox.Items.Add( mData.listboxitem);
                 }
             }
 

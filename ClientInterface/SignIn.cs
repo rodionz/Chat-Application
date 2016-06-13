@@ -180,6 +180,10 @@ namespace ClientInterface
                 MessageData mData = new MessageData(new_user);
                 mData.action = NetworkAction.Connection;
                 UserLogic.LolacAction = NetworkAction.Connection;
+                string message = "You Are Online Now";
+
+                mData.listboxitem = new MyListboxItem( this.ForeColor, message, this.Font);
+
                 UserLogic.MainClienFinction(mData);
             
                

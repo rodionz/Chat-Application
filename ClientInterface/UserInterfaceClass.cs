@@ -21,7 +21,7 @@ namespace ClientInterface
                       
         }
 
-        public 
+    
         
 
         MessageData MesData = new MessageData();
@@ -30,7 +30,8 @@ namespace ClientInterface
 
         UserData uData;
 
-        
+        public static event EventHandler DrawItem;
+
 
         private void ColorChoosing_Click(object sender, EventArgs e)
         {
@@ -96,7 +97,13 @@ namespace ClientInterface
             MesData.Textmessage = this.TextMessages.Text;
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
-            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, TextMessages.Text, TextMessages.Font);
+            string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
+            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
+            //ClientBoolsandVariables.DrawnewLine = true;
+
+          
+
+
             ChatListBox.Items.Add(MesData.listboxitem);
            
             TextMessages.Clear();
@@ -144,21 +151,23 @@ namespace ClientInterface
         private void ChatListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
 
-            if (e.Index >= 0)
-            {
-                
-                MyListboxItem item = ChatListBox.Items[e.Index] as MyListboxItem;
-                if (item != null)
-                {
-                    e.Graphics.DrawString(item.Message, item.font, new SolidBrush(item.ItemColor), 0, e.Index * ChatListBox.ItemHeight);
+            //if (ClientBoolsandVariables.DrawnewLine == true)
+            //{
+                //ClientBoolsandVariables.DrawnewLine = false;
 
-                }
-
-                else
+                if (e.Index >= 0)
                 {
 
+                    MyListboxItem item = ChatListBox.Items[e.Index] as MyListboxItem;
+                    if (item != null)
+                    {
+                        e.Graphics.DrawString(item.Message, item.font, new SolidBrush(item.ItemColor), 0, e.Index * ChatListBox.ItemHeight);
+                        
+                    }
+                   
                 }
-            }
+            //}
+            
         }
     }
 }
