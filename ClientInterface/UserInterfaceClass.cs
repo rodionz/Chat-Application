@@ -104,7 +104,7 @@ namespace ClientInterface
           
 
 
-            ChatListBox.Items.Add(MesData.listboxitem);
+            //ChatListBox.Items.Add(MesData.listboxitem);
            
             TextMessages.Clear();
             UserLogic.SendMessage(MesData);

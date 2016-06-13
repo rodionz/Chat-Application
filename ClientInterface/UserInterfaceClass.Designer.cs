@@ -41,8 +41,6 @@
             this.DisconnectFromServerButton = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.RedLamp = new System.Windows.Forms.PictureBox();
-            this.GreenLamp = new System.Windows.Forms.PictureBox();
             this.RedLightPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.GreenLightPanel = new System.Windows.Forms.Panel();
@@ -51,12 +49,17 @@
             this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.Userlabel = new System.Windows.Forms.Label();
             this.AllUsersCombobox = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.GreenLamp = new System.Windows.Forms.PictureBox();
+            this.RedLamp = new System.Windows.Forms.PictureBox();
+            this.powerbylabel = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
             this.RedLightPanel.SuspendLayout();
             this.GreenLightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -180,24 +183,6 @@
             this.DisconnectFromServerButton.UseVisualStyleBackColor = false;
             this.DisconnectFromServerButton.Click += new System.EventHandler(this.DisconnectFromServerButton_Click);
             // 
-            // RedLamp
-            // 
-            this.RedLamp.Image = global::ClientInterface.Properties.Resources.red;
-            this.RedLamp.Location = new System.Drawing.Point(77, 3);
-            this.RedLamp.Name = "RedLamp";
-            this.RedLamp.Size = new System.Drawing.Size(35, 34);
-            this.RedLamp.TabIndex = 13;
-            this.RedLamp.TabStop = false;
-            // 
-            // GreenLamp
-            // 
-            this.GreenLamp.Image = global::ClientInterface.Properties.Resources.green;
-            this.GreenLamp.Location = new System.Drawing.Point(77, 0);
-            this.GreenLamp.Name = "GreenLamp";
-            this.GreenLamp.Size = new System.Drawing.Size(35, 35);
-            this.GreenLamp.TabIndex = 14;
-            this.GreenLamp.TabStop = false;
-            // 
             // RedLightPanel
             // 
             this.RedLightPanel.Controls.Add(this.label1);
@@ -283,12 +268,53 @@
             this.AllUsersCombobox.Text = "Choose Users:";
             this.AllUsersCombobox.SelectionChangeCommitted += new System.EventHandler(this.AllUsersCombobox_SelectionChangeCommitted);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_256;
+            this.pictureBox1.InitialImage = global::ClientInterface.Properties.Resources._3_White_logo_on_color1_238x75;
+            this.pictureBox1.Location = new System.Drawing.Point(383, 501);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(253, 145);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
+            // GreenLamp
+            // 
+            this.GreenLamp.Image = global::ClientInterface.Properties.Resources.green;
+            this.GreenLamp.Location = new System.Drawing.Point(77, 0);
+            this.GreenLamp.Name = "GreenLamp";
+            this.GreenLamp.Size = new System.Drawing.Size(35, 35);
+            this.GreenLamp.TabIndex = 14;
+            this.GreenLamp.TabStop = false;
+            // 
+            // RedLamp
+            // 
+            this.RedLamp.Image = global::ClientInterface.Properties.Resources.red;
+            this.RedLamp.Location = new System.Drawing.Point(77, 3);
+            this.RedLamp.Name = "RedLamp";
+            this.RedLamp.Size = new System.Drawing.Size(35, 34);
+            this.RedLamp.TabIndex = 13;
+            this.RedLamp.TabStop = false;
+            // 
+            // powerbylabel
+            // 
+            this.powerbylabel.AutoSize = true;
+            this.powerbylabel.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.powerbylabel.Location = new System.Drawing.Point(396, 518);
+            this.powerbylabel.Name = "powerbylabel";
+            this.powerbylabel.Size = new System.Drawing.Size(121, 27);
+            this.powerbylabel.TabIndex = 23;
+            this.powerbylabel.Text = "Powered by";
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(981, 562);
+            this.ClientSize = new System.Drawing.Size(999, 658);
+            this.Controls.Add(this.powerbylabel);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AllUsersCombobox);
             this.Controls.Add(this.Userlabel);
             this.Controls.Add(this.PrivateMessageButton);
@@ -308,12 +334,13 @@
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).EndInit();
             this.RedLightPanel.ResumeLayout(false);
             this.RedLightPanel.PerformLayout();
             this.GreenLightPanel.ResumeLayout(false);
             this.GreenLightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +371,8 @@
         private System.Windows.Forms.ComboBox AllUsersCombobox;
         private System.Windows.Forms.Label SendtoLabel;
         private System.Windows.Forms.Label User1Label;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label powerbylabel;
     }
 }
 

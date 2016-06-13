@@ -79,10 +79,7 @@ namespace ServerInterface
            
         }
 
-        public void PrintSomething()
-        {
-           ChatListBox.Items.Add ( "Hello World");
-        }
+        
 
        
 

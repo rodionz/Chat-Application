@@ -63,6 +63,86 @@ namespace ClientInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_Primary_logo_on_transparent_238x75 {
+            get {
+                object obj = ResourceManager.GetObject("1_Primary_logo_on_transparent_238x75", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3_White_logo_on_color1_238x75 {
+            get {
+                object obj = ResourceManager.GetObject("3_White_logo_on_color1_238x75", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3_White_logo_on_color1_256 {
+            get {
+                object obj = ResourceManager.GetObject("3_White_logo_on_color1_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3_White_logo_on_color1_2561 {
+            get {
+                object obj = ResourceManager.GetObject("3_White_logo_on_color1_2561", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3_White_logo_on_color1_2562 {
+            get {
+                object obj = ResourceManager.GetObject("3_White_logo_on_color1_2562", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4_Grayscale_logo_on_transparent_256 {
+            get {
+                object obj = ResourceManager.GetObject("4_Grayscale_logo_on_transparent_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4_Grayscale_logo_on_transparent_5000 {
+            get {
+                object obj = ResourceManager.GetObject("4_Grayscale_logo_on_transparent_5000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5_White_logo_on_black_256 {
+            get {
+                object obj = ResourceManager.GetObject("5_White_logo_on_black_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap green {
             get {
                 object obj = ResourceManager.GetObject("green", resourceCulture);
