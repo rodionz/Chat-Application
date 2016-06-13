@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonTypes;
 using ServerBI;
+using System.Diagnostics;
 
 
 namespace ServerInterface
@@ -87,6 +88,26 @@ namespace ServerInterface
         {
             ServerEventHandlers.newuserconnected += NewUserEvenHandler;
             ServerEventHandlers.messgesent += MessagesentHandler;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/rodionz");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

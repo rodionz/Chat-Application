@@ -49,14 +49,17 @@
             this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.Userlabel = new System.Windows.Forms.Label();
             this.AllUsersCombobox = new System.Windows.Forms.ComboBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GreenLamp = new System.Windows.Forms.PictureBox();
             this.RedLamp = new System.Windows.Forms.PictureBox();
-            this.powerbylabel = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.RedLightPanel.SuspendLayout();
             this.GreenLightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
@@ -268,15 +271,44 @@
             this.AllUsersCombobox.Text = "Choose Users:";
             this.AllUsersCombobox.SelectionChangeCommitted += new System.EventHandler(this.AllUsersCombobox_SelectionChangeCommitted);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(467, 647);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(98, 13);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Folow us on Github";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(456, 513);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 29);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Powered by";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ClientInterface.Properties.Resources.GitHub_Mark_32px;
+            this.pictureBox2.Location = new System.Drawing.Point(498, 677);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 37);
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DodgerBlue;
             this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_256;
-            this.pictureBox1.InitialImage = global::ClientInterface.Properties.Resources._3_White_logo_on_color1_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(383, 501);
+            this.pictureBox1.Location = new System.Drawing.Point(395, 489);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 145);
-            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.Size = new System.Drawing.Size(250, 148);
+            this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
             // GreenLamp
@@ -297,23 +329,15 @@
             this.RedLamp.TabIndex = 13;
             this.RedLamp.TabStop = false;
             // 
-            // powerbylabel
-            // 
-            this.powerbylabel.AutoSize = true;
-            this.powerbylabel.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.powerbylabel.Location = new System.Drawing.Point(396, 518);
-            this.powerbylabel.Name = "powerbylabel";
-            this.powerbylabel.Size = new System.Drawing.Size(121, 27);
-            this.powerbylabel.TabIndex = 23;
-            this.powerbylabel.Text = "Powered by";
-            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(999, 658);
-            this.Controls.Add(this.powerbylabel);
+            this.ClientSize = new System.Drawing.Size(999, 726);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AllUsersCombobox);
             this.Controls.Add(this.Userlabel);
@@ -338,6 +362,7 @@
             this.RedLightPanel.PerformLayout();
             this.GreenLightPanel.ResumeLayout(false);
             this.GreenLightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
@@ -371,8 +396,10 @@
         private System.Windows.Forms.ComboBox AllUsersCombobox;
         private System.Windows.Forms.Label SendtoLabel;
         private System.Windows.Forms.Label User1Label;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label powerbylabel;
     }
 }
 

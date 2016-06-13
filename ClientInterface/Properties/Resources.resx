@@ -127,6 +127,9 @@
   <data name="4_Grayscale_logo_on_transparent_5000" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4_Grayscale_logo_on_transparent_5000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="4_Grayscale_logo_on_transparent_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4_Grayscale_logo_on_transparent_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="3_White_logo_on_color1_238x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3_White_logo_on_color1_238x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,13 +142,13 @@
   <data name="5_White_logo_on_black_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5_White_logo_on_black_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3_White_logo_on_color1_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3_White_logo_on_color1_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1_Primary_logo_on_transparent_238x75" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1_Primary_logo_on_transparent_238x75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4_Grayscale_logo_on_transparent_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4_Grayscale_logo_on_transparent_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3_White_logo_on_color1_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3_White_logo_on_color1_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GitHub-Mark-32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GitHub-Mark-32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

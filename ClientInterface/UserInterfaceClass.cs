@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonTypes;
 using ClientBL;
+using System.Diagnostics;
 
 
 namespace ClientInterface
@@ -168,6 +169,11 @@ namespace ClientInterface
                 }
             //}
             
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/rodionz");
         }
     }
 }
