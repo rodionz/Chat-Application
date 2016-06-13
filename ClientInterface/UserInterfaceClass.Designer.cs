@@ -237,10 +237,11 @@
             // Userlabel
             // 
             this.Userlabel.AutoSize = true;
-            this.Userlabel.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Userlabel.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Userlabel.ForeColor = System.Drawing.Color.Indigo;
             this.Userlabel.Location = new System.Drawing.Point(12, 13);
             this.Userlabel.Name = "Userlabel";
-            this.Userlabel.Size = new System.Drawing.Size(0, 45);
+            this.Userlabel.Size = new System.Drawing.Size(0, 38);
             this.Userlabel.TabIndex = 19;
             // 
             // listView1

@@ -106,7 +106,7 @@ namespace ServerBI
                         mData.action = NetworkAction.None;
                         break;
 
-                    case NetworkAction.SendPrivatemessage:
+                    case NetworkAction.RequestforListofUsers:
                         privatemesage(netStr, mData);
                         mData.action = NetworkAction.None;
                         break;

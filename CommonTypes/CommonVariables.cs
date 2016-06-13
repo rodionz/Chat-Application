@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace CommonTypes
 {
 
+    [Serializable]
     public enum NetworkAction
-    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, SendPrivatemessage = 5, None = 99 }
+    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, RequestforListofUsers = 5, None = 99 }
 
 
 

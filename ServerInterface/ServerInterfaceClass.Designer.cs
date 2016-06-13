@@ -128,7 +128,6 @@
             this.tabChat.TabIndex = 2;
             this.tabChat.Text = "Chat";
             this.tabChat.UseVisualStyleBackColor = true;
-     
             // 
             // ChatListBox
             // 
@@ -192,7 +191,6 @@
             this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 15;
             this.label2.Text = "Server is Online";
-        
             // 
             // GreenLamp
             // 
@@ -222,7 +220,6 @@
             this.label1.Size = new System.Drawing.Size(137, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Server is Offline";
-         
             // 
             // RedLamp
             // 
@@ -258,10 +255,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(47, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 42);
+            this.label3.Size = new System.Drawing.Size(135, 38);
             this.label3.TabIndex = 21;
             this.label3.Text = "Server";
             // 

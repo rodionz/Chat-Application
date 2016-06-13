@@ -44,7 +44,7 @@ namespace ClientInterface
                     ChatListBox.Items.Add("You are online now");
                 }
 
-                else if (mData.action == NetworkAction.SendPrivatemessage)
+                else if (mData.action == NetworkAction.RequestforListofUsers)
 
                 {
                     var names = from n in mData.listofUsers

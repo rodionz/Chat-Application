@@ -61,9 +61,9 @@ namespace ServerBI
         {
             NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
-            mData.StreamsofClients = ServerBoolsandStreams.StreamsofClients;
+            //mData.StreamsofClients = ServerBoolsandStreams.StreamsofClients;
             mData.listofUsers = ServerLogic.listofUsersontheserver;
-            mData.action = NetworkAction.SendPrivatemessage;
+            mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(netStream, mData);
         }
 

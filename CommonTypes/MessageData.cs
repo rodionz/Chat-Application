@@ -17,7 +17,7 @@ namespace CommonTypes
   public  class MessageData : CommonVariables
 
     {
-
+       
 
         public  List<NetworkStream> StreamsofClients;
 

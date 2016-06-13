@@ -100,6 +100,7 @@ namespace ClientInterface
             //UserLogic.MainClienFinction(MesData);
             //UserLogic.LockalmesData = MesData;
             //UserLogic.LolacAction = NetworkAction.Sendmessage;
+            TextMessages.Clear();
             UserLogic.SendMessage(MesData);
         }
 
@@ -128,7 +129,7 @@ namespace ClientInterface
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {
-            MesData.action = NetworkAction.SendPrivatemessage;
+            MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
         }
     }

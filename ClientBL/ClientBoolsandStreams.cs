@@ -11,12 +11,14 @@ using System.IO;
 
 namespace ClientBL
 {
+    [Serializable]
    public class ClientBoolsandStreams
     {
 
        public static bool UserisOnline
         { get; set; }
 
+        
         internal static NetworkStream ClientStream
         { get; set; }
 
