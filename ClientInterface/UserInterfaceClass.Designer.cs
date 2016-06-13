@@ -70,11 +70,13 @@
             // 
             // ChatListBox
             // 
+            this.ChatListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ChatListBox.FormattingEnabled = true;
             this.ChatListBox.Location = new System.Drawing.Point(23, 16);
             this.ChatListBox.Name = "ChatListBox";
             this.ChatListBox.Size = new System.Drawing.Size(351, 199);
             this.ChatListBox.TabIndex = 0;
+            this.ChatListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ChatListBox_DrawItem);
             // 
             // panel6
             // 

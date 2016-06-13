@@ -19,11 +19,14 @@ namespace CommonTypes
         public string Message
         { get; set; }
 
-        public MyListboxItem(Color col, string mes)
+        public Font font
+        { get; set; }
+
+        public MyListboxItem(Color col, string mes, Font f)
         {
             ItemColor = col;
             Message = mes;
-
+            font = f;
         }
             
 

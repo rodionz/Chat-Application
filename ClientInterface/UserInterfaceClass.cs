@@ -96,7 +96,9 @@ namespace ClientInterface
             MesData.Textmessage = this.TextMessages.Text;
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
-           //MesData.listboxitem = new MyListboxItem()
+            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, TextMessages.Text, TextMessages.Font);
+            ChatListBox.Items.Add(MesData.listboxitem);
+           
             TextMessages.Clear();
             UserLogic.SendMessage(MesData);
         }
@@ -134,6 +136,29 @@ namespace ClientInterface
         private void AllUsersCombobox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             User1Label.Text = AllUsersCombobox.SelectedItem.ToString();
+        }
+
+
+
+
+        private void ChatListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
+            if (e.Index >= 0)
+            {
+                
+                MyListboxItem item = ChatListBox.Items[e.Index] as MyListboxItem;
+                if (item != null)
+                {
+                    e.Graphics.DrawString(item.Message, item.font, new SolidBrush(item.ItemColor), 0, e.Index * ChatListBox.ItemHeight);
+
+                }
+
+                else
+                {
+
+                }
+            }
         }
     }
 }
