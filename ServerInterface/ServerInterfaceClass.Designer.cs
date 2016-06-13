@@ -257,7 +257,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(452, 577);
+            this.label4.Location = new System.Drawing.Point(420, 563);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 29);
             this.label4.TabIndex = 23;
@@ -268,7 +268,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(468, 691);
+            this.linkLabel1.Location = new System.Drawing.Point(436, 691);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(98, 13);
             this.linkLabel1.TabIndex = 24;
@@ -279,7 +279,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ServerInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(499, 707);
+            this.pictureBox2.Location = new System.Drawing.Point(469, 707);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 25;
@@ -289,7 +289,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(399, 609);
+            this.pictureBox1.Location = new System.Drawing.Point(368, 609);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 79);
             this.pictureBox1.TabIndex = 22;
