@@ -113,6 +113,16 @@ namespace ClientInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4_Grayscale_logo_on_transparent_238x75 {
+            get {
+                object obj = ResourceManager.GetObject("4_Grayscale_logo_on_transparent_238x75", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _4_Grayscale_logo_on_transparent_256 {
             get {
                 object obj = ResourceManager.GetObject("4_Grayscale_logo_on_transparent_256", resourceCulture);
@@ -136,6 +146,26 @@ namespace ClientInterface.Properties {
         internal static System.Drawing.Bitmap _5_White_logo_on_black_256 {
             get {
                 object obj = ResourceManager.GetObject("5_White_logo_on_black_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForChat {
+            get {
+                object obj = ResourceManager.GetObject("ForChat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForChat_Transp {
+            get {
+                object obj = ResourceManager.GetObject("ForChat-Transp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

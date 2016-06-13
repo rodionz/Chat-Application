@@ -255,7 +255,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(456, 548);
+            this.label4.Location = new System.Drawing.Point(452, 577);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 29);
             this.label4.TabIndex = 23;
@@ -286,10 +286,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_256;
-            this.pictureBox1.Location = new System.Drawing.Point(386, 520);
+            this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
+            this.pictureBox1.Location = new System.Drawing.Point(399, 609);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 79);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);

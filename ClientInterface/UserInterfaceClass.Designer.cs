@@ -275,7 +275,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(467, 647);
+            this.linkLabel1.Location = new System.Drawing.Point(481, 643);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(98, 13);
             this.linkLabel1.TabIndex = 28;
@@ -287,7 +287,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(456, 513);
+            this.label4.Location = new System.Drawing.Point(479, 524);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 29);
             this.label4.TabIndex = 27;
@@ -296,7 +296,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ClientInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(498, 677);
+            this.pictureBox2.Location = new System.Drawing.Point(515, 668);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 29;
@@ -304,10 +304,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_256;
-            this.pictureBox1.Location = new System.Drawing.Point(395, 489);
+            this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
+            this.pictureBox1.Location = new System.Drawing.Point(431, 556);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
