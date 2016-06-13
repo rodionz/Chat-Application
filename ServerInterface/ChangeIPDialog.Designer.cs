@@ -37,10 +37,11 @@
             // 
             // ConfirmIP
             // 
-            this.ConfirmIP.Font = new System.Drawing.Font("Narkisim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.ConfirmIP.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmIP.ForeColor = System.Drawing.Color.DarkBlue;
             this.ConfirmIP.Location = new System.Drawing.Point(516, 12);
             this.ConfirmIP.Name = "ConfirmIP";
-            this.ConfirmIP.Size = new System.Drawing.Size(86, 26);
+            this.ConfirmIP.Size = new System.Drawing.Size(86, 29);
             this.ConfirmIP.TabIndex = 28;
             this.ConfirmIP.Text = "ConfirmIP";
             this.ConfirmIP.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // clearIP
             // 
             this.clearIP.BackColor = System.Drawing.Color.Red;
+            this.clearIP.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearIP.Location = new System.Drawing.Point(408, 15);
             this.clearIP.Name = "clearIP";
-            this.clearIP.Size = new System.Drawing.Size(66, 23);
+            this.clearIP.Size = new System.Drawing.Size(65, 26);
             this.clearIP.TabIndex = 27;
             this.clearIP.Text = "Clear";
             this.clearIP.UseVisualStyleBackColor = false;

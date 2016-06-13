@@ -145,11 +145,11 @@
             // 
             // StartServerButton
             // 
-            this.StartServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.StartServerButton.Location = new System.Drawing.Point(262, 431);
+            this.StartServerButton.Location = new System.Drawing.Point(248, 415);
             this.StartServerButton.Name = "StartServerButton";
-            this.StartServerButton.Size = new System.Drawing.Size(121, 43);
+            this.StartServerButton.Size = new System.Drawing.Size(101, 43);
             this.StartServerButton.TabIndex = 2;
             this.StartServerButton.Text = "Start Server";
             this.StartServerButton.UseVisualStyleBackColor = true;
@@ -157,7 +157,8 @@
             // 
             // ChangeIpButton
             // 
-            this.ChangeIpButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeIpButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeIpButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.ChangeIpButton.Location = new System.Drawing.Point(751, 71);
             this.ChangeIpButton.Name = "ChangeIpButton";
             this.ChangeIpButton.Size = new System.Drawing.Size(144, 43);
@@ -168,7 +169,8 @@
             // 
             // ChangePortButton
             // 
-            this.ChangePortButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePortButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangePortButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.ChangePortButton.Location = new System.Drawing.Point(750, 133);
             this.ChangePortButton.Name = "ChangePortButton";
             this.ChangePortButton.Size = new System.Drawing.Size(145, 43);
@@ -220,11 +222,11 @@
             // 
             // StopServerButton
             // 
-            this.StopServerButton.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.StopServerButton.Location = new System.Drawing.Point(578, 431);
+            this.StopServerButton.Location = new System.Drawing.Point(586, 415);
             this.StopServerButton.Name = "StopServerButton";
-            this.StopServerButton.Size = new System.Drawing.Size(118, 43);
+            this.StopServerButton.Size = new System.Drawing.Size(110, 44);
             this.StopServerButton.TabIndex = 19;
             this.StopServerButton.Text = "Stop Server";
             this.StopServerButton.UseVisualStyleBackColor = true;
@@ -243,11 +245,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Indigo;
             this.label3.Location = new System.Drawing.Point(47, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 38);
+            this.label3.Size = new System.Drawing.Size(123, 47);
             this.label3.TabIndex = 21;
             this.label3.Text = "Server";
             // 

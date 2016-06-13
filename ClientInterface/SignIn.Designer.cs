@@ -104,7 +104,7 @@
             // clearIP
             // 
             this.clearIP.BackColor = System.Drawing.Color.Red;
-            this.clearIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.clearIP.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearIP.Location = new System.Drawing.Point(559, 22);
             this.clearIP.Name = "clearIP";
             this.clearIP.Size = new System.Drawing.Size(75, 29);
@@ -116,7 +116,7 @@
             // UsernameClearButton
             // 
             this.UsernameClearButton.BackColor = System.Drawing.Color.Red;
-            this.UsernameClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.UsernameClearButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameClearButton.Location = new System.Drawing.Point(449, 241);
             this.UsernameClearButton.Name = "UsernameClearButton";
             this.UsernameClearButton.Size = new System.Drawing.Size(79, 32);
@@ -128,7 +128,7 @@
             // Clearportbutton
             // 
             this.Clearportbutton.BackColor = System.Drawing.Color.Red;
-            this.Clearportbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.Clearportbutton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clearportbutton.Location = new System.Drawing.Point(559, 78);
             this.Clearportbutton.Name = "Clearportbutton";
             this.Clearportbutton.Size = new System.Drawing.Size(75, 29);
@@ -139,10 +139,11 @@
             // 
             // ConfirmIPandPort
             // 
-            this.ConfirmIPandPort.Font = new System.Drawing.Font("Narkisim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.ConfirmIPandPort.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmIPandPort.ForeColor = System.Drawing.Color.DarkBlue;
             this.ConfirmIPandPort.Location = new System.Drawing.Point(296, 141);
             this.ConfirmIPandPort.Name = "ConfirmIPandPort";
-            this.ConfirmIPandPort.Size = new System.Drawing.Size(160, 26);
+            this.ConfirmIPandPort.Size = new System.Drawing.Size(160, 34);
             this.ConfirmIPandPort.TabIndex = 23;
             this.ConfirmIPandPort.Text = "Confirm IP and Port";
             this.ConfirmIPandPort.UseVisualStyleBackColor = true;
@@ -150,11 +151,11 @@
             // 
             // NicknameConfirmationButton
             // 
-            this.NicknameConfirmationButton.Font = new System.Drawing.Font("Narkisim", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameConfirmationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.NicknameConfirmationButton.Location = new System.Drawing.Point(581, 241);
             this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
-            this.NicknameConfirmationButton.Size = new System.Drawing.Size(117, 26);
+            this.NicknameConfirmationButton.Size = new System.Drawing.Size(117, 32);
             this.NicknameConfirmationButton.TabIndex = 24;
             this.NicknameConfirmationButton.Text = "Confirm UserName";
             this.NicknameConfirmationButton.UseVisualStyleBackColor = true;
@@ -162,10 +163,11 @@
             // 
             // ConnectButton
             // 
-            this.ConnectButton.Font = new System.Drawing.Font("David", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.ConnectButton.Location = new System.Drawing.Point(318, 348);
+            this.ConnectButton.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.ConnectButton.Location = new System.Drawing.Point(318, 338);
             this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(138, 32);
+            this.ConnectButton.Size = new System.Drawing.Size(138, 42);
             this.ConnectButton.TabIndex = 26;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;

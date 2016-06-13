@@ -37,10 +37,11 @@
             // 
             // PortConfirmationButtom
             // 
-            this.PortConfirmationButtom.Font = new System.Drawing.Font("Narkisim", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.PortConfirmationButtom.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortConfirmationButtom.ForeColor = System.Drawing.Color.DarkBlue;
             this.PortConfirmationButtom.Location = new System.Drawing.Point(526, 36);
             this.PortConfirmationButtom.Name = "PortConfirmationButtom";
-            this.PortConfirmationButtom.Size = new System.Drawing.Size(97, 23);
+            this.PortConfirmationButtom.Size = new System.Drawing.Size(96, 26);
             this.PortConfirmationButtom.TabIndex = 30;
             this.PortConfirmationButtom.Text = "Confirm port";
             this.PortConfirmationButtom.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // Clearportbutton
             // 
             this.Clearportbutton.BackColor = System.Drawing.Color.Red;
+            this.Clearportbutton.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clearportbutton.Location = new System.Drawing.Point(421, 36);
             this.Clearportbutton.Name = "Clearportbutton";
-            this.Clearportbutton.Size = new System.Drawing.Size(66, 23);
+            this.Clearportbutton.Size = new System.Drawing.Size(67, 26);
             this.Clearportbutton.TabIndex = 29;
             this.Clearportbutton.Text = "Clear";
             this.Clearportbutton.UseVisualStyleBackColor = false;
