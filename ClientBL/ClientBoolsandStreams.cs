@@ -11,6 +11,13 @@ using System.IO;
 
 namespace ClientBL
 {
+
+    //public class StreamAtribute : NetworkStream
+    //{
+
+    //}
+
+
     [Serializable]
    public class ClientBoolsandStreams
     {

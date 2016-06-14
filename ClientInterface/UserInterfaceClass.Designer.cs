@@ -292,6 +292,7 @@
             this.AllUsersCombobox.TabIndex = 21;
             this.AllUsersCombobox.Tag = "";
             this.AllUsersCombobox.Text = "Choose Users:";
+            this.AllUsersCombobox.Visible = false;
             this.AllUsersCombobox.SelectionChangeCommitted += new System.EventHandler(this.AllUsersCombobox_SelectionChangeCommitted);
             // 
             // linkLabel1

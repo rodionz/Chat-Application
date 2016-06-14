@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using CommonTypes;
 using System.IO;
 
+
 namespace ClientBL
 {
     public class UserLogic
@@ -85,6 +86,11 @@ namespace ClientBL
             NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();   
             stream = client.GetStream();
+            string local = client.Client.LocalEndPoint.ToString();
+            char[] separ = { ':' };
+            string [] ipandport = local.Split(separ);
+            mData.Userdat.IPadress = ipandport[0];
+            mData.Userdat.Portnumber = int.Parse (ipandport[1]);
             Bformat.Serialize(stream, mData);           
             ClientBoolsandStreams.UserisOnline = true;
 

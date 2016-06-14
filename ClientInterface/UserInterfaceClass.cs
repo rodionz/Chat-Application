@@ -130,6 +130,7 @@ namespace ClientInterface
         {
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
+            AllUsersCombobox.Visible = true;
         }
 
         
