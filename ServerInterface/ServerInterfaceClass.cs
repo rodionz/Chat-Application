@@ -25,7 +25,7 @@ namespace ServerInterface
 
 
         ServerData sData = new ServerData();
-
+        
       
 
         private void StartServerButton_Click(object sender, EventArgs e)
@@ -33,11 +33,15 @@ namespace ServerInterface
           
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
-            RedLightPanel.Visible = false;
-            GreenLightPanel.Visible = true;
-            ServerLogic.ServerOnline(sData);
-            StartServerButton.Enabled = false;
 
+            if (sData.Userdat != null)
+            {
+                RedLightPanel.Visible = false;
+                GreenLightPanel.Visible = true;
+                ServerLogic.ServerOnline(sData);
+                StartServerButton.Enabled = false;
+                StopServerButton.Enabled = true;
+            }
                  
         }
 
@@ -74,7 +78,7 @@ namespace ServerInterface
             //ServerLogic.somethinghappend += PrintSomething;
             sData.IPadress = "127.0.0.1";
             sData.Portnumber = 60000;
-          
+            StopServerButton.Enabled = true;
             ServerLogic.ServerOnline(sData);
            
            

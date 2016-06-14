@@ -240,6 +240,7 @@
             // 
             // StopServerButton
             // 
+            this.StopServerButton.Enabled = false;
             this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.StopServerButton.Location = new System.Drawing.Point(543, 361);
