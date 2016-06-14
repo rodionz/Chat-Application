@@ -36,14 +36,7 @@ namespace ClientInterface
 
             else
             {
-                //ChatListBox.ForeColor = mData.color;
-                //ChatListBox.Font = mData.font;
-
-                //if (mData.action == NetworkAction.Connection)
-                //{
-                //    ChatListBox.Items.Add(mData.listboxitem);
-                //}
-
+                
                 if (mData.action == NetworkAction.RequestforListofUsers)
 
                 {
@@ -57,12 +50,11 @@ namespace ClientInterface
 
                     }
                        
-
                 }
 
                 else
                 {
-                    //ChatListBox.Items.Add(mData.Userdat.Username.ToString() + " says: ");
+                    
                     ChatListBox.Items.Add( mData.listboxitem);
                 }
             }

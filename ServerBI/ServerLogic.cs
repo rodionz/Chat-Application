@@ -96,6 +96,7 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.Connection:
+                       
                         connection(netStr,mData);
                         mData.action = NetworkAction.None;
                         break;

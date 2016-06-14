@@ -22,8 +22,6 @@ namespace ServerInterface
 
         {
          
-                
-
             if (CurrentUsersListbox.InvokeRequired)
             {
                 LocalHandler stc = new LocalHandler(NewUserEvenHandler);
@@ -33,10 +31,9 @@ namespace ServerInterface
 
             else
             {
-                //CurrentUsersListbox.ForeColor = mymesdata.color;
-                //CurrentUsersListbox.Font = mymesdata.font;
-                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username);
-                HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString() );
+               // To change Port and IP!!!!
+                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username +" IP: " + mymesdata.Userdat.IPadress + " Port: " + mymesdata.Userdat.Portnumber);
+                HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString()  );
             }
         }
 
@@ -50,10 +47,8 @@ namespace ServerInterface
             }
 
             else
-            {
-               //ChatListBox.ForeColor = mData.color;
-               // ChatListBox.Font = mData.font;
-                ChatListBox.Items.Add( mData.Userdat.Username.ToString()+ " says: " + mData.Textmessage);
+            {          
+                ChatListBox.Items.Add( mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);
             }
         }
 

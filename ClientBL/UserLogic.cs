@@ -38,7 +38,7 @@ namespace ClientBL
         }
 
 
-
+        // The separate function fot IP and Port validation was intended, besides validating it returns list of Usernames for the folowwing username validation
 
         public static void  IPAndPortValidation(MessageData premesData)
 
@@ -110,13 +110,8 @@ namespace ClientBL
                     if (incoming.action == NetworkAction.Connection)
                         ClientBoolsandStreams.CurrentUserID = incoming.Userdat.Userid;
 
-
-                    //usernetstream.Dispose();
-
                 }
 
-
-                
 
             }
             MessageData disconnect = new MessageData();

@@ -99,14 +99,7 @@ namespace ClientInterface
             MesData.Userdat = uData;
             MesData.action = NetworkAction.Sendmessage;
             string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
-            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
-            //ClientBoolsandVariables.DrawnewLine = true;
-
-          
-
-
-            //ChatListBox.Items.Add(MesData.listboxitem);
-           
+            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);        
             TextMessages.Clear();
             UserLogic.SendMessage(MesData);
         }
@@ -115,13 +108,12 @@ namespace ClientInterface
         {
             uData.color = this.TextMessages.ForeColor;
 
-            //UserLogic.ColorwasChanged(uData);
         }
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
             uData.font = this.TextMessages.Font;
-            //UserLogic.FontwasChanged(uData);
+           
         }
 
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
@@ -152,10 +144,6 @@ namespace ClientInterface
         private void ChatListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
 
-            //if (ClientBoolsandVariables.DrawnewLine == true)
-            //{
-                //ClientBoolsandVariables.DrawnewLine = false;
-
                 if (e.Index >= 0)
                 {
 
@@ -167,8 +155,6 @@ namespace ClientInterface
                     }
                    
                 }
-            //}
-            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
