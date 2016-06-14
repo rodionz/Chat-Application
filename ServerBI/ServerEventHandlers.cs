@@ -18,7 +18,7 @@ namespace ServerBI
         public static event ServerActivity messgesent;
 
 
-        internal static void ValidationHandler(NetworkStream net, MessageData mData)
+        internal static void ValidationHandler( MessageData mData)
         {
             NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
@@ -29,7 +29,7 @@ namespace ServerBI
         }
 
 
-        internal static void ConnectionHandler(NetworkStream net, MessageData mData)
+        internal static void ConnectionHandler( MessageData mData)
         {
             NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
@@ -45,7 +45,7 @@ namespace ServerBI
 
         }
 
-        internal static void PublicMessageHandler(NetworkStream net, MessageData mData)
+        internal static void PublicMessageHandler( MessageData mData)
         {
             for (int i = 0; i < ServerBoolsandStreams.StreamsofClients.Count; i++)
             {
@@ -58,7 +58,7 @@ namespace ServerBI
 
         }
 
-        internal static void PrivateMessageHandler(NetworkStream net, MessageData mData)
+        internal static void PrivateMessageHandler( MessageData mData)
         {
             NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
@@ -67,6 +67,15 @@ namespace ServerBI
             mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(netStream, mData);
         }
+
+
+        internal static void DisconnectUser(MessageData mData)
+        {
+
+
+
+        }
+
 
 
     }

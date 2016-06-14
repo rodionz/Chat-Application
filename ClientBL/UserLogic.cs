@@ -114,7 +114,14 @@ namespace ClientBL
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
                     if (incoming.action == NetworkAction.Connection)
-                        ClientBoolsandStreams.CurrentUserID = incoming.Userdat.Userid;
+                    ClientBoolsandStreams.CurrentUserID = incoming.Userdat.Userid;
+
+                    else if(incoming.action == NetworkAction.UserDisconnection)
+
+                    {
+                        
+
+                    }
 
                 }
 

@@ -14,7 +14,7 @@ namespace ServerBI
     public class ServerLogic
     {
        
-        public delegate void ServerEvents(NetworkStream nStream, MessageData mData);
+        public delegate void ServerEvents( MessageData mData);
 
 
       
@@ -23,6 +23,7 @@ namespace ServerBI
         public static event ServerEvents connection;
         public static event ServerEvents publicmessage;
         public static event ServerEvents privatemesage;
+        public static event ServerEvents diconnectuser;
 
 
 
@@ -91,25 +92,30 @@ namespace ServerBI
 
                 {
                     case NetworkAction.IpandPortValidaton:
-                        ipandportvalidation(netStr,mData);
+                        ipandportvalidation(mData);
                         mData.action = NetworkAction.None;
                         break;
 
                     case NetworkAction.Connection:
                        
-                        connection(netStr,mData);
+                        connection(mData);
                         mData.action = NetworkAction.ConectionREsponse;
-                        publicmessage(netStr, mData);
+                        publicmessage(mData);
                         break;
 
                     //Messages
                     case NetworkAction.Sendmessage:
-                        publicmessage(netStr,mData);
+                        publicmessage(mData);
                         mData.action = NetworkAction.None;
                         break;
 
                     case NetworkAction.RequestforListofUsers:
-                        privatemesage(netStr, mData);
+                        privatemesage( mData);
+                        mData.action = NetworkAction.None;
+                        break;
+
+                    case NetworkAction.UserDisconnection:
+                        diconnectuser( mData);
                         mData.action = NetworkAction.None;
                         break;
                         
