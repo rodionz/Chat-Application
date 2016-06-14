@@ -94,14 +94,28 @@ namespace ClientInterface
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
-            MesData.Time = DateTime.Now;       
-            MesData.Textmessage = this.TextMessages.Text;
-            MesData.Userdat = uData;
-            MesData.action = NetworkAction.Sendmessage;
-            string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
-            MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);        
-            TextMessages.Clear();
-            UserLogic.SendMessage(MesData);
+            if (!ClientBoolsandVariables.PrivateMessage)
+            {
+                MesData.Time = DateTime.Now;
+                MesData.Textmessage = this.TextMessages.Text;
+                MesData.Userdat = uData;
+                MesData.action = NetworkAction.Sendmessage;
+                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
+                MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
+                TextMessages.Clear();
+                UserLogic.SendMessage(MesData);
+            }
+
+            else
+            {
+
+
+                ClientBoolsandVariables.PrivateMessage = false;
+            }
+
+
+
+           
         }
 
         private void TextMessages_FontChanged(object sender, EventArgs e)
@@ -128,6 +142,7 @@ namespace ClientInterface
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {
+            ClientBoolsandVariables.PrivateMessage = true;
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
             //AllUsersCombobox.Visible = true;

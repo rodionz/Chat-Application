@@ -21,16 +21,14 @@ namespace CommonTypes
     {
 
 
-        public  int StreamIndex
-        { get; set; }
+        //public  int StreamIndex
+        //{ get; set; }
 
         public DateTime Time
         { get; set; }
 
         public Color color
         { get; set; }
-
-      
 
         public Font font
         { get; set; }
@@ -47,8 +45,8 @@ namespace CommonTypes
         public UserData Userdat
         { get; set; }
 
-        public string Username
-        { get; set; }
+        //public string Username
+        //{ get; set; }
 
       
 

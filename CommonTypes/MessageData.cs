@@ -39,6 +39,9 @@ namespace CommonTypes
     {
 
 
+        public int StreamIndex
+        { get; set; }
+
         public MyListboxItem listboxitem;
 
         public List<NetworkStream> StreamsofClients;

@@ -14,7 +14,12 @@ namespace CommonTypes
         public  int Userid
         { get; set; }
 
-    
+        public string Username
+        { get; set; }
+
+
+
+
 
         public UserData()
         {

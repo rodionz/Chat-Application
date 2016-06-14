@@ -26,7 +26,7 @@ namespace ClientInterface
         internal static string  uNmake;
 
 
-
+        internal static bool PrivateMessage = false;
        
         internal static bool UserIsValid
         {
