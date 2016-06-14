@@ -175,5 +175,10 @@ namespace ClientInterface
         {
             Process.Start("https://github.com/rodionz");
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
