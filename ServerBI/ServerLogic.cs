@@ -98,7 +98,9 @@ namespace ServerBI
                     case NetworkAction.Connection:
                        
                         connection(netStr,mData);
-                        mData.action = NetworkAction.None;
+
+                        mData.action = NetworkAction.ConectionREsponse;
+                        publicmessage(netStr, mData);
                         break;
 
                     //Messages

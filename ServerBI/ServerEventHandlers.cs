@@ -35,12 +35,13 @@ namespace ServerBI
             BinaryFormatter bf = new BinaryFormatter();
             ServerBoolsandStreams.StreamsofClients.Add(netStream);
             mData.Time = DateTime.Now;
-            mData.Textmessage = mData.Userdat.Username.ToString() + " Connected: ";
+            mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
             mData.StreamIndex = ServerBoolsandStreams.StreamsofClients.Count;
            ServerLogic.listofUsersontheserver.Add(mData.Userdat);
             mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
-            bf.Serialize(netStream, mData);
+            mData.action = NetworkAction.ConectionREsponse;
+            //bf.Serialize(netStream, mData);
 
         }
 

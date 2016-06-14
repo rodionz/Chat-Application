@@ -52,6 +52,13 @@ namespace ClientInterface
                        
                 }
 
+                else if (mData.action == NetworkAction.ConectionREsponse)
+                {
+                    mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
+                    ChatListBox.Items.Add(mData.listboxitem);
+
+                }
+
                 else
                 {
                     
