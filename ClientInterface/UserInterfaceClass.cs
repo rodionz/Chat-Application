@@ -130,14 +130,12 @@ namespace ClientInterface
         {
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
-            AllUsersCombobox.Visible = true;
+            //AllUsersCombobox.Visible = true;
+            PrivatecheckedListBox.Visible = true;
         }
 
         
-        private void AllUsersCombobox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            User1Label.Text = AllUsersCombobox.SelectedItem.ToString();
-        }
+     
 
 
 
@@ -163,9 +161,6 @@ namespace ClientInterface
             Process.Start("https://github.com/rodionz");
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

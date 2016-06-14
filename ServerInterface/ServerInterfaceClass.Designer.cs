@@ -70,7 +70,7 @@
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tabControl2);
-            this.panel1.Location = new System.Drawing.Point(257, 12);
+            this.panel1.Location = new System.Drawing.Point(205, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(448, 326);
             this.panel1.TabIndex = 1;
@@ -147,7 +147,7 @@
             // 
             this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.StartServerButton.Location = new System.Drawing.Point(257, 360);
+            this.StartServerButton.Location = new System.Drawing.Point(205, 361);
             this.StartServerButton.Name = "StartServerButton";
             this.StartServerButton.Size = new System.Drawing.Size(101, 43);
             this.StartServerButton.TabIndex = 2;
@@ -159,7 +159,7 @@
             // 
             this.ChangeIpButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeIpButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ChangeIpButton.Location = new System.Drawing.Point(750, 18);
+            this.ChangeIpButton.Location = new System.Drawing.Point(676, 41);
             this.ChangeIpButton.Name = "ChangeIpButton";
             this.ChangeIpButton.Size = new System.Drawing.Size(144, 43);
             this.ChangeIpButton.TabIndex = 3;
@@ -171,7 +171,7 @@
             // 
             this.ChangePortButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePortButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ChangePortButton.Location = new System.Drawing.Point(750, 74);
+            this.ChangePortButton.Location = new System.Drawing.Point(676, 121);
             this.ChangePortButton.Name = "ChangePortButton";
             this.ChangePortButton.Size = new System.Drawing.Size(145, 43);
             this.ChangePortButton.TabIndex = 4;
@@ -242,7 +242,7 @@
             // 
             this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.StopServerButton.Location = new System.Drawing.Point(595, 360);
+            this.StopServerButton.Location = new System.Drawing.Point(543, 361);
             this.StopServerButton.Name = "StopServerButton";
             this.StopServerButton.Size = new System.Drawing.Size(110, 44);
             this.StopServerButton.TabIndex = 19;
@@ -252,7 +252,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(80, 431);
+            this.button1.Location = new System.Drawing.Point(24, 361);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
@@ -275,9 +275,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(444, 483);
+            this.label4.Location = new System.Drawing.Point(387, 483);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 23;
             this.label4.Text = "Powered by";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -286,7 +286,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(445, 591);
+            this.linkLabel1.Location = new System.Drawing.Point(388, 591);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(98, 13);
             this.linkLabel1.TabIndex = 24;
@@ -297,7 +297,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ServerInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(469, 607);
+            this.pictureBox2.Location = new System.Drawing.Point(412, 607);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 25;
@@ -307,7 +307,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(368, 509);
+            this.pictureBox1.Location = new System.Drawing.Point(315, 509);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 79);
             this.pictureBox1.TabIndex = 22;
@@ -319,7 +319,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1048, 650);
+            this.ClientSize = new System.Drawing.Size(927, 650);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);

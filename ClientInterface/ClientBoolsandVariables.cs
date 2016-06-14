@@ -13,24 +13,12 @@ using ClientBL;
 namespace ClientInterface
 {
 
-    //public class MyListboxItem
-    //{
-    //    public Color ItemColor
-    //    { get; set; } 
-
-    //    public string Message
-    //    { get; set; }
-
-
-    //}
-
-
 
    static class ClientBoolsandVariables
     {
 
-        internal static bool DrawnewLine
-        { get; set; }
+        //internal static bool DrawnewLine
+        //{ get; set; }
 
 
 
