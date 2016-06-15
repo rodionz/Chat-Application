@@ -71,7 +71,17 @@ namespace ServerBI
 
         internal static void DisconnectUser(MessageData mData)
         {
+            NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
+            BinaryFormatter bf = new BinaryFormatter();
 
+            for (int i = 0; i < ServerBoolsandStreams.StreamsofClients.Count; i++)
+            {
+                mData.Textmessage = mData.Userdat.Username + " was dosconnected"; 
+                netStream = ServerBoolsandStreams.StreamsofClients[i];
+                 bf = new BinaryFormatter();
+                bf.Serialize(netStream, mData);
+
+            }
 
 
         }

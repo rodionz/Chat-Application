@@ -13,17 +13,17 @@ namespace ServerBI
 {
     public class ServerLogic
     {
-       
+        public delegate void Exseptions();
         public delegate void ServerEvents( MessageData mData);
 
 
-      
-     
+        public static event Exseptions NoServer;
+
         public static event ServerEvents ipandportvalidation;
         public static event ServerEvents connection;
         public static event ServerEvents publicmessage;
         public static event ServerEvents privatemesage;
-        public static event ServerEvents diconnectuser;
+        public static event ServerEvents diconnecter;
 
 
 
@@ -45,7 +45,8 @@ namespace ServerBI
             ipandportvalidation += ServerEventHandlers.ValidationHandler;
             connection += ServerEventHandlers.ConnectionHandler;
             publicmessage += ServerEventHandlers.PublicMessageHandler;
-            privatemesage += ServerEventHandlers.PrivateMessageHandler;         
+            privatemesage += ServerEventHandlers.PrivateMessageHandler;
+            diconnecter += ServerEventHandlers.DisconnectUser;       
             Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
           }
 
@@ -53,15 +54,24 @@ namespace ServerBI
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
 
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            listofUsersontheserver = new List<UserData>();
-            serv.Start();
-
-            while (ServerBoolsandStreams.ServerisOnline)
+            try
             {
-              
-               ServerBoolsandStreams.LocalClient = serv.AcceptTcpClient();              
-                Task StarttoListen = Task.Run(() => StartListeningtoMessages());              
+                BinaryFormatter bf = new BinaryFormatter();
+                listofUsersontheserver = new List<UserData>();
+                serv.Start();
+
+                while (ServerBoolsandStreams.ServerisOnline)
+                {
+
+                    ServerBoolsandStreams.LocalClient = serv.AcceptTcpClient();
+                    Task StarttoListen = Task.Run(() => StartListeningtoMessages());
+                }
+            }
+            catch (SocketException se)
+            {
+
+                NoServer();
+
             }
         }                                                                                   
            
@@ -115,7 +125,10 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.UserDisconnection:
-                        diconnectuser( mData);
+                       
+                        listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
+                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                        diconnecter(mData);
                         mData.action = NetworkAction.None;
                         break;
                         

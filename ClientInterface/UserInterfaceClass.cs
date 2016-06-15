@@ -132,10 +132,10 @@ namespace ClientInterface
 
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
-            //ClientBoolsandStreams.UserisOnline = false;
-            //MesData.action = NetworkAction.UserDisconnection;
-            //UserLogic.SendMessage(MesData);
+            
             ClientLogicBools.UserisOnline = false;
+            GreenLightPanel.Visible = false;
+            RedLightPanel.Visible = true;
            
             
         }

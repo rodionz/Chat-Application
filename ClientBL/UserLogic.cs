@@ -27,7 +27,7 @@ namespace ClientBL
 
 
 
-
+      private static  TcpClient client = new TcpClient();
 
 
         public static void MainClienFinction(MessageData mesData)
@@ -80,8 +80,8 @@ namespace ClientBL
 
         public static void ConnecttoServer(MessageData mData)
         {
-            TcpClient client = new TcpClient();
-            MessageData returning;
+           
+            MessageData returning = new MessageData();
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientLogicBools.LocalClient = client;
             NetworkStream stream;
@@ -123,8 +123,8 @@ namespace ClientBL
             }
            
             Disconnect(incoming);
-            
-          
+            client.Close();
+
 
         }
 
