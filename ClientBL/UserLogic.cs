@@ -82,7 +82,7 @@ namespace ClientBL
             TcpClient client = new TcpClient();
             MessageData returning;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
-            ClientBoolsandStreams.LocalClient = client;
+            ClientLogicBools.LocalClient = client;
             NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();   
             stream = client.GetStream();
@@ -92,7 +92,7 @@ namespace ClientBL
             mData.Userdat.IPadress = ipandport[0];
             mData.Userdat.Portnumber = int.Parse (ipandport[1]);
             Bformat.Serialize(stream, mData);           
-            ClientBoolsandStreams.UserisOnline = true;
+            ClientLogicBools.UserisOnline = true;
 
             stream.Flush();
 
@@ -104,33 +104,26 @@ namespace ClientBL
         private static void StariListenToIncomingMessages()
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
-            MessageData incoming;
-            NetworkStream usernetstream = ClientBoolsandStreams.LocalClient.GetStream();
+            MessageData incoming = new MessageData();
+            NetworkStream usernetstream = ClientLogicBools.LocalClient.GetStream();
 
-            while (ClientBoolsandStreams.UserisOnline)
+            while (ClientLogicBools.UserisOnline)
             {
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
                     if (incoming.action == NetworkAction.Connection)
-                    ClientBoolsandStreams.CurrentUserID = incoming.Userdat.Userid;
-
-                    else if(incoming.action == NetworkAction.UserDisconnection)
-
-                    {
-                        
-
-                    }
+                    ClientLogicBools.CurrentUserID = incoming.Userdat.Userid;
 
                 }
 
 
             }
-            MessageData disconnect = new MessageData();
-            disconnect.Textmessage = "You are Disconnected";
-            listofUserfortheUsers.RemoveAt(ClientBoolsandStreams.CurrentUserID);
-            Disconnect(disconnect);
+            //MessageData disconnect = new MessageData();
+            //disconnect.Textmessage = "You are Disconnected";
+            //listofUserfortheUsers.RemoveAt(ClientLogicBools.CurrentUserID);
+            Disconnect(incoming);
             
             //////////////////
             /////////////////
@@ -140,7 +133,7 @@ namespace ClientBL
         public static void SendMessage(MessageData outcoming)
         {
             BinaryFormatter sendingformatter = new BinaryFormatter();
-           NetworkStream localstrem = ClientBoolsandStreams.LocalClient.GetStream();
+           NetworkStream localstrem = ClientLogicBools.LocalClient.GetStream();
             sendingformatter.Serialize(localstrem, outcoming);
 
         }

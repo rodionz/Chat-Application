@@ -73,6 +73,7 @@ namespace ServerInterface
         private void CreateServerButton_Click(object sender, EventArgs e)
         {
             if(ServerBools.ServerisValid)
+                
             Close();
 
             else

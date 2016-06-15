@@ -74,13 +74,13 @@ namespace ClientInterface
             registration.ShowDialog();
 
 
-            if (ClientBoolsandVariables.UserIsValid)
+            if (ClientInterfaceBool.UserIsValid)
             {
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
-                ClientBoolsandVariables.ResetBooleans();             
+                ClientInterfaceBool.ResetBooleans();             
                 uData = registration.new_user;
-                this.Userlabel.Text = ClientBoolsandVariables.uNmake;
+                this.Userlabel.Text = ClientInterfaceBool.uNmake;
             }
 
 
@@ -88,13 +88,13 @@ namespace ClientInterface
             {
 
                 NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
-                ClientBoolsandVariables.ResetBooleans();
+                ClientInterfaceBool.ResetBooleans();
 
             }
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
-            if (!ClientBoolsandVariables.PrivateMessage)
+            if (!ClientInterfaceBool.PrivateMessage)
             {
                 MesData.Time = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
@@ -110,7 +110,7 @@ namespace ClientInterface
             {
 
 
-                ClientBoolsandVariables.PrivateMessage = false;
+                ClientInterfaceBool.PrivateMessage = false;
             }
 
 
@@ -133,8 +133,11 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             //ClientBoolsandStreams.UserisOnline = false;
-            MesData.action = NetworkAction.UserDisconnection;
-            UserLogic.SendMessage(MesData);
+            //MesData.action = NetworkAction.UserDisconnection;
+            //UserLogic.SendMessage(MesData);
+            ClientLogicBools.UserisOnline = false;
+           
+            
         }
 
         private void UserInterfaceClass_Load(object sender, EventArgs e)
@@ -144,7 +147,7 @@ namespace ClientInterface
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {
-            ClientBoolsandVariables.PrivateMessage = true;
+            ClientInterfaceBool.PrivateMessage = true;
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
             //AllUsersCombobox.Visible = true;

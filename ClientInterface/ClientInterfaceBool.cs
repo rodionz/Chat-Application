@@ -14,7 +14,7 @@ namespace ClientInterface
 {
 
 
-   static class ClientBoolsandVariables
+   static class ClientInterfaceBool
     {
 
         //internal static bool DrawnewLine

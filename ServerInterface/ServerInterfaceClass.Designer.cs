@@ -361,7 +361,7 @@
         public System.Windows.Forms.TabControl tabControl2;
         public System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button StartServerButton;
+       internal System.Windows.Forms.Button StartServerButton;
         private System.Windows.Forms.Button ChangeIpButton;
         private System.Windows.Forms.Button ChangePortButton;
         private System.Windows.Forms.Panel GreenLightPanel;
@@ -370,7 +370,7 @@
         private System.Windows.Forms.PictureBox RedLamp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button StopServerButton;
+       internal System.Windows.Forms.Button StopServerButton;
         private System.Windows.Forms.TabPage tabChat;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox ChatListBox;

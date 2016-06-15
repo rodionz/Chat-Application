@@ -19,15 +19,15 @@ namespace ClientBL
 
 
     [Serializable]
-   public class ClientBoolsandStreams
+   public class ClientLogicBools
     {
 
        public static bool UserisOnline
         { get; set; }
 
         
-        internal static NetworkStream ClientStream
-        { get; set; }
+        //internal static NetworkStream ClientStream
+        //{ get; set; }
 
          internal static  TcpClient LocalClient
         { get; set; }
