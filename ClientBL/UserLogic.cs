@@ -32,7 +32,8 @@ namespace ClientBL
 
         public static void MainClienFinction(MessageData mesData)
 
-        {            
+        {
+            Disconnect += DisconnectionEventHandler;         
          Task t1 = Task.Run(() =>   ConnecttoServer(mesData));
 
         
@@ -120,13 +121,10 @@ namespace ClientBL
 
 
             }
-            //MessageData disconnect = new MessageData();
-            //disconnect.Textmessage = "You are Disconnected";
-            //listofUserfortheUsers.RemoveAt(ClientLogicBools.CurrentUserID);
+           
             Disconnect(incoming);
             
-            //////////////////
-            /////////////////
+          
 
         }
 
@@ -138,8 +136,16 @@ namespace ClientBL
 
         }
 
-        
 
+       private static void DisconnectionEventHandler(MessageData mData)
+
+        {
+            mData.action = NetworkAction.UserDisconnection;
+            BinaryFormatter disconnect = new BinaryFormatter();
+            NetworkStream local = ClientLogicBools.LocalClient.GetStream();
+            disconnect.Serialize(local, mData);
+
+        }
 
 
     }

@@ -42,15 +42,14 @@ namespace CommonTypes
         public static ServerData CommonSd
         { get; set; }
 
-        public UserData Userdat
-        { get; set; }
+       
 
         //public string Username
         //{ get; set; }
 
       
 
-        public List<UserData> listofUsers;
+       
 
         
     }

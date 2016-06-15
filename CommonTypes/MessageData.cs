@@ -22,6 +22,10 @@ namespace CommonTypes
         public Font font
         { get; set; }
 
+
+
+
+
         public MyListboxItem(Color col, string mes, Font f)
         {
             ItemColor = col;
@@ -39,6 +43,9 @@ namespace CommonTypes
     {
 
 
+        public UserData Userdat
+        { get; set; }
+
         public int StreamIndex
         { get; set; }
 
@@ -52,7 +59,8 @@ namespace CommonTypes
         public string Textmessage
         { get; set; }
 
-       
+
+        public List<UserData> listofUsers;
 
         public MessageData() { }
 
