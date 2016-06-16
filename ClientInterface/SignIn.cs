@@ -78,7 +78,7 @@ namespace ClientInterface
                 {
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
-                    ConfirmIPandPort.Visible = false;
+                    ConfirmIPandPort.Enabled = false;
                     localListofUsers = UserLogic.listofUserfortheUsers;
                     ClientInterfaceBool.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
                 }
@@ -118,6 +118,10 @@ namespace ClientInterface
             IPmaskedTextBox.Clear();
             UserNameBox.Clear();
             portTextBox.Clear();
+            WarningLabel.Text = "";
+            ConfirmIPandPort.Enabled = true;
+            NickNameConfirmationLabel.Text = "";
+            ConnectLabel.Text = "";
         }
 
      
@@ -204,6 +208,11 @@ namespace ClientInterface
             IPmaskedTextBox.Text = "127.000.000.001";
             portTextBox.Text = "60000";
             UserNameBox.Text = "Rodichek";
+        }
+
+        private void SignIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClearAll();
         }
     }
 }

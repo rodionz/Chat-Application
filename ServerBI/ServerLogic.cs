@@ -30,26 +30,32 @@ namespace ServerBI
 
 
 
-        public static List<UserData> listofUsersontheserver;        
-      
-       
-      
+        public static List<UserData> listofUsersontheserver;
 
 
- 
+
+
+
+
         public static void ServerOnline(ServerData sData)
-       
-          {
-            TcpListener server = new TcpListener( IPAddress.Parse(sData.IPadress), sData.Portnumber);
-            ServerBoolsandStreams.ServerisOnline = true;
-            ipandportvalidation += ServerEventHandlers.ValidationHandler;
-            connection += ServerEventHandlers.ConnectionHandler;
-            publicmessage += ServerEventHandlers.PublicMessageHandler;
-            privatemesage += ServerEventHandlers.PrivateMessageHandler;
-            diconnecter += ServerEventHandlers.DisconnectUser;       
-            Task t1 = Task.Run(() => StartListening(server,NetworkAction.Connection));        
-          }
 
+        {
+            try
+            {
+                TcpListener server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
+                ServerBoolsandStreams.ServerisOnline = true;
+                ipandportvalidation += ServerEventHandlers.ValidationHandler;
+                connection += ServerEventHandlers.ConnectionHandler;
+                publicmessage += ServerEventHandlers.PublicMessageHandler;
+                privatemesage += ServerEventHandlers.PrivateMessageHandler;
+                diconnecter += ServerEventHandlers.DisconnectUser;
+                Task t1 = Task.Run(() => StartListening(server, NetworkAction.Connection));
+            }
+            catch
+            {
+                NoServer();
+            }
+            }
 
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
 
@@ -126,8 +132,8 @@ namespace ServerBI
 
                     case NetworkAction.UserDisconnection:
                        
-                        listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
-                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                        listofUsersontheserver.RemoveAt(mData.Userdat.Userid- 1);
+                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid - 1);
                         diconnecter(mData);
                         mData.action = NetworkAction.None;
                         break;

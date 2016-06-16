@@ -90,6 +90,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 75);
             this.panel6.TabIndex = 4;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // TextMessages
             // 
@@ -229,10 +230,11 @@
             this.NoServersOnlineLabel.AutoSize = true;
             this.NoServersOnlineLabel.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoServersOnlineLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.NoServersOnlineLabel.Location = new System.Drawing.Point(44, 465);
+            this.NoServersOnlineLabel.Location = new System.Drawing.Point(34, 419);
             this.NoServersOnlineLabel.Name = "NoServersOnlineLabel";
-            this.NoServersOnlineLabel.Size = new System.Drawing.Size(0, 23);
+            this.NoServersOnlineLabel.Size = new System.Drawing.Size(43, 23);
             this.NoServersOnlineLabel.TabIndex = 17;
+            this.NoServersOnlineLabel.Text = "test";
             // 
             // PrivateMessageButton
             // 
@@ -275,9 +277,10 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(357, 465);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Powered by";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox2
             // 
@@ -296,6 +299,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // PrivatecheckedListBox
             // 
@@ -305,6 +309,7 @@
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
+            this.PrivatecheckedListBox.SelectedIndexChanged += new System.EventHandler(this.PrivatecheckedListBox_SelectedIndexChanged);
             // 
             // UserInterfaceClass
             // 

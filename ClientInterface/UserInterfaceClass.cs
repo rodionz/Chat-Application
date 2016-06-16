@@ -19,6 +19,7 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
+            DisconnectFromServerButton.Enabled = false;
                       
         }
 
@@ -81,6 +82,8 @@ namespace ClientInterface
                 ClientInterfaceBool.ResetBooleans();             
                 uData = registration.new_user;
                 this.Userlabel.Text = ClientInterfaceBool.uNmake;
+                ConnectToserverButton.Enabled = false;
+                DisconnectFromServerButton.Enabled = true;
             }
 
 
@@ -181,6 +184,24 @@ namespace ClientInterface
             Process.Start("https://github.com/rodionz");
         }
 
-      
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PrivatecheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

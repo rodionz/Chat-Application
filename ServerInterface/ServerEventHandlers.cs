@@ -48,8 +48,33 @@ namespace ServerInterface
 
             else
             {          
-                ChatListBox.Items.Add( mData.Userdat.Username.ToString() + " says: " + mData.Textmessage);
+                ChatListBox.Items.Add(  " Server says: " + mData.Textmessage);
             }
+        }
+
+        public  void NoServerHandler()
+        {
+            RedLightPanel.Visible = true;
+            GreenLightPanel.Visible = false;
+            StartServerButton.Enabled = true;
+            StopServerButton.Enabled = false;
+        }
+        public void DisconnectUserHAndler(MessageData mData)
+        {
+            if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
+            {
+                LocalHandler messent = new LocalHandler(MessagesentHandler);
+                this.Invoke(messent, new object[] { mData });
+            }
+
+
+            else
+            {
+                CurrentUsersListbox.Items.Remove(mData.Userdat.Userid - 1);
+                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected");
+
+            }
+            
         }
 
 }

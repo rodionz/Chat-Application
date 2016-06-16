@@ -20,8 +20,7 @@ namespace ServerInterface
         {
             InitializeComponent();
             StopServerButton.Enabled = false;
-           
-
+            ServerLogic.NoServer += NoServerHandler;
         }
 
 
@@ -31,11 +30,12 @@ namespace ServerInterface
 
         private void StartServerButton_Click(object sender, EventArgs e)
         {
-          
+            ServerLogic.diconnecter += DisconnectUserHAndler;
+            ServerLogic.NoServer += NoServerHandler;
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
 
-            if (sData != null)
+            if (sData.IPadress != null && sData.Portnumber != 0)
             {
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
@@ -74,6 +74,8 @@ namespace ServerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ServerLogic.diconnecter += DisconnectUserHAndler;
+            ServerLogic.NoServer += NoServerHandler;
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
             //ServerLogic.somethinghappend += PrintSomething;
@@ -115,5 +117,9 @@ namespace ServerInterface
         {
 
         }
+
+
+
+
     }
 }
