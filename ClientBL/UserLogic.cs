@@ -80,13 +80,14 @@ namespace ClientBL
 
         public static void ConnecttoServer(MessageData mData)
         {
-           
+            TcpClient client = new TcpClient();
             MessageData returning = new MessageData();
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientLogicBools.LocalClient = client;
             NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();   
             stream = client.GetStream();
+
             string local = client.Client.LocalEndPoint.ToString();
             char[] separ = { ':' };
             string [] ipandport = local.Split(separ);

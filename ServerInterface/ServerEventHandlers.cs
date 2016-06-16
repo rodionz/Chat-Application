@@ -63,15 +63,15 @@ namespace ServerInterface
         {
             if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
             {
-                LocalHandler messent = new LocalHandler(MessagesentHandler);
+                LocalHandler messent = new LocalHandler(DisconnectUserHAndler);
                 this.Invoke(messent, new object[] { mData });
             }
 
 
             else
             {
-                CurrentUsersListbox.Items.Remove(mData.Userdat.Userid - 1);
-                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected");
+                CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongDateString());
 
             }
             

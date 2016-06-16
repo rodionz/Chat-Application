@@ -139,6 +139,7 @@ namespace ClientInterface
             ClientLogicBools.UserisOnline = false;
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
+            ConnectToserverButton.Enabled = true;
            
             
         }
@@ -184,24 +185,8 @@ namespace ClientInterface
             Process.Start("https://github.com/rodionz");
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
+      
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PrivatecheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
     }
 }

@@ -90,7 +90,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 75);
             this.panel6.TabIndex = 4;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+         
             // 
             // TextMessages
             // 
@@ -280,7 +280,7 @@
             this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Powered by";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+       
             // 
             // pictureBox2
             // 
@@ -299,7 +299,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+
             // 
             // PrivatecheckedListBox
             // 
@@ -309,7 +309,7 @@
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
-            this.PrivatecheckedListBox.SelectedIndexChanged += new System.EventHandler(this.PrivatecheckedListBox_SelectedIndexChanged);
+           
             // 
             // UserInterfaceClass
             // 

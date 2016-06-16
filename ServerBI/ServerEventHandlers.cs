@@ -39,7 +39,7 @@ namespace ServerBI
             newuserconnected(mData);
             mData.StreamIndex = ServerBoolsandStreams.StreamsofClients.Count;
            ServerLogic.listofUsersontheserver.Add(mData.Userdat);
-            mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
+            //mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
             mData.action = NetworkAction.ConectionREsponse;
             //bf.Serialize(netStream, mData);
 

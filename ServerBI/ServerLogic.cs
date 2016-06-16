@@ -30,7 +30,7 @@ namespace ServerBI
 
 
 
-        public static List<UserData> listofUsersontheserver;
+        public static List<UserData> listofUsersontheserver = new List<UserData>();
 
 
 
@@ -63,7 +63,7 @@ namespace ServerBI
             try
             {
                 BinaryFormatter bf = new BinaryFormatter();
-                listofUsersontheserver = new List<UserData>();
+                //listofUsersontheserver = new List<UserData>();
                 serv.Start();
 
                 while (ServerBoolsandStreams.ServerisOnline)
@@ -132,8 +132,8 @@ namespace ServerBI
 
                     case NetworkAction.UserDisconnection:
                        
-                        listofUsersontheserver.RemoveAt(mData.Userdat.Userid- 1);
-                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid - 1);
+                        listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
+                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid);
                         diconnecter(mData);
                         mData.action = NetworkAction.None;
                         break;
