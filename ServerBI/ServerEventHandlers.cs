@@ -76,7 +76,7 @@ namespace ServerBI
 
             for (int i = 0; i < ServerBoolsandStreams.StreamsofClients.Count; i++)
             {
-                mData.Textmessage = mData.Userdat.Username + " was disconnected"; 
+                mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
                 netStream = ServerBoolsandStreams.StreamsofClients[i];
                  bf = new BinaryFormatter();
                 bf.Serialize(netStream, mData);

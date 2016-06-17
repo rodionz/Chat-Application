@@ -90,7 +90,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 75);
             this.panel6.TabIndex = 4;
-         
             // 
             // TextMessages
             // 
@@ -105,6 +104,7 @@
             // 
             // sendmessageButton
             // 
+            this.sendmessageButton.Enabled = false;
             this.sendmessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendmessageButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.sendmessageButton.Location = new System.Drawing.Point(651, 271);
@@ -117,6 +117,7 @@
             // 
             // changeFontButton
             // 
+            this.changeFontButton.Enabled = false;
             this.changeFontButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeFontButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.changeFontButton.Location = new System.Drawing.Point(672, 116);
@@ -129,6 +130,7 @@
             // 
             // ColorChoosing
             // 
+            this.ColorChoosing.Enabled = false;
             this.ColorChoosing.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorChoosing.ForeColor = System.Drawing.Color.MediumBlue;
             this.ColorChoosing.Location = new System.Drawing.Point(672, 38);
@@ -238,6 +240,7 @@
             // 
             // PrivateMessageButton
             // 
+            this.PrivateMessageButton.Enabled = false;
             this.PrivateMessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrivateMessageButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.PrivateMessageButton.Location = new System.Drawing.Point(783, 271);
@@ -277,10 +280,9 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(357, 465);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Powered by";
-       
             // 
             // pictureBox2
             // 
@@ -299,7 +301,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
-
             // 
             // PrivatecheckedListBox
             // 
@@ -309,7 +310,6 @@
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
-           
             // 
             // UserInterfaceClass
             // 

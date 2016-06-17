@@ -77,6 +77,11 @@ namespace ClientInterface
 
             if (ClientInterfaceBool.UserIsValid)
             {
+                sendmessageButton.Enabled = true;
+                PrivateMessageButton.Enabled = true;
+                ColorChoosing.Enabled = true;
+                changeFontButton.Enabled = true;
+
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
                 ClientInterfaceBool.ResetBooleans();             
@@ -84,6 +89,7 @@ namespace ClientInterface
                 this.Userlabel.Text = ClientInterfaceBool.uNmake;
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
+                NoServersOnlineLabel.Text = "";
             }
 
 
@@ -141,8 +147,14 @@ namespace ClientInterface
             RedLightPanel.Visible = true;
             ConnectToserverButton.Enabled = true;
             DisconnectFromServerButton.Enabled = false;
-           
-            
+
+            sendmessageButton.Enabled = false;
+            PrivateMessageButton.Enabled = false;
+
+            ColorChoosing.Enabled = false;
+            changeFontButton.Enabled = false;
+
+
         }
 
         private void UserInterfaceClass_Load(object sender, EventArgs e)

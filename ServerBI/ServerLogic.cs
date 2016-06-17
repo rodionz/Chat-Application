@@ -98,6 +98,8 @@ namespace ServerBI
 
             {
 
+           
+
                 while (!netStr.DataAvailable)
                 {
 
@@ -136,6 +138,9 @@ namespace ServerBI
                         ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid);
                         diconnecter(mData);
                         mData.action = NetworkAction.None;
+                        break;
+
+                    case NetworkAction.None:
                         break;
                         
                 }
