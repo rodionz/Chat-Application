@@ -140,6 +140,7 @@ namespace ClientInterface
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
             ConnectToserverButton.Enabled = true;
+            DisconnectFromServerButton.Enabled = false;
            
             
         }

@@ -47,8 +47,15 @@ namespace ServerInterface
             }
 
             else
-            {          
-                ChatListBox.Items.Add(  " Server says: " + mData.Textmessage);
+            {     if (mData.action == NetworkAction.ConectionREsponse)
+                {
+                    ChatListBox.Items.Add("Server says: " + mData.Textmessage);
+                }
+
+                else
+                {
+                    ChatListBox.Items.Add(mData.Userdat.Username + " says: " + mData.Textmessage);
+                }
             }
         }
 
@@ -71,7 +78,7 @@ namespace ServerInterface
             else
             {
                 CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
-                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongDateString());
+                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());
 
             }
             
