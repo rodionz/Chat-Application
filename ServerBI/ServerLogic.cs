@@ -103,12 +103,7 @@ namespace ServerBI
 
                 while (!netStr.DataAvailable)
                 {
-                    for (int i = 0; i < ServerProps.ListofTCPClients.Count; i++)
-                    {
-                        //ServerProps.ListofTCPClients[i].
-                        
-                       
-                    }
+                   
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
@@ -123,7 +118,7 @@ namespace ServerBI
                     case NetworkAction.Connection:
 
 
-                        ServerProps.ListofTCPClients.Add(ServerProps.LocalClient);
+                      
 
 
 
@@ -147,7 +142,7 @@ namespace ServerBI
                        
                         listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
                         ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
-                        ServerProps.ListofTCPClients.RemoveAt(mData.Userdat.Userid);
+                       
                         diconnecter(mData);
                         mData.action = NetworkAction.None;
                         break;

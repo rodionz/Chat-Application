@@ -134,10 +134,20 @@ namespace ClientBL
 
         public static void SendMessage(MessageData outcoming)
         {
-            BinaryFormatter sendingformatter = new BinaryFormatter();
-           NetworkStream localstrem = ClientProps.LocalClient.GetStream();
-            sendingformatter.Serialize(localstrem, outcoming);
 
+            try
+            {
+                BinaryFormatter sendingformatter = new BinaryFormatter();
+                NetworkStream localstrem = ClientProps.LocalClient.GetStream();
+                sendingformatter.Serialize(localstrem, outcoming);
+            }
+
+            catch(IOException)
+
+            {
+
+                NoServer();
+            }
         }
 
 

@@ -25,6 +25,6 @@ namespace ServerBI
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
 
-        public static List<TcpClient> ListofTCPClients = new List<TcpClient>();
+       
     }
 }

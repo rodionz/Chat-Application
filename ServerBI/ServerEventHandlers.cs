@@ -49,10 +49,17 @@ namespace ServerBI
         {
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
-                NetworkStream netStream = ServerProps.StreamsofClients[i];
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(netStream, mData);
-               
+                try
+                {
+                    NetworkStream netStream = ServerProps.StreamsofClients[i];
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(netStream, mData);
+                }
+                catch(IOException)
+                {
+                    NetworkStream netStream = ServerProps.StreamsofClients[i];
+                    UserData uData = ServerLogic.listofUsersontheserver[i];
+                }
             }
             messgesent(mData);
 
