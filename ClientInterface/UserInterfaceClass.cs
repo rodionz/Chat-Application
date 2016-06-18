@@ -144,18 +144,15 @@ namespace ClientInterface
             
             ClientLogicBools.UserisOnline = false;
 
-
+           
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
             ConnectToserverButton.Enabled = true;
             DisconnectFromServerButton.Enabled = false;
-
             sendmessageButton.Enabled = false;
             PrivateMessageButton.Enabled = false;
-
             ColorChoosing.Enabled = false;
             changeFontButton.Enabled = false;
-
 
         }
 
