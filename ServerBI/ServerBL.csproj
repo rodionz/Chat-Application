@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServerBoolsandStreams.cs" />
+    <Compile Include="ServerProps.cs" />
     <Compile Include="ServerEventHandlers.cs" />
     <Compile Include="ServerLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

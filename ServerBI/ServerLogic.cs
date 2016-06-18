@@ -43,7 +43,7 @@ namespace ServerBI
             try
             {
                 TcpListener server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
-                ServerBoolsandStreams.ServerisOnline = true;
+                ServerProps.ServerisOnline = true;
                 ipandportvalidation += ServerEventHandlers.ValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
@@ -66,10 +66,11 @@ namespace ServerBI
                 //listofUsersontheserver = new List<UserData>();
                 serv.Start();
 
-                while (ServerBoolsandStreams.ServerisOnline)
+                while (ServerProps.ServerisOnline)
                 {
 
-                    ServerBoolsandStreams.LocalClient = serv.AcceptTcpClient();
+                    ServerProps.LocalClient = serv.AcceptTcpClient();
+                  
                     Task StarttoListen = Task.Run(() => StartListeningtoMessages());
                 }
             }
@@ -92,9 +93,9 @@ namespace ServerBI
         private static void StartListeningtoMessages()
         {
             BinaryFormatter bf = new BinaryFormatter();
-            NetworkStream netStr = ServerBoolsandStreams.LocalClient.GetStream();
+            NetworkStream netStr = ServerProps.LocalClient.GetStream();
 
-            while (ServerBoolsandStreams.ServerisOnline)
+            while (ServerProps.ServerisOnline)
 
             {
 
@@ -102,7 +103,12 @@ namespace ServerBI
 
                 while (!netStr.DataAvailable)
                 {
-
+                    for (int i = 0; i < ServerProps.ListofTCPClients.Count; i++)
+                    {
+                        //ServerProps.ListofTCPClients[i].
+                        
+                       
+                    }
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
@@ -115,7 +121,12 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.Connection:
-                       
+
+
+                        ServerProps.ListofTCPClients.Add(ServerProps.LocalClient);
+
+
+
                         connection(mData);
                         mData.action = NetworkAction.ConectionREsponse;
                         publicmessage(mData);
@@ -135,12 +146,14 @@ namespace ServerBI
                     case NetworkAction.UserDisconnection:
                        
                         listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
-                        ServerBoolsandStreams.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                        ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                        ServerProps.ListofTCPClients.RemoveAt(mData.Userdat.Userid);
                         diconnecter(mData);
                         mData.action = NetworkAction.None;
                         break;
 
                     case NetworkAction.None:
+                       
                         break;
                         
                 }

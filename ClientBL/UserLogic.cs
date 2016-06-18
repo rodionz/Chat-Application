@@ -83,7 +83,7 @@ namespace ClientBL
             TcpClient client = new TcpClient();
             MessageData returning = new MessageData();
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
-            ClientLogicBools.LocalClient = client;
+            ClientProps.LocalClient = client;
             NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();   
             stream = client.GetStream();
@@ -97,7 +97,7 @@ namespace ClientBL
 
 
             Bformat.Serialize(stream, mData);           
-            ClientLogicBools.UserisOnline = true;
+            ClientProps.UserisOnline = true;
 
             stream.Flush();
 
@@ -110,16 +110,16 @@ namespace ClientBL
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
             MessageData incoming = new MessageData();
-            NetworkStream usernetstream = ClientLogicBools.LocalClient.GetStream();
+            NetworkStream usernetstream = ClientProps.LocalClient.GetStream();
 
-            while (ClientLogicBools.UserisOnline)
+            while (ClientProps.UserisOnline)
             {
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
                     if (incoming.action == NetworkAction.Connection)
-                    ClientLogicBools.CurrentUserID = incoming.Userdat.Userid;
+                    ClientProps.CurrentUserID = incoming.Userdat.Userid;
 
                 }
 
@@ -135,7 +135,7 @@ namespace ClientBL
         public static void SendMessage(MessageData outcoming)
         {
             BinaryFormatter sendingformatter = new BinaryFormatter();
-           NetworkStream localstrem = ClientLogicBools.LocalClient.GetStream();
+           NetworkStream localstrem = ClientProps.LocalClient.GetStream();
             sendingformatter.Serialize(localstrem, outcoming);
 
         }
@@ -146,7 +146,7 @@ namespace ClientBL
         {
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
-            NetworkStream local = ClientLogicBools.LocalClient.GetStream();
+            NetworkStream local = ClientProps.LocalClient.GetStream();
             disconnect.Serialize(local, mData);
 
         }

@@ -142,7 +142,7 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             
-            ClientLogicBools.UserisOnline = false;
+            ClientProps.UserisOnline = false;
 
            
             GreenLightPanel.Visible = false;
@@ -199,11 +199,11 @@ namespace ClientInterface
 
         private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(ClientLogicBools.UserisOnline)
+            if(ClientProps.UserisOnline)
             {
 
-                MessageBox.Show("Please disconnect you client, before closing", "Client is connected", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                e.Cancel = true;
+                //MessageBox.Show("Please disconnect you client, before closing", "Client is connected", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //e.Cancel = true;
 
             }
         }

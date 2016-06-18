@@ -19,7 +19,7 @@ namespace ClientBL
 
 
     [Serializable]
-   public class ClientLogicBools
+   public class ClientProps
     {
 
        public static bool UserisOnline

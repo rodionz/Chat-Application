@@ -10,7 +10,7 @@ using CommonTypes;
 using System.IO;
 namespace ServerBI
 {
-  public  class ServerBoolsandStreams
+  public  class ServerProps
     {
          internal static bool  ServerisOnline
         { get; set; }
@@ -24,5 +24,7 @@ namespace ServerBI
         //public static List<ServerData> serverData = new List<ServerData>();
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
+
+        public static List<TcpClient> ListofTCPClients = new List<TcpClient>();
     }
 }

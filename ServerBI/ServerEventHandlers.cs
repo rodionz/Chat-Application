@@ -20,7 +20,7 @@ namespace ServerBI
 
         internal static void ValidationHandler( MessageData mData)
         {
-            NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
+            NetworkStream netStream = ServerProps.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
             mData.listofUsers = ServerLogic.listofUsersontheserver;
             bf.Serialize(netStream, mData);
@@ -31,13 +31,13 @@ namespace ServerBI
 
         internal static void ConnectionHandler( MessageData mData)
         {
-            NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
+            NetworkStream netStream = ServerProps.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
-            ServerBoolsandStreams.StreamsofClients.Add(netStream);
+            ServerProps.StreamsofClients.Add(netStream);
             mData.Time = DateTime.Now;
             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
-            mData.StreamIndex = ServerBoolsandStreams.StreamsofClients.Count;
+            mData.StreamIndex = ServerProps.StreamsofClients.Count;
            ServerLogic.listofUsersontheserver.Add(mData.Userdat);
             //mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
             mData.action = NetworkAction.ConectionREsponse;
@@ -47,9 +47,9 @@ namespace ServerBI
 
         internal static void PublicMessageHandler( MessageData mData)
         {
-            for (int i = 0; i < ServerBoolsandStreams.StreamsofClients.Count; i++)
+            for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
-                NetworkStream netStream = ServerBoolsandStreams.StreamsofClients[i];
+                NetworkStream netStream = ServerProps.StreamsofClients[i];
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(netStream, mData);
                
@@ -60,7 +60,7 @@ namespace ServerBI
 
         internal static void PrivateMessageHandler( MessageData mData)
         {
-            NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
+            NetworkStream netStream = ServerProps.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
             //mData.StreamsofClients = ServerBoolsandStreams.StreamsofClients;
             mData.listofUsers = ServerLogic.listofUsersontheserver;
@@ -71,13 +71,13 @@ namespace ServerBI
 
         internal static void DisconnectUser(MessageData mData)
         {
-            NetworkStream netStream = ServerBoolsandStreams.LocalClient.GetStream();
+            NetworkStream netStream = ServerProps.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
 
-            for (int i = 0; i < ServerBoolsandStreams.StreamsofClients.Count; i++)
+            for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
                 mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
-                netStream = ServerBoolsandStreams.StreamsofClients[i];
+                netStream = ServerProps.StreamsofClients[i];
                  bf = new BinaryFormatter();
                 bf.Serialize(netStream, mData);
 
