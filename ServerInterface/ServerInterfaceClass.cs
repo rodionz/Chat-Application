@@ -103,23 +103,11 @@ namespace ServerInterface
             Process.Start("https://github.com/rodionz");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+     
+
+        private void ServerInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
     }
 }

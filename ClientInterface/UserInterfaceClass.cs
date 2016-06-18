@@ -143,6 +143,8 @@ namespace ClientInterface
         {
             
             ClientLogicBools.UserisOnline = false;
+
+
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
             ConnectToserverButton.Enabled = true;
@@ -198,8 +200,15 @@ namespace ClientInterface
             Process.Start("https://github.com/rodionz");
         }
 
-      
+        private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(ClientLogicBools.UserisOnline)
+            {
 
-     
+                MessageBox.Show("Please disconnect you client, before closing", "Client is connected", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                e.Cancel = true;
+
+            }
+        }
     }
 }

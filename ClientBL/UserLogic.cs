@@ -93,6 +93,9 @@ namespace ClientBL
             string [] ipandport = local.Split(separ);
             mData.Userdat.IPadress = ipandport[0];
             mData.Userdat.Portnumber = int.Parse (ipandport[1]);
+
+
+
             Bformat.Serialize(stream, mData);           
             ClientLogicBools.UserisOnline = true;
 

@@ -336,6 +336,7 @@
             this.Controls.Add(this.panel5);
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserInterfaceClass_FormClosing);
             this.Load += new System.EventHandler(this.UserInterfaceClass_Load);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
