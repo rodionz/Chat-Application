@@ -21,6 +21,17 @@ namespace ServerBI
         { get; set; }
 
 
+        internal static NetworkStream LocalStream
+
+        {
+            get
+            {
+                return LocalClient.GetStream();
+
+            }
+        }
+
+
         //public static List<ServerData> serverData = new List<ServerData>();
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();

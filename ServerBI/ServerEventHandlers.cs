@@ -16,6 +16,7 @@ namespace ServerBI
         public delegate void ServerActivity(MessageData delMesData);
         public static event ServerActivity newuserconnected;
         public static event ServerActivity messgesent;
+        public static event ServerActivity unexpectedDisconnection;
 
 
         internal static void ValidationHandler( MessageData mData)
@@ -31,6 +32,9 @@ namespace ServerBI
 
         internal static void ConnectionHandler( MessageData mData)
         {
+
+            unexpectedDisconnection += DisconnectUser;
+
             NetworkStream netStream = ServerProps.LocalClient.GetStream();
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(netStream);
@@ -58,7 +62,16 @@ namespace ServerBI
                 catch(IOException)
                 {
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
-                    UserData uData = ServerLogic.listofUsersontheserver[i];
+                    UserData lostuser = ServerLogic.listofUsersontheserver[i];
+                    mData.Userdat = lostuser;
+
+                    ServerLogic.listofUsersontheserver.RemoveAt((mData.Userdat.Userid));
+                    ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+
+                    unexpectedDisconnection(mData);
+
+
+
                 }
             }
             messgesent(mData);

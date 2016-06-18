@@ -20,7 +20,7 @@ namespace ServerInterface
         {
             InitializeComponent();
             StopServerButton.Enabled = false;
-            ServerLogic.NoServer += NoServerHandler;
+            //ServerLogic.NoServer += NoServerHandler;
         }
 
 
