@@ -19,25 +19,25 @@ namespace ServerBI
         //public static event ServerActivity unexpectedDisconnection;
 
 
-        internal static void ValidationHandler( MessageData mData)
+        internal static void ValidationHandler( MessageData mData, NetworkStream nStr)
         {
-            NetworkStream netStream = mData.Userdat.userStream;
+            //NetworkStream nStr = mData.Userdat.userStream;
             BinaryFormatter bf = new BinaryFormatter();
             mData.listofUsers = ServerProps.listofUsersontheserver;
-            bf.Serialize(netStream, mData);
+            bf.Serialize(nStr, mData);
 
 
         }
 
 
-        internal static void ConnectionHandler( MessageData mData)
+        internal static void ConnectionHandler( MessageData mData, NetworkStream nStr)
         {
 
             //unexpectedDisconnection += DisconnectUser;
 
-            NetworkStream netStream = mData.Userdat.userStream;
+            //NetworkStream netStream = mData.Userdat.userStream;
             BinaryFormatter bf = new BinaryFormatter();
-            ServerProps.StreamsofClients.Add(netStream);
+            ServerProps.StreamsofClients.Add(nStr);
             mData.Time = DateTime.Now;
             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
@@ -49,7 +49,7 @@ namespace ServerBI
 
         }
 
-        internal static void PublicMessageHandler( MessageData mData)
+        internal static void PublicMessageHandler( MessageData mData, NetworkStream nstr)
         {
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
@@ -57,7 +57,7 @@ namespace ServerBI
                 {
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
                     BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(netStream, mData);
+                    bf.Serialize(nstr, mData);
                 }
                 catch(IOException)
                 {
@@ -91,26 +91,26 @@ namespace ServerBI
 
         }
 
-        internal static void PrivateMessageHandler( MessageData mData)
+        internal static void PrivateMessageHandler( MessageData mData, NetworkStream nStr)
         {
-            NetworkStream netStream = mData.Userdat.userStream;
+            //NetworkStream netStream = mData.Userdat.userStream;
             BinaryFormatter bf = new BinaryFormatter();
             //mData.StreamsofClients = ServerBoolsandStreams.StreamsofClients;
             mData.listofUsers = ServerProps.listofUsersontheserver;
             mData.action = NetworkAction.RequestforListofUsers;
-            bf.Serialize(netStream, mData);
+            bf.Serialize(nStr, mData);
         }
 
 
-        internal static void DisconnectUser(MessageData mData)
+        internal static void DisconnectUser(MessageData mData, NetworkStream nStr)
         {
-            NetworkStream netStream = mData.Userdat.userStream;
+            //NetworkStream netStream = mData.Userdat.userStream;
             BinaryFormatter bf = new BinaryFormatter();
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
                 mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
-                netStream = ServerProps.StreamsofClients[i];
+               NetworkStream netStream = ServerProps.StreamsofClients[i];
                  bf = new BinaryFormatter();
                 bf.Serialize(netStream, mData);
 

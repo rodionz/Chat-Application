@@ -21,7 +21,7 @@ namespace CommonTypes
         { get; set; }
 
 
-        public NetworkStream userStream;
+        //public NetworkStream userStream;
 
 
         public UserData()
