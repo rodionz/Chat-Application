@@ -32,7 +32,8 @@ namespace ServerInterface
             else
             {
                // To change Port and IP!!!!
-                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username +" IP: " + mymesdata.Userdat.IPadress + " Port: " + mymesdata.Userdat.Portnumber);
+                CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username +" IP: " + mymesdata.Userdat.IPadress + 
+                    " Port: " + mymesdata.Userdat.Portnumber);
                 HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString()  );
             }
         }
@@ -40,7 +41,7 @@ namespace ServerInterface
     
         public void MessagesentHandler(MessageData mData)
         {
-            if(ChatListBox.InvokeRequired)
+            if(ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
                 LocalHandler messent = new LocalHandler(MessagesentHandler);
                 this.Invoke(messent, new object[] { mData });
@@ -55,24 +56,9 @@ namespace ServerInterface
             // In the case of unexpected user disconnection
                    else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                    ChatListBox.Items.Add("Server says: " + mData.Textmessage);
-
-                    if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
-                    {
-                        LocalHandler messent = new LocalHandler(DisconnectUserHAndler);
-                        this.Invoke(messent, new object[] { mData });
-                    }
-
-                    else
-                    {
-                        CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
-                        HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());
-
-                    }
-
-
-
-
+                    ChatListBox.Items.Add("Server says: " + mData.Textmessage);            
+                    CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                    HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());                                 
                 }
 
                 else
