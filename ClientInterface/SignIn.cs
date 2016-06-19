@@ -80,7 +80,7 @@ namespace ClientInterface
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
                     ConfirmIPandPort.Enabled = false;
                     localListofUsers = UserLogic.listofUserfortheUsers;
-                    ClientInterfaceBool.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
+                    ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
                 }
 
                 else
@@ -130,7 +130,7 @@ namespace ClientInterface
         {
 
 
-            if (ClientInterfaceBool.IPandPortconfirmed)
+            if (ClientInterfaceProps.IPandPortconfirmed)
             {
 
 
@@ -147,8 +147,8 @@ namespace ClientInterface
                         NickNameConfirmationLabel.ForeColor = Color.Lime;
                         NickNameConfirmationLabel.Text = "UserName confirmed";
                         userNIckname = UserNameBox.Text;
-                        ClientInterfaceBool.uNmake = userNIckname;
-                        ClientInterfaceBool.NicnameConfirmed = true;
+                        ClientInterfaceProps.uNmake = userNIckname;
+                        ClientInterfaceProps.NicnameConfirmed = true;
                     }
 
                     else
@@ -177,7 +177,7 @@ namespace ClientInterface
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
-            if (ClientInterfaceBool.UserIsValid)
+            if (ClientInterfaceProps.UserIsValid)
             {
 
                 new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);

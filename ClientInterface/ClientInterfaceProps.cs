@@ -14,14 +14,9 @@ namespace ClientInterface
 {
 
 
-   static class ClientInterfaceBool
+   static class ClientInterfaceProps
+
     {
-
-        //internal static bool DrawnewLine
-        //{ get; set; }
-
-
-
 
         internal static string  uNmake;
 
@@ -48,7 +43,12 @@ namespace ClientInterface
        
         internal static bool IPandPortconfirmed
         { get; set; }
-     
+
+
+
+        internal static bool MessageIsPrivate;
+
+
 
 
        private static bool PortValid;
@@ -68,11 +68,6 @@ namespace ClientInterface
 
         }
 
-
-
-
-
-
         public static void ResetBooleans()
 
         {
@@ -83,25 +78,5 @@ namespace ClientInterface
             PortValid = false;
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

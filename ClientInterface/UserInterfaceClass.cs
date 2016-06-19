@@ -75,7 +75,7 @@ namespace ClientInterface
             registration.ShowDialog();
 
 
-            if (ClientInterfaceBool.UserIsValid)
+            if (ClientInterfaceProps.UserIsValid)
             {
                 sendmessageButton.Enabled = true;
                 PrivateMessageButton.Enabled = true;
@@ -84,9 +84,9 @@ namespace ClientInterface
 
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
-                ClientInterfaceBool.ResetBooleans();             
+                ClientInterfaceProps.ResetBooleans();             
                 uData = registration.new_user;
-                this.Userlabel.Text = ClientInterfaceBool.uNmake;
+                this.Userlabel.Text = ClientInterfaceProps.uNmake;
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
                 NoServersOnlineLabel.Text = "";
@@ -97,13 +97,13 @@ namespace ClientInterface
             {
 
                 NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
-                ClientInterfaceBool.ResetBooleans();
+                ClientInterfaceProps.ResetBooleans();
 
             }
         }
         private void sendmessageButton_Click(object sender, EventArgs e)
         {
-            if (!ClientInterfaceBool.PrivateMessage)
+            if (!ClientInterfaceProps.PrivateMessage)
             {
                 MesData.Time = DateTime.Now;
                 MesData.Textmessage = this.TextMessages.Text;
@@ -119,7 +119,7 @@ namespace ClientInterface
             {
 
 
-                ClientInterfaceBool.PrivateMessage = false;
+                ClientInterfaceProps.PrivateMessage = false;
             }
 
 
@@ -163,11 +163,11 @@ namespace ClientInterface
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {
-            ClientInterfaceBool.PrivateMessage = true;
+            ClientInterfaceProps.PrivateMessage = true;
             MesData.action = NetworkAction.RequestforListofUsers;
             UserLogic.SendMessage(MesData);
-            //AllUsersCombobox.Visible = true;
             PrivatecheckedListBox.Visible = true;
+            ClientInterfaceProps.MessageIsPrivate = true;
         }
 
         
