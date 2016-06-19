@@ -68,6 +68,8 @@ namespace ServerBI
 
                     ServerLogic.listofUsersontheserver.RemoveAt((mData.Userdat.Userid));
                     ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                  
+                    
 
                     mData.action = NetworkAction.UserDisconnection;
                     //unexpectedDisconnection(mData);
@@ -79,6 +81,8 @@ namespace ServerBI
                         bf.Serialize(netStream, mData);
 
                     }
+
+                    ServerLogic.IdsAdjuction();
 
 
                 }

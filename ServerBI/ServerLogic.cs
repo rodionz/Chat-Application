@@ -134,9 +134,12 @@ namespace ServerBI
                        
                         listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
                         ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                        
                        
                         diconnecter(mData);
+
                         mData.action = NetworkAction.None;
+                        IdsAdjuction();
                         break;
 
                     case NetworkAction.None:
@@ -155,6 +158,17 @@ namespace ServerBI
         {
 
 
+        }
+
+
+        internal static void IdsAdjuction()
+        {
+            for(int i = 0; i < listofUsersontheserver.Count; i++)
+            {
+                listofUsersontheserver[i].Userid = i;
+                //ServerProps.StreamsofClients[i].
+
+            }
         }
 
     }
