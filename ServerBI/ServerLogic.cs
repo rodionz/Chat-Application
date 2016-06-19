@@ -85,10 +85,7 @@ namespace ServerBI
 
              
                    
-                  
-
-
-
+                
 
         private static void StartListeningtoMessages()
         {
@@ -117,12 +114,6 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.Connection:
-
-
-                      
-
-
-
                         connection(mData);
                         mData.action = NetworkAction.ConectionREsponse;
                         publicmessage(mData);
@@ -156,19 +147,6 @@ namespace ServerBI
 
 
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
 

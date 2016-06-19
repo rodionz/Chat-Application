@@ -52,6 +52,29 @@ namespace ServerInterface
                     ChatListBox.Items.Add("Server says: " + mData.Textmessage);
                 }
 
+            // In the case of unexpected user disconnection
+                   else if (mData.action == NetworkAction.UserDisconnection)
+                {
+                    ChatListBox.Items.Add("Server says: " + mData.Textmessage);
+
+                    if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
+                    {
+                        LocalHandler messent = new LocalHandler(DisconnectUserHAndler);
+                        this.Invoke(messent, new object[] { mData });
+                    }
+
+                    else
+                    {
+                        CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                        HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());
+
+                    }
+
+
+
+
+                }
+
                 else
                 {
                     ChatListBox.Items.Add(mData.Userdat.Username + " says: " + mData.Textmessage);
@@ -68,7 +91,7 @@ namespace ServerInterface
         }
 
 
-
+        // For usual user disconnection
         public void DisconnectUserHAndler(MessageData mData)
         {
             if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)

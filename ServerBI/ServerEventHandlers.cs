@@ -69,6 +69,7 @@ namespace ServerBI
                     ServerLogic.listofUsersontheserver.RemoveAt((mData.Userdat.Userid));
                     ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
 
+                    mData.action = NetworkAction.UserDisconnection;
                     //unexpectedDisconnection(mData);
                     for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
                     {
