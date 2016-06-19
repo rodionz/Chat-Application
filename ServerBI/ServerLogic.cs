@@ -30,7 +30,7 @@ namespace ServerBI
 
 
 
-        public static List<UserData> listofUsersontheserver = new List<UserData>();
+        
 
 
 
@@ -105,6 +105,8 @@ namespace ServerBI
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
+                mData.Userdat
+
                 switch (mData.action)
 
                 {
@@ -131,8 +133,8 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.UserDisconnection:
-                       
-                        listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
+
+                        ServerProps.listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
                         ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
                         
                        
@@ -163,9 +165,9 @@ namespace ServerBI
 
         internal static void IdsAdjuction()
         {
-            for(int i = 0; i < listofUsersontheserver.Count; i++)
+            for(int i = 0; i < ServerProps.listofUsersontheserver.Count; i++)
             {
-                listofUsersontheserver[i].Userid = i;
+                ServerProps.listofUsersontheserver[i].Userid = i;
                 //ServerProps.StreamsofClients[i].
 
             }

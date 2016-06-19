@@ -23,7 +23,7 @@ namespace ServerBI
 
         internal static NetworkStream LocalStream;
 
-     
+        public static List<UserData> listofUsersontheserver = new List<UserData>();
 
 
         //public static List<ServerData> serverData = new List<ServerData>();
