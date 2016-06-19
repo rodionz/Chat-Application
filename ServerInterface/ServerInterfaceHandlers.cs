@@ -66,6 +66,9 @@ namespace ServerInterface
             StartServerButton.Enabled = true;
             StopServerButton.Enabled = false;
         }
+
+
+
         public void DisconnectUserHAndler(MessageData mData)
         {
             if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)

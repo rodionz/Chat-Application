@@ -94,6 +94,7 @@ namespace ServerBI
         {
             BinaryFormatter bf = new BinaryFormatter();
             NetworkStream netStr = ServerProps.LocalClient.GetStream();
+            ServerProps.LocalStream = netStr;
 
             while (ServerProps.ServerisOnline)
 
