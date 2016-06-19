@@ -20,10 +20,6 @@ namespace CommonTypes
 
     {
 
-
-        //public  int StreamIndex
-        //{ get; set; }
-
         public DateTime Time
         { get; set; }
 
@@ -41,16 +37,6 @@ namespace CommonTypes
 
         public static ServerData CommonSd
         { get; set; }
-
-       
-
-        //public string Username
-        //{ get; set; }
-
       
-
-       
-
-        
     }
 }

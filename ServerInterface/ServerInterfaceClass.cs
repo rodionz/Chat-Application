@@ -30,7 +30,7 @@ namespace ServerInterface
 
         private void StartServerButton_Click(object sender, EventArgs e)
         {
-            ServerLogic.InterfaceDisconnecter += DisconnectUserHAndler;
+           ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
@@ -74,7 +74,7 @@ namespace ServerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ServerLogic.InterfaceDisconnecter += DisconnectUserHAndler;
+            ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;

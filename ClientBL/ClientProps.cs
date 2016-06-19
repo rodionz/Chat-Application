@@ -12,23 +12,17 @@ using System.IO;
 namespace ClientBL
 {
 
-    //public class StreamAtribute : NetworkStream
-    //{
-
-    //}
-
-
+ 
     [Serializable]
    public class ClientProps
     {
 
-       public static bool UserisOnline
+        public static List<UserData> listofUserfortheUsers;
+
+        public static bool UserisOnline
         { get; set; }
 
-        
-        //internal static NetworkStream ClientStream
-        //{ get; set; }
-
+              
          internal static  TcpClient LocalClient
         { get; set; }
 

@@ -79,7 +79,7 @@ namespace ClientInterface
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
                     ConfirmIPandPort.Enabled = false;
-                    localListofUsers = UserLogic.listofUserfortheUsers;
+                    localListofUsers = ClientProps.listofUserfortheUsers;
                     ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
                 }
 

@@ -20,7 +20,7 @@ namespace ClientBL
         public static event Exseptions NoServer;
         public static event ClientBLEvents MessageRecieved;
         public static event ClientBLEvents Disconnect;
-        public static List<UserData> listofUserfortheUsers;
+      
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
@@ -58,7 +58,7 @@ namespace ClientBL
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
                     returning = (MessageData)bFormat.Deserialize(netStream);
-                    listofUserfortheUsers = returning.listofUsers;
+                 ClientProps.listofUserfortheUsers = returning.listofUsers;
                     GlobalValidIpandPort = true;
                 }
             }

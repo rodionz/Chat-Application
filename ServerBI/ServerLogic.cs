@@ -14,7 +14,7 @@ namespace ServerBI
     public class ServerLogic
     {
         public delegate void Exseptions();
-        public delegate void Server_ClientEvents(MessageData mData);
+       
         public delegate void ServerEvents( MessageData mData, NetworkStream nStream);
 
 
@@ -24,17 +24,7 @@ namespace ServerBI
         public static event ServerEvents connection;
         public static event ServerEvents publicmessage;
         public static event ServerEvents privatemesage;
-       
-        public static event Server_ClientEvents InterfaceDisconnecter;
-
         public static event ServerEvents dicsconnecter;
-
-
-
-
-
-
-
 
 
 
@@ -71,12 +61,8 @@ namespace ServerBI
                 serv.Start();
 
                 while (ServerProps.ServerisOnline)
-                {
-
-                    //ServerProps.LocalClient = serv.AcceptTcpClient();
-
-                    TcpClient client = serv.AcceptTcpClient();
-                  
+                {                  
+                    TcpClient client = serv.AcceptTcpClient();                
                     Task StarttoListen = Task.Run(() => StartListeningtoMessages(client));
                 }
             }
@@ -87,24 +73,16 @@ namespace ServerBI
 
             }
         }                                                                                   
-           
-
-             
-                   
-                
+                                                       
 
         private static void StartListeningtoMessages(TcpClient localient)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            NetworkStream netStr = localient.GetStream();
-         
-
+            NetworkStream netStr = localient.GetStream();        
             while (ServerProps.ServerisOnline)
 
             {
-
-           
-
+          
                 while (!netStr.DataAvailable)
                 {
                    
@@ -142,12 +120,9 @@ namespace ServerBI
 
                         ServerProps.listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
                         ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
-
-
                         dicsconnecter(mData, netStr);
-
                         mData.action = NetworkAction.None;
-                        IdsAdjuction();
+                        //IdsAdjuction();
                         break;
 
                     case NetworkAction.None:

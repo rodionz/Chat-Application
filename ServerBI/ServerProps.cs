@@ -17,11 +17,9 @@ namespace ServerBI
 
 
 
-        internal static TcpClient LocalClient
-        { get; set; }
+      
 
-
-        internal static NetworkStream LocalStream;
+        //internal static NetworkStream LocalStream;
 
         public static List<UserData> listofUsersontheserver = new List<UserData>();
 
