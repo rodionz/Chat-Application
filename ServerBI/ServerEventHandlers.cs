@@ -32,11 +32,12 @@ namespace ServerBI
         {          
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(nStr);
+            ServerProps.listofUsersontheserver.Add(mData.Userdat);
             mData.Time = DateTime.Now;
             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
             mData.StreamIndex = ServerProps.StreamsofClients.Count;
-            ServerProps.listofUsersontheserver.Add(mData.Userdat);
+            
             //mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
             mData.action = NetworkAction.ConectionREsponse;
             //bf.Serialize(netStream, mData);
