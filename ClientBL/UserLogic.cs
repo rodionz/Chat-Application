@@ -84,9 +84,12 @@ namespace ClientBL
             MessageData returning = new MessageData();
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientProps.LocalClient = client;
-            NetworkStream stream;
-            BinaryFormatter Bformat = new BinaryFormatter();   
-            stream = client.GetStream();
+            //NetworkStream stream;
+            BinaryFormatter Bformat = new BinaryFormatter();
+            //stream = client.GetStream();
+
+            NetworkStream stream = client.GetStream();
+            ClientProps.clientStream = stream;
 
             string local = client.Client.LocalEndPoint.ToString();
             char[] separ = { ':' };
@@ -110,7 +113,7 @@ namespace ClientBL
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
             MessageData incoming = new MessageData();
-            NetworkStream usernetstream = ClientProps.LocalClient.GetStream();
+            NetworkStream usernetstream = ClientProps.clientStream;
 
             while (ClientProps.UserisOnline)
             {
@@ -138,7 +141,7 @@ namespace ClientBL
             try
             {
                 BinaryFormatter sendingformatter = new BinaryFormatter();
-                NetworkStream localstrem = ClientProps.LocalClient.GetStream();
+                NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
             }
 
@@ -156,7 +159,7 @@ namespace ClientBL
         {
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
-            NetworkStream local = ClientProps.LocalClient.GetStream();
+            NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);
 
         }
