@@ -22,7 +22,7 @@ namespace ServerInterface
 
         {
          
-            if (CurrentUsersListbox.InvokeRequired)
+            if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
             {
                 LocalHandler stc = new LocalHandler(NewUserEvenHandler);
                 this.Invoke(stc, new object[] { mymesdata });

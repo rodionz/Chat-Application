@@ -121,16 +121,16 @@ namespace ClientBL
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
-                    //if (incoming.action == NetworkAction.Connection)
-                    //ClientProps.CurrentUserID = incoming.Userdat.Userid;
+                    if (incoming.action == NetworkAction.Connection)
+                        ClientProps.CurrentUserID = incoming.Userdat.Userid;
 
                 }
 
 
             }
            
-            Disconnect(incoming);
-            client.Close();
+           
+          
 
 
         }
@@ -140,6 +140,7 @@ namespace ClientBL
 
             try
             {
+                outcoming.Userdat.Userid = ClientProps.CurrentUserID;
                 BinaryFormatter sendingformatter = new BinaryFormatter();
                 NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
@@ -148,19 +149,20 @@ namespace ClientBL
             catch(IOException)
 
             {
-
                 NoServer();
             }
         }
 
 
-       private static void DisconnectionEventHandler(MessageData mData)
+       public static void DisconnectionEventHandler(MessageData mData)
 
         {
+            mData.Userdat.Userid = ClientProps.CurrentUserID;
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);
+            client.Close();
 
         }
 
