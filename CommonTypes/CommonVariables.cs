@@ -37,6 +37,8 @@ namespace CommonTypes
 
         public static ServerData CommonSd
         { get; set; }
+
+
       
     }
 }

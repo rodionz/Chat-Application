@@ -29,14 +29,17 @@ namespace ServerBI
 
 
         internal static void ConnectionHandler( MessageData mData, NetworkStream nStr)
-        {          
+        {
+            mData.Userdat.Userid = ServerProps.StreamsofClients.Count;
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(nStr);
             ServerProps.listofUsersontheserver.Add(mData.Userdat);
+            
+
             mData.Time = DateTime.Now;
             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
-            mData.StreamIndex = ServerProps.StreamsofClients.Count;
+            //mData.StreamIndex = ServerProps.StreamsofClients.Count;
             
             //mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
             mData.action = NetworkAction.ConectionREsponse;
@@ -52,7 +55,7 @@ namespace ServerBI
                 {
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
                     BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(nstr, mData);
+                    bf.Serialize(netStream, mData);
                 }
 
                 // Unexpected Client Disconnection
@@ -102,10 +105,10 @@ namespace ServerBI
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
-                mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
+               mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
                NetworkStream netStream = ServerProps.StreamsofClients[i];
-                 bf = new BinaryFormatter();
-                bf.Serialize(netStream, mData);
+               bf = new BinaryFormatter();
+               bf.Serialize(netStream, mData);
             }
         }
 

@@ -46,12 +46,11 @@ namespace CommonTypes
         public UserData Userdat
         { get; set; }
 
-        public int StreamIndex
-        { get; set; }
+        
 
         public MyListboxItem listboxitem;
 
-        public List<NetworkStream> StreamsofClients;
+        //public List<NetworkStream> StreamsofClients;
 
         public NetworkAction action;
 

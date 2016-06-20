@@ -21,7 +21,7 @@ namespace ClientInterface
             UserLogic.NoServer += UserInterfaceClass.NoServerHandler;
         }
 
-        ServerData Sdata;
+        
         IPAddress clientIpAddr;
         public event EventHandler newUsercreated;
          internal   UserData new_user;
@@ -180,7 +180,7 @@ namespace ClientInterface
             if (ClientInterfaceProps.UserIsValid)
             {
 
-                new_user = new UserData(localListofUsers.Count, IPasString, userPort, userNIckname);
+                new_user = new UserData( IPasString, userPort, userNIckname);
                 MessageData mData = new MessageData(new_user);
                 mData.action = NetworkAction.Connection;
                 UserLogic.LolacAction = NetworkAction.Connection;

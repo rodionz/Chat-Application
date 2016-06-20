@@ -38,9 +38,9 @@ namespace CommonTypes
             this.Portnumber = PORT;
         }
 
-        public UserData(int idofuser, string IP, int Port, string Username)
+        public UserData( string IP, int Port, string Username)
         {
-            this.Userid = idofuser;
+            
             this.IPadress = IP;
             this.Portnumber = Port;
             this.Username = Username;

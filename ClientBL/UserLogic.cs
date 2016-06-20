@@ -118,8 +118,8 @@ namespace ClientBL
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
-                    if (incoming.action == NetworkAction.Connection)
-                    ClientProps.CurrentUserID = incoming.Userdat.Userid;
+                    //if (incoming.action == NetworkAction.Connection)
+                    //ClientProps.CurrentUserID = incoming.Userdat.Userid;
 
                 }
 

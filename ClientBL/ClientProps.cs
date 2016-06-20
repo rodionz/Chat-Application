@@ -26,7 +26,7 @@ namespace ClientBL
          internal static  TcpClient LocalClient
         { get; set; }
 
-        internal static int CurrentUserID
-        { get; set; }
+        //internal static int CurrentUserID
+        //{ get; set; }
     }
 }
