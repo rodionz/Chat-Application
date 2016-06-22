@@ -57,13 +57,14 @@ namespace ClientInterface
                 {
                     mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
                     ChatListBox.Items.Add(mData.listboxitem);
+                    ChatrichTextBox.
 
                 }
 
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                    mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
-                    ChatListBox.Items.Add(mData.listboxitem);
+                    //mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
+                    ChatListBox.Items.Add  ("Server says: "  +  mData.Textmessage);
 
                 }
 

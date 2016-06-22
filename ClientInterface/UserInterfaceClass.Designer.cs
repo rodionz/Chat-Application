@@ -53,6 +53,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PrivatecheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.ChatrichTextBox = new System.Windows.Forms.RichTextBox();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.RedLightPanel.SuspendLayout();
@@ -311,12 +312,21 @@
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
             // 
+            // ChatrichTextBox
+            // 
+            this.ChatrichTextBox.Location = new System.Drawing.Point(881, 35);
+            this.ChatrichTextBox.Name = "ChatrichTextBox";
+            this.ChatrichTextBox.Size = new System.Drawing.Size(217, 212);
+            this.ChatrichTextBox.TabIndex = 31;
+            this.ChatrichTextBox.Text = "";
+            // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(949, 623);
+            this.ClientSize = new System.Drawing.Size(1132, 623);
+            this.Controls.Add(this.ChatrichTextBox);
             this.Controls.Add(this.PrivatecheckedListBox);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel1);
@@ -381,6 +391,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox PrivatecheckedListBox;
+        private System.Windows.Forms.RichTextBox ChatrichTextBox;
     }
 }
 
