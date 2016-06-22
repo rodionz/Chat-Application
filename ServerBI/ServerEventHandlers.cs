@@ -48,9 +48,15 @@ namespace ServerBI
             {
                 try
                 {
-                    NetworkStream netStream = ServerProps.StreamsofClients[i];
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(netStream, mData);
+                    if (ServerProps.StreamsofClients[i] != null)
+                    {
+                        NetworkStream netStream = ServerProps.StreamsofClients[i];
+                        BinaryFormatter bf = new BinaryFormatter();
+                        bf.Serialize(netStream, mData);
+                    }
+
+                    else
+                        continue;
                 }
 
                 // Unexpected Client Disconnection
@@ -72,12 +78,12 @@ namespace ServerBI
                             netStream = ServerProps.StreamsofClients[x];
                             bf.Serialize(netStream, mData);
                         }
-                    }
 
-                    
-
-
+                        else
+                            continue;
+                    }                    
                 }
+                continue;
             }
             messgesent(mData);
 
@@ -109,6 +115,8 @@ namespace ServerBI
                     bf = new BinaryFormatter();
                     bf.Serialize(netStream, mData);
                 }
+                else
+                    continue;
             }
 
             InterfaceDisconnecter(mData);

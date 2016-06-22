@@ -122,7 +122,6 @@ namespace ServerBI
                         ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
                         dicsconnecter(mData, netStr);
                         mData.action = NetworkAction.None;
-
                         break;
 
                     case NetworkAction.None:

@@ -121,7 +121,9 @@ namespace ClientBL
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
                     MessageRecieved(incoming);
-                    if (incoming.action == NetworkAction.Connection)
+
+                    // Here is a bug
+                    if (incoming.action == NetworkAction.ConectionREsponse)
                         ClientProps.CurrentUserID = incoming.Userdat.Userid;
 
                 }
