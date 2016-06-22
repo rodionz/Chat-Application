@@ -14,17 +14,9 @@ namespace ServerBI
     {
          internal static bool  ServerisOnline
         { get; set; }
-
-
-
       
 
-        //internal static NetworkStream LocalStream;
-
         public static List<UserData> listofUsersontheserver = new List<UserData>();
-
-
-        //public static List<ServerData> serverData = new List<ServerData>();
 
         public static List<NetworkStream> StreamsofClients = new List<NetworkStream>();
 
