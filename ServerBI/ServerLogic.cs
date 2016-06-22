@@ -56,8 +56,7 @@ namespace ServerBI
         {
             try
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                //listofUsersontheserver = new List<UserData>();
+                BinaryFormatter bf = new BinaryFormatter();               
                 serv.Start();
 
                 while (ServerProps.ServerisOnline)
@@ -78,7 +77,8 @@ namespace ServerBI
         private static void StartListeningtoMessages(TcpClient localient)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            NetworkStream netStr = localient.GetStream();        
+            NetworkStream netStr = localient.GetStream();   
+                 
             while (ServerProps.ServerisOnline)
 
             {
@@ -117,9 +117,9 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.UserDisconnection:
-                        //IdsAdjuction();
-                        ServerProps.listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
-                        ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
+                       
+                        ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
+                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
                         dicsconnecter(mData, netStr);
                         mData.action = NetworkAction.None;
 
@@ -144,15 +144,7 @@ namespace ServerBI
         }
 
 
-        internal static void IdsAdjuction()
-        {
-            for(int i = 0; i < ServerProps.listofUsersontheserver.Count; i++)
-            {
-                ServerProps.listofUsersontheserver[i].Userid = i;
-                //ServerProps.StreamsofClients[i].
-
-            }
-        }
+        
 
     }
 }

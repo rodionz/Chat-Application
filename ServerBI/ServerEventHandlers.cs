@@ -67,12 +67,14 @@ namespace ServerBI
                     for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
                     {
                         mData.Textmessage = mData.Userdat.Username + " was disconnected";
-                        netStream = ServerProps.StreamsofClients[x];                     
-                        bf.Serialize(netStream, mData);
-
+                        if (ServerProps.StreamsofClients[x] != null)
+                        {
+                            netStream = ServerProps.StreamsofClients[x];
+                            bf.Serialize(netStream, mData);
+                        }
                     }
 
-                    //ServerLogic.IdsAdjuction();
+                    
 
 
                 }
@@ -99,10 +101,14 @@ namespace ServerBI
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
-               mData.Textmessage =  mData.Userdat.Username + " was disconnected"; 
-               NetworkStream netStream = ServerProps.StreamsofClients[i];
-               bf = new BinaryFormatter();
-               bf.Serialize(netStream, mData);
+               mData.Textmessage =  mData.Userdat.Username + " was disconnected";
+
+                if (ServerProps.StreamsofClients[i] != null)
+                {
+                    NetworkStream netStream = ServerProps.StreamsofClients[i];
+                    bf = new BinaryFormatter();
+                    bf.Serialize(netStream, mData);
+                }
             }
 
             InterfaceDisconnecter(mData);
