@@ -117,7 +117,7 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.UserDisconnection:
-                        IdsAdjuction();
+                        //IdsAdjuction();
                         ServerProps.listofUsersontheserver.RemoveAt((mData.Userdat.Userid) );
                         ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);
                         dicsconnecter(mData, netStr);

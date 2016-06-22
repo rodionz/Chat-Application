@@ -95,7 +95,7 @@ namespace ServerBI
         {
            
             BinaryFormatter bf = new BinaryFormatter();
-            InterfaceDisconnecter(mData);
+           
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
             {
@@ -104,6 +104,8 @@ namespace ServerBI
                bf = new BinaryFormatter();
                bf.Serialize(netStream, mData);
             }
+
+            InterfaceDisconnecter(mData);
         }
 
 

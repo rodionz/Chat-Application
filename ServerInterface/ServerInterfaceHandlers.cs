@@ -41,7 +41,9 @@ namespace ServerInterface
     
         public void MessagesentHandler(MessageData mData)
         {
-            if(ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
+            DateTime current = DateTime.Now;
+
+            if (ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
                 LocalHandler messent = new LocalHandler(MessagesentHandler);
                 this.Invoke(messent, new object[] { mData });
@@ -56,9 +58,9 @@ namespace ServerInterface
             // In the case of unexpected user disconnection
                    else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                    ChatListBox.Items.Add("Server says: " + mData.Textmessage);            
+                    ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected");
                     CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
-                    HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());                                 
+                    HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + current.ToLongTimeString());
                 }
 
                 else
@@ -89,9 +91,12 @@ namespace ServerInterface
 
             else
             {
+                DateTime current = DateTime.Now;
+                //vat itemtoremove = from i in CurrentUsersListbox.Items
+                //CurrentUsersListbox.Items.Remove()
                 CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
-                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());
-                ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected" );
+                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected " + current.ToLongTimeString());
+                ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected " );
 
             }
             
