@@ -28,7 +28,7 @@ namespace ClientInterface
         public  void MessageHandler(MessageData mData)
         {
 
-            if (ChatListBox.InvokeRequired)
+            if (ChatrichTextBox.InvokeRequired)
             {
                 LocalHandler messent = new LocalHandler(MessageHandler);
                 this.Invoke(messent, new object[] { mData });
@@ -55,8 +55,8 @@ namespace ClientInterface
 
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
-                    mData.listboxitem.Message = ("\n Server says: " + mData.Textmessage);
-                    ChatListBox.Items.Add(mData.listboxitem);
+                    //mData.listboxitem.Message = ("\n Server says: " + mData.Textmessage);
+                    //ChatListBox.Items.Add(mData.listboxitem);
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
@@ -64,15 +64,15 @@ namespace ClientInterface
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
                     //mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
-                    ChatListBox.Items.Add  ("\n Server says: "  +  mData.Textmessage);
+                    //ChatListBox.Items.Add  ("\n Server says: "  +  mData.Textmessage);
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
 
                 else
                 {
-                    
-                    ChatListBox.Items.Add( mData.listboxitem);
+
+                    ChatrichTextBox.SelectionColor = mData.color;
                     ChatrichTextBox.AppendText("\n" +mData.Userdat.Username + " says: " + mData.Textmessage);
                 }
             }

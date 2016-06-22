@@ -10,31 +10,7 @@ namespace CommonTypes
 {
 
 
-    [Serializable]
-    public class MyListboxItem
-    {
-        public Color ItemColor
-        { get; set; }
-
-        public string Message
-        { get; set; }
-
-        public Font font
-        { get; set; }
-
-
-
-
-
-        public MyListboxItem(Color col, string mes, Font f)
-        {
-            ItemColor = col;
-            Message = mes;
-            font = f;
-        }
-            
-
-    }
+  
 
 
     [Serializable]
@@ -48,7 +24,6 @@ namespace CommonTypes
 
         
 
-        public MyListboxItem listboxitem;
 
         //public List<NetworkStream> StreamsofClients;
 

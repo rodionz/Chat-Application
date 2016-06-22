@@ -47,7 +47,8 @@ namespace ClientInterface
                 uData.color = colorDialog1.Color;
                 MesData.color = colorDialog1.Color;
                 this.TextMessages.ForeColor = colorDialog1.Color;
-              
+                this.ChatrichTextBox.SelectionColor = colorDialog1.Color;
+
             }
         }
 
@@ -110,7 +111,7 @@ namespace ClientInterface
                 MesData.Userdat = uData;
                 MesData.action = NetworkAction.Sendmessage;
                 string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
-                MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
+                //MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
                 TextMessages.Clear();
                 UserLogic.SendMessage(MesData);
             }
@@ -177,21 +178,7 @@ namespace ClientInterface
 
 
 
-        private void ChatListBox_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
-                if (e.Index >= 0)
-                {
-
-                    MyListboxItem item = ChatListBox.Items[e.Index] as MyListboxItem;
-                    if (item != null)
-                    {
-                        e.Graphics.DrawString(item.Message, item.font, new SolidBrush(item.ItemColor), 0, e.Index * ChatListBox.ItemHeight);
-                        
-                    }
-                   
-                }
-        }
+     
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

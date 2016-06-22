@@ -186,7 +186,7 @@ namespace ClientInterface
                 UserLogic.LolacAction = NetworkAction.Connection;
                 string message = "You Are Online Now";
 
-                mData.listboxitem = new MyListboxItem( this.ForeColor, message, this.Font);
+                
 
                 UserLogic.MainClienFinction(mData);
             

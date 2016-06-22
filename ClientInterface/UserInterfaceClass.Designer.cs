@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
-            this.ChatListBox = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
@@ -67,21 +66,11 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel5.Controls.Add(this.ChatListBox);
+            this.panel5.Controls.Add(this.ChatrichTextBox);
             this.panel5.Location = new System.Drawing.Point(213, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 235);
             this.panel5.TabIndex = 3;
-            // 
-            // ChatListBox
-            // 
-            this.ChatListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ChatListBox.FormattingEnabled = true;
-            this.ChatListBox.Location = new System.Drawing.Point(23, 16);
-            this.ChatListBox.Name = "ChatListBox";
-            this.ChatListBox.Size = new System.Drawing.Size(351, 199);
-            this.ChatListBox.TabIndex = 0;
-            this.ChatListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ChatListBox_DrawItem);
             // 
             // panel6
             // 
@@ -281,7 +270,7 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(357, 465);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Powered by";
             // 
@@ -314,9 +303,9 @@
             // 
             // ChatrichTextBox
             // 
-            this.ChatrichTextBox.Location = new System.Drawing.Point(881, 35);
+            this.ChatrichTextBox.Location = new System.Drawing.Point(23, 16);
             this.ChatrichTextBox.Name = "ChatrichTextBox";
-            this.ChatrichTextBox.Size = new System.Drawing.Size(217, 212);
+            this.ChatrichTextBox.Size = new System.Drawing.Size(351, 202);
             this.ChatrichTextBox.TabIndex = 31;
             this.ChatrichTextBox.Text = "";
             // 
@@ -326,7 +315,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1132, 623);
-            this.Controls.Add(this.ChatrichTextBox);
             this.Controls.Add(this.PrivatecheckedListBox);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel1);
@@ -383,7 +371,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label NoServersOnlineLabel;
-       internal System.Windows.Forms.ListBox ChatListBox;
         private System.Windows.Forms.Button PrivateMessageButton;
         private System.Windows.Forms.Label Userlabel;
         private System.Windows.Forms.PictureBox pictureBox2;
