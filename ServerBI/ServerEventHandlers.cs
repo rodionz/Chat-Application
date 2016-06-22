@@ -33,17 +33,12 @@ namespace ServerBI
             mData.Userdat.Userid = ServerProps.StreamsofClients.Count;
             BinaryFormatter bf = new BinaryFormatter();
             ServerProps.StreamsofClients.Add(nStr);
-            ServerProps.listofUsersontheserver.Add(mData.Userdat);
-            
-
+            ServerProps.listofUsersontheserver.Add(mData.Userdat);            
             mData.Time = DateTime.Now;
             mData.Textmessage = mData.Userdat.Username.ToString() + " Connected ";
             newuserconnected(mData);
-            //mData.StreamIndex = ServerProps.StreamsofClients.Count;
-            
-            //mData.Userdat.Userid =ServerLogic.listofUsersontheserver.Count;
             mData.action = NetworkAction.ConectionREsponse;
-            //bf.Serialize(netStream, mData);
+  
 
         }
 
@@ -89,8 +84,7 @@ namespace ServerBI
         internal static void PrivateMessageHandler( MessageData mData, NetworkStream nStr)
         {
             
-            BinaryFormatter bf = new BinaryFormatter();
-            //mData.StreamsofClients = ServerBoolsandStreams.StreamsofClients;
+            BinaryFormatter bf = new BinaryFormatter(); 
             mData.listofUsers = ServerProps.listofUsersontheserver;
             mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(nStr, mData);

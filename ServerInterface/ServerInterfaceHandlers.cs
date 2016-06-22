@@ -91,6 +91,7 @@ namespace ServerInterface
             {
                 CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
                 HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + mData.Time.ToLongTimeString());
+                ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected" );
 
             }
             
