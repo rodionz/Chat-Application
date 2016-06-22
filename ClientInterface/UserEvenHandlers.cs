@@ -57,7 +57,7 @@ namespace ClientInterface
                 {
                     mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
                     ChatListBox.Items.Add(mData.listboxitem);
-                    ChatrichTextBox.
+                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
 
                 }
 
@@ -65,6 +65,7 @@ namespace ClientInterface
                 {
                     //mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
                     ChatListBox.Items.Add  ("Server says: "  +  mData.Textmessage);
+                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
 
                 }
 
@@ -72,6 +73,7 @@ namespace ClientInterface
                 {
                     
                     ChatListBox.Items.Add( mData.listboxitem);
+                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
                 }
             }
 
