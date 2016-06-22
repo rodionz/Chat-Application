@@ -55,17 +55,17 @@ namespace ClientInterface
 
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
-                    mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
+                    mData.listboxitem.Message = ("\n Server says: " + mData.Textmessage);
                     ChatListBox.Items.Add(mData.listboxitem);
-                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
 
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
                     //mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
-                    ChatListBox.Items.Add  ("Server says: "  +  mData.Textmessage);
-                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
+                    ChatListBox.Items.Add  ("\n Server says: "  +  mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
 
@@ -73,7 +73,7 @@ namespace ClientInterface
                 {
                     
                     ChatListBox.Items.Add( mData.listboxitem);
-                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n" +mData.Userdat.Username + " says: " + mData.Textmessage);
                 }
             }
 
