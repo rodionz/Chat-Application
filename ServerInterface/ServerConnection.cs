@@ -51,23 +51,32 @@ namespace ServerInterface
 
         private void PortConfirmationButtom_Click(object sender, EventArgs e)
         {
-            int portnum = int.Parse(portTextBox.Text);
+            int portnum;
+            bool p  = int.TryParse(portTextBox.Text, out portnum);
 
-            if (portnum.PortisValid())
+            if (p)
             {
-                Sdata.Portnumber = portnum;
-                portConfirmLabel.ForeColor = Color.Lime;
-                portConfirmLabel.Text = "Port is Valid";
-                ServerBools.PortValid = true;
+                if (portnum.PortisValid())
+                {
+                    Sdata.Portnumber = portnum;
+                    portConfirmLabel.ForeColor = Color.Lime;
+                    portConfirmLabel.Text = "Port is Valid";
+                    ServerBools.PortValid = true;
+                }
+
+                else
+                {
+                    portConfirmLabel.ForeColor = Color.Red;
+                    portConfirmLabel.Text = "Port Number is Illigal \n Pelease choose port \n from 10000 to 65535";
+
+                }
             }
 
             else
             {
                 portConfirmLabel.ForeColor = Color.Red;
-                portConfirmLabel.Text = "Port Number is Illigal \n Pelease choose port \n from 10000 to 65535";
-
+                portConfirmLabel.Text = "Illigal input";
             }
-
         }
 
         private void CreateServerButton_Click(object sender, EventArgs e)

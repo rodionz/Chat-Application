@@ -30,16 +30,20 @@ namespace ClientBL
 
 
 
-      private static  TcpClient client = new TcpClient();
-        
+        private static  TcpClient client = new TcpClient();
+        static Task t1;
+        static Task listening;
+
+
 
         public static void MainClienFinction(MessageData mesData, UserData uData)
 
         {
+            NoServer += NoServerHandler;
             Disconnect += DisconnectionEventHandler;         
-         Task t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
+             t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
 
-        
+       
         }
 
 
@@ -106,7 +110,7 @@ namespace ClientBL
 
             stream.Flush();
 
-            Task listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
+             listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
 
 
         }
@@ -175,8 +179,18 @@ namespace ClientBL
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);
+            
+            
+            t1.Dispose();
             client.Close();
 
+        }
+
+        public static void NoServerHandler()
+        {
+            
+            t1.Dispose();
+            client.Close();
         }
 
 

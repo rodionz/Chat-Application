@@ -16,6 +16,7 @@ namespace ServerInterface
     {
 
         delegate void LocalHandler(MessageData mdata);
+        delegate void DisHandler();
 
 
         public  void NewUserEvenHandler(MessageData mymesdata)
@@ -46,8 +47,8 @@ namespace ServerInterface
 
             if (ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
-                LocalHandler messent = new LocalHandler(MessagesentHandler);
-                this.Invoke(messent, new object[] { mData });
+                LocalHandler dicon = new LocalHandler(MessagesentHandler);
+                this.Invoke(dicon, new object[] { mData });
             }
 
 
@@ -66,6 +67,12 @@ namespace ServerInterface
                     HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + current.ToLongTimeString());
                 }
 
+
+            else if (mData.action == NetworkAction.SeverDisconnection)
+                {
+
+                    ChatListBox.Items.Add(mData.Textmessage);
+                }
                 else
                 {
                     ChatListBox.Items.Add(mData.Userdat.Username + " says: " + mData.Textmessage);
@@ -75,10 +82,21 @@ namespace ServerInterface
 
         public  void NoServerHandler()
         {
-            RedLightPanel.Visible = true;
-            GreenLightPanel.Visible = false;
-            StartServerButton.Enabled = true;
-            StopServerButton.Enabled = false;
+            //Invoke Rquired!!
+            if (RedLightPanel.InvokeRequired || GreenLightPanel.InvokeRequired || StartServerButton.InvokeRequired || StopServerButton.InvokeRequired)
+            {
+                DisHandler dicon = new DisHandler(NoServerHandler);
+                this.Invoke(dicon, new object[] {  });
+
+            }
+
+            else
+            {
+                RedLightPanel.Visible = true;
+                GreenLightPanel.Visible = false;
+                StartServerButton.Enabled = true;
+                StopServerButton.Enabled = false;
+            }
         }
 
 

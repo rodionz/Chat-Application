@@ -10,7 +10,7 @@ namespace CommonTypes
 
     [Serializable]
     public enum NetworkAction
-    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, RequestforListofUsers = 5, ConectionREsponse = 6, UserDisconnection = 7, None = 99 }
+    { IpandPortValidaton = 1, Connection = 2, Sendmessage = 3, ReceiveMesg = 4, RequestforListofUsers = 5, ConectionREsponse = 6, UserDisconnection = 7, SeverDisconnection = 8, None = 99 }
 
 
 

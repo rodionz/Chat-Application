@@ -28,13 +28,16 @@ namespace ServerBI
 
 
 
+        private static TcpListener server;
+        private static Task t1;
+        private static Task StarttoListen;
 
         public static void ServerOnline(ServerData sData)
 
         {
             try
             {
-                TcpListener server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
+                server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
                 ipandportvalidation += ServerEventHandlers.ValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
@@ -43,7 +46,7 @@ namespace ServerBI
                 dicsconnecter += ServerEventHandlers.DisconnectUser;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
-                Task t1 = Task.Run(() => StartListening(server, NetworkAction.Connection));
+                t1 = Task.Run(() => StartListening(server, NetworkAction.Connection));
             }
             catch
             {
@@ -62,7 +65,7 @@ namespace ServerBI
                 while (ServerProps.ServerisOnline)
                 {                  
                     TcpClient client = serv.AcceptTcpClient();                
-                    Task StarttoListen = Task.Run(() => StartListeningtoMessages(client));
+                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));
                 }
             }
             catch (SocketException se)
@@ -153,7 +156,15 @@ namespace ServerBI
         public static void StopListening()
 
         {
-
+            MessageData byebye = new MessageData();
+            byebye.Textmessage = "Goodbye to Everyone ";
+            byebye.action = NetworkAction.SeverDisconnection;
+            NetworkStream ns = null;
+            publicmessage(byebye, ns);
+            ServerProps.ServerisOnline = false;
+          
+            
+            server.Stop();
 
         }
 
