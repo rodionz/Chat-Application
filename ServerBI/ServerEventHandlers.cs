@@ -62,26 +62,45 @@ namespace ServerBI
                 // Unexpected Client Disconnection
                 catch(IOException)
                 {
+
                     BinaryFormatter bf = new BinaryFormatter();
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
                     UserData lostuser = ServerProps.listofUsersontheserver[i];
                     mData.Userdat = lostuser;
-                    ServerProps.listofUsersontheserver.RemoveAt((mData.Userdat.Userid));
-                    ServerProps.StreamsofClients.RemoveAt(mData.Userdat.Userid);                                  
+
+                    try
+                    {
+                        ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
+                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
+                    }
+
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
+                        ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
+                        mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
+                    }
+
+
                     mData.action = NetworkAction.UserDisconnection;
                  
-                    for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
-                    {
-                        mData.Textmessage = mData.Userdat.Username + " was disconnected";
-                        if (ServerProps.StreamsofClients[x] != null)
+                  
+                        for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
                         {
-                            netStream = ServerProps.StreamsofClients[x];
-                            bf.Serialize(netStream, mData);
+                            mData.Textmessage = mData.Userdat.Username + " was disconnected";
+
+                            if (ServerProps.StreamsofClients[x] != null)
+                            {
+                                mData.action = NetworkAction.UserDisconnection;
+                                NetworkStream _netStream = ServerProps.StreamsofClients[x];
+                                bf = new BinaryFormatter();
+                                bf.Serialize(_netStream, mData);
+                            }
+
                         }
 
-                        else
-                            continue;
-                    }                    
+
+
                 }
                 continue;
             }
@@ -98,7 +117,7 @@ namespace ServerBI
             bf.Serialize(nStr, mData);
         }
 
-
+    //Usuall Disconnection
         internal static void DisconnectUser(MessageData mData, NetworkStream nStr)
         {
            
@@ -111,12 +130,12 @@ namespace ServerBI
 
                 if (ServerProps.StreamsofClients[i] != null)
                 {
+                    mData.action = NetworkAction.UserDisconnection;
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
                     bf = new BinaryFormatter();
                     bf.Serialize(netStream, mData);
                 }
-                else
-                    continue;
+               
             }
 
             InterfaceDisconnecter(mData);

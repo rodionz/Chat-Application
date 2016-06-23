@@ -43,11 +43,14 @@ namespace ServerInterface
         {
             DateTime current = DateTime.Now;
 
+
             if (ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
                 LocalHandler messent = new LocalHandler(MessagesentHandler);
                 this.Invoke(messent, new object[] { mData });
             }
+
+
 
             else
             {     if (mData.action == NetworkAction.ConectionREsponse)
@@ -91,9 +94,7 @@ namespace ServerInterface
 
             else
             {
-                DateTime current = DateTime.Now;
-                //vat itemtoremove = from i in CurrentUsersListbox.Items
-                //CurrentUsersListbox.Items.Remove()
+                DateTime current = DateTime.Now;              
                 CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
                 HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected " + current.ToLongTimeString());
                 ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected " );

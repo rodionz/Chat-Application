@@ -121,9 +121,20 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.UserDisconnection:
-                       
-                        ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
+
+                        try
+                        {
+                            ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
+                            ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
+                        }
+
+                        catch (ArgumentOutOfRangeException)
+                        {
+                            ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
+                            ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
+                            mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
+                        }
+                        
                         dicsconnecter(mData, netStr);
                         mData.action = NetworkAction.None;
                         break;

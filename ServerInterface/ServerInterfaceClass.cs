@@ -20,7 +20,7 @@ namespace ServerInterface
         {
             InitializeComponent();
             StopServerButton.Enabled = false;
-            //ServerLogic.NoServer += NoServerHandler;
+            
         }
 
 
@@ -78,7 +78,7 @@ namespace ServerInterface
             ServerLogic.NoServer += NoServerHandler;
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;
-            //ServerLogic.somethinghappend += PrintSomething;
+            
             sData.IPadress = "127.0.0.1";
             sData.Portnumber = 60000;
             StopServerButton.Enabled = true;

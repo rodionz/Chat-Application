@@ -88,10 +88,8 @@ namespace ClientBL
             UserData Localuser = uData;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientProps.LocalClient = client;
-            //NetworkStream stream;
             BinaryFormatter Bformat = new BinaryFormatter();
-            //stream = client.GetStream();
-
+         
             NetworkStream stream = client.GetStream();
             ClientProps.clientStream = stream;
 
@@ -124,18 +122,24 @@ namespace ClientBL
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
-                    MessageRecieved(incoming);
+                  
 
-                    // Here is a bug
+               
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
                     {
                         currentUser.Userid = incoming.Userdat.Userid;
-                        incoming.action = NetworkAction.None;
+                        MessageRecieved(incoming);
                     }
+
+                    else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
+                        break;
+
+                    else
+                        MessageRecieved(incoming);
 
                 }
 
-
+                incoming.action = NetworkAction.None;
             }
            
            
