@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ChatrichTextBox = new System.Windows.Forms.RichTextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
@@ -52,7 +53,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PrivatecheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.ChatrichTextBox = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.RedLightPanel.SuspendLayout();
@@ -61,22 +62,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel5.Controls.Add(this.ChatrichTextBox);
-            this.panel5.Location = new System.Drawing.Point(213, 12);
+            this.panel5.Location = new System.Drawing.Point(256, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 235);
             this.panel5.TabIndex = 3;
+            // 
+            // ChatrichTextBox
+            // 
+            this.ChatrichTextBox.Location = new System.Drawing.Point(27, 16);
+            this.ChatrichTextBox.Name = "ChatrichTextBox";
+            this.ChatrichTextBox.Size = new System.Drawing.Size(351, 202);
+            this.ChatrichTextBox.TabIndex = 31;
+            this.ChatrichTextBox.Text = "";
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel6.Controls.Add(this.TextMessages);
-            this.panel6.Location = new System.Drawing.Point(213, 253);
+            this.panel6.Location = new System.Drawing.Point(256, 262);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 75);
             this.panel6.TabIndex = 4;
@@ -97,7 +107,7 @@
             this.sendmessageButton.Enabled = false;
             this.sendmessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendmessageButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.sendmessageButton.Location = new System.Drawing.Point(651, 271);
+            this.sendmessageButton.Location = new System.Drawing.Point(680, 280);
             this.sendmessageButton.Name = "sendmessageButton";
             this.sendmessageButton.Size = new System.Drawing.Size(100, 39);
             this.sendmessageButton.TabIndex = 8;
@@ -110,7 +120,7 @@
             this.changeFontButton.Enabled = false;
             this.changeFontButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeFontButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.changeFontButton.Location = new System.Drawing.Point(672, 116);
+            this.changeFontButton.Location = new System.Drawing.Point(678, 100);
             this.changeFontButton.Name = "changeFontButton";
             this.changeFontButton.Size = new System.Drawing.Size(169, 36);
             this.changeFontButton.TabIndex = 10;
@@ -123,7 +133,7 @@
             this.ColorChoosing.Enabled = false;
             this.ColorChoosing.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorChoosing.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ColorChoosing.Location = new System.Drawing.Point(672, 38);
+            this.ColorChoosing.Location = new System.Drawing.Point(678, 178);
             this.ColorChoosing.Name = "ColorChoosing";
             this.ColorChoosing.Size = new System.Drawing.Size(169, 38);
             this.ColorChoosing.TabIndex = 9;
@@ -136,9 +146,9 @@
             this.ConnectToserverButton.BackColor = System.Drawing.Color.LightGray;
             this.ConnectToserverButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectToserverButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.ConnectToserverButton.Location = new System.Drawing.Point(213, 348);
+            this.ConnectToserverButton.Location = new System.Drawing.Point(25, 298);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
-            this.ConnectToserverButton.Size = new System.Drawing.Size(133, 39);
+            this.ConnectToserverButton.Size = new System.Drawing.Size(158, 39);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
             this.ConnectToserverButton.UseVisualStyleBackColor = false;
@@ -150,9 +160,9 @@
             this.DisconnectFromServerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DisconnectFromServerButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.DisconnectFromServerButton.Location = new System.Drawing.Point(452, 348);
+            this.DisconnectFromServerButton.Location = new System.Drawing.Point(30, 362);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";
-            this.DisconnectFromServerButton.Size = new System.Drawing.Size(158, 39);
+            this.DisconnectFromServerButton.Size = new System.Drawing.Size(140, 39);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
             this.DisconnectFromServerButton.UseVisualStyleBackColor = false;
@@ -162,7 +172,7 @@
             // 
             this.RedLightPanel.Controls.Add(this.label1);
             this.RedLightPanel.Controls.Add(this.RedLamp);
-            this.RedLightPanel.Location = new System.Drawing.Point(12, 60);
+            this.RedLightPanel.Location = new System.Drawing.Point(25, 64);
             this.RedLightPanel.Name = "RedLightPanel";
             this.RedLightPanel.Size = new System.Drawing.Size(187, 82);
             this.RedLightPanel.TabIndex = 15;
@@ -191,7 +201,7 @@
             // 
             this.GreenLightPanel.Controls.Add(this.label2);
             this.GreenLightPanel.Controls.Add(this.GreenLamp);
-            this.GreenLightPanel.Location = new System.Drawing.Point(12, 148);
+            this.GreenLightPanel.Location = new System.Drawing.Point(25, 165);
             this.GreenLightPanel.Name = "GreenLightPanel";
             this.GreenLightPanel.Size = new System.Drawing.Size(187, 82);
             this.GreenLightPanel.TabIndex = 16;
@@ -222,7 +232,7 @@
             this.NoServersOnlineLabel.AutoSize = true;
             this.NoServersOnlineLabel.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoServersOnlineLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.NoServersOnlineLabel.Location = new System.Drawing.Point(34, 419);
+            this.NoServersOnlineLabel.Location = new System.Drawing.Point(64, 482);
             this.NoServersOnlineLabel.Name = "NoServersOnlineLabel";
             this.NoServersOnlineLabel.Size = new System.Drawing.Size(43, 23);
             this.NoServersOnlineLabel.TabIndex = 17;
@@ -233,9 +243,9 @@
             this.PrivateMessageButton.Enabled = false;
             this.PrivateMessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrivateMessageButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.PrivateMessageButton.Location = new System.Drawing.Point(783, 271);
+            this.PrivateMessageButton.Location = new System.Drawing.Point(808, 280);
             this.PrivateMessageButton.Name = "PrivateMessageButton";
-            this.PrivateMessageButton.Size = new System.Drawing.Size(151, 39);
+            this.PrivateMessageButton.Size = new System.Drawing.Size(128, 39);
             this.PrivateMessageButton.TabIndex = 18;
             this.PrivateMessageButton.Text = "PrivateMessage";
             this.PrivateMessageButton.UseVisualStyleBackColor = true;
@@ -246,7 +256,7 @@
             this.Userlabel.AutoSize = true;
             this.Userlabel.Font = new System.Drawing.Font("Palatino Linotype", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Userlabel.ForeColor = System.Drawing.Color.Indigo;
-            this.Userlabel.Location = new System.Drawing.Point(12, 13);
+            this.Userlabel.Location = new System.Drawing.Point(3, 7);
             this.Userlabel.Name = "Userlabel";
             this.Userlabel.Size = new System.Drawing.Size(82, 44);
             this.Userlabel.TabIndex = 19;
@@ -256,7 +266,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(358, 566);
+            this.linkLabel1.Location = new System.Drawing.Point(404, 554);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(98, 13);
             this.linkLabel1.TabIndex = 28;
@@ -268,16 +278,16 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(357, 465);
+            this.label4.Location = new System.Drawing.Point(408, 432);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 27;
             this.label4.Text = "Powered by";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ClientInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(392, 582);
+            this.pictureBox2.Location = new System.Drawing.Point(434, 585);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 29;
@@ -286,7 +296,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(285, 491);
+            this.pictureBox1.Location = new System.Drawing.Point(324, 467);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
@@ -295,43 +305,43 @@
             // PrivatecheckedListBox
             // 
             this.PrivatecheckedListBox.FormattingEnabled = true;
-            this.PrivatecheckedListBox.Location = new System.Drawing.Point(786, 335);
+            this.PrivatecheckedListBox.Location = new System.Drawing.Point(696, 382);
             this.PrivatecheckedListBox.Name = "PrivatecheckedListBox";
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
             // 
-            // ChatrichTextBox
+            // panel1
             // 
-            this.ChatrichTextBox.Location = new System.Drawing.Point(23, 16);
-            this.ChatrichTextBox.Name = "ChatrichTextBox";
-            this.ChatrichTextBox.Size = new System.Drawing.Size(351, 202);
-            this.ChatrichTextBox.TabIndex = 31;
-            this.ChatrichTextBox.Text = "";
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.Userlabel);
+            this.panel1.Controls.Add(this.PrivatecheckedListBox);
+            this.panel1.Controls.Add(this.GreenLightPanel);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.RedLightPanel);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.ColorChoosing);
+            this.panel1.Controls.Add(this.changeFontButton);
+            this.panel1.Controls.Add(this.PrivateMessageButton);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.NoServersOnlineLabel);
+            this.panel1.Controls.Add(this.ConnectToserverButton);
+            this.panel1.Controls.Add(this.DisconnectFromServerButton);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.sendmessageButton);
+            this.panel1.Location = new System.Drawing.Point(1, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1002, 629);
+            this.panel1.TabIndex = 31;
             // 
             // UserInterfaceClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1132, 623);
-            this.Controls.Add(this.PrivatecheckedListBox);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Userlabel);
-            this.Controls.Add(this.PrivateMessageButton);
-            this.Controls.Add(this.NoServersOnlineLabel);
-            this.Controls.Add(this.GreenLightPanel);
-            this.Controls.Add(this.RedLightPanel);
-            this.Controls.Add(this.DisconnectFromServerButton);
-            this.Controls.Add(this.ConnectToserverButton);
-            this.Controls.Add(this.changeFontButton);
-            this.Controls.Add(this.ColorChoosing);
-            this.Controls.Add(this.sendmessageButton);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
+            this.ClientSize = new System.Drawing.Size(1004, 638);
+            this.Controls.Add(this.panel1);
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserInterfaceClass_FormClosing);
@@ -347,8 +357,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -379,6 +390,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox PrivatecheckedListBox;
         private System.Windows.Forms.RichTextBox ChatrichTextBox;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -73,15 +73,15 @@ namespace ClientInterface
                 else if (mData.action == NetworkAction.SeverDisconnection)
                 {
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
-                    ClientProps.UserisOnline = false;
-                    GreenLightPanel.Visible = false;
-                    RedLightPanel.Visible = true;
-                    ConnectToserverButton.Enabled = true;
-                    DisconnectFromServerButton.Enabled = false;
-                    sendmessageButton.Enabled = false;
-                    PrivateMessageButton.Enabled = false;
-                    ColorChoosing.Enabled = false;
-                    changeFontButton.Enabled = false;
+                    //ClientProps.UserisOnline = false;
+                    //GreenLightPanel.Visible = false;
+                    //RedLightPanel.Visible = true;
+                    //ConnectToserverButton.Enabled = true;
+                    //DisconnectFromServerButton.Enabled = false;
+                    //sendmessageButton.Enabled = false;
+                    //PrivateMessageButton.Enabled = false;
+                    //ColorChoosing.Enabled = false;
+                    //changeFontButton.Enabled = false;
                 }
 
                 else

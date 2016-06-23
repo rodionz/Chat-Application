@@ -23,8 +23,8 @@ namespace ClientInterface
                       
         }
 
-    
-        
+        delegate void localHandler ();
+
 
         MessageData MesData = new MessageData();
 
@@ -78,6 +78,8 @@ namespace ClientInterface
 
             if (ClientInterfaceProps.UserIsValid)
             {
+
+                UserLogic.ServerDisconnected += Disconnection;
                 sendmessageButton.Enabled = true;
                 PrivateMessageButton.Enabled = true;
                 ColorChoosing.Enabled = true;
@@ -146,15 +148,8 @@ namespace ClientInterface
             ClientProps.UserisOnline = false;
             UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
 
-           
-            GreenLightPanel.Visible = false;
-            RedLightPanel.Visible = true;
-            ConnectToserverButton.Enabled = true;
-            DisconnectFromServerButton.Enabled = false;
-            sendmessageButton.Enabled = false;
-            PrivateMessageButton.Enabled = false;
-            ColorChoosing.Enabled = false;
-            changeFontButton.Enabled = false;
+
+            Disconnection();
 
         }
 
@@ -173,7 +168,27 @@ namespace ClientInterface
         }
 
         
-     
+     internal void Disconnection()
+
+        {
+            if (panel1.InvokeRequired)
+            {
+                Action stc = Disconnection;
+                this.Invoke(stc, new object[] { });
+            }
+
+            else
+            {
+                GreenLightPanel.Visible = false;
+                RedLightPanel.Visible = true;
+                ConnectToserverButton.Enabled = true;
+                DisconnectFromServerButton.Enabled = false;
+                sendmessageButton.Enabled = false;
+                PrivateMessageButton.Enabled = false;
+                ColorChoosing.Enabled = false;
+                changeFontButton.Enabled = false;
+            }
+        }
 
 
 

@@ -16,8 +16,12 @@ namespace ClientBL
     {
 
         public  delegate void Exseptions();
-        public delegate void ClientBLEvents(MessageData mDAta);
         public static event Exseptions NoServer;
+        public static event Exseptions ServerDisconnected;
+
+        public delegate void ClientBLEvents(MessageData mDAta);
+
+        
         public static event ClientBLEvents MessageRecieved;
 
 
@@ -134,6 +138,22 @@ namespace ClientBL
                         currentUser.Userid = incoming.Userdat.Userid;
                         MessageRecieved(incoming);
                     }
+
+
+
+                    // tO cHECK!!!!
+                    else if (incoming.action == NetworkAction.SeverDisconnection)
+                    {
+                        ServerDisconnected();
+                        ClientProps.UserisOnline = false;
+                        t1.Dispose();
+                        usernetstream.Dispose();
+                        client.Close();
+
+                    }
+
+
+                   
 
                     else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
                         break;
