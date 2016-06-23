@@ -310,6 +310,8 @@
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
             this.PrivatecheckedListBox.Visible = false;
+            this.PrivatecheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.PrivatecheckedListBox_ItemCheck);
+       
             // 
             // panel1
             // 
@@ -345,7 +347,6 @@
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserInterfaceClass_FormClosing);
-      
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

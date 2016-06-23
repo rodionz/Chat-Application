@@ -24,7 +24,7 @@ namespace ClientInterface
         }
 
 
-
+        static List<string> privatelist = new List<string>();
 
         MessageData MesData = new MessageData();
 
@@ -207,6 +207,37 @@ namespace ClientInterface
 
                 //MessageBox.Show("Please disconnect you client, before closing", "Client is connected", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 //e.Cancel = true;
+
+            }
+        }
+
+        //private void PrivatecheckedListBox_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    privatelist = new List<string>();
+        //    privatelist.Add((string)PrivatecheckedListBox.SelectedItem);
+        //}
+
+        //private void PrivatecheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    PrivatecheckedListBox.CheckOnClick = true;
+        //    privatelist = new List<string>();
+        //    privatelist.Add((string)PrivatecheckedListBox.SelectedItem);
+        
+        //}
+
+        private void PrivatecheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            
+
+            if (privatelist.Contains(PrivatecheckedListBox.CheckedItems.ToString()))
+            {
+                
+                privatelist.Remove(PrivatecheckedListBox.CheckedItems.ToString());
+            }
+
+            else
+            {
+                privatelist.Add(PrivatecheckedListBox.CheckedItems.ToString());
 
             }
         }
