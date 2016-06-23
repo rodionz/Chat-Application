@@ -144,7 +144,7 @@ namespace ClientInterface
         {
             
             ClientProps.UserisOnline = false;
-            UserLogic.DisconnectionEventHandler(new MessageData(uData));
+            UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
 
            
             GreenLightPanel.Visible = false;

@@ -188,7 +188,7 @@ namespace ClientInterface
 
                 
 
-                UserLogic.MainClienFinction(mData);
+                UserLogic.MainClienFinction(mData , new_user);
             
                
                 ClearAll();

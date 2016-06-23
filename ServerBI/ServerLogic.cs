@@ -101,8 +101,12 @@ namespace ServerBI
 
                     case NetworkAction.Connection:
                         connection(mData, netStr);
+
+                        // here is a bug!!!
                         mData.action = NetworkAction.ConectionREsponse;
                         publicmessage(mData, netStr);
+
+
                         break;
 
                     //Messages

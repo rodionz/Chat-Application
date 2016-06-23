@@ -19,7 +19,10 @@ namespace ClientBL
         public delegate void ClientBLEvents(MessageData mDAta);
         public static event Exseptions NoServer;
         public static event ClientBLEvents MessageRecieved;
-        public static event ClientBLEvents Disconnect;
+
+
+        public delegate void DiscnonectDlegate(MessageData mdata, UserData uData);
+        public static event DiscnonectDlegate Disconnect;
       
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
@@ -28,13 +31,13 @@ namespace ClientBL
 
 
       private static  TcpClient client = new TcpClient();
+        
 
-
-        public static void MainClienFinction(MessageData mesData)
+        public static void MainClienFinction(MessageData mesData, UserData uData)
 
         {
             Disconnect += DisconnectionEventHandler;         
-         Task t1 = Task.Run(() =>   ConnecttoServer(mesData));
+         Task t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
 
         
         }
@@ -78,10 +81,11 @@ namespace ClientBL
 
 
 
-        public static void ConnecttoServer(MessageData mData)
+        public static void ConnecttoServer(MessageData mData, UserData uData)
         {
             TcpClient client = new TcpClient();
             MessageData returning = new MessageData();
+            UserData Localuser = uData;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientProps.LocalClient = client;
             //NetworkStream stream;
@@ -104,12 +108,12 @@ namespace ClientBL
 
             stream.Flush();
 
-            Task listening = Task.Run(() => StariListenToIncomingMessages());
+            Task listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
 
 
         }
 
-        private static void StariListenToIncomingMessages()
+        private static void StariListenToIncomingMessages(UserData currentUser)
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
             MessageData incoming = new MessageData();
@@ -123,8 +127,11 @@ namespace ClientBL
                     MessageRecieved(incoming);
 
                     // Here is a bug
-                    if (incoming.action == NetworkAction.ConectionREsponse)
-                        ClientProps.CurrentUserID = incoming.Userdat.Userid;
+                    if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
+                    {
+                        currentUser.Userid = incoming.Userdat.Userid;
+                        incoming.action = NetworkAction.None;
+                    }
 
                 }
 
@@ -142,7 +149,7 @@ namespace ClientBL
 
             try
             {
-                outcoming.Userdat.Userid = ClientProps.CurrentUserID;
+                //outcoming.Userdat = Localuser;
                 BinaryFormatter sendingformatter = new BinaryFormatter();
                 NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
@@ -156,10 +163,10 @@ namespace ClientBL
         }
 
 
-       public static void DisconnectionEventHandler(MessageData mData)
+       public static void DisconnectionEventHandler(MessageData mData, UserData uData)
 
         {
-            mData.Userdat.Userid = ClientProps.CurrentUserID;
+            //mData.Userdat = Localuser;
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
