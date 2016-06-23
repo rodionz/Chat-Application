@@ -15,25 +15,16 @@ namespace ClientBL
     public class UserLogic
     {
 
-        public  delegate void Exseptions();
-        public static event Exseptions NoServer;
-        public static event Exseptions ServerDisconnected;
-
-        public delegate void ClientBLEvents(MessageData mDAta);
-
-        
-        public static event ClientBLEvents MessageRecieved;
-
-
-        public delegate void DiscnonectDlegate(MessageData mdata, UserData uData);
-        public static event DiscnonectDlegate Disconnect;
       
+        public static event Action NoServer;
+        public static event Action ServerDisconnected;      
+        public static event Action<MessageData> MessageRecieved;      
+        public static event Action<MessageData,UserData> Disconnect;
+      
+
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
-
-
-
         private static  TcpClient client = new TcpClient();
         static Task t1;
         static Task listening;
@@ -144,6 +135,7 @@ namespace ClientBL
                     // tO cHECK!!!!
                     else if (incoming.action == NetworkAction.SeverDisconnection)
                     {
+                        MessageRecieved(incoming);
                         ServerDisconnected();
                         ClientProps.UserisOnline = false;
                         t1.Dispose();
@@ -152,9 +144,7 @@ namespace ClientBL
 
                     }
 
-
-                   
-
+                  
                     else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
                         break;
 
@@ -177,7 +167,7 @@ namespace ClientBL
 
             try
             {
-                //outcoming.Userdat = Localuser;
+                
                 BinaryFormatter sendingformatter = new BinaryFormatter();
                 NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
@@ -194,7 +184,7 @@ namespace ClientBL
        public static void DisconnectionEventHandler(MessageData mData, UserData uData)
 
         {
-            //mData.Userdat = Localuser;
+            
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;

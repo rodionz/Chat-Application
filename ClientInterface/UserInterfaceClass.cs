@@ -23,7 +23,7 @@ namespace ClientInterface
                       
         }
 
-        delegate void localHandler ();
+
 
 
         MessageData MesData = new MessageData();
@@ -32,7 +32,7 @@ namespace ClientInterface
 
         UserData uData;
 
-        public static event EventHandler DrawItem;
+        
 
 
         private void ColorChoosing_Click(object sender, EventArgs e)

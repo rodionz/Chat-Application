@@ -13,18 +13,18 @@ namespace ServerBI
 {
     public class ServerLogic
     {
-        public delegate void Exseptions();
-       
-        public delegate void ServerEvents( MessageData mData, NetworkStream nStream);
+      
+        public static event Action NoServer;
+        public static event Action ServerDisconnection;
 
 
-        public static event Exseptions NoServer;
 
-        public static event ServerEvents ipandportvalidation;
-        public static event ServerEvents connection;
-        public static event ServerEvents publicmessage;
-        public static event ServerEvents privatemesage;
-        public static event ServerEvents dicsconnecter;
+            
+        public static event Action<MessageData,NetworkStream>   ipandportvalidation;
+        public static event Action<MessageData, NetworkStream> connection;
+        public static event Action<MessageData, NetworkStream> publicmessage;
+        public static event Action<MessageData, NetworkStream> privatemesage;
+        public static event Action<MessageData, NetworkStream> userdicsconnecter;
 
 
 
@@ -43,7 +43,7 @@ namespace ServerBI
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
                 privatemesage += ServerEventHandlers.PrivateMessageHandler;
-                dicsconnecter += ServerEventHandlers.DisconnectUser;
+                userdicsconnecter += ServerEventHandlers.DisconnectUser;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
                 t1 = Task.Run(() => StartListening(server, NetworkAction.Connection));
@@ -138,7 +138,7 @@ namespace ServerBI
                             mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
                         }
                         
-                        dicsconnecter(mData, netStr);
+                        userdicsconnecter(mData, netStr);
                         mData.action = NetworkAction.None;
                         break;
 
@@ -161,6 +161,7 @@ namespace ServerBI
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
             publicmessage(byebye, ns);
+            ServerDisconnection();
             ServerProps.ServerisOnline = false;
           
             

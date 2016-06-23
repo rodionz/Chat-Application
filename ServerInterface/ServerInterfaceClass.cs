@@ -32,6 +32,7 @@ namespace ServerInterface
         {
            ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
+            ServerLogic.ServerDisconnection += NoServerHandler;
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
 

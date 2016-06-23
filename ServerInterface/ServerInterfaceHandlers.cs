@@ -15,24 +15,21 @@ namespace ServerInterface
     public partial class ServerInterfaceClass : Form
     {
 
-        delegate void LocalHandler(MessageData mdata);
-        delegate void DisHandler();
-
-
+      
         public  void NewUserEvenHandler(MessageData mymesdata)
 
         {
          
             if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
             {
-                LocalHandler stc = new LocalHandler(NewUserEvenHandler);
+               Action<MessageData> stc = NewUserEvenHandler;
                 this.Invoke(stc, new object[] { mymesdata });
 
             }
 
             else
             {
-               // To change Port and IP!!!!
+              
                 CurrentUsersListbox.Items.Add(mymesdata.Userdat.Username +" IP: " + mymesdata.Userdat.IPadress + 
                     " Port: " + mymesdata.Userdat.Portnumber);
                 HistoryListbox.Items.Add(mymesdata.Textmessage + mymesdata.Time.ToLongTimeString()  );
@@ -47,7 +44,7 @@ namespace ServerInterface
 
             if (ChatListBox.InvokeRequired || CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired )
             {
-                LocalHandler dicon = new LocalHandler(MessagesentHandler);
+                Action<MessageData> dicon = MessagesentHandler;
                 this.Invoke(dicon, new object[] { mData });
             }
 
@@ -82,16 +79,19 @@ namespace ServerInterface
 
         public  void NoServerHandler()
         {
-            //Invoke Rquired!!
-            if (RedLightPanel.InvokeRequired || GreenLightPanel.InvokeRequired || StartServerButton.InvokeRequired || StopServerButton.InvokeRequired)
+        
+            if (panel2.InvokeRequired)
             {
-                DisHandler dicon = new DisHandler(NoServerHandler);
+                Action dicon = NoServerHandler;
                 this.Invoke(dicon, new object[] {  });
 
             }
 
             else
             {
+                CurrentUsersListbox.Items.Clear();
+                HistoryListbox.Items.Clear();
+                ChatListBox.Items.Clear();
                 RedLightPanel.Visible = true;
                 GreenLightPanel.Visible = false;
                 StartServerButton.Enabled = true;
@@ -103,10 +103,10 @@ namespace ServerInterface
         // For usual user disconnection
         public void DisconnectUserHAndler(MessageData mData)
         {
-            if (CurrentUsersListbox.InvokeRequired || HistoryListbox.InvokeRequired)
+            if (panel2.InvokeRequired)
             {
-                LocalHandler messent = new LocalHandler(DisconnectUserHAndler);
-                this.Invoke(messent, new object[] { mData });
+                Action <MessageData> dicon = DisconnectUserHAndler;
+                this.Invoke(dicon, new object[] { });
             }
 
 

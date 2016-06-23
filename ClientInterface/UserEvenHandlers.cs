@@ -15,8 +15,7 @@ namespace ClientInterface
   public partial  class UserInterfaceClass : Form
     {
 
-        delegate void LocalHandler(MessageData mdata);
-
+       
 
         public static void NoServerHandler()
         {
@@ -24,14 +23,12 @@ namespace ClientInterface
         }
 
 
-
-
         public  void MessageHandler(MessageData mData)
         {
 
             if (ChatrichTextBox.InvokeRequired)
             {
-                LocalHandler messent = new LocalHandler(MessageHandler);
+                Action<MessageData> messent =MessageHandler;
                 this.Invoke(messent, new object[] { mData });
             }
 
@@ -47,7 +44,7 @@ namespace ClientInterface
 
                     for(int i = 0; i < mData.listofUsers.Count; i++)
                     {
-                        //AllUsersCombobox.Items.Add(names.ToArray()[i]);
+                    
                         PrivatecheckedListBox.Items.Add(names.ToArray()[i]);
 
                     }
@@ -56,16 +53,14 @@ namespace ClientInterface
 
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
-                    //mData.listboxitem.Message = ("\n Server says: " + mData.Textmessage);
-                    //ChatListBox.Items.Add(mData.listboxitem);
+                    
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
 
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                    //mData.listboxitem.Message = ("Server says: " + mData.Textmessage);
-                    //ChatListBox.Items.Add  ("\n Server says: "  +  mData.Textmessage);
+                  
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
 
                 }
@@ -73,15 +68,7 @@ namespace ClientInterface
                 else if (mData.action == NetworkAction.SeverDisconnection)
                 {
                     ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
-                    //ClientProps.UserisOnline = false;
-                    //GreenLightPanel.Visible = false;
-                    //RedLightPanel.Visible = true;
-                    //ConnectToserverButton.Enabled = true;
-                    //DisconnectFromServerButton.Enabled = false;
-                    //sendmessageButton.Enabled = false;
-                    //PrivateMessageButton.Enabled = false;
-                    //ColorChoosing.Enabled = false;
-                    //changeFontButton.Enabled = false;
+             
                 }
 
                 else
