@@ -112,8 +112,19 @@ namespace ServerInterface
 
             else
             {
-                DateTime current = DateTime.Now;              
-                CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                DateTime current = DateTime.Now;
+                    
+             for(int i = 0;  i< CurrentUsersListbox.Items.Count; i++)
+
+                {
+                    if (CurrentUsersListbox.Items[i].ToString().Contains(mData.Userdat.Username))
+                    {
+                        CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                    }
+
+                }
+                            
+                
                 HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected " + current.ToLongTimeString());
                 ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected " );
 
