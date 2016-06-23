@@ -60,7 +60,7 @@ namespace ClientBL
                     BinaryFormatter bFormat = new BinaryFormatter();
                     bFormat.Serialize(netStream, premesData);
                     returning = (MessageData)bFormat.Deserialize(netStream);
-                 ClientProps.listofUserfortheUsers = returning.listofUsers;
+                   ClientProps.listofUserfortheUsers = returning.listofUsers;
                     GlobalValidIpandPort = true;
                 }
             }
@@ -184,7 +184,14 @@ namespace ClientBL
        public static void DisconnectionEventHandler(MessageData mData, UserData uData)
 
         {
-            
+
+            NoServer -= NoServerHandler;
+            Disconnect -= DisconnectionEventHandler;
+
+
+
+
+
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;

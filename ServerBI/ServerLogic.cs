@@ -29,7 +29,7 @@ namespace ServerBI
 
 
         private static TcpListener server;
-        private static Task t1;
+        private static Task mainTask;
         private static Task StarttoListen;
 
         public static void ServerOnline(ServerData sData)
@@ -46,12 +46,14 @@ namespace ServerBI
                 userdicsconnecter += ServerEventHandlers.DisconnectUser;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
-                t1 = Task.Run(() => StartListening(server, NetworkAction.Connection));
+                mainTask = Task.Run(() => StartListening(server, NetworkAction.Connection));
             }
             catch
             {
                 NoServer();
             }
+
+
             }
 
         public static void StartListening(TcpListener serv, NetworkAction NecAct)
@@ -156,17 +158,27 @@ namespace ServerBI
         public static void StopListening()
 
         {
+           
+
+
+
             MessageData byebye = new MessageData();
             byebye.Textmessage = "Goodbye to Everyone ";
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
             publicmessage(byebye, ns);
-            ServerDisconnection();
-            ServerProps.ServerisOnline = false;
-          
-            
+            NoServer();
+            ServerProps.ServerisOnline = false;           
             server.Stop();
 
+            ServerProps.listofUsersontheserver.Clear();
+            ServerProps.StreamsofClients.Clear();
+
+            ipandportvalidation -= ServerEventHandlers.ValidationHandler;
+            connection -= ServerEventHandlers.ConnectionHandler;
+            publicmessage -= ServerEventHandlers.PublicMessageHandler;
+            privatemesage -= ServerEventHandlers.PrivateMessageHandler;
+            userdicsconnecter -= ServerEventHandlers.DisconnectUser;
         }
 
 

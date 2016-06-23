@@ -18,7 +18,7 @@ namespace ClientInterface
         public SignIn()
         {
             InitializeComponent();
-            UserLogic.NoServer += UserInterfaceClass.NoServerHandler;
+           
         }
 
         
@@ -189,8 +189,9 @@ namespace ClientInterface
                 
 
                 UserLogic.MainClienFinction(mData , new_user);
-            
-               
+
+                UserLogic.NoServer += UserInterfaceClass.NoServerHandler;
+
                 ClearAll();
                 Close();
             }

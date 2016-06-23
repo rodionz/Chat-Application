@@ -21,10 +21,13 @@ namespace ServerBI
 
 
         internal static void ValidationHandler( MessageData mData, NetworkStream nStr)
-        {          
-            BinaryFormatter bf = new BinaryFormatter();
-            mData.listofUsers = ServerProps.listofUsersontheserver;
-            bf.Serialize(nStr, mData);
+        {
+           
+                BinaryFormatter bf = new BinaryFormatter();
+                mData.listofUsers = ServerProps.listofUsersontheserver;
+                bf.Serialize(nStr, mData);
+                return;
+            
         }
 
 

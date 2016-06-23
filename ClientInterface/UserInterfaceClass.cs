@@ -93,6 +93,9 @@ namespace ClientInterface
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
                 NoServersOnlineLabel.Text = "";
+
+
+                UserLogic.MessageRecieved += MessageHandler;
             }
 
 
@@ -147,16 +150,13 @@ namespace ClientInterface
             
             ClientProps.UserisOnline = false;
             UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
-
-
+            UserLogic.NoServer -= UserInterfaceClass.NoServerHandler;
+            UserLogic.MessageRecieved -= MessageHandler;
             Disconnection();
 
         }
 
-        private void UserInterfaceClass_Load(object sender, EventArgs e)
-        {
-            UserLogic.MessageRecieved += MessageHandler;
-        }
+       
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {

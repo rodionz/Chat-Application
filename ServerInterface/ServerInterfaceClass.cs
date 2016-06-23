@@ -30,9 +30,12 @@ namespace ServerInterface
 
         private void StartServerButton_Click(object sender, EventArgs e)
         {
-           ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
+            ServerLogic.NoServer -= NoServerHandler;
+            ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
             ServerLogic.ServerDisconnection += NoServerHandler;
+
+
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
 
@@ -67,6 +70,9 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
+            ServerEventHandlers.InterfaceDisconnecter -= DisconnectUserHAndler;
+            
+            ServerLogic.ServerDisconnection -= NoServerHandler;
             ServerLogic.StopListening();
             StartServerButton.Enabled = true;
         }
