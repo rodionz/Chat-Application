@@ -23,9 +23,9 @@ namespace ServerBI
         public static event Action<MessageData,NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;
-        public static event Action<MessageData, NetworkStream> privatemesage;
+        public static event Action<MessageData, NetworkStream> ListofUsersRequest;
         public static event Action<MessageData, NetworkStream> userdicsconnecter;
-
+        public static event Action<MessageData, NetworkStream> PrivateMessage;
 
 
         private static TcpListener server;
@@ -42,7 +42,7 @@ namespace ServerBI
                 ipandportvalidation += ServerEventHandlers.ValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
-                privatemesage += ServerEventHandlers.PrivateMessageHandler;
+                ListofUsersRequest += ServerEventHandlers.UserREquestHandler;
                 userdicsconnecter += ServerEventHandlers.DisconnectUser;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
@@ -120,8 +120,14 @@ namespace ServerBI
                         mData.action = NetworkAction.None;
                         break;
 
+                    case NetworkAction.SendPrivateMessage:
+                        //privatemesage(mData, netStr);
+                        mData.action = NetworkAction.None;
+
+                        break;
+
                     case NetworkAction.RequestforListofUsers:
-                        privatemesage( mData, netStr);
+                        ListofUsersRequest( mData, netStr);
                         mData.action = NetworkAction.None;
                         break;
 
@@ -177,7 +183,7 @@ namespace ServerBI
             ipandportvalidation -= ServerEventHandlers.ValidationHandler;
             connection -= ServerEventHandlers.ConnectionHandler;
             publicmessage -= ServerEventHandlers.PublicMessageHandler;
-            privatemesage -= ServerEventHandlers.PrivateMessageHandler;
+            ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
             userdicsconnecter -= ServerEventHandlers.DisconnectUser;
         }
 

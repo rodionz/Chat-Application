@@ -111,7 +111,7 @@ namespace ServerBI
 
         }
 
-        internal static void PrivateMessageHandler( MessageData mData, NetworkStream nStr)
+        internal static void UserREquestHandler( MessageData mData, NetworkStream nStr)
         {
             
             BinaryFormatter bf = new BinaryFormatter(); 
@@ -144,7 +144,12 @@ namespace ServerBI
             InterfaceDisconnecter(mData);
         }
 
+        internal static void PrivatemessageHandler(MessageData mData, NetworkStream nStream)
+        {
 
+
+
+        }
 
     }
 }

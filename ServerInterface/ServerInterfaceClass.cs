@@ -50,21 +50,9 @@ namespace ServerInterface
                  
         }
 
-        private void ChangeIpButton_Click(object sender, EventArgs e)
-        {
+      
 
-        
-                ChangeIPDialog ChipDialog = new ChangeIPDialog(sData);
-                ChipDialog.ShowDialog();
-            
-        }
-
-        private void ChangePortButton_Click(object sender, EventArgs e)
-        {
-            ChangePortDialog Cpd = new ChangePortDialog(sData);
-
-            Cpd.ShowDialog();
-        }
+      
 
       
 

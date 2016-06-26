@@ -123,9 +123,16 @@ namespace ClientInterface
 
             else
             {
-
-
+                 MesData.Time = DateTime.Now;
+                MesData.Textmessage = this.TextMessages.Text;
+                MesData.Userdat = uData;
+                MesData.action = NetworkAction.SendPrivateMessage;
+                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
+                TextMessages.Clear();
+                MesData.listofnamesforPrivateMessage = privatelist;
+                UserLogic.SendMessage(MesData);
                 ClientInterfaceProps.PrivateMessage = false;
+                privatelist.Clear();
             }
 
 
@@ -211,19 +218,7 @@ namespace ClientInterface
             }
         }
 
-        //private void PrivatecheckedListBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    privatelist = new List<string>();
-        //    privatelist.Add((string)PrivatecheckedListBox.SelectedItem);
-        //}
-
-        //private void PrivatecheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    PrivatecheckedListBox.CheckOnClick = true;
-        //    privatelist = new List<string>();
-        //    privatelist.Add((string)PrivatecheckedListBox.SelectedItem);
-        
-        //}
+     
 
         private void PrivatecheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {

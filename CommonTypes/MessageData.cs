@@ -33,6 +33,8 @@ namespace CommonTypes
         public string Textmessage
         { get; set; }
 
+        public List<string> listofnamesforPrivateMessage;
+
 
         public List<UserData> listofUsers;
 
