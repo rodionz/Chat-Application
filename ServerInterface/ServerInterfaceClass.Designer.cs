@@ -37,8 +37,6 @@
             this.tabChat = new System.Windows.Forms.TabPage();
             this.ChatListBox = new System.Windows.Forms.ListBox();
             this.StartServerButton = new System.Windows.Forms.Button();
-            this.ChangeIpButton = new System.Windows.Forms.Button();
-            this.ChangePortButton = new System.Windows.Forms.Button();
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.GreenLamp = new System.Windows.Forms.PictureBox();
@@ -72,7 +70,7 @@
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tabControl2);
-            this.panel1.Location = new System.Drawing.Point(262, 10);
+            this.panel1.Location = new System.Drawing.Point(211, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(448, 326);
             this.panel1.TabIndex = 1;
@@ -149,7 +147,7 @@
             // 
             this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.StartServerButton.Location = new System.Drawing.Point(752, 241);
+            this.StartServerButton.Location = new System.Drawing.Point(211, 368);
             this.StartServerButton.Name = "StartServerButton";
             this.StartServerButton.Size = new System.Drawing.Size(124, 43);
             this.StartServerButton.TabIndex = 2;
@@ -157,35 +155,11 @@
             this.StartServerButton.UseVisualStyleBackColor = true;
             this.StartServerButton.Click += new System.EventHandler(this.StartServerButton_Click);
             // 
-            // ChangeIpButton
-            // 
-            this.ChangeIpButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangeIpButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ChangeIpButton.Location = new System.Drawing.Point(752, 180);
-            this.ChangeIpButton.Name = "ChangeIpButton";
-            this.ChangeIpButton.Size = new System.Drawing.Size(124, 43);
-            this.ChangeIpButton.TabIndex = 3;
-            this.ChangeIpButton.Text = "Change IP";
-            this.ChangeIpButton.UseVisualStyleBackColor = true;
-            this.ChangeIpButton.Click += new System.EventHandler(this.ChangeIpButton_Click);
-            // 
-            // ChangePortButton
-            // 
-            this.ChangePortButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangePortButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.ChangePortButton.Location = new System.Drawing.Point(752, 122);
-            this.ChangePortButton.Name = "ChangePortButton";
-            this.ChangePortButton.Size = new System.Drawing.Size(124, 43);
-            this.ChangePortButton.TabIndex = 4;
-            this.ChangePortButton.Text = "Change Port";
-            this.ChangePortButton.UseVisualStyleBackColor = true;
-            this.ChangePortButton.Click += new System.EventHandler(this.ChangePortButton_Click);
-            // 
             // GreenLightPanel
             // 
             this.GreenLightPanel.Controls.Add(this.label2);
             this.GreenLightPanel.Controls.Add(this.GreenLamp);
-            this.GreenLightPanel.Location = new System.Drawing.Point(64, 180);
+            this.GreenLightPanel.Location = new System.Drawing.Point(9, 175);
             this.GreenLightPanel.Name = "GreenLightPanel";
             this.GreenLightPanel.Size = new System.Drawing.Size(143, 76);
             this.GreenLightPanel.TabIndex = 18;
@@ -215,7 +189,7 @@
             // 
             this.RedLightPanel.Controls.Add(this.label1);
             this.RedLightPanel.Controls.Add(this.RedLamp);
-            this.RedLightPanel.Location = new System.Drawing.Point(57, 72);
+            this.RedLightPanel.Location = new System.Drawing.Point(12, 72);
             this.RedLightPanel.Name = "RedLightPanel";
             this.RedLightPanel.Size = new System.Drawing.Size(143, 82);
             this.RedLightPanel.TabIndex = 17;
@@ -234,7 +208,7 @@
             // RedLamp
             // 
             this.RedLamp.Image = global::ServerInterface.Properties.Resources.red;
-            this.RedLamp.Location = new System.Drawing.Point(50, 15);
+            this.RedLamp.Location = new System.Drawing.Point(57, 3);
             this.RedLamp.Name = "RedLamp";
             this.RedLamp.Size = new System.Drawing.Size(35, 34);
             this.RedLamp.TabIndex = 13;
@@ -245,7 +219,7 @@
             this.StopServerButton.Enabled = false;
             this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.StopServerButton.Location = new System.Drawing.Point(752, 292);
+            this.StopServerButton.Location = new System.Drawing.Point(535, 368);
             this.StopServerButton.Name = "StopServerButton";
             this.StopServerButton.Size = new System.Drawing.Size(124, 44);
             this.StopServerButton.TabIndex = 19;
@@ -268,7 +242,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Indigo;
-            this.label3.Location = new System.Drawing.Point(49, 10);
+            this.label3.Location = new System.Drawing.Point(26, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 47);
             this.label3.TabIndex = 21;
@@ -278,9 +252,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(469, 447);
+            this.label4.Location = new System.Drawing.Point(367, 447);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 23;
             this.label4.Text = "Powered by";
             // 
@@ -288,9 +262,10 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(470, 555);
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(360, 555);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(98, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(137, 18);
             this.linkLabel1.TabIndex = 24;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Folow us on Github";
@@ -299,7 +274,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ServerInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(502, 571);
+            this.pictureBox2.Location = new System.Drawing.Point(401, 576);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 25;
@@ -308,7 +283,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(400, 473);
+            this.pictureBox1.Location = new System.Drawing.Point(299, 473);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 79);
             this.pictureBox1.TabIndex = 22;
@@ -325,8 +300,6 @@
             this.panel2.Controls.Add(this.StopServerButton);
             this.panel2.Controls.Add(this.RedLightPanel);
             this.panel2.Controls.Add(this.linkLabel1);
-            this.panel2.Controls.Add(this.ChangeIpButton);
-            this.panel2.Controls.Add(this.ChangePortButton);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.StartServerButton);
             this.panel2.Location = new System.Drawing.Point(0, 2);
@@ -339,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(922, 650);
+            this.ClientSize = new System.Drawing.Size(798, 650);
             this.Controls.Add(this.panel2);
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
@@ -371,8 +344,6 @@
         public System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.TabPage tabPage5;
        internal System.Windows.Forms.Button StartServerButton;
-        private System.Windows.Forms.Button ChangeIpButton;
-        private System.Windows.Forms.Button ChangePortButton;
         private System.Windows.Forms.Panel GreenLightPanel;
         private System.Windows.Forms.PictureBox GreenLamp;
         private System.Windows.Forms.Panel RedLightPanel;
