@@ -146,7 +146,7 @@ namespace ServerBI
 
         internal static void PrivatemessageHandler(MessageData mData, NetworkStream nStream)
         {
-
+            //mData.listofnamesforPrivateMessage
 
 
         }

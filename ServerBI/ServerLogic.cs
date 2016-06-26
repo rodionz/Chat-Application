@@ -44,6 +44,7 @@ namespace ServerBI
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest += ServerEventHandlers.UserREquestHandler;
                 userdicsconnecter += ServerEventHandlers.DisconnectUser;
+                PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
                 mainTask = Task.Run(() => StartListening(server, NetworkAction.Connection));
@@ -121,7 +122,7 @@ namespace ServerBI
                         break;
 
                     case NetworkAction.SendPrivateMessage:
-                        //privatemesage(mData, netStr);
+                        PrivateMessage(mData, netStr);
                         mData.action = NetworkAction.None;
 
                         break;
@@ -185,6 +186,7 @@ namespace ServerBI
             publicmessage -= ServerEventHandlers.PublicMessageHandler;
             ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
             userdicsconnecter -= ServerEventHandlers.DisconnectUser;
+            PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
         }
 
 
