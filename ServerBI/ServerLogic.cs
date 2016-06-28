@@ -158,19 +158,17 @@ namespace ServerBI
                         break;
                         
                 }
-
-
             }
-
         }
+
+
+
+
 
         public static void StopListening()
 
         {
            
-
-
-
             MessageData byebye = new MessageData();
             byebye.Textmessage = "Goodbye to Everyone ";
             byebye.action = NetworkAction.SeverDisconnection;
@@ -189,7 +187,7 @@ namespace ServerBI
             ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
             userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
-     ServerEventHandlers.unexpectedDisconnection -= ServerEventHandlers.UnexpectedDisconnectionHandler;
+            ServerEventHandlers.unexpectedDisconnection -= ServerEventHandlers.UnexpectedDisconnectionHandler;
         }
 
 

@@ -145,10 +145,7 @@ namespace ServerBI
                     bf = new BinaryFormatter();
                     bf.Serialize(_netStream, mData);
                 }
-
             }
-
-
         }
 
 
@@ -160,11 +157,30 @@ namespace ServerBI
             //ServerProps.StreamsofClients
             //mData.listofnamesforPrivateMessage;
 
-            //try
-            //{ }
-            //catch
-            //{ }
 
+            for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
+            {
+
+                try
+                {
+                    if (ServerProps.StreamsofClients[i] != null)
+                    {
+                        NetworkStream netStream = ServerProps.StreamsofClients[i];
+                        BinaryFormatter bf = new BinaryFormatter();
+                        bf.Serialize(netStream, mData);
+                    }
+
+
+
+
+                }
+                catch(IOException)
+                {
+
+                    //unexpectedDisconnection(mData, nstr, i);
+
+                }
+            }
         }
 
     }

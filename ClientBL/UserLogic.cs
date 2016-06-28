@@ -37,7 +37,7 @@ namespace ClientBL
             NoServer += NoServerHandler;
             Disconnect += DisconnectionEventHandler;         
              t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
-
+            
        
         }
 
@@ -121,9 +121,7 @@ namespace ClientBL
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
-                  
-
-               
+                                 
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
                     {
                         currentUser.Userid = incoming.Userdat.Userid;
@@ -141,10 +139,8 @@ namespace ClientBL
                         t1.Dispose();
                         usernetstream.Dispose();
                         client.Close();
-
                     }
 
-                  
                     else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
                         break;
 
@@ -155,12 +151,8 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
-           
-           
-          
-
-
         }
+
 
         public static void SendMessage(MessageData outcoming)
         {
@@ -187,17 +179,10 @@ namespace ClientBL
 
             NoServer -= NoServerHandler;
             Disconnect -= DisconnectionEventHandler;
-
-
-
-
-
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);
-            
-            
             t1.Dispose();
             client.Close();
 
