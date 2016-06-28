@@ -86,7 +86,7 @@ namespace ClientInterface
                 this.Userlabel.Text = ClientInterfaceProps.uNmake;
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
-                NoServersOnlineLabel.Text = "";
+              
 
 
                 UserLogic.MessageRecieved += MessageHandler;

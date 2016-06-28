@@ -48,7 +48,7 @@ namespace ClientInterface
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
                     
-                    ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
+                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage);
 
                 }
 

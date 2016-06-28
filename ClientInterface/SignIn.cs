@@ -19,8 +19,7 @@ namespace ClientInterface
         }
 
         
-        IPAddress clientIpAddr;
-        public event EventHandler newUsercreated;
+        IPAddress clientIpAddr;       
          internal   UserData new_user;
         MessageData mData;
         internal string userNIckname;
@@ -151,7 +150,7 @@ namespace ClientInterface
                     else
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Red;
-                        NickNameConfirmationLabel.Text = "UserName already take, please choose another one";
+                        NickNameConfirmationLabel.Text = "UserName wae already taken, please choose another one";
 
 
                     }
@@ -196,7 +195,7 @@ namespace ClientInterface
             else
             {
                 ConnectLabel.ForeColor = Color.Red;
-                ConnectLabel.Text = "You need to confirm IP, Por and UserName prior to connecting server";
+                ConnectLabel.Text = "You need to confirm IPAdress, Port and UserName before connecting server";
 
             }
         }

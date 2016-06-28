@@ -45,7 +45,6 @@
             this.GreenLightPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.GreenLamp = new System.Windows.Forms.PictureBox();
-            this.NoServersOnlineLabel = new System.Windows.Forms.Label();
             this.PrivateMessageButton = new System.Windows.Forms.Button();
             this.Userlabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -133,7 +132,7 @@
             this.ColorChoosing.Name = "ColorChoosing";
             this.ColorChoosing.Size = new System.Drawing.Size(161, 38);
             this.ColorChoosing.TabIndex = 9;
-            this.ColorChoosing.Text = "ChooseYourColor";
+            this.ColorChoosing.Text = "Choose Your Color";
             this.ColorChoosing.UseVisualStyleBackColor = true;
             this.ColorChoosing.Click += new System.EventHandler(this.ColorChoosing_Click);
             // 
@@ -223,17 +222,6 @@
             this.GreenLamp.TabIndex = 14;
             this.GreenLamp.TabStop = false;
             // 
-            // NoServersOnlineLabel
-            // 
-            this.NoServersOnlineLabel.AutoSize = true;
-            this.NoServersOnlineLabel.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoServersOnlineLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.NoServersOnlineLabel.Location = new System.Drawing.Point(23, 540);
-            this.NoServersOnlineLabel.Name = "NoServersOnlineLabel";
-            this.NoServersOnlineLabel.Size = new System.Drawing.Size(43, 23);
-            this.NoServersOnlineLabel.TabIndex = 17;
-            this.NoServersOnlineLabel.Text = "test";
-            // 
             // PrivateMessageButton
             // 
             this.PrivateMessageButton.Enabled = false;
@@ -288,7 +276,6 @@
             this.panel1.Controls.Add(this.ColorChoosing);
             this.panel1.Controls.Add(this.changeFontButton);
             this.panel1.Controls.Add(this.PrivateMessageButton);
-            this.panel1.Controls.Add(this.NoServersOnlineLabel);
             this.panel1.Controls.Add(this.ConnectToserverButton);
             this.panel1.Controls.Add(this.DisconnectFromServerButton);
             this.panel1.Controls.Add(this.panel6);
@@ -307,7 +294,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
-       
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -342,7 +328,6 @@
         private System.Windows.Forms.Panel GreenLightPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label NoServersOnlineLabel;
         private System.Windows.Forms.Button PrivateMessageButton;
         private System.Windows.Forms.Label Userlabel;
         private System.Windows.Forms.PictureBox pictureBox1;
