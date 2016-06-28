@@ -115,8 +115,7 @@ namespace ClientInterface
                 MesData.Textmessage = this.TextMessages.Text;
                 MesData.Userdat = uData;
                 MesData.action = NetworkAction.Sendmessage;
-                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
-                //MesData.listboxitem = new MyListboxItem(TextMessages.ForeColor, message, TextMessages.Font);
+                string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);             
                 TextMessages.Clear();
                 UserLogic.SendMessage(MesData);
             }
@@ -222,17 +221,17 @@ namespace ClientInterface
 
         private void PrivatecheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            
 
-            if (privatelist.Contains(PrivatecheckedListBox.CheckedItems.ToString()))
+
+            if (privatelist.Contains(PrivatecheckedListBox.Text))
             {
-                
-                privatelist.Remove(PrivatecheckedListBox.CheckedItems.ToString());
+
+                privatelist.Remove(PrivatecheckedListBox.Text);
             }
 
             else
             {
-                privatelist.Add(PrivatecheckedListBox.CheckedItems.ToString());
+                privatelist.Add(PrivatecheckedListBox.Text);
 
             }
         }

@@ -173,6 +173,13 @@ namespace ClientBL
         }
 
 
+        public static void PrivateMesage(MessageData privat)
+        {
+
+
+        }
+
+
        public static void DisconnectionEventHandler(MessageData mData, UserData uData)
 
         {

@@ -163,7 +163,7 @@ namespace ServerBI
 
                 try
                 {
-                    if (ServerProps.StreamsofClients[i] != null)
+                    if (ServerProps.StreamsofClients[i] != null && mData.listofnamesforPrivateMessage.Contains(ServerProps.listofUsersontheserver[i].Username))
                     {
                         NetworkStream netStream = ServerProps.StreamsofClients[i];
                         BinaryFormatter bf = new BinaryFormatter();
@@ -177,7 +177,7 @@ namespace ServerBI
                 catch(IOException)
                 {
 
-                    //unexpectedDisconnection(mData, nstr, i);
+                    unexpectedDisconnection(mData, nStream, i);
 
                 }
             }
