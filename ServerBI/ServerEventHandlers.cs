@@ -12,8 +12,8 @@ namespace ServerBI
         public static event Action<MessageData> newuserconnected;
         public static event Action<MessageData> messgesent;
         public static event Action<MessageData> InterfaceDisconnecter;
-
         public static event Action<MessageData, NetworkStream, int> unexpectedDisconnection;
+
 
         internal static void ValidationHandler( MessageData mData, NetworkStream nStr)
         {

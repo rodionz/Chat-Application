@@ -11,17 +11,12 @@ namespace ServerBI
     {
       
         public static event Action NoServer;
-        public static event Action ServerDisconnection;
-
-
-
-            
+        public static event Action ServerDisconnection;            
         public static event Action<MessageData,NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;
         public static event Action<MessageData, NetworkStream> ListofUsersRequest;
-        public static event Action<MessageData, NetworkStream> userdicsconnecter;
-       
+        public static event Action<MessageData, NetworkStream> userdicsconnecter;      
         public static event Action<MessageData, NetworkStream> PrivateMessage;
 
 
@@ -166,7 +161,7 @@ namespace ServerBI
         {
            
             MessageData byebye = new MessageData();
-            byebye.Textmessage = "\n Goodbye to Everyone \n You were dusconnected ";
+            byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
             publicmessage(byebye, ns);
