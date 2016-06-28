@@ -13,12 +13,12 @@ namespace ServerBI
 {
    public class ServerEventHandlers
     {
-        public delegate void Server_ClientEvents(MessageData mData);
-        public static event Server_ClientEvents newuserconnected;
-        public static event Server_ClientEvents messgesent;
-        public static event Server_ClientEvents InterfaceDisconnecter;
-        
+      
+        public static event Action<MessageData> newuserconnected;
+        public static event Action<MessageData> messgesent;
+        public static event Action<MessageData> InterfaceDisconnecter;
 
+        public static event Action<MessageData, NetworkStream, int> unexpectedDisconnection;
 
         internal static void ValidationHandler( MessageData mData, NetworkStream nStr)
         {
@@ -66,42 +66,7 @@ namespace ServerBI
                 catch(IOException)
                 {
 
-                    BinaryFormatter bf = new BinaryFormatter();
-                    NetworkStream netStream = ServerProps.StreamsofClients[i];
-                    UserData lostuser = ServerProps.listofUsersontheserver[i];
-                    mData.Userdat = lostuser;
-
-                    try
-                    {
-                        ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
-                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
-                    }
-
-                    catch (ArgumentOutOfRangeException)
-                    {
-                        ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
-                        ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
-                        mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
-                    }
-
-
-                    mData.action = NetworkAction.UserDisconnection;
-                 
-                  
-                        for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
-                        {
-                            mData.Textmessage = mData.Userdat.Username + " was disconnected";
-
-                            if (ServerProps.StreamsofClients[x] != null)
-                            {
-                                mData.action = NetworkAction.UserDisconnection;
-                                NetworkStream _netStream = ServerProps.StreamsofClients[x];
-                                bf = new BinaryFormatter();
-                                bf.Serialize(_netStream, mData);
-                            }
-
-                        }
-
+                    unexpectedDisconnection(mData, nstr, i);
 
 
                 }
@@ -144,10 +109,61 @@ namespace ServerBI
             InterfaceDisconnecter(mData);
         }
 
+
+        internal static  void UnexpectedDisconnectionHandler(MessageData mData, NetworkStream nStream, int index)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            NetworkStream netStream = ServerProps.StreamsofClients[index];
+            UserData lostuser = ServerProps.listofUsersontheserver[index];
+            mData.Userdat = lostuser;
+
+            try
+            {
+                ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid);
+                ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
+            }
+
+            catch (ArgumentOutOfRangeException)
+            {
+                ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
+                ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
+                mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
+            }
+
+
+            mData.action = NetworkAction.UserDisconnection;
+
+
+            for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
+            {
+                mData.Textmessage = mData.Userdat.Username + " was disconnected";
+
+                if (ServerProps.StreamsofClients[x] != null)
+                {
+                    mData.action = NetworkAction.UserDisconnection;
+                    NetworkStream _netStream = ServerProps.StreamsofClients[x];
+                    bf = new BinaryFormatter();
+                    bf.Serialize(_netStream, mData);
+                }
+
+            }
+
+
+        }
+
+
+
+
         internal static void PrivatemessageHandler(MessageData mData, NetworkStream nStream)
         {
-            //mData.listofnamesforPrivateMessage
+            //ServerProps.listofUsersontheserver
+            //ServerProps.StreamsofClients
+            //mData.listofnamesforPrivateMessage;
 
+            //try
+            //{ }
+            //catch
+            //{ }
 
         }
 

@@ -25,6 +25,7 @@ namespace ServerBI
         public static event Action<MessageData, NetworkStream> publicmessage;
         public static event Action<MessageData, NetworkStream> ListofUsersRequest;
         public static event Action<MessageData, NetworkStream> userdicsconnecter;
+       
         public static event Action<MessageData, NetworkStream> PrivateMessage;
 
 
@@ -45,6 +46,7 @@ namespace ServerBI
                 ListofUsersRequest += ServerEventHandlers.UserREquestHandler;
                 userdicsconnecter += ServerEventHandlers.DisconnectUser;
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
+             ServerEventHandlers.unexpectedDisconnection += ServerEventHandlers.UnexpectedDisconnectionHandler;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
                 mainTask = Task.Run(() => StartListening(server, NetworkAction.Connection));
@@ -187,6 +189,7 @@ namespace ServerBI
             ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
             userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
+     ServerEventHandlers.unexpectedDisconnection -= ServerEventHandlers.UnexpectedDisconnectionHandler;
         }
 
 
