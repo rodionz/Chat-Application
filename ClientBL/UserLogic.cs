@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
@@ -34,7 +31,7 @@ namespace ClientBL
         public static void MainClienFinction(MessageData mesData, UserData uData)
 
         {
-            NoServer += NoServerHandler;
+            
             Disconnect += DisconnectionEventHandler;         
              t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
             
@@ -47,6 +44,7 @@ namespace ClientBL
         public static void  IPAndPortValidation(MessageData premesData)
 
         {
+            NoServer += NoServerHandler;
             MessageData returning;
             
             TcpClient preclient = new TcpClient();
@@ -198,7 +196,7 @@ namespace ClientBL
         public static void NoServerHandler()
         {
             
-            t1.Dispose();
+            //t1.Dispose();
             client.Close();
         }
 

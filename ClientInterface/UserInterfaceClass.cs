@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonTypes;
 using ClientBL;
@@ -101,8 +95,8 @@ namespace ClientInterface
 
             else
             {
-
-                NoServersOnlineLabel.Text = "There are no availiable servers right now, please try again later, or start your server manually";
+                MessageBox.Show("There are no availiable servers right now, please try again later, or start your server manually", "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+               
                 ClientInterfaceProps.ResetBooleans();
 
             }
@@ -131,6 +125,8 @@ namespace ClientInterface
                 MesData.listofnamesforPrivateMessage = privatelist;
                 UserLogic.SendMessage(MesData);
                 ClientInterfaceProps.PrivateMessage = false;
+                PrivatecheckedListBox.ClearSelected();
+                PrivatecheckedListBox.Visible = false;
                 privatelist.Clear();
             }
 
@@ -199,25 +195,14 @@ namespace ClientInterface
 
 
 
-     
-
+ 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/rodionz");
         }
 
-        private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(ClientProps.UserisOnline)
-            {
-
-                //MessageBox.Show("Please disconnect you client, before closing", "Client is connected", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                //e.Cancel = true;
-
-            }
-        }
-
-     
+    
+   
 
         private void PrivatecheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
