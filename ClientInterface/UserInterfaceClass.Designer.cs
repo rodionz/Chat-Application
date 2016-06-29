@@ -64,7 +64,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel5.Controls.Add(this.ChatrichTextBox);
-            this.panel5.Location = new System.Drawing.Point(256, 12);
+            this.panel5.Location = new System.Drawing.Point(222, 12);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 235);
             this.panel5.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel6.Controls.Add(this.TextMessages);
-            this.panel6.Location = new System.Drawing.Point(256, 262);
+            this.panel6.Location = new System.Drawing.Point(222, 253);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(397, 75);
             this.panel6.TabIndex = 4;
@@ -102,9 +102,9 @@
             this.sendmessageButton.Enabled = false;
             this.sendmessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendmessageButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.sendmessageButton.Location = new System.Drawing.Point(256, 354);
+            this.sendmessageButton.Location = new System.Drawing.Point(222, 352);
             this.sendmessageButton.Name = "sendmessageButton";
-            this.sendmessageButton.Size = new System.Drawing.Size(114, 39);
+            this.sendmessageButton.Size = new System.Drawing.Size(108, 39);
             this.sendmessageButton.TabIndex = 8;
             this.sendmessageButton.Text = "SEND";
             this.sendmessageButton.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.changeFontButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.changeFontButton.Location = new System.Drawing.Point(27, 492);
             this.changeFontButton.Name = "changeFontButton";
-            this.changeFontButton.Size = new System.Drawing.Size(161, 36);
+            this.changeFontButton.Size = new System.Drawing.Size(128, 36);
             this.changeFontButton.TabIndex = 10;
             this.changeFontButton.Text = "Change Font";
             this.changeFontButton.UseVisualStyleBackColor = true;
@@ -130,9 +130,9 @@
             this.ColorChoosing.ForeColor = System.Drawing.Color.MediumBlue;
             this.ColorChoosing.Location = new System.Drawing.Point(27, 417);
             this.ColorChoosing.Name = "ColorChoosing";
-            this.ColorChoosing.Size = new System.Drawing.Size(161, 38);
+            this.ColorChoosing.Size = new System.Drawing.Size(128, 38);
             this.ColorChoosing.TabIndex = 9;
-            this.ColorChoosing.Text = "Choose Your Color";
+            this.ColorChoosing.Text = "Change Color";
             this.ColorChoosing.UseVisualStyleBackColor = true;
             this.ColorChoosing.Click += new System.EventHandler(this.ColorChoosing_Click);
             // 
@@ -143,7 +143,7 @@
             this.ConnectToserverButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.ConnectToserverButton.Location = new System.Drawing.Point(25, 280);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
-            this.ConnectToserverButton.Size = new System.Drawing.Size(163, 39);
+            this.ConnectToserverButton.Size = new System.Drawing.Size(130, 39);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
             this.ConnectToserverButton.UseVisualStyleBackColor = false;
@@ -157,7 +157,7 @@
             this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.DisconnectFromServerButton.Location = new System.Drawing.Point(27, 352);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";
-            this.DisconnectFromServerButton.Size = new System.Drawing.Size(161, 39);
+            this.DisconnectFromServerButton.Size = new System.Drawing.Size(128, 39);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
             this.DisconnectFromServerButton.UseVisualStyleBackColor = false;
@@ -169,7 +169,7 @@
             this.RedLightPanel.Controls.Add(this.RedLamp);
             this.RedLightPanel.Location = new System.Drawing.Point(25, 64);
             this.RedLightPanel.Name = "RedLightPanel";
-            this.RedLightPanel.Size = new System.Drawing.Size(187, 82);
+            this.RedLightPanel.Size = new System.Drawing.Size(173, 82);
             this.RedLightPanel.TabIndex = 15;
             // 
             // label1
@@ -198,7 +198,7 @@
             this.GreenLightPanel.Controls.Add(this.GreenLamp);
             this.GreenLightPanel.Location = new System.Drawing.Point(25, 165);
             this.GreenLightPanel.Name = "GreenLightPanel";
-            this.GreenLightPanel.Size = new System.Drawing.Size(187, 82);
+            this.GreenLightPanel.Size = new System.Drawing.Size(173, 82);
             this.GreenLightPanel.TabIndex = 16;
             this.GreenLightPanel.Visible = false;
             // 
@@ -227,9 +227,9 @@
             this.PrivateMessageButton.Enabled = false;
             this.PrivateMessageButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrivateMessageButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.PrivateMessageButton.Location = new System.Drawing.Point(525, 354);
+            this.PrivateMessageButton.Location = new System.Drawing.Point(491, 352);
             this.PrivateMessageButton.Name = "PrivateMessageButton";
-            this.PrivateMessageButton.Size = new System.Drawing.Size(128, 39);
+            this.PrivateMessageButton.Size = new System.Drawing.Size(128, 41);
             this.PrivateMessageButton.TabIndex = 18;
             this.PrivateMessageButton.Text = "PrivateMessage";
             this.PrivateMessageButton.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(323, 511);
+            this.pictureBox1.Location = new System.Drawing.Point(277, 503);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
@@ -258,7 +258,7 @@
             // PrivatecheckedListBox
             // 
             this.PrivatecheckedListBox.FormattingEnabled = true;
-            this.PrivatecheckedListBox.Location = new System.Drawing.Point(525, 411);
+            this.PrivatecheckedListBox.Location = new System.Drawing.Point(491, 411);
             this.PrivatecheckedListBox.Name = "PrivatecheckedListBox";
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;
@@ -282,7 +282,7 @@
             this.panel1.Controls.Add(this.sendmessageButton);
             this.panel1.Location = new System.Drawing.Point(1, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 635);
+            this.panel1.Size = new System.Drawing.Size(743, 635);
             this.panel1.TabIndex = 31;
             // 
             // UserInterfaceClass
@@ -290,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(811, 638);
+            this.ClientSize = new System.Drawing.Size(744, 591);
             this.Controls.Add(this.panel1);
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";

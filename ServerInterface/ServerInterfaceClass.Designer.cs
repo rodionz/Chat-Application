@@ -70,7 +70,7 @@
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tabControl2);
-            this.panel1.Location = new System.Drawing.Point(211, 10);
+            this.panel1.Location = new System.Drawing.Point(179, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(448, 326);
             this.panel1.TabIndex = 1;
@@ -147,7 +147,7 @@
             // 
             this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
-            this.StartServerButton.Location = new System.Drawing.Point(211, 368);
+            this.StartServerButton.Location = new System.Drawing.Point(179, 359);
             this.StartServerButton.Name = "StartServerButton";
             this.StartServerButton.Size = new System.Drawing.Size(124, 43);
             this.StartServerButton.TabIndex = 2;
@@ -219,7 +219,7 @@
             this.StopServerButton.Enabled = false;
             this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.StopServerButton.Location = new System.Drawing.Point(535, 368);
+            this.StopServerButton.Location = new System.Drawing.Point(503, 359);
             this.StopServerButton.Name = "StopServerButton";
             this.StopServerButton.Size = new System.Drawing.Size(124, 44);
             this.StopServerButton.TabIndex = 19;
@@ -229,7 +229,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 336);
+            this.button1.Location = new System.Drawing.Point(19, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
@@ -252,7 +252,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(367, 447);
+            this.label4.Location = new System.Drawing.Point(341, 447);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 23;
@@ -263,7 +263,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(360, 555);
+            this.linkLabel1.Location = new System.Drawing.Point(323, 555);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(137, 18);
             this.linkLabel1.TabIndex = 24;
@@ -274,7 +274,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ServerInterface.Properties.Resources.GitHub_Mark_32px;
-            this.pictureBox2.Location = new System.Drawing.Point(401, 576);
+            this.pictureBox2.Location = new System.Drawing.Point(381, 576);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 37);
             this.pictureBox2.TabIndex = 25;
@@ -283,7 +283,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ServerInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(299, 473);
+            this.pictureBox1.Location = new System.Drawing.Point(267, 473);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 79);
             this.pictureBox1.TabIndex = 22;
@@ -304,7 +304,7 @@
             this.panel2.Controls.Add(this.StartServerButton);
             this.panel2.Location = new System.Drawing.Point(0, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(920, 645);
+            this.panel2.Size = new System.Drawing.Size(769, 645);
             this.panel2.TabIndex = 26;
             // 
             // ServerInterfaceClass
@@ -312,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(798, 650);
+            this.ClientSize = new System.Drawing.Size(769, 650);
             this.Controls.Add(this.panel2);
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
