@@ -113,7 +113,7 @@
             // changeFontButton
             // 
             this.changeFontButton.Enabled = false;
-            this.changeFontButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeFontButton.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeFontButton.ForeColor = System.Drawing.Color.MediumBlue;
             this.changeFontButton.Location = new System.Drawing.Point(27, 492);
             this.changeFontButton.Name = "changeFontButton";
@@ -126,7 +126,7 @@
             // ColorChoosing
             // 
             this.ColorChoosing.Enabled = false;
-            this.ColorChoosing.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColorChoosing.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColorChoosing.ForeColor = System.Drawing.Color.MediumBlue;
             this.ColorChoosing.Location = new System.Drawing.Point(27, 417);
             this.ColorChoosing.Name = "ColorChoosing";
@@ -139,7 +139,7 @@
             // ConnectToserverButton
             // 
             this.ConnectToserverButton.BackColor = System.Drawing.Color.LightGray;
-            this.ConnectToserverButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectToserverButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectToserverButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.ConnectToserverButton.Location = new System.Drawing.Point(25, 280);
             this.ConnectToserverButton.Name = "ConnectToserverButton";
@@ -153,7 +153,7 @@
             // 
             this.DisconnectFromServerButton.BackColor = System.Drawing.Color.LightGray;
             this.DisconnectFromServerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectFromServerButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.DisconnectFromServerButton.Location = new System.Drawing.Point(27, 352);
             this.DisconnectFromServerButton.Name = "DisconnectFromServerButton";

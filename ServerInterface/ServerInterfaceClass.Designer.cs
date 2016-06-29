@@ -145,11 +145,11 @@
             // 
             // StartServerButton
             // 
-            this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartServerButton.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartServerButton.ForeColor = System.Drawing.Color.LimeGreen;
             this.StartServerButton.Location = new System.Drawing.Point(179, 359);
             this.StartServerButton.Name = "StartServerButton";
-            this.StartServerButton.Size = new System.Drawing.Size(124, 43);
+            this.StartServerButton.Size = new System.Drawing.Size(108, 43);
             this.StartServerButton.TabIndex = 2;
             this.StartServerButton.Text = "Start Server";
             this.StartServerButton.UseVisualStyleBackColor = true;
@@ -217,11 +217,11 @@
             // StopServerButton
             // 
             this.StopServerButton.Enabled = false;
-            this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopServerButton.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopServerButton.ForeColor = System.Drawing.Color.Tomato;
-            this.StopServerButton.Location = new System.Drawing.Point(503, 359);
+            this.StopServerButton.Location = new System.Drawing.Point(515, 359);
             this.StopServerButton.Name = "StopServerButton";
-            this.StopServerButton.Size = new System.Drawing.Size(124, 44);
+            this.StopServerButton.Size = new System.Drawing.Size(112, 44);
             this.StopServerButton.TabIndex = 19;
             this.StopServerButton.Text = "Stop Server";
             this.StopServerButton.UseVisualStyleBackColor = true;
