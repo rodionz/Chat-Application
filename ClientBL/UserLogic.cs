@@ -13,7 +13,7 @@ namespace ClientBL
     {
 
       
-        public static event Action NoServer;
+        public static event Action<string> NoServer;
         public static event Action ServerDisconnected;      
         public static event Action<MessageData> MessageRecieved;      
         public static event Action<MessageData,UserData> Disconnect;
@@ -44,7 +44,7 @@ namespace ClientBL
         public static void  IPAndPortValidation(MessageData premesData)
 
         {
-            NoServer += NoServerHandler;
+            
             MessageData returning;
             
             TcpClient preclient = new TcpClient();
@@ -65,7 +65,8 @@ namespace ClientBL
 
             catch (SocketException SE)
             {
-                NoServer();
+                GlobalValidIpandPort = false;
+                NoServer("There is no server whith these parameters ");
             }
 
             finally
@@ -166,7 +167,7 @@ namespace ClientBL
             catch(IOException)
 
             {
-                NoServer();
+                NoServer("Server had suddenly disconnected");
             }
         }
 
@@ -182,7 +183,7 @@ namespace ClientBL
 
         {
 
-            NoServer -= NoServerHandler;
+            GlobalValidIpandPort = false;
             Disconnect -= DisconnectionEventHandler;
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
@@ -193,12 +194,7 @@ namespace ClientBL
 
         }
 
-        public static void NoServerHandler()
-        {
-            
-            //t1.Dispose();
-            client.Close();
-        }
+     
 
 
     }

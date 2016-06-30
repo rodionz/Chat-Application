@@ -11,9 +11,9 @@ namespace ClientInterface
 
        
 
-        public static void NoServerHandler()
+        public static void NoServerHandler(string message)
         {
-            MessageBox.Show("Server is Offline", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

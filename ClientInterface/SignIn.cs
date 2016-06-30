@@ -77,6 +77,7 @@ namespace ClientInterface
                     ConfirmIPandPort.Enabled = false;
                     localListofUsers = ClientProps.listofUserfortheUsers;
                     ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
+
                 }
 
                 else

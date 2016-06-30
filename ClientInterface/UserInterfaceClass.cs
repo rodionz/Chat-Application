@@ -90,12 +90,13 @@ namespace ClientInterface
 
 
                 UserLogic.MessageRecieved += MessageHandler;
+                ClientInterfaceProps.ResetBooleans();
             }
 
 
             else
             {
-                MessageBox.Show("There are no availiable servers right now, please try again later, or start your server manually", "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                //MessageBox.Show("There are no availiable servers right now, please try again later, or start your server manually", "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                
                 ClientInterfaceProps.ResetBooleans();
 
