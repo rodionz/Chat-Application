@@ -129,7 +129,7 @@ namespace ClientBL
 
 
 
-                    // tO cHECK!!!!
+                   
                     else if (incoming.action == NetworkAction.SeverDisconnection)
                     {
                         MessageRecieved(incoming);
