@@ -15,7 +15,7 @@ namespace ClientInterface
         public SignIn()
         {
             InitializeComponent();
-            UserLogic.NoServer += UserInterfaceClass.NoServerHandler;
+            
         }
 
         
@@ -118,7 +118,7 @@ namespace ClientInterface
             WarningLabel.Text = "";
             ConfirmIPandPort.Enabled = true;
             NickNameConfirmationLabel.Text = "";
-            ConnectLabel.Text = "";
+           
         }
 
      
@@ -195,8 +195,8 @@ namespace ClientInterface
 
             else
             {
-                ConnectLabel.ForeColor = Color.Red;
-                ConnectLabel.Text = "You need to confirm IPAdress, Port and UserName before connecting server";
+                MessageBox.Show("You need to confirm IPAdress, Port and UserName before connecting server", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                
 
             }
         }

@@ -11,9 +11,10 @@ namespace ClientInterface
 
        
 
-        public static void NoServerHandler(string message)
+        public  void NoServerHandler(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             Disconnection();
         }
 
 
@@ -22,7 +23,7 @@ namespace ClientInterface
 
             if (ChatrichTextBox.InvokeRequired)
             {
-                Action<MessageData> messent =MessageHandler;
+                Action<MessageData> messent = MessageHandler;
                 this.Invoke(messent, new object[] { mData });
             }
 

@@ -67,6 +67,8 @@ namespace ClientInterface
 
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
+            UserLogic.NoServer += NoServerHandler;
+
             registration.ShowDialog();
 
 
@@ -153,7 +155,7 @@ namespace ClientInterface
             
             ClientProps.UserisOnline = false;
             UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
-            UserLogic.NoServer -= UserInterfaceClass.NoServerHandler;
+            UserLogic.NoServer -= NoServerHandler;
             UserLogic.MessageRecieved -= MessageHandler;
             Disconnection();
 
@@ -171,7 +173,7 @@ namespace ClientInterface
         }
 
         
-     internal void Disconnection()
+     internal  void Disconnection()
 
         {
             if (panel1.InvokeRequired)
