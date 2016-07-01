@@ -58,7 +58,7 @@ namespace ServerBI
                 }
 
                 // Unexpected Client Disconnection
-                catch(IOException)
+                catch
                 {
 
                     unexpectedDisconnection(mData, nstr, i);
@@ -148,9 +148,7 @@ namespace ServerBI
 
         internal static void PrivatemessageHandler(MessageData mData, NetworkStream nStream)
         {
-            //ServerProps.listofUsersontheserver
-            //ServerProps.StreamsofClients
-            //mData.listofnamesforPrivateMessage;
+          
 
 
             for (int i = 0; i < ServerProps.StreamsofClients.Count; i++)
@@ -169,7 +167,7 @@ namespace ServerBI
 
 
                 }
-                catch(IOException)
+                catch
                 {
 
                     unexpectedDisconnection(mData, nStream, i);

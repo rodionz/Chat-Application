@@ -22,7 +22,7 @@ namespace ClientBL
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
-        private static  TcpClient client = new TcpClient();
+        private static TcpClient client;
         static Task t1;
         static Task listening;
 
@@ -39,7 +39,7 @@ namespace ClientBL
         }
 
 
-        // The separate function fot IP and Port validation was intended, besides validating it returns list of Usernames for the folowwing username validation
+        // The separate function fot IP and Port validation was intended, besides validating it returns list of Usernames for the folowing username validation
 
         public static void  IPAndPortValidation(MessageData premesData)
 
@@ -81,7 +81,7 @@ namespace ClientBL
 
         public static void ConnecttoServer(MessageData mData, UserData uData)
         {
-            TcpClient client = new TcpClient();
+             client = new TcpClient();
             MessageData returning = new MessageData();
             UserData Localuser = uData;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
@@ -164,10 +164,12 @@ namespace ClientBL
                 sendingformatter.Serialize(localstrem, outcoming);
             }
 
-            catch(IOException)
+            catch
 
             {
-                NoServer("Server had suddenly disconnected");
+                ClientProps.UserisOnline = false;
+                NoServer("Server was suddenly disconnected");
+                client.Close();
             }
         }
 

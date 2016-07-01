@@ -64,7 +64,7 @@ namespace ServerBI
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));
                 }
             }
-            catch (SocketException se)
+            catch 
             {
 
                 NoServer();
