@@ -41,9 +41,7 @@
             this.NicknameConfirmationButton = new System.Windows.Forms.Button();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.NickNameConfirmationLabel = new System.Windows.Forms.Label();
-            this.portConfirmationLabel = new System.Windows.Forms.Label();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.ConnectLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -51,7 +49,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 81);
+            this.label3.Location = new System.Drawing.Point(12, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 26);
             this.label3.TabIndex = 16;
@@ -61,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 241);
+            this.label2.Location = new System.Drawing.Point(12, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 26);
             this.label2.TabIndex = 15;
@@ -87,14 +85,14 @@
             // 
             // UserNameBox
             // 
-            this.UserNameBox.Location = new System.Drawing.Point(255, 247);
+            this.UserNameBox.Location = new System.Drawing.Point(260, 209);
             this.UserNameBox.Name = "UserNameBox";
             this.UserNameBox.Size = new System.Drawing.Size(143, 20);
             this.UserNameBox.TabIndex = 18;
             // 
             // portTextBox
             // 
-            this.portTextBox.Location = new System.Drawing.Point(296, 81);
+            this.portTextBox.Location = new System.Drawing.Point(296, 68);
             this.portTextBox.Mask = "00000";
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(160, 20);
@@ -105,7 +103,7 @@
             // 
             this.clearIP.BackColor = System.Drawing.Color.Red;
             this.clearIP.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearIP.Location = new System.Drawing.Point(559, 22);
+            this.clearIP.Location = new System.Drawing.Point(502, 22);
             this.clearIP.Name = "clearIP";
             this.clearIP.Size = new System.Drawing.Size(75, 29);
             this.clearIP.TabIndex = 20;
@@ -117,9 +115,9 @@
             // 
             this.UsernameClearButton.BackColor = System.Drawing.Color.Red;
             this.UsernameClearButton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameClearButton.Location = new System.Drawing.Point(449, 241);
+            this.UsernameClearButton.Location = new System.Drawing.Point(448, 209);
             this.UsernameClearButton.Name = "UsernameClearButton";
-            this.UsernameClearButton.Size = new System.Drawing.Size(79, 32);
+            this.UsernameClearButton.Size = new System.Drawing.Size(79, 27);
             this.UsernameClearButton.TabIndex = 21;
             this.UsernameClearButton.Text = "Clear";
             this.UsernameClearButton.UseVisualStyleBackColor = false;
@@ -129,7 +127,7 @@
             // 
             this.Clearportbutton.BackColor = System.Drawing.Color.Red;
             this.Clearportbutton.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clearportbutton.Location = new System.Drawing.Point(559, 78);
+            this.Clearportbutton.Location = new System.Drawing.Point(502, 68);
             this.Clearportbutton.Name = "Clearportbutton";
             this.Clearportbutton.Size = new System.Drawing.Size(75, 29);
             this.Clearportbutton.TabIndex = 22;
@@ -141,7 +139,7 @@
             // 
             this.ConfirmIPandPort.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmIPandPort.ForeColor = System.Drawing.Color.DarkBlue;
-            this.ConfirmIPandPort.Location = new System.Drawing.Point(296, 141);
+            this.ConfirmIPandPort.Location = new System.Drawing.Point(296, 115);
             this.ConfirmIPandPort.Name = "ConfirmIPandPort";
             this.ConfirmIPandPort.Size = new System.Drawing.Size(160, 34);
             this.ConfirmIPandPort.TabIndex = 23;
@@ -151,23 +149,24 @@
             // 
             // NicknameConfirmationButton
             // 
-            this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NicknameConfirmationButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NicknameConfirmationButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NicknameConfirmationButton.Location = new System.Drawing.Point(581, 241);
+            this.NicknameConfirmationButton.Location = new System.Drawing.Point(586, 202);
             this.NicknameConfirmationButton.Name = "NicknameConfirmationButton";
-            this.NicknameConfirmationButton.Size = new System.Drawing.Size(117, 32);
+            this.NicknameConfirmationButton.Size = new System.Drawing.Size(86, 34);
             this.NicknameConfirmationButton.TabIndex = 24;
             this.NicknameConfirmationButton.Text = "Confirm UserName";
+            this.NicknameConfirmationButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.NicknameConfirmationButton.UseVisualStyleBackColor = true;
             this.NicknameConfirmationButton.Click += new System.EventHandler(this.NicknameConfirmationButton_Click);
             // 
             // ConnectButton
             // 
-            this.ConnectButton.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectButton.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectButton.ForeColor = System.Drawing.Color.DarkBlue;
-            this.ConnectButton.Location = new System.Drawing.Point(318, 338);
+            this.ConnectButton.Location = new System.Drawing.Point(296, 306);
             this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(138, 42);
+            this.ConnectButton.Size = new System.Drawing.Size(118, 36);
             this.ConnectButton.TabIndex = 26;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;
@@ -176,40 +175,23 @@
             // NickNameConfirmationLabel
             // 
             this.NickNameConfirmationLabel.AutoSize = true;
-            this.NickNameConfirmationLabel.Font = new System.Drawing.Font("Narkisim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.NickNameConfirmationLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NickNameConfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 298);
+            this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 253);
             this.NickNameConfirmationLabel.Name = "NickNameConfirmationLabel";
-            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(0, 16);
+            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(37, 19);
             this.NickNameConfirmationLabel.TabIndex = 28;
-            // 
-            // portConfirmationLabel
-            // 
-            this.portConfirmationLabel.AutoSize = true;
-            this.portConfirmationLabel.Font = new System.Drawing.Font("Narkisim", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.portConfirmationLabel.Location = new System.Drawing.Point(840, 174);
-            this.portConfirmationLabel.Name = "portConfirmationLabel";
-            this.portConfirmationLabel.Size = new System.Drawing.Size(138, 16);
-            this.portConfirmationLabel.TabIndex = 29;
-            this.portConfirmationLabel.Text = "portconfirmation!!!!!";
+            this.NickNameConfirmationLabel.Text = "trxt";
             // 
             // WarningLabel
             // 
             this.WarningLabel.AutoSize = true;
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningLabel.Location = new System.Drawing.Point(240, 179);
+            this.WarningLabel.Location = new System.Drawing.Point(241, 166);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(0, 19);
+            this.WarningLabel.Size = new System.Drawing.Size(39, 19);
             this.WarningLabel.TabIndex = 30;
-            // 
-            // ConnectLabel
-            // 
-            this.ConnectLabel.AutoSize = true;
-            this.ConnectLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectLabel.Location = new System.Drawing.Point(339, 316);
-            this.ConnectLabel.Name = "ConnectLabel";
-            this.ConnectLabel.Size = new System.Drawing.Size(0, 19);
-            this.ConnectLabel.TabIndex = 33;
+            this.WarningLabel.Text = "text";
             // 
             // button1
             // 
@@ -226,11 +208,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(848, 392);
+            this.ClientSize = new System.Drawing.Size(728, 355);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.ConnectLabel);
             this.Controls.Add(this.WarningLabel);
-            this.Controls.Add(this.portConfirmationLabel);
             this.Controls.Add(this.NickNameConfirmationLabel);
             this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.NicknameConfirmationButton);
@@ -267,9 +247,7 @@
         public System.Windows.Forms.Button NicknameConfirmationButton;
         public System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.Label NickNameConfirmationLabel;
-        private System.Windows.Forms.Label portConfirmationLabel;
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.Label ConnectLabel;
         private System.Windows.Forms.Button button1;
     }
 }
