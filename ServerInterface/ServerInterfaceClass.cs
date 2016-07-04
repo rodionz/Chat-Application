@@ -93,9 +93,6 @@ namespace ServerInterface
 
      
 
-        private void ServerInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
+      
     }
 }

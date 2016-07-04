@@ -10,8 +10,8 @@ using System.IO;
 namespace ClientBL
 {
     public class UserLogic
-    {
 
+    {
       
         public static event Action<string> NoServer;
         public static event Action ServerDisconnected;      
@@ -33,8 +33,7 @@ namespace ClientBL
         {
             
             Disconnect += DisconnectionEventHandler;         
-             t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));
-            
+             t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));          
        
         }
 
@@ -63,7 +62,7 @@ namespace ClientBL
                 }
             }
 
-            catch (SocketException SE)
+            catch (SocketException)
             {
                 GlobalValidIpandPort = false;
                 NoServer("There is no server whith these parameters ");
@@ -172,11 +171,7 @@ namespace ClientBL
         }
 
 
-        public static void PrivateMesage(MessageData privat)
-        {
-
-
-        }
+       
 
 
        public static void DisconnectionEventHandler(MessageData mData, UserData uData)

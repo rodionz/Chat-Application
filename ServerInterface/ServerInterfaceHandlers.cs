@@ -103,7 +103,7 @@ namespace ServerInterface
             if (panel2.InvokeRequired)
             {
                 Action <MessageData> dicon = DisconnectUserHAndler;
-                this.Invoke(dicon, new object[] { });
+                Invoke(dicon, new object[] {mData });
             }
 
 

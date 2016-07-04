@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Data;
 using System.Windows.Forms;
+using System.Drawing;
 using CommonTypes;
 
 namespace ClientInterface
@@ -17,12 +18,12 @@ namespace ClientInterface
         }
 
 
-        public  void MessageHandler(MessageData mData)
+        public  void IncomingMessageHandler(MessageData mData)
         {
 
             if (ChatrichTextBox.InvokeRequired)
             {
-                Action<MessageData> messent =MessageHandler;
+                Action<MessageData> messent = IncomingMessageHandler;
                 this.Invoke(messent, new object[] { mData });
             }
 
@@ -47,29 +48,38 @@ namespace ClientInterface
 
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
-                    
-                    ChatrichTextBox.AppendText("Server says: " + mData.Textmessage + "\n");
+                    ChatrichTextBox.AppendText("Server says: ");
+                    ChatrichTextBox.SelectionColor = Color.Green;
+                    ChatrichTextBox.AppendText( mData.Textmessage + "\n");
+               
 
                 }
 
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
-                  
-                    ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n Server says: ");
+                    ChatrichTextBox.SelectionColor = Color.Red;
+                    ChatrichTextBox.AppendText(mData.Textmessage);
+                    
 
                 }
 
                 else if (mData.action == NetworkAction.SeverDisconnection)
                 {
-                    ChatrichTextBox.AppendText("\n Server says: " + mData.Textmessage);
-             
+                    ChatrichTextBox.SelectionColor = Color.Black;
+                    ChatrichTextBox.AppendText("\n Server says: ");
+                    ChatrichTextBox.SelectionColor = Color.Red;
+                    ChatrichTextBox.AppendText(mData.Textmessage + "\n");
+                    ChatrichTextBox.SelectionColor = Color.Black;
                 }
 
                 else
                 {
-
+                    ChatrichTextBox.SelectionColor = Color.Black;
+                    ChatrichTextBox.AppendText("\n" + mData.Userdat.Username + " says: ");
                     ChatrichTextBox.SelectionColor = mData.color;
-                    ChatrichTextBox.AppendText("\n" +mData.Userdat.Username + " says: " + mData.Textmessage);
+                    ChatrichTextBox.AppendText(mData.Textmessage);
+                    ChatrichTextBox.SelectionColor = Color.Black;
                 }
             }
 

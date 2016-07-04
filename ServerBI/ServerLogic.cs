@@ -40,7 +40,7 @@ namespace ServerBI
              ServerEventHandlers.unexpectedDisconnection += ServerEventHandlers.UnexpectedDisconnectionHandler;
 
                 //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
-                mainTask = Task.Run(() => StartListening(server, NetworkAction.Connection));
+                mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
             }
             catch
             {
@@ -50,7 +50,7 @@ namespace ServerBI
 
             }
 
-        public static void StartListening(TcpListener serv, NetworkAction NecAct)
+        public static void WaitingforNewConnections(TcpListener serv, NetworkAction NecAct)
 
         {
             try

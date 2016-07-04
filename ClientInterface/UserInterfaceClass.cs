@@ -89,7 +89,7 @@ namespace ClientInterface
               
 
 
-                UserLogic.MessageRecieved += MessageHandler;
+                UserLogic.MessageRecieved += IncomingMessageHandler;
                 ClientInterfaceProps.ResetBooleans();
             }
 
@@ -154,7 +154,7 @@ namespace ClientInterface
             ClientProps.UserisOnline = false;
             UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
             UserLogic.NoServer -= UserInterfaceClass.NoServerHandler;
-            UserLogic.MessageRecieved -= MessageHandler;
+            UserLogic.MessageRecieved -= IncomingMessageHandler;
             Disconnection();
 
         }
