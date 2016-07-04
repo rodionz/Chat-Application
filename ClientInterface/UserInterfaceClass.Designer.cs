@@ -238,11 +238,11 @@
             // Userlabel
             // 
             this.Userlabel.AutoSize = true;
-            this.Userlabel.Font = new System.Drawing.Font("Palatino Linotype", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Userlabel.Font = new System.Drawing.Font("Palatino Linotype", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Userlabel.ForeColor = System.Drawing.Color.Indigo;
             this.Userlabel.Location = new System.Drawing.Point(3, 7);
             this.Userlabel.Name = "Userlabel";
-            this.Userlabel.Size = new System.Drawing.Size(74, 39);
+            this.Userlabel.Size = new System.Drawing.Size(62, 32);
             this.Userlabel.TabIndex = 19;
             this.Userlabel.Text = "user";
             // 

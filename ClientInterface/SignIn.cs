@@ -132,6 +132,7 @@ namespace ClientInterface
 
 
                 var listofnames = from n in localListofUsers
+                                  where n!= null
                                   select (n.Username);
 
 

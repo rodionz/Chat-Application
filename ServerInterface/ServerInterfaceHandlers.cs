@@ -116,7 +116,7 @@ namespace ServerInterface
                 {
                     if (CurrentUsersListbox.Items[i].ToString().Contains(mData.Userdat.Username))
                     {
-                        CurrentUsersListbox.Items.RemoveAt(mData.Userdat.Userid);
+                        CurrentUsersListbox.Items.Remove(CurrentUsersListbox.Items[i]);
                     }
 
                 }
