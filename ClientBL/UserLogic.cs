@@ -16,26 +16,19 @@ namespace ClientBL
         public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;      
         public static event Action<MessageData> MessageRecieved;      
-        public static event Action<UserData> DisconnectionByUser;
+        
       
 
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
         public static MessageData LockalmesData;
         private static TcpClient client;
-        static Task t1;
+       
         static Task listening;
 
 
 
-        public static void MainClienFinction(MessageData mesData, UserData uData)
-
-        {
-            
-            DisconnectionByUser += DisconnectionEventHandler;         
-             t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));          
-       
-        }
+      
 
 
         // The separate function fot IP and Port validation was intended, besides validating it returns list of Usernames for the folowing username validation
@@ -80,7 +73,11 @@ namespace ClientBL
 
         public static void ConnecttoServer(MessageData mData, UserData uData)
         {
-             client = new TcpClient();
+           
+
+
+
+            client = new TcpClient();
             MessageData returning = new MessageData();
             UserData Localuser = uData;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
@@ -134,7 +131,7 @@ namespace ClientBL
                         MessageRecieved(incoming);
                         ServerDisconnected();
                         ClientProps.UserisOnline = false;
-                        t1.Dispose();
+                       
                         usernetstream.Dispose();
                         client.Close();
                     }
@@ -147,8 +144,7 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
-            if(usernetstream.CanWrite)
-            DisconnectionByUser(currentUser);
+           
         }
 
 
@@ -176,17 +172,16 @@ namespace ClientBL
        
 
 
-       public static void DisconnectionEventHandler( UserData uData)
+       public static void Disconnection( UserData uData)
 
         {
 
             GlobalValidIpandPort = false;
-            DisconnectionByUser -= DisconnectionEventHandler;
+            //DisconnectionByUser -= Disconnection;
             MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);          
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
-            disconnect.Serialize(local, mData);
-            t1.Dispose();
+            disconnect.Serialize(local, mData);       
             client.Close();
 
         }

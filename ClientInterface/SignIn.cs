@@ -186,7 +186,7 @@ namespace ClientInterface
 
                 
 
-                UserLogic.MainClienFinction(mData , new_user);
+                UserLogic.ConnecttoServer(mData , new_user);
 
                
 

@@ -74,7 +74,7 @@ namespace ClientInterface
             if (ClientInterfaceProps.UserIsValid)
             {
 
-                UserLogic.ServerDisconnected += Disconnection;
+                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
                 sendmessageButton.Enabled = true;
                 PrivateMessageButton.Enabled = true;
                 ColorChoosing.Enabled = true;
@@ -160,8 +160,8 @@ namespace ClientInterface
             ClientProps.UserisOnline = false;           
             UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
             UserLogic.MessageRecieved -= IncomingMessageHandler;
-            
-            Disconnection();
+            UserLogic.Disconnection(uData);
+            UserInterfaceDisconnection();
 
         }
 
@@ -177,12 +177,12 @@ namespace ClientInterface
         }
 
         
-     internal  void Disconnection()
+     internal  void UserInterfaceDisconnection()
 
         {
             if (UserPanel.InvokeRequired)
             {
-                Action stc = Disconnection;
+                Action stc = UserInterfaceDisconnection;
                 this.Invoke(stc, new object[] { });
             }
 

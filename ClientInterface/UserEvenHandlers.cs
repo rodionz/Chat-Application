@@ -15,7 +15,7 @@ namespace ClientInterface
         public  void NoServerHandler(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             Disconnection();
+             UserInterfaceDisconnection();
         }
 
 
