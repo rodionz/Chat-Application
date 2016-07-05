@@ -97,7 +97,7 @@ namespace ClientInterface
 
             else
             {
-                //MessageBox.Show("There are no availiable servers right now, please try again later, or start your server manually", "Server Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+              
                
                 ClientInterfaceProps.ResetBooleans();
 
@@ -123,10 +123,8 @@ namespace ClientInterface
                 MesData.Userdat = uData;
                 MesData.action = NetworkAction.SendPrivateMessage;
                 string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
-
                 ChatrichTextBox.SelectionColor = Color.Black;
                 ChatrichTextBox.AppendText("\n\t You send private message: " + TextMessages.Text);
-
                 TextMessages.Clear();
                 MesData.listofnamesforPrivateMessage = privatelist;
                 UserLogic.SendMessage(MesData);

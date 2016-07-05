@@ -11,6 +11,10 @@ namespace ClientBL
    public class ClientProps
     {
 
+
+       
+
+
         public static List<UserData> listofUserfortheUsers;
 
         public static bool UserisOnline
@@ -20,8 +24,7 @@ namespace ClientBL
          internal static  TcpClient LocalClient
         { get; set; }
 
-        internal static int CurrentUserID
-        { get; set; }
+       
 
         internal static NetworkStream clientStream
         { get; set; }

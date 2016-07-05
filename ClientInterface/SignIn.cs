@@ -153,8 +153,6 @@ namespace ClientInterface
                     {
                         NickNameConfirmationLabel.ForeColor = Color.Red;
                         NickNameConfirmationLabel.Text = "UserName wae already taken, please choose another one";
-
-
                     }
                 }
 
@@ -183,13 +181,7 @@ namespace ClientInterface
                 mData.action = NetworkAction.Connection;
                 UserLogic.LolacAction = NetworkAction.Connection;
                 string message = "You Are Online Now";
-
-                
-
                 UserLogic.ConnecttoServer(mData , new_user);
-
-               
-
                 ClearAll();
                 Close();
             }

@@ -15,9 +15,9 @@ namespace ClientBL
       
         public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;      
-        public static event Action<MessageData> MessageRecieved;      
-        
-      
+        public static event Action<MessageData> MessageRecieved;
+
+
 
         public static bool GlobalValidIpandPort;
         public static  NetworkAction LolacAction;
@@ -176,8 +176,7 @@ namespace ClientBL
 
         {
 
-            GlobalValidIpandPort = false;
-            //DisconnectionByUser -= Disconnection;
+            GlobalValidIpandPort = false;           
             MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);          
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
