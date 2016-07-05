@@ -51,9 +51,11 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
+            ServerProps.ServerisOnline = false;
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
             
             //ServerLogic.ServerDisconnection -= NoServerHandler;
+            
             ServerLogic.StopListening();
             StartServerButton.Enabled = true;
         }

@@ -8,7 +8,7 @@ namespace ServerBI
 {
     public  class ServerProps
     {
-         internal static bool  ServerisOnline
+        public static bool  ServerisOnline
         { get; set; }
       
 

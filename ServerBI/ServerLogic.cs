@@ -20,8 +20,8 @@ namespace ServerBI
 
 
         private static TcpListener server;
-        private static Task mainTask;
-        private static Task StarttoListen;
+         static Task mainTask;
+        static Task StarttoListen;
 
         public static void ServerOnline(ServerData sData)
 
@@ -39,7 +39,6 @@ namespace ServerBI
                 Userdicsconnecter += ServerEventHandlers.DisconnectUser;
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
-
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
             }
 
@@ -48,8 +47,9 @@ namespace ServerBI
                 NoServer();
             }
 
+           
 
-            }
+        }
 
         public static void WaitingforNewConnections(TcpListener serv, NetworkAction NecAct)
 
@@ -154,7 +154,7 @@ namespace ServerBI
             NetworkStream ns = null;
             publicmessage(byebye, ns);
             NoServer();
-            ServerProps.ServerisOnline = false;           
+            //ServerProps.ServerisOnline = false;           
             server.Stop();
 
             ServerProps.listofUsersontheserver.Clear();
@@ -168,6 +168,7 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
+           
            
         }
 
