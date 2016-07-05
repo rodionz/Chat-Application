@@ -167,6 +167,8 @@ namespace ServerBI
             Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
+
+           
         }
 
 
