@@ -10,8 +10,7 @@ namespace ServerBI
     public class ServerLogic
     {
       
-        public static event Action NoServer;
-        //public static event Action ServerDisconnection;            
+        public static event Action NoServer;        
         public static event Action<MessageData,NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;

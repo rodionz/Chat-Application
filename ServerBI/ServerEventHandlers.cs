@@ -11,7 +11,7 @@ namespace ServerBI
       
         public static event Action<MessageData> newuserconnected;
         public static event Action<MessageData> messgesent;
-        public static event Action<MessageData> UsualUserDisconnection_forhteUnterface;
+        public static event Action<UserData> UsualUserDisconnection_forhteUnterface;
         public static event Action<MessageData, NetworkStream, int> unexpectedUserDisconnection_fortheInterface;
 
 
@@ -70,6 +70,11 @@ namespace ServerBI
 
         }
 
+
+
+
+
+
         internal static void UserREquestHandler( MessageData mData, NetworkStream nStr)
         {
             
@@ -78,6 +83,13 @@ namespace ServerBI
             mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(nStr, mData);
         }
+
+
+
+
+
+
+
 
     //Usuall Disconnection
         internal static void DisconnectUser(MessageData mData, NetworkStream nStr, UserData uData)

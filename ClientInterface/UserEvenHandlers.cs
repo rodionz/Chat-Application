@@ -49,18 +49,20 @@ namespace ClientInterface
 
                 else if (mData.action == NetworkAction.ConectionREsponse)
                 {
-                    ChatrichTextBox.AppendText("Server says: ");
+                    ChatrichTextBox.SelectionColor = Color.Black;
+                    ChatrichTextBox.AppendText("\nServer says: ");
                     ChatrichTextBox.SelectionColor = Color.Green;
-                    ChatrichTextBox.AppendText( mData.Textmessage + "\n");
+                    ChatrichTextBox.AppendText("\n\t" + mData.Textmessage);
                
 
                 }
 
                 else if (mData.action == NetworkAction.UserDisconnection)
                 {
+                    ChatrichTextBox.SelectionColor = Color.Black;
                     ChatrichTextBox.AppendText("\n Server says: ");
                     ChatrichTextBox.SelectionColor = Color.Red;
-                    ChatrichTextBox.AppendText(mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n\t" + mData.Textmessage);
                     
 
                 }
@@ -70,7 +72,7 @@ namespace ClientInterface
                     ChatrichTextBox.SelectionColor = Color.Black;
                     ChatrichTextBox.AppendText("\n Server says: ");
                     ChatrichTextBox.SelectionColor = Color.Red;
-                    ChatrichTextBox.AppendText(mData.Textmessage + "\n");
+                    ChatrichTextBox.AppendText("\n\t" + mData.Textmessage);
                     ChatrichTextBox.SelectionColor = Color.Black;
                 }
 
@@ -79,7 +81,7 @@ namespace ClientInterface
                     ChatrichTextBox.SelectionColor = Color.Black;
                     ChatrichTextBox.AppendText("\n" + mData.Userdat.Username + " says: ");
                     ChatrichTextBox.SelectionColor = mData.color;
-                    ChatrichTextBox.AppendText(mData.Textmessage);
+                    ChatrichTextBox.AppendText("\n\t" + mData.Textmessage);
                     ChatrichTextBox.SelectionColor = Color.Black;
                 }
             }

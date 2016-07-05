@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using CommonTypes;
 using ClientBL;
 using System.Diagnostics;
+using System.Drawing;
 
 
 namespace ClientInterface
@@ -122,6 +123,10 @@ namespace ClientInterface
                 MesData.Userdat = uData;
                 MesData.action = NetworkAction.SendPrivateMessage;
                 string message = (MesData.Userdat.Username + " says: " + TextMessages.Text);
+
+                ChatrichTextBox.SelectionColor = Color.Black;
+                ChatrichTextBox.AppendText("\n\t You send private message: " + TextMessages.Text);
+
                 TextMessages.Clear();
                 MesData.listofnamesforPrivateMessage = privatelist;
                 UserLogic.SendMessage(MesData);

@@ -138,9 +138,7 @@ namespace ClientBL
                         usernetstream.Dispose();
                         client.Close();
                     }
-                    //////////?????????????
-                    //else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
-                    //    break;
+                  
 
                     else
                         MessageRecieved(incoming);
