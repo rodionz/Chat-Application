@@ -13,10 +13,10 @@ namespace ClientBL
 
     {
       
-        public static event Action<string> NoServer;
+        public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;      
         public static event Action<MessageData> MessageRecieved;      
-        public static event Action<MessageData,UserData> Disconnect;
+        public static event Action<MessageData,UserData> DisconnectionByUser;
       
 
         public static bool GlobalValidIpandPort;
@@ -32,7 +32,7 @@ namespace ClientBL
 
         {
             
-            Disconnect += DisconnectionEventHandler;         
+            DisconnectionByUser += DisconnectionEventHandler;         
              t1 = Task.Run(() =>   ConnecttoServer(mesData, uData));          
        
         }
@@ -65,7 +65,7 @@ namespace ClientBL
             catch (SocketException)
             {
                 GlobalValidIpandPort = false;
-                NoServer("There is no server whith these parameters ");
+                NoConnectionWhithServerEvent("There is no server whith these parameters ");
             }
 
             finally
@@ -167,7 +167,7 @@ namespace ClientBL
 
             {
                 ClientProps.UserisOnline = false;
-                NoServer("Server was suddenly disconnected");
+                NoConnectionWhithServerEvent("Server was suddenly disconnected");
                 client.Close();
             }
         }
@@ -181,7 +181,7 @@ namespace ClientBL
         {
 
             GlobalValidIpandPort = false;
-            Disconnect -= DisconnectionEventHandler;
+            DisconnectionByUser -= DisconnectionEventHandler;
             mData.action = NetworkAction.UserDisconnection;
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;

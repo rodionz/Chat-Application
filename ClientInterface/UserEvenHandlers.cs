@@ -12,9 +12,10 @@ namespace ClientInterface
 
        
 
-        public static void NoServerHandler(string message)
+        public  void NoServerHandler(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             Disconnection();
         }
 
 

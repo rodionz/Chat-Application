@@ -86,9 +86,9 @@ namespace ClientInterface
                 this.Userlabel.Text = ClientInterfaceProps.uNmake;
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
-              
 
 
+                UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
                 UserLogic.MessageRecieved += IncomingMessageHandler;
                 ClientInterfaceProps.ResetBooleans();
             }
@@ -153,7 +153,7 @@ namespace ClientInterface
             
             ClientProps.UserisOnline = false;
             UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
-            UserLogic.NoServer -= UserInterfaceClass.NoServerHandler;
+            UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
             UserLogic.MessageRecieved -= IncomingMessageHandler;
             Disconnection();
 
@@ -171,7 +171,7 @@ namespace ClientInterface
         }
 
         
-     internal void Disconnection()
+     internal  void Disconnection()
 
         {
             if (panel1.InvokeRequired)

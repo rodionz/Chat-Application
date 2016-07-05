@@ -15,7 +15,7 @@ namespace CommonTypes
         
 
 
-        //public List<NetworkStream> StreamsofClients;
+        
 
         public NetworkAction action;
 
