@@ -16,7 +16,7 @@ namespace ClientBL
         public static event Action<string> NoConnectionWhithServerEvent;
         public static event Action ServerDisconnected;      
         public static event Action<MessageData> MessageRecieved;      
-        public static event Action<MessageData,UserData> DisconnectionByUser;
+        public static event Action<UserData> DisconnectionByUser;
       
 
         public static bool GlobalValidIpandPort;
@@ -85,24 +85,24 @@ namespace ClientBL
             UserData Localuser = uData;
             client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
             ClientProps.LocalClient = client;
-            BinaryFormatter Bformat = new BinaryFormatter();
-         
+            BinaryFormatter Bformat = new BinaryFormatter();        
             NetworkStream stream = client.GetStream();
             ClientProps.clientStream = stream;
+
+
+            // This Feature Provides information of each clent's IP and Port to the Server
 
             string local = client.Client.LocalEndPoint.ToString();
             char[] separ = { ':' };
             string [] ipandport = local.Split(separ);
             mData.Userdat.IPadress = ipandport[0];
             mData.Userdat.Portnumber = int.Parse (ipandport[1]);
-
+//////////////////////////////////////////////////////////////////////////
 
 
             Bformat.Serialize(stream, mData);           
             ClientProps.UserisOnline = true;
-
             stream.Flush();
-
              listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
 
 
@@ -138,9 +138,9 @@ namespace ClientBL
                         usernetstream.Dispose();
                         client.Close();
                     }
-
-                    else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
-                        break;
+                    //////////?????????????
+                    //else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
+                    //    break;
 
                     else
                         MessageRecieved(incoming);
@@ -149,6 +149,8 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
+
+            DisconnectionByUser(currentUser);
         }
 
 
@@ -176,13 +178,13 @@ namespace ClientBL
        
 
 
-       public static void DisconnectionEventHandler(MessageData mData, UserData uData)
+       public static void DisconnectionEventHandler( UserData uData)
 
         {
 
             GlobalValidIpandPort = false;
             DisconnectionByUser -= DisconnectionEventHandler;
-            mData.action = NetworkAction.UserDisconnection;
+            MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);          
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);

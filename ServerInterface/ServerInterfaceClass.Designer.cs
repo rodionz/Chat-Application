@@ -49,7 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.ServerPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -60,7 +60,7 @@
             this.RedLightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.ServerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -254,7 +254,7 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(219, 446);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 23;
             this.label4.Text = "Powered by";
             // 
@@ -280,22 +280,22 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
+            // ServerPanel
             // 
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.GreenLightPanel);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.StopServerButton);
-            this.panel2.Controls.Add(this.RedLightPanel);
-            this.panel2.Controls.Add(this.linkLabel1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.StartServerButton);
-            this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(510, 591);
-            this.panel2.TabIndex = 26;
+            this.ServerPanel.Controls.Add(this.panel1);
+            this.ServerPanel.Controls.Add(this.button1);
+            this.ServerPanel.Controls.Add(this.GreenLightPanel);
+            this.ServerPanel.Controls.Add(this.label3);
+            this.ServerPanel.Controls.Add(this.label4);
+            this.ServerPanel.Controls.Add(this.StopServerButton);
+            this.ServerPanel.Controls.Add(this.RedLightPanel);
+            this.ServerPanel.Controls.Add(this.linkLabel1);
+            this.ServerPanel.Controls.Add(this.pictureBox1);
+            this.ServerPanel.Controls.Add(this.StartServerButton);
+            this.ServerPanel.Location = new System.Drawing.Point(2, 2);
+            this.ServerPanel.Name = "ServerPanel";
+            this.ServerPanel.Size = new System.Drawing.Size(510, 591);
+            this.ServerPanel.TabIndex = 26;
             // 
             // ServerInterfaceClass
             // 
@@ -303,10 +303,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(512, 597);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ServerPanel);
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
-      
             this.Load += new System.EventHandler(this.ServerInterfaceClass_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -320,8 +319,8 @@
             this.RedLightPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedLamp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.ServerPanel.ResumeLayout(false);
+            this.ServerPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -349,7 +348,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel ServerPanel;
     }
 }
 

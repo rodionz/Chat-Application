@@ -24,9 +24,9 @@ namespace ServerInterface
         private void StartServerButton_Click(object sender, EventArgs e)
         {
             ServerLogic.NoServer -= NoServerHandler;
-            ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
+            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
-            ServerLogic.ServerDisconnection += NoServerHandler;
+            //ServerLogic.ServerDisconnection += NoServerHandler;
 
 
             ServerConnection Sr = new ServerConnection(sData);
@@ -51,9 +51,9 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
-            ServerEventHandlers.InterfaceDisconnecter -= DisconnectUserHAndler;
+            ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
             
-            ServerLogic.ServerDisconnection -= NoServerHandler;
+            //ServerLogic.ServerDisconnection -= NoServerHandler;
             ServerLogic.StopListening();
             StartServerButton.Enabled = true;
         }
@@ -62,7 +62,7 @@ namespace ServerInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ServerEventHandlers.InterfaceDisconnecter += DisconnectUserHAndler;
+            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
             ServerLogic.NoServer += NoServerHandler;
             RedLightPanel.Visible = false;
             GreenLightPanel.Visible = true;

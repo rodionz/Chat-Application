@@ -11,12 +11,12 @@ namespace ServerBI
     {
       
         public static event Action NoServer;
-        public static event Action ServerDisconnection;            
+        //public static event Action ServerDisconnection;            
         public static event Action<MessageData,NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;
         public static event Action<MessageData, NetworkStream> ListofUsersRequest;
-        public static event Action<MessageData, NetworkStream> userdicsconnecter;      
+        public static event Action<MessageData, NetworkStream, UserData> Userdicsconnecter;      
         public static event Action<MessageData, NetworkStream> PrivateMessage;
 
 
@@ -31,17 +31,19 @@ namespace ServerBI
             {
                 server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
-                ipandportvalidation += ServerEventHandlers.ValidationHandler;
+
+
+                ipandportvalidation += ServerEventHandlers.IPandPortValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
                 ListofUsersRequest += ServerEventHandlers.UserREquestHandler;
-                userdicsconnecter += ServerEventHandlers.DisconnectUser;
+                Userdicsconnecter += ServerEventHandlers.DisconnectUser;
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
-             ServerEventHandlers.unexpectedDisconnection += ServerEventHandlers.UnexpectedDisconnectionHandler;
+                ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
 
-                //InterfaceDisconnecter += ServerEventHandlers.DisconnectUser;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
             }
+
             catch
             {
                 NoServer();
@@ -100,12 +102,9 @@ namespace ServerBI
 
                     case NetworkAction.Connection:
                         connection(mData, netStr);
-
-                        // here is a bug!!!
                         mData.action = NetworkAction.ConectionREsponse;
                         publicmessage(mData, netStr);
-
-
+                        mData.action = NetworkAction.None;
                         break;
 
                     //Messages
@@ -125,27 +124,17 @@ namespace ServerBI
                         mData.action = NetworkAction.None;
                         break;
 
+
                     case NetworkAction.UserDisconnection:
-
-                        //try
-                        //{
-                            ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-                            ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
-                        //}
-
-                        //catch (ArgumentOutOfRangeException)
-                        //{
-                        //    ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
-                        //    ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
-                        //    mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
-                        //}
-                        
-                        userdicsconnecter(mData, netStr);
+                        UserData uData = mData.Userdat;
+                        ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
+                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;                                                                  
+                        Userdicsconnecter(mData, netStr, uData);
                         mData.action = NetworkAction.None;
                         break;
 
-                    case NetworkAction.None:
-                       
+
+                    case NetworkAction.None:                      
                         break;
                         
                 }
@@ -172,13 +161,13 @@ namespace ServerBI
             ServerProps.listofUsersontheserver.Clear();
             ServerProps.StreamsofClients.Clear();
 
-            ipandportvalidation -= ServerEventHandlers.ValidationHandler;
+            ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
             connection -= ServerEventHandlers.ConnectionHandler;
             publicmessage -= ServerEventHandlers.PublicMessageHandler;
             ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
-            userdicsconnecter -= ServerEventHandlers.DisconnectUser;
+            Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
-            ServerEventHandlers.unexpectedDisconnection -= ServerEventHandlers.UnexpectedDisconnectionHandler;
+            ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
         }
 
 

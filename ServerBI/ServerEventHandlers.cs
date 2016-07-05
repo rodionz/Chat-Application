@@ -11,18 +11,17 @@ namespace ServerBI
       
         public static event Action<MessageData> newuserconnected;
         public static event Action<MessageData> messgesent;
-        public static event Action<MessageData> InterfaceDisconnecter;
-        public static event Action<MessageData, NetworkStream, int> unexpectedDisconnection;
+        public static event Action<MessageData> UsualUserDisconnection_forhteUnterface;
+        public static event Action<MessageData, NetworkStream, int> unexpectedUserDisconnection_fortheInterface;
 
 
-        internal static void ValidationHandler( MessageData mData, NetworkStream nStr)
-        {
-           
+        internal static void IPandPortValidationHandler( MessageData mData, NetworkStream nStr)
+
+        {          
                 BinaryFormatter bf = new BinaryFormatter();
                 mData.listofUsers = ServerProps.listofUsersontheserver;
                 bf.Serialize(nStr, mData);
-                return;
-            
+                return;           
         }
 
 
@@ -61,7 +60,7 @@ namespace ServerBI
                 catch
                 {
 
-                    unexpectedDisconnection(mData, nstr, i);
+                    unexpectedUserDisconnection_fortheInterface(mData, nstr, i);
 
 
                 }
@@ -81,7 +80,7 @@ namespace ServerBI
         }
 
     //Usuall Disconnection
-        internal static void DisconnectUser(MessageData mData, NetworkStream nStr)
+        internal static void DisconnectUser(MessageData mData, NetworkStream nStr, UserData uData)
         {
            
             BinaryFormatter bf = new BinaryFormatter();
@@ -101,7 +100,7 @@ namespace ServerBI
                
             }
 
-            InterfaceDisconnecter(mData);
+            UsualUserDisconnection_forhteUnterface(uData);
         }
 
 
@@ -110,22 +109,9 @@ namespace ServerBI
             BinaryFormatter bf = new BinaryFormatter();
             NetworkStream netStream = ServerProps.StreamsofClients[index];
             UserData lostuser = ServerProps.listofUsersontheserver[index];
-            mData.Userdat = lostuser;
-
-            //try
-            //{
-                ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-                ServerProps.StreamsofClients[mData.Userdat.Userid] = null;
-            //}
-
-            //catch (ArgumentOutOfRangeException)
-            //{
-            //    ServerProps.listofUsersontheserver.RemoveAt(mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1));
-            //    ServerProps.StreamsofClients[mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1)] = null;
-            //    mData.Userdat.Userid = mData.Userdat.Userid - (ServerProps.StreamsofClients.Count - 1);
-            //}
-
-
+            mData.Userdat = lostuser;           
+            ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
+            ServerProps.StreamsofClients[mData.Userdat.Userid] = null;          
             mData.action = NetworkAction.UserDisconnection;
 
 
@@ -163,14 +149,11 @@ namespace ServerBI
                         bf.Serialize(netStream, mData);
                     }
 
-
-
-
                 }
                 catch
                 {
 
-                    unexpectedDisconnection(mData, nStream, i);
+                    unexpectedUserDisconnection_fortheInterface(mData, nStream, i);
 
                 }
             }

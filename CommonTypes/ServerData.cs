@@ -9,12 +9,7 @@ namespace CommonTypes
      
         //To Check!!!
      
-        public static bool ServerOnlineFunc()
-        {
-
-
-            return false;
-        }
+      
 
     }
 }

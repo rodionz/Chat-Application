@@ -151,8 +151,7 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             
-            ClientProps.UserisOnline = false;
-            UserLogic.DisconnectionEventHandler(new MessageData(uData), uData);
+            ClientProps.UserisOnline = false;           
             UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
             UserLogic.MessageRecieved -= IncomingMessageHandler;
             Disconnection();
@@ -174,7 +173,7 @@ namespace ClientInterface
      internal  void Disconnection()
 
         {
-            if (panel1.InvokeRequired)
+            if (UserPanel.InvokeRequired)
             {
                 Action stc = Disconnection;
                 this.Invoke(stc, new object[] { });

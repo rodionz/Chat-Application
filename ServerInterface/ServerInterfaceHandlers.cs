@@ -77,7 +77,7 @@ namespace ServerInterface
         public  void NoServerHandler()
         {
         
-            if (panel2.InvokeRequired)
+            if (ServerPanel.InvokeRequired)
             {
                 Action dicon = NoServerHandler;
                 this.Invoke(dicon, new object[] {  });
@@ -98,12 +98,12 @@ namespace ServerInterface
 
 
         // For usual user disconnection
-        public void DisconnectUserHAndler(MessageData mData)
+        public void DisconnectUserHAndler(UserData uData)
         {
-            if (panel2.InvokeRequired)
+            if (ServerPanel.InvokeRequired)
             {
-                Action <MessageData> dicon = DisconnectUserHAndler;
-                Invoke(dicon, new object[] {mData });
+                Action <UserData> dicon = DisconnectUserHAndler;
+                Invoke(dicon, new object[] {uData });
             }
 
 
@@ -114,16 +114,17 @@ namespace ServerInterface
              for(int i = 0;  i< CurrentUsersListbox.Items.Count; i++)
 
                 {
-                    if (CurrentUsersListbox.Items[i].ToString().Contains(mData.Userdat.Username))
+                    if (CurrentUsersListbox.Items[i].ToString().Contains(uData.Username))
                     {
                         CurrentUsersListbox.Items.Remove(CurrentUsersListbox.Items[i]);
+                        break;
                     }
 
                 }
                             
                 
-                HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected " + current.ToLongTimeString());
-                ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected " );
+                HistoryListbox.Items.Add(uData.Username + " was disconnected " + current.ToLongTimeString());
+                ChatListBox.Items.Add("Server says: " + uData.Username + " was disconnected " );
 
             }
             

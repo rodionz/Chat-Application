@@ -49,7 +49,7 @@
             this.Userlabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PrivatecheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.UserPanel = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.RedLightPanel.SuspendLayout();
@@ -57,7 +57,7 @@
             this.GreenLightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.UserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -146,7 +146,7 @@
             this.ConnectToserverButton.Size = new System.Drawing.Size(118, 39);
             this.ConnectToserverButton.TabIndex = 11;
             this.ConnectToserverButton.Text = "Connect";
-            this.ConnectToserverButton.UseVisualStyleBackColor = false;
+            this.ConnectToserverButton.UseVisualStyleBackColor = true;
             this.ConnectToserverButton.Click += new System.EventHandler(this.ConnectToserverButton_Click);
             // 
             // DisconnectFromServerButton
@@ -160,7 +160,7 @@
             this.DisconnectFromServerButton.Size = new System.Drawing.Size(116, 39);
             this.DisconnectFromServerButton.TabIndex = 12;
             this.DisconnectFromServerButton.Text = "Disconnect";
-            this.DisconnectFromServerButton.UseVisualStyleBackColor = false;
+            this.DisconnectFromServerButton.UseVisualStyleBackColor = true;
             this.DisconnectFromServerButton.Click += new System.EventHandler(this.DisconnectFromServerButton_Click);
             // 
             // RedLightPanel
@@ -265,25 +265,25 @@
             this.PrivatecheckedListBox.Visible = false;
             this.PrivatecheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.PrivatecheckedListBox_ItemCheck);
             // 
-            // panel1
+            // UserPanel
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.Userlabel);
-            this.panel1.Controls.Add(this.PrivatecheckedListBox);
-            this.panel1.Controls.Add(this.GreenLightPanel);
-            this.panel1.Controls.Add(this.RedLightPanel);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.ColorChoosing);
-            this.panel1.Controls.Add(this.changeFontButton);
-            this.panel1.Controls.Add(this.PrivateMessageButton);
-            this.panel1.Controls.Add(this.ConnectToserverButton);
-            this.panel1.Controls.Add(this.DisconnectFromServerButton);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.sendmessageButton);
-            this.panel1.Location = new System.Drawing.Point(1, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 635);
-            this.panel1.TabIndex = 31;
+            this.UserPanel.Controls.Add(this.pictureBox1);
+            this.UserPanel.Controls.Add(this.Userlabel);
+            this.UserPanel.Controls.Add(this.PrivatecheckedListBox);
+            this.UserPanel.Controls.Add(this.GreenLightPanel);
+            this.UserPanel.Controls.Add(this.RedLightPanel);
+            this.UserPanel.Controls.Add(this.panel5);
+            this.UserPanel.Controls.Add(this.ColorChoosing);
+            this.UserPanel.Controls.Add(this.changeFontButton);
+            this.UserPanel.Controls.Add(this.PrivateMessageButton);
+            this.UserPanel.Controls.Add(this.ConnectToserverButton);
+            this.UserPanel.Controls.Add(this.DisconnectFromServerButton);
+            this.UserPanel.Controls.Add(this.panel6);
+            this.UserPanel.Controls.Add(this.sendmessageButton);
+            this.UserPanel.Location = new System.Drawing.Point(1, 4);
+            this.UserPanel.Name = "UserPanel";
+            this.UserPanel.Size = new System.Drawing.Size(530, 635);
+            this.UserPanel.TabIndex = 31;
             // 
             // UserInterfaceClass
             // 
@@ -291,7 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(531, 591);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.UserPanel);
             this.Name = "UserInterfaceClass";
             this.Text = "ClientInterface";
             this.panel5.ResumeLayout(false);
@@ -304,8 +304,8 @@
             this.GreenLightPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GreenLamp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.UserPanel.ResumeLayout(false);
+            this.UserPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,7 +333,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox PrivatecheckedListBox;
         private System.Windows.Forms.RichTextBox ChatrichTextBox;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel UserPanel;
     }
 }
 
