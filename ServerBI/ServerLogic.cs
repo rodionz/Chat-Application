@@ -26,8 +26,8 @@ namespace ServerBI
         public static void ServerOnline(ServerData sData)
 
         {
-            try
-            {
+            //try
+            //{
                 server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
 
@@ -40,12 +40,12 @@ namespace ServerBI
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
-            }
+            //}
 
-            catch
-            {
-                NoServer();
-            }
+            //catch
+            //{
+            //    NoServer();
+            //}
 
            
 

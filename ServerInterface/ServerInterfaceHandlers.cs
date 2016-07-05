@@ -57,7 +57,18 @@ namespace ServerInterface
                    else if (mData.action == NetworkAction.UserDisconnection)
                 {
                     ChatListBox.Items.Add("Server says: " + mData.Userdat.Username + " was disconnected");
-                    CurrentUsersListbox.Items.Remove(CurrentUsersListbox.Items.Contains(mData.Userdat.Username));
+
+                    for (int i = 0; i < CurrentUsersListbox.Items.Count; i++)
+
+                    {
+                        if (CurrentUsersListbox.Items[i].ToString().Contains(mData.Userdat.Username))
+                        {
+                            CurrentUsersListbox.Items.Remove(CurrentUsersListbox.Items[i]);
+                            break;
+                        }
+
+                    }
+
                     HistoryListbox.Items.Add(mData.Userdat.Username + " was disconnected" + current.ToLongTimeString());
                 }
 
