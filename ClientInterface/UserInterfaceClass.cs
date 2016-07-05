@@ -159,6 +159,7 @@ namespace ClientInterface
             ClientProps.UserisOnline = false;           
             UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
             UserLogic.MessageRecieved -= IncomingMessageHandler;
+            
             Disconnection();
 
         }

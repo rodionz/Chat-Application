@@ -147,7 +147,7 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
-
+            if(ClientProps.UserisOnline)
             DisconnectionByUser(currentUser);
         }
 
