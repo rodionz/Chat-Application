@@ -134,6 +134,7 @@ namespace ClientInterface
                 PrivatecheckedListBox.ClearSelected();
                 PrivatecheckedListBox.Visible = false;
                 privatelist.Clear();
+                PrivatecheckedListBox.Items.Clear();
             }
 
 
