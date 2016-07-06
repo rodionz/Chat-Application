@@ -56,13 +56,14 @@ namespace ServerBI
         {
             try
             {
-                BinaryFormatter bf = new BinaryFormatter();               
+                               
                 serv.Start();
 
                 while (ServerProps.ServerisOnline)
                 {                  
                     TcpClient client = serv.AcceptTcpClient();                
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));
+                    
                 }
             }
             catch 
