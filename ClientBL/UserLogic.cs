@@ -71,7 +71,7 @@ namespace ClientBL
 
 
 
-        public static void ConnecttoServer(MessageData mData, UserData uData)
+        public  async static void ConnecttoServer(MessageData mData, UserData uData)
         {
            
 
@@ -101,8 +101,8 @@ namespace ClientBL
             ClientProps.UserisOnline = true;
             stream.Flush();
              listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
-
-
+            await listening;
+            listening.Dispose();
         }
 
         private static void StariListenToIncomingMessages(UserData currentUser)
@@ -113,10 +113,17 @@ namespace ClientBL
 
             while (ClientProps.UserisOnline)
             {
+
+                if (!usernetstream.CanRead || ClientProps.shutdown)
+                {
+                    client.Close();
+                    return;
+                }
+
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
-                                 
+
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
                     {
                         currentUser.Userid = incoming.Userdat.Userid;
@@ -125,17 +132,23 @@ namespace ClientBL
 
 
 
-                   
+
                     else if (incoming.action == NetworkAction.SeverDisconnection)
                     {
                         MessageRecieved(incoming);
                         ServerDisconnected();
                         ClientProps.UserisOnline = false;
-                       
+
                         usernetstream.Dispose();
                         client.Close();
                     }
-                  
+
+
+                    //else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
+                    //{
+                    //    client.Close();
+                    //    return;
+                    //}
 
                     else
                         MessageRecieved(incoming);
@@ -144,7 +157,8 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
-           
+            
+            return;
         }
 
 
@@ -180,7 +194,7 @@ namespace ClientBL
             MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);          
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
-            disconnect.Serialize(local, mData);       
+            disconnect.Serialize(local, mData);
             client.Close();
 
         }

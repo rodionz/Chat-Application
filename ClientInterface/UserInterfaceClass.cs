@@ -68,6 +68,13 @@ namespace ClientInterface
 
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
+
+          
+
+
+
+
+
             registration.ShowDialog();
 
 
@@ -88,9 +95,8 @@ namespace ClientInterface
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
 
-                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
-                UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
                 UserLogic.MessageRecieved += IncomingMessageHandler;
+                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
                 ClientInterfaceProps.ResetBooleans();
             }
 
@@ -156,7 +162,7 @@ namespace ClientInterface
         {
             
             ClientProps.UserisOnline = false;
-            UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
+            ClientProps.shutdown = true;     
             UserLogic.Disconnection(uData);
             UserInterfaceDisconnection();
 
@@ -195,7 +201,7 @@ namespace ClientInterface
                 changeFontButton.Enabled = false;
 
 
-                
+                UserLogic.ServerDisconnected -= UserInterfaceDisconnection;
                 UserLogic.MessageRecieved -= IncomingMessageHandler;
             }
         }
@@ -225,6 +231,31 @@ namespace ClientInterface
             else
             {
                 privatelist.Add(PrivatecheckedListBox.Text);
+
+            }
+        }
+
+        private void UserInterfaceClass_Load(object sender, EventArgs e)
+        {
+            UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
+           
+           
+        }
+
+        private void UserInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
+            //UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+            //UserLogic.MessageRecieved += IncomingMessageHandler;
+        }
+
+        private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(ClientProps.UserisOnline)
+            {
+               
+                UserLogic.Disconnection(uData);
+                ClientProps.UserisOnline = false;
 
             }
         }
