@@ -23,7 +23,7 @@ namespace ServerBI
          static Task mainTask;
         static Task StarttoListen;
 
-        public static void ServerOnline(ServerData sData)
+        public async static void ServerOnline(ServerData sData)
 
         {
            
@@ -39,7 +39,8 @@ namespace ServerBI
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
-           
+                await mainTask;
+                mainTask.Dispose();
            
 
         }
@@ -170,13 +171,7 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
-            mainTask.Status.ToString();
-            StarttoListen.Status.ToString();
-
             StarttoListen.Dispose();
-
-
-
 
         }
     }
