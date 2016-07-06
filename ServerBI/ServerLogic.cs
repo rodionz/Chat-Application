@@ -26,8 +26,7 @@ namespace ServerBI
         public static void ServerOnline(ServerData sData)
 
         {
-            //try
-            //{
+           
                 server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
 
@@ -40,13 +39,7 @@ namespace ServerBI
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
-            //}
-
-            //catch
-            //{
-            //    NoServer();
-            //}
-
+           
            
 
         }
@@ -60,18 +53,23 @@ namespace ServerBI
                 serv.Start();
 
                 while (ServerProps.ServerisOnline)
-                {                  
+                {
+                    if (!ServerProps.ServerisOnline)
+                        return;
+                                 
                     TcpClient client = serv.AcceptTcpClient();                
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));
                     
                 }
-                return;
+                
             }
-            catch 
+
+
+            catch (SocketException)
             {
 
                 ServerShutDown();
-
+                return;
             }
         }                                                                                   
                                                        
@@ -87,7 +85,8 @@ namespace ServerBI
           
                 while (!netStr.DataAvailable)
                 {
-                   
+                    if (!ServerProps.ServerisOnline)
+                        return;
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
@@ -150,7 +149,7 @@ namespace ServerBI
         public static void StopListening()
 
         {
-           
+
             MessageData byebye = new MessageData();
             byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
@@ -171,12 +170,14 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
-           
-           
+            mainTask.Status.ToString();
+            StarttoListen.Status.ToString();
+
+            StarttoListen.Dispose();
+
+
+
+
         }
-
-
-        
-
     }
 }
