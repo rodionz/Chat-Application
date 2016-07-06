@@ -12,8 +12,8 @@ namespace ClientBL
     {
 
 
-       
 
+       public static bool shutdown = false;
 
         public static List<UserData> listofUserfortheUsers;
 

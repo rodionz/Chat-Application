@@ -161,7 +161,8 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             
-            ClientProps.UserisOnline = false;           
+            ClientProps.UserisOnline = false;
+            ClientProps.shutdown = true;     
             UserLogic.Disconnection(uData);
             UserInterfaceDisconnection();
 
