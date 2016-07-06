@@ -10,7 +10,7 @@ namespace ServerBI
     public class ServerLogic
     {
       
-        public static event Action NoServer;        
+        public static event Action ServerShutDown;        
         public static event Action<MessageData, NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;
@@ -68,7 +68,7 @@ namespace ServerBI
             catch 
             {
 
-                NoServer();
+                ServerShutDown();
 
             }
         }                                                                                   
@@ -153,7 +153,7 @@ namespace ServerBI
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
             publicmessage(byebye, ns);
-            NoServer();
+            ServerShutDown();
             //ServerProps.ServerisOnline = false;           
             server.Stop();
 
