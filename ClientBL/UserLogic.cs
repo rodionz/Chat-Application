@@ -113,10 +113,15 @@ namespace ClientBL
 
             while (ClientProps.UserisOnline)
             {
+
+                if (!usernetstream.CanRead)
+                    return;
+
+
                 if(usernetstream.DataAvailable)
                 {
                     incoming = (MessageData)listerformatter.Deserialize(usernetstream);
-                                 
+
                     if (incoming.action == NetworkAction.ConectionREsponse && incoming.Userdat.Username == currentUser.Username)
                     {
                         currentUser.Userid = incoming.Userdat.Userid;
@@ -125,17 +130,23 @@ namespace ClientBL
 
 
 
-                   
+
                     else if (incoming.action == NetworkAction.SeverDisconnection)
                     {
                         MessageRecieved(incoming);
                         ServerDisconnected();
                         ClientProps.UserisOnline = false;
-                       
+
                         usernetstream.Dispose();
                         client.Close();
                     }
-                  
+
+
+                    //else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
+                    //{
+                    //    client.Close();
+                    //    return;
+                    //}
 
                     else
                         MessageRecieved(incoming);
@@ -181,7 +192,7 @@ namespace ClientBL
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
             disconnect.Serialize(local, mData);       
-            client.Close();
+            //client.Close();
 
         }
 
