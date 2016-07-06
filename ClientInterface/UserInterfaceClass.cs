@@ -247,5 +247,16 @@ namespace ClientInterface
             //UserLogic.ServerDisconnected += UserInterfaceDisconnection;
             //UserLogic.MessageRecieved += IncomingMessageHandler;
         }
+
+        private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(ClientProps.UserisOnline)
+            {
+               
+                UserLogic.Disconnection(uData);
+                ClientProps.UserisOnline = false;
+
+            }
+        }
     }
 }

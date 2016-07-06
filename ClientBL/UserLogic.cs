@@ -144,7 +144,7 @@ namespace ClientBL
 
                 incoming.action = NetworkAction.None;
             }
-           
+            return;
         }
 
 
