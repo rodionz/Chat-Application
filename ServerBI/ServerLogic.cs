@@ -59,16 +59,13 @@ namespace ServerBI
                         return;
                                  
                     TcpClient client = serv.AcceptTcpClient();                
-                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));
-                    
-                }
-                
+                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));                    
+                }               
             }
 
 
             catch (SocketException)
             {
-
                 ServerShutDown();
                 return;
             }
