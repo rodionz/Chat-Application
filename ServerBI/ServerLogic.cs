@@ -65,6 +65,7 @@ namespace ServerBI
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));
                     
                 }
+                return;
             }
             catch 
             {
@@ -139,6 +140,7 @@ namespace ServerBI
                         
                 }
             }
+            return;
         }
 
 

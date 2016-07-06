@@ -74,7 +74,7 @@ namespace ClientInterface
             if (ClientInterfaceProps.UserIsValid)
             {
 
-                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+               
                 sendmessageButton.Enabled = true;
                 PrivateMessageButton.Enabled = true;
                 ColorChoosing.Enabled = true;
@@ -88,7 +88,7 @@ namespace ClientInterface
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
 
-
+                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
                 UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
                 UserLogic.MessageRecieved += IncomingMessageHandler;
                 ClientInterfaceProps.ResetBooleans();
@@ -155,9 +155,8 @@ namespace ClientInterface
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
             
-            ClientProps.UserisOnline = false;           
+            ClientProps.UserisOnline = false;
             UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
-            UserLogic.MessageRecieved -= IncomingMessageHandler;
             UserLogic.Disconnection(uData);
             UserInterfaceDisconnection();
 
@@ -194,6 +193,10 @@ namespace ClientInterface
                 PrivateMessageButton.Enabled = false;
                 ColorChoosing.Enabled = false;
                 changeFontButton.Enabled = false;
+
+
+                
+                UserLogic.MessageRecieved -= IncomingMessageHandler;
             }
         }
 
