@@ -14,7 +14,7 @@ namespace ClientInterface
         public UserInterfaceClass()
         {
             InitializeComponent();
-            DisconnectFromServerButton.Enabled = false;
+            //DisconnectFromServerButton.Enabled = false;
                       
         }
 

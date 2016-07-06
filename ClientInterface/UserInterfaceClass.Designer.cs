@@ -153,6 +153,7 @@
             // 
             this.DisconnectFromServerButton.BackColor = System.Drawing.Color.LightGray;
             this.DisconnectFromServerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DisconnectFromServerButton.Enabled = false;
             this.DisconnectFromServerButton.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectFromServerButton.ForeColor = System.Drawing.Color.Tomato;
             this.DisconnectFromServerButton.Location = new System.Drawing.Point(11, 167);
