@@ -173,7 +173,7 @@ namespace ClientBL
                 sendingformatter.Serialize(localstrem, outcoming);
             }
 
-            catch
+            catch(IOException)
 
             {
                 ClientProps.UserisOnline = false;
