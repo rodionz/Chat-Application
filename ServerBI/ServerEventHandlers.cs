@@ -57,7 +57,7 @@ namespace ServerBI
                 }
 
                 // Unexpected Client Disconnection
-                catch(IOException)
+                catch(NotImplementedException)
                 {
 
                     unexpectedUserDisconnection_fortheInterface(mData, nstr, i);
@@ -163,7 +163,7 @@ namespace ServerBI
                     }
 
                 }
-                catch
+                catch(NotImplementedException)
                 {
 
                     unexpectedUserDisconnection_fortheInterface(mData, nStream, i);
