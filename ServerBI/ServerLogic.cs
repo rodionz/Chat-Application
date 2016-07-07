@@ -55,6 +55,7 @@ namespace ServerBI
 
                 while (ServerProps.ServerisOnline)
                 {
+                    //exit poin for function in order to cmplete task
                     if (!ServerProps.ServerisOnline)
                         return;
                                  
@@ -67,6 +68,7 @@ namespace ServerBI
             catch (SocketException)
             {
                 ServerShutDown();
+                // another exit point in the case of exeption
                 return;
             }
         }                                                                                   
@@ -89,7 +91,7 @@ namespace ServerBI
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
             
-
+                // Server handles each message according to its "Network Action" parameter
                 switch (mData.action)
 
                 {
@@ -105,7 +107,7 @@ namespace ServerBI
                         mData.action = NetworkAction.None;
                         break;
 
-                    //Messages
+                    
                     case NetworkAction.Sendmessage:
                         publicmessage(mData, netStr);
                         mData.action = NetworkAction.None;
@@ -125,8 +127,11 @@ namespace ServerBI
 
                     case NetworkAction.UserDisconnection:
                         UserData uData = mData.Userdat;
+
+                        // Deleting of users from those lists costed a lot of troubles because of inconsistency of list sizes, so i decided to to replase them whith null's
                         ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;                                                                  
+                        ServerProps.StreamsofClients[mData.Userdat.Userid] = null;  
+                                                                                        
                         Userdicsconnecter(mData, netStr, uData);
                         mData.action = NetworkAction.None;
                         break;
