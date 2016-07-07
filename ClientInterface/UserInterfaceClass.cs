@@ -70,13 +70,7 @@ namespace ClientInterface
         {
 
           
-
-
-
-
-
             registration.ShowDialog();
-
 
             if (ClientInterfaceProps.UserIsValid)
             {
