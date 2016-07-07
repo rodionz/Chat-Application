@@ -171,6 +171,11 @@ namespace ClientBL
                 BinaryFormatter sendingformatter = new BinaryFormatter();
                 NetworkStream localstrem = ClientProps.clientStream;
                 sendingformatter.Serialize(localstrem, outcoming);
+
+                if(!localstrem.DataAvailable)
+                {
+                    throw new ArgumentException();
+                }
             }
 
             catch(IOException)
@@ -179,6 +184,12 @@ namespace ClientBL
                 ClientProps.UserisOnline = false;
                 NoConnectionWhithServerEvent("Server was suddenly disconnected");
                 client.Close();
+            }
+
+            catch(ArgumentException)
+            {
+
+                //// to think
             }
         }
 
