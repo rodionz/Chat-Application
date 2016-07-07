@@ -174,6 +174,11 @@ namespace ClientBL
 
                 if(!localstrem.DataAvailable)
                 {
+                  /* This exeption throws in the case of network disconnection on server side.
+                    According to my observation, when there is no data available in the stream, immidiatly after
+                    serialisation to that stream, it means that data had "disapeared", that  means that
+                    there is network interference or disconnection on the server side
+                   */
                     throw new ArgumentException();
                 }
             }
@@ -186,6 +191,8 @@ namespace ClientBL
                 client.Close();
             }
 
+
+            // This exeption has been throwing when network cable disconnects on the clientside
             catch(ArgumentException)
             {
 
