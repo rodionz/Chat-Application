@@ -168,6 +168,7 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
+            if(StarttoListen.IsCompleted)
             StarttoListen.Dispose();
 
         }
