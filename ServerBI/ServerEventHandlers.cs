@@ -107,6 +107,7 @@ namespace ServerBI
                     mData.action = NetworkAction.UserDisconnection;
                     NetworkStream netStream = ServerProps.StreamsofClients[i];
                     bf = new BinaryFormatter();
+                   
                     bf.Serialize(netStream, mData);
                 }
                

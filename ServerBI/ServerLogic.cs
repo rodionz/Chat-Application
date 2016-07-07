@@ -55,7 +55,7 @@ namespace ServerBI
 
                 while (ServerProps.ServerisOnline)
                 {
-                    //exit poin for function in order to cmplete task
+                    //exit point for function in order to complete task
                     if (!ServerProps.ServerisOnline)
                         return;
                                  
@@ -85,6 +85,7 @@ namespace ServerBI
           
                 while (!netStr.DataAvailable)
                 {
+                    //exit point for function in order to complete task  
                     if (!ServerProps.ServerisOnline)
                         return;
                 }
