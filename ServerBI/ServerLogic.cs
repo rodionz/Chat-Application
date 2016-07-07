@@ -59,7 +59,14 @@ namespace ServerBI
                     //exit point for function in order to complete task
                     if (!ServerProps.ServerisOnline)
                         return;
-                                 
+
+                    if (!ServerProps.NetworkisOK)
+                    {
+                        ServerProps.ServerisOnline = false;
+                        Finalising();
+                        return;
+                    }
+
                     TcpClient client = serv.AcceptTcpClient();                
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));                    
                 }               
@@ -89,6 +96,13 @@ namespace ServerBI
                     //exit point for function in order to complete task  
                     if (!ServerProps.ServerisOnline)
                         return;
+
+                    if(!ServerProps.NetworkisOK)
+                    {
+                        ServerProps.ServerisOnline = false;
+                        Finalising();
+                        return;
+                    }
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
@@ -160,13 +174,18 @@ namespace ServerBI
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
             publicmessage(byebye, ns);
+
+
+        }
+
+        public static void Finalising()
+        {
             ServerShutDown();
             //ServerProps.ServerisOnline = false;           
             server.Stop();
 
             ServerProps.listofUsersontheserver.Clear();
             ServerProps.StreamsofClients.Clear();
-
             ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
             connection -= ServerEventHandlers.ConnectionHandler;
             publicmessage -= ServerEventHandlers.PublicMessageHandler;
@@ -175,9 +194,12 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
-            if(StarttoListen != null)
-            StarttoListen.Dispose();
+            if (StarttoListen != null && StarttoListen.IsCompleted)
+                StarttoListen.Dispose();
+
+
+        }
 
         }
     }
-}
+

@@ -176,8 +176,10 @@ namespace ClientBL
           // Plese see more information inside of ClientProps class
                 if (!ClientProps.NetworkisOK)
                 {
-                    
-                    throw new ArgumentException();
+
+                    ClientProps.UserisOnline = false;
+                    NoConnectionWhithServerEvent("Connection Was Lost!");
+                    client.Close();
                 }
             }
 
@@ -191,13 +193,13 @@ namespace ClientBL
 
 
             // This exeption has been throwing when network cable disconnects on the clientside
-            catch (ArgumentException ae)
-            {
+            //catch (ArgumentException ae)
+            //{
 
-                ClientProps.UserisOnline = false;
-                NoConnectionWhithServerEvent(ae.Message);
-                client.Close();
-            }
+            //    ClientProps.UserisOnline = false;
+            //    NoConnectionWhithServerEvent(ae.Message);
+            //    client.Close();
+            //}
         }
 
 
