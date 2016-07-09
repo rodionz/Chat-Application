@@ -18,10 +18,8 @@ namespace ServerBI
         public static event Action<MessageData, NetworkStream> ListofUsersRequest;
         public static event Action<MessageData, NetworkStream, UserData> Userdicsconnecter;      
         public static event Action<MessageData, NetworkStream> PrivateMessage;
-
-
         private static TcpListener server;
-         static Task mainTask;
+        static Task mainTask;
         static Task StarttoListen;
 
         public async static void ServerOnline(ServerData sData)
@@ -30,8 +28,6 @@ namespace ServerBI
            
                 server = new TcpListener(IPAddress.Parse(sData.IPadress), sData.Portnumber);
                 ServerProps.ServerisOnline = true;
-
-
                 ipandportvalidation += ServerEventHandlers.IPandPortValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
@@ -176,18 +172,12 @@ namespace ServerBI
             NetworkStream ns = null;
             publicmessage(byebye, ns);
 
-
         }
 
         public static void Finalising()
         {
-            ServerShutDown();
-            //ServerProps.ServerisOnline = false;           
+            ServerShutDown();      
             server.Stop();
-            //server = null;
-           
-            
-
             ServerProps.listofUsersontheserver.Clear();
             ServerProps.StreamsofClients.Clear();
             ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
@@ -197,15 +187,6 @@ namespace ServerBI
             Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
-
-         
-
-            if (StarttoListen != null && StarttoListen.IsCompleted)
-                StarttoListen.Dispose();
-          
-                
-
-
         }
 
         }

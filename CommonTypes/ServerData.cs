@@ -5,11 +5,7 @@ namespace CommonTypes
     [Serializable]
    public class ServerData : CommonVariables
     {
-
-     
-        //To Check!!!
-     
-      
+    
 
     }
 }

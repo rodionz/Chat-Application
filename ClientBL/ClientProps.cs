@@ -74,6 +74,8 @@ namespace ClientBL
             }
         }
 
+///End of "Network cable disconnection" logic
+/// //////////////////////////////////////////////////////////////////////////
 
 
 

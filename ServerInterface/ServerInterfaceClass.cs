@@ -26,9 +26,6 @@ namespace ServerInterface
             ServerLogic.ServerShutDown -= NoServerHandler;
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
             ServerLogic.ServerShutDown += NoServerHandler;
-            //ServerLogic.ServerDisconnection += NoServerHandler;
-
-
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
 
@@ -52,12 +49,7 @@ namespace ServerInterface
         private void StopServerButton_Click(object sender, EventArgs e)
         {
             ServerProps.ServerisOnline = false;
-        
-            
-            //ServerLogic.ServerDisconnection -= NoServerHandler;
-            
             ServerLogic.StopListening();
-
             StartServerButton.Enabled = true;
             StopServerButton.Enabled = false;
             GreenLightPanel.Visible = false;
@@ -73,8 +65,7 @@ namespace ServerInterface
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
             ServerLogic.ServerShutDown += NoServerHandler;
             RedLightPanel.Visible = false;
-            GreenLightPanel.Visible = true;
-            
+            GreenLightPanel.Visible = true;           
             sData.IPadress = "127.0.0.1";
             sData.Portnumber = 60000;
             StopServerButton.Enabled = true;

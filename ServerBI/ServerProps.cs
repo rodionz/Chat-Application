@@ -71,25 +71,8 @@ namespace ServerBI
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ///End of "Network cable disconnection" logic
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public static bool  ServerisOnline
         { get; set; }
