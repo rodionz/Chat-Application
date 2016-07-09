@@ -69,7 +69,8 @@ namespace ServerBI
 
                     TcpClient client = serv.AcceptTcpClient();                
                      StarttoListen = Task.Run(() => StartListeningtoMessages(client));                    
-                }               
+                }
+                return;              
             }
 
 
@@ -168,7 +169,7 @@ namespace ServerBI
         public static void StopListening()
 
         {
-
+            ServerProps.ServerisOnline = false;
             MessageData byebye = new MessageData();
             byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
@@ -183,7 +184,8 @@ namespace ServerBI
             ServerShutDown();
             //ServerProps.ServerisOnline = false;           
             server.Stop();
-            server = null;
+            //server = null;
+           
             
 
             ServerProps.listofUsersontheserver.Clear();
@@ -196,8 +198,12 @@ namespace ServerBI
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
 
+         
+
             if (StarttoListen != null && StarttoListen.IsCompleted)
                 StarttoListen.Dispose();
+          
+                
 
 
         }

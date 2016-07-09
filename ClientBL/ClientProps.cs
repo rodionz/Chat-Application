@@ -27,13 +27,13 @@ namespace ClientBL
         {
             try
             {
-                Ping myPing = new Ping();
-                String host = "google.com";
-                byte[] buffer = new byte[32];
-                int timeout = 1000;
-                PingOptions pingOptions = new PingOptions();
-                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                return (reply.Status == IPStatus.Success);
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
             }
             catch (Exception)
             {
@@ -41,7 +41,19 @@ namespace ClientBL
             }
         }
 
-        internal static bool Network_Works = NetworkInterface.GetIsNetworkAvailable();
+
+        internal static bool Network_Works
+        {
+            get
+            {
+                if (NetworkInterface.GetIsNetworkAvailable() == true)
+                    return true;
+
+                else
+                    return false;
+
+            }
+        }
 
 
         internal static bool NetworkisOK
@@ -50,13 +62,18 @@ namespace ClientBL
             get
 
             {
-                if (CheckForInternetConnection() && Network_Works)
+                if (CheckForInternetConnection() == true && Network_Works == true)
+                {
                     return true;
+                }
 
                 else
+                {
                     return false;
+                }
             }
         }
+
 
 
 

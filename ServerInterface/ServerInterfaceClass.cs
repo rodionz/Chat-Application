@@ -63,6 +63,7 @@ namespace ServerInterface
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
+            ServerLogic.Finalising();
         }
 
     
