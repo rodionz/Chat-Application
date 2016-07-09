@@ -3,6 +3,7 @@ using System.Net.Sockets;
 using CommonTypes;
 using System.Net.NetworkInformation;
 using System.Net;
+using System;
 
 namespace ServerBI
 {
@@ -25,10 +26,13 @@ namespace ServerBI
             try
             {
                 using (var client = new WebClient())
-                using (var stream = client.OpenRead("http://www.google.com"))
                 {
-                    return true;
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
                 }
+
             }
             catch
             {
@@ -36,8 +40,18 @@ namespace ServerBI
             }
         }
 
-        internal static bool Network_Works = NetworkInterface.GetIsNetworkAvailable();
+        internal static bool Network_Works
+        {
+         get
+            {
+                if (NetworkInterface.GetIsNetworkAvailable() == true)
+                    return true;
 
+                else
+                    return false;
+            
+            }
+        }
 
         internal static bool NetworkisOK
 
@@ -45,11 +59,15 @@ namespace ServerBI
             get
 
             {
-                if (CheckForInternetConnection() && Network_Works)
+                if (CheckForInternetConnection() == true && Network_Works == true)
+                {
                     return true;
+                }
 
                 else
+                {
                     return false;
+                }
             }
         }
 

@@ -69,7 +69,10 @@ namespace ClientInterface
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
 
-          
+            UserLogic.MessageRecieved += IncomingMessageHandler;
+            UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+
+
             registration.ShowDialog();
 
             if (ClientInterfaceProps.UserIsValid)
@@ -89,8 +92,7 @@ namespace ClientInterface
                 ConnectToserverButton.Enabled = false;
                 DisconnectFromServerButton.Enabled = true;
 
-                UserLogic.MessageRecieved += IncomingMessageHandler;
-                UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+              
                 ClientInterfaceProps.ResetBooleans();
             }
 
@@ -162,17 +164,28 @@ namespace ClientInterface
 
         }
 
-       
+
 
         private void PrivateMessageButton_Click(object sender, EventArgs e)
         {
-            ClientInterfaceProps.PrivateMessage = true;
-            MesData.action = NetworkAction.RequestforListofUsers;
-            UserLogic.SendMessage(MesData);
-            PrivatecheckedListBox.Visible = true;
-            ClientInterfaceProps.MessageIsPrivate = true;
-        }
+            if (!ClientInterfaceProps.PrivateMessage)
+            {
+                ClientInterfaceProps.PrivateMessage = true;
+                MesData.action = NetworkAction.RequestforListofUsers;
+                UserLogic.SendMessage(MesData);
+                PrivatecheckedListBox.Visible = true;
+                ClientInterfaceProps.MessageIsPrivate = true;
+            }
+            else
+            {
+                ClientInterfaceProps.PrivateMessage = false;
+                PrivatecheckedListBox.ClearSelected();
+                PrivatecheckedListBox.Visible = false;
+                privatelist.Clear();
+                PrivatecheckedListBox.Items.Clear();
 
+            }
+        }
         
      internal  void UserInterfaceDisconnection()
 

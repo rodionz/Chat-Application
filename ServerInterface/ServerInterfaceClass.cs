@@ -59,6 +59,9 @@ namespace ServerInterface
             ServerLogic.StopListening();
 
             StartServerButton.Enabled = true;
+            StopServerButton.Enabled = false;
+            GreenLightPanel.Visible = false;
+            RedLightPanel.Visible = true;
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
         }
 

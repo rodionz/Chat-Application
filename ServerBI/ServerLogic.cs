@@ -183,6 +183,8 @@ namespace ServerBI
             ServerShutDown();
             //ServerProps.ServerisOnline = false;           
             server.Stop();
+            server = null;
+            
 
             ServerProps.listofUsersontheserver.Clear();
             ServerProps.StreamsofClients.Clear();
