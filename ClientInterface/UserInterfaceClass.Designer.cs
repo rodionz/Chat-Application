@@ -250,7 +250,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::ClientInterface.Properties.Resources._4_Grayscale_logo_on_transparent_238x75;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 503);
+            this.pictureBox1.Location = new System.Drawing.Point(139, 503);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(231, 72);
             this.pictureBox1.TabIndex = 26;
@@ -259,7 +259,7 @@
             // PrivatecheckedListBox
             // 
             this.PrivatecheckedListBox.FormattingEnabled = true;
-            this.PrivatecheckedListBox.Location = new System.Drawing.Point(350, 481);
+            this.PrivatecheckedListBox.Location = new System.Drawing.Point(376, 481);
             this.PrivatecheckedListBox.Name = "PrivatecheckedListBox";
             this.PrivatecheckedListBox.Size = new System.Drawing.Size(151, 94);
             this.PrivatecheckedListBox.TabIndex = 30;

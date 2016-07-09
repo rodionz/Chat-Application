@@ -42,7 +42,6 @@
             this.ConnectButton = new System.Windows.Forms.Button();
             this.NickNameConfirmationLabel = new System.Windows.Forms.Label();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -179,9 +178,8 @@
             this.NickNameConfirmationLabel.ForeColor = System.Drawing.SystemColors.Desktop;
             this.NickNameConfirmationLabel.Location = new System.Drawing.Point(241, 253);
             this.NickNameConfirmationLabel.Name = "NickNameConfirmationLabel";
-            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(37, 19);
+            this.NickNameConfirmationLabel.Size = new System.Drawing.Size(0, 19);
             this.NickNameConfirmationLabel.TabIndex = 28;
-            this.NickNameConfirmationLabel.Text = "trxt";
             // 
             // WarningLabel
             // 
@@ -189,19 +187,8 @@
             this.WarningLabel.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningLabel.Location = new System.Drawing.Point(241, 166);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(39, 19);
+            this.WarningLabel.Size = new System.Drawing.Size(0, 19);
             this.WarningLabel.TabIndex = 30;
-            this.WarningLabel.Text = "text";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(52, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SignIn
             // 
@@ -209,7 +196,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(728, 355);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.NickNameConfirmationLabel);
             this.Controls.Add(this.ConnectButton);
@@ -248,6 +234,5 @@
         public System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.Label NickNameConfirmationLabel;
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.Button button1;
     }
 }

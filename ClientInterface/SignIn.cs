@@ -194,12 +194,6 @@ namespace ClientInterface
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            IPmaskedTextBox.Text = "127.000.000.001";
-            portTextBox.Text = "60000";
-            UserNameBox.Text = "Rodichek";
-        }
 
         private void SignIn_FormClosing(object sender, FormClosingEventArgs e)
         {

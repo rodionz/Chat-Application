@@ -44,7 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.RedLamp = new System.Windows.Forms.PictureBox();
             this.StopServerButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -227,16 +226,6 @@
             this.StopServerButton.UseVisualStyleBackColor = true;
             this.StopServerButton.Click += new System.EventHandler(this.StopServerButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "MagicStart";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -254,7 +243,7 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(219, 446);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.Size = new System.Drawing.Size(95, 23);
             this.label4.TabIndex = 23;
             this.label4.Text = "Powered by";
             // 
@@ -283,7 +272,6 @@
             // ServerPanel
             // 
             this.ServerPanel.Controls.Add(this.panel1);
-            this.ServerPanel.Controls.Add(this.button1);
             this.ServerPanel.Controls.Add(this.GreenLightPanel);
             this.ServerPanel.Controls.Add(this.label3);
             this.ServerPanel.Controls.Add(this.label4);
@@ -341,7 +329,6 @@
         private System.Windows.Forms.Label label1;
        internal System.Windows.Forms.Button StopServerButton;
         private System.Windows.Forms.TabPage tabChat;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox ChatListBox;
         internal System.Windows.Forms.ListBox CurrentUsersListbox;
         private System.Windows.Forms.ListBox HistoryListbox;

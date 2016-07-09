@@ -60,25 +60,7 @@ namespace ServerInterface
 
     
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
-            ServerLogic.ServerShutDown += NoServerHandler;
-            RedLightPanel.Visible = false;
-            GreenLightPanel.Visible = true;           
-            sData.IPadress = "127.0.0.1";
-            sData.Portnumber = 60000;
-            StopServerButton.Enabled = true;
-            StartServerButton.Enabled = false;
-            ServerLogic.ServerOnline(sData);
-           
-           
-        }
-
-        
-
-       
-
+  
         private void ServerInterfaceClass_Load(object sender, EventArgs e)
         {
             ServerEventHandlers.newuserconnected += NewUserEvenHandler;
