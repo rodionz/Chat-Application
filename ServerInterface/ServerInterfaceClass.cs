@@ -36,6 +36,7 @@ namespace ServerInterface
                 ServerLogic.ServerOnline(sData);
                 StartServerButton.Enabled = false;
                 StopServerButton.Enabled = true;
+                ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
             }
                  
         }

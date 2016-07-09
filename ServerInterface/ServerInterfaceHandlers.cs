@@ -33,6 +33,15 @@ namespace ServerInterface
             }
         }
 
+
+
+        public static void WrongIPandPOrthandler()
+        {
+
+            MessageBox.Show("Creating of Server has failed, please choose another IP adress and port and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
     
         public void MessagesentHandler(MessageData mData)
         {

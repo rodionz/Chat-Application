@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using CommonTypes;
 using System.Net;
+using ServerBI;
 
 namespace ServerInterface
 {
@@ -97,6 +98,14 @@ namespace ServerInterface
             portTextBox.Clear();
         }
 
-      
+        private void ServerConnection_Load(object sender, EventArgs e)
+        {
+            ServerLogic.WrongIPorPort += ServerInterfaceClass.WrongIPandPOrthandler;
+        }
+
+        private void ServerConnection_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
     }
 }

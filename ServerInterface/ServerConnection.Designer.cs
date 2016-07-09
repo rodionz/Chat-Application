@@ -129,7 +129,7 @@
             // 
             // CreateServerButton
             // 
-            this.CreateServerButton.Font = new System.Drawing.Font("David", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.CreateServerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.CreateServerButton.ForeColor = System.Drawing.Color.DarkBlue;
             this.CreateServerButton.Location = new System.Drawing.Point(312, 218);
             this.CreateServerButton.Name = "CreateServerButton";
@@ -187,6 +187,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ServerConnection";
             this.Text = "ServerRegistration";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerConnection_FormClosing);
+            this.Load += new System.EventHandler(this.ServerConnection_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
