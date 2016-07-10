@@ -167,7 +167,7 @@ namespace ClientBL
                 sendingformatter.Serialize(localstrem, outcoming);
 
 
-          // Plese see more information inside of ClientProps class
+          // Please see more information inside of ClientProps class
                 if (!ClientProps.NetworkisOK)
                 {
 
@@ -177,7 +177,8 @@ namespace ClientBL
                 }
 
                 else
-                {
+                { 
+                    // In the case of cable disconnection
                     throw new ArgumentException();
                 }
             }
