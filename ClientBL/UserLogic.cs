@@ -78,9 +78,6 @@ namespace ClientBL
         public async static void ConnecttoServer(MessageData mData, UserData uData)
         {
 
-
-
-
             client = new TcpClient();
             MessageData returning = new MessageData();
             UserData Localuser = uData;
@@ -147,13 +144,6 @@ namespace ClientBL
                         client.Close();
                     }
 
-
-                    //else if (incoming.action == NetworkAction.UserDisconnection && incoming.Userdat.Username == currentUser.Username)
-                    //{
-                    //    client.Close();
-                    //    return;
-                    //}
-
                     else
                         MessageRecieved(incoming);
 
@@ -185,6 +175,11 @@ namespace ClientBL
                     NoConnectionWhithServerEvent("Connection Was Lost!");
                     client.Close();
                 }
+
+                else
+                {
+                    throw new ArgumentException();
+                }
             }
 
             catch (IOException io)
@@ -197,13 +192,13 @@ namespace ClientBL
 
 
             // This exeption has been throwing when network cable disconnects on the clientside
-            //catch (ArgumentException ae)
-            //{
+            catch (ArgumentException ae)
+            {
 
-            //    ClientProps.UserisOnline = false;
-            //    NoConnectionWhithServerEvent(ae.Message);
-            //    client.Close();
-            //}
+                ClientProps.UserisOnline = false;
+                NoConnectionWhithServerEvent(ae.Message);
+                client.Close();
+            }
         }
 
 

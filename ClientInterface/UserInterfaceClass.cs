@@ -13,9 +13,7 @@ namespace ClientInterface
     {
         public UserInterfaceClass()
         {
-            InitializeComponent();
-            //DisconnectFromServerButton.Enabled = false;
-                      
+            InitializeComponent();                     
         }
 
 
@@ -252,8 +250,7 @@ namespace ClientInterface
         private void UserInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
         {
             UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
-            //UserLogic.ServerDisconnected += UserInterfaceDisconnection;
-            //UserLogic.MessageRecieved += IncomingMessageHandler;
+           
         }
 
         private void UserInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
