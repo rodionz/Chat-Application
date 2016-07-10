@@ -43,6 +43,10 @@ namespace ClientBL
 
             try
             {
+
+                /* Please Pay Attention that attempt to connect to unexisting server will cause
+                a delay (7 - 10 seconds) untill it throws an exeption
+                */
                 preclient.Connect(premesData.Userdat.IPadress, premesData.Userdat.Portnumber);
 
                 using (NetworkStream netStream = preclient.GetStream())

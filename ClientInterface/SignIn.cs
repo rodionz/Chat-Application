@@ -26,10 +26,12 @@ namespace ClientInterface
         internal string IPasString;
         internal int userPort;
         internal List<UserData> localListofUsers;
-       
-        
-       
-        
+
+
+
+        /* Please Pay Attention that attempt to check IP address and port of unexisting server will cause
+               a delay (7 - 10 seconds) untill it throws an exeption
+               */
 
         private void ConfirmIP_Click(object sender, EventArgs e)
         {
@@ -179,8 +181,7 @@ namespace ClientInterface
                 new_user = new UserData( IPasString, userPort, userNIckname);
                 MessageData mData = new MessageData(new_user);
                 mData.action = NetworkAction.Connection;
-                UserLogic.LolacAction = NetworkAction.Connection;
-                string message = "You Are Online Now";
+                UserLogic.LolacAction = NetworkAction.Connection;               
                 UserLogic.ConnecttoServer(mData , new_user);
                 ClearAll();
                 Close();
@@ -189,7 +190,7 @@ namespace ClientInterface
             else
             {
                 MessageBox.Show("You need to confirm IPAdress, Port and UserName before connecting server", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                
+                ClientInterfaceProps.ResetBooleans();
 
             }
         }
