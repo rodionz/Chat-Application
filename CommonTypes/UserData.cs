@@ -16,7 +16,6 @@ namespace CommonTypes
         public UserData()
         {
 
-
         }
 
         public UserData(int numofuser)

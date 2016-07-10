@@ -9,6 +9,7 @@ using CommonTypes;
 namespace ServerInterface
 {
 
+    // I prefered to use a partial class instead of separate class for convenience
     public partial class ServerInterfaceClass : Form
     {
 

@@ -23,14 +23,6 @@ namespace CommonTypes
         public List<UserData> listofUsers;
 
 
-
-
-
-
-
-
-
-
         public MessageData() { }
 
         public MessageData(UserData ud)
