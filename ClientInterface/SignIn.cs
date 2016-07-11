@@ -35,9 +35,14 @@ namespace ClientInterface
 
         private void ConfirmIP_Click(object sender, EventArgs e)
         {
+
+           
+            WarningLabel.ForeColor = Color.Silver;
+            WarningLabel.Text = "Connection in Progress, please wait...";
+            ConfirmIPandPortButton.Enabled = false;
+
+
             this.IPmaskedTextBox.ValidatingType = typeof(IPAddress);
-
-
             char[] delimit = { ' ' };
             string[] str = IPmaskedTextBox.Text.Split();
             string separator = "";
@@ -68,15 +73,17 @@ namespace ClientInterface
 
             else
             {
+                ConfirmIPandPortButton.Enabled = false;
                 mData = new MessageData(new UserData(IPasString, userPort), NetworkAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation(mData);
+
 
 
                 if ( UserLogic.GlobalValidIpandPort)
                 {
                     WarningLabel.ForeColor = Color.Lime;
                     WarningLabel.Text = "IP Adress and Port are Confirmed";
-                    ConfirmIPandPort.Enabled = false;
+                    ConfirmIPandPortButton.Enabled = false;
                     localListofUsers = ClientProps.listofUserfortheUsers;
                     ClientInterfaceProps.IPandPortconfirmed = UserLogic.GlobalValidIpandPort;
 
@@ -90,8 +97,8 @@ namespace ClientInterface
                
 
             }
-        
-            
+
+         
         }
 
         private void clearIP_Click(object sender, EventArgs e)
@@ -118,7 +125,7 @@ namespace ClientInterface
             UserNameBox.Clear();
             portTextBox.Clear();
             WarningLabel.Text = "";
-            ConfirmIPandPort.Enabled = true;
+            ConfirmIPandPortButton.Enabled = true;
             NickNameConfirmationLabel.Text = "";
            
         }
@@ -198,6 +205,7 @@ namespace ClientInterface
 
         private void SignIn_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ConfirmIPandPortButton.Enabled = true;
             ClearAll();
         }
     }

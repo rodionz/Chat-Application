@@ -37,7 +37,7 @@
             this.clearIP = new System.Windows.Forms.Button();
             this.UsernameClearButton = new System.Windows.Forms.Button();
             this.Clearportbutton = new System.Windows.Forms.Button();
-            this.ConfirmIPandPort = new System.Windows.Forms.Button();
+            this.ConfirmIPandPortButton = new System.Windows.Forms.Button();
             this.NicknameConfirmationButton = new System.Windows.Forms.Button();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.NickNameConfirmationLabel = new System.Windows.Forms.Label();
@@ -134,17 +134,17 @@
             this.Clearportbutton.UseVisualStyleBackColor = false;
             this.Clearportbutton.Click += new System.EventHandler(this.Clearportbutton_Click);
             // 
-            // ConfirmIPandPort
+            // ConfirmIPandPortButton
             // 
-            this.ConfirmIPandPort.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmIPandPort.ForeColor = System.Drawing.Color.DarkBlue;
-            this.ConfirmIPandPort.Location = new System.Drawing.Point(296, 115);
-            this.ConfirmIPandPort.Name = "ConfirmIPandPort";
-            this.ConfirmIPandPort.Size = new System.Drawing.Size(160, 34);
-            this.ConfirmIPandPort.TabIndex = 23;
-            this.ConfirmIPandPort.Text = "Confirm IP and Port";
-            this.ConfirmIPandPort.UseVisualStyleBackColor = true;
-            this.ConfirmIPandPort.Click += new System.EventHandler(this.ConfirmIP_Click);
+            this.ConfirmIPandPortButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmIPandPortButton.ForeColor = System.Drawing.Color.DarkBlue;
+            this.ConfirmIPandPortButton.Location = new System.Drawing.Point(296, 115);
+            this.ConfirmIPandPortButton.Name = "ConfirmIPandPortButton";
+            this.ConfirmIPandPortButton.Size = new System.Drawing.Size(160, 34);
+            this.ConfirmIPandPortButton.TabIndex = 23;
+            this.ConfirmIPandPortButton.Text = "Confirm IP and Port";
+            this.ConfirmIPandPortButton.UseVisualStyleBackColor = true;
+            this.ConfirmIPandPortButton.Click += new System.EventHandler(this.ConfirmIP_Click);
             // 
             // NicknameConfirmationButton
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.NickNameConfirmationLabel);
             this.Controls.Add(this.ConnectButton);
             this.Controls.Add(this.NicknameConfirmationButton);
-            this.Controls.Add(this.ConfirmIPandPort);
+            this.Controls.Add(this.ConfirmIPandPortButton);
             this.Controls.Add(this.Clearportbutton);
             this.Controls.Add(this.UsernameClearButton);
             this.Controls.Add(this.clearIP);
@@ -229,7 +229,7 @@
         private System.Windows.Forms.Button clearIP;
         private System.Windows.Forms.Button UsernameClearButton;
         private System.Windows.Forms.Button Clearportbutton;
-        public System.Windows.Forms.Button ConfirmIPandPort;
+        public System.Windows.Forms.Button ConfirmIPandPortButton;
         public System.Windows.Forms.Button NicknameConfirmationButton;
         public System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.Label NickNameConfirmationLabel;

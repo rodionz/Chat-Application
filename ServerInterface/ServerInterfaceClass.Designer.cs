@@ -295,6 +295,7 @@
             this.Name = "ServerInterfaceClass";
             this.Text = "ServerUi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServerInterfaceClass_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ServerInterfaceClass_FormClosed);
             this.Load += new System.EventHandler(this.ServerInterfaceClass_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);

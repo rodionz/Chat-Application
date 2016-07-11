@@ -24,7 +24,7 @@ namespace ServerInterface
         private void StartServerButton_Click(object sender, EventArgs e)
         {
             ServerLogic.ServerShutDown -= NoServerHandler;
-            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
+           
             ServerLogic.ServerShutDown += NoServerHandler;
             ServerConnection Sr = new ServerConnection(sData);
             Sr.ShowDialog();
@@ -49,15 +49,15 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
-            ServerLogic.Finalising();
-            ServerProps.ServerisOnline = false;
+           
+           /* ServerProps.ServerisOnline = false*/;
+            ServerProps.ManualSidconnection = true;
             ServerLogic.StopListening();
             StartServerButton.Enabled = true;
             StopServerButton.Enabled = false;
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
-            ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
-            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
+           
             
         }
 
@@ -68,6 +68,7 @@ namespace ServerInterface
         {
             ServerEventHandlers.newuserconnected += NewUserEvenHandler;
             ServerEventHandlers.messgesent += MessagesentHandler;
+            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -83,6 +84,15 @@ namespace ServerInterface
                 MessageBox.Show("Please, disconnect the server before closing application", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 
             }
+
+           
+
+        }
+
+        private void ServerInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
+            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
         }
     }
 }

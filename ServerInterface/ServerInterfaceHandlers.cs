@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CommonTypes;
-
-
-
-
+using ServerBI;
 
 namespace ServerInterface
 {
@@ -40,7 +37,7 @@ namespace ServerInterface
         {
 
             MessageBox.Show("Creating of Server has failed, please choose another IP adress and port and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
         }
 
     

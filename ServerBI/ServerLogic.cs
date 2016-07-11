@@ -64,6 +64,7 @@ namespace ServerBI
                     if (!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
+                        //StopListening();
                         Finalising();
                         return;
                     }
@@ -78,10 +79,22 @@ namespace ServerBI
             catch (SocketException)
             {
                 ServerProps.ServerisOnline = false;
-                WrongIPorPort();
-                ServerShutDown();
+                //WrongIPorPort();
+                //ServerShutDown();
+                //StopListening();
+                if (!ServerProps.ManualSidconnection)
+                {
+                    WrongIPorPort();
+                    ServerProps.ManualSidconnection = false;
+                }
+                Finalising();
                 // another exit point in the case of exeption
                 return;
+            }
+
+            catch(Exception ex)
+            {
+               
             }
         }                                                                                   
                                                        
@@ -97,13 +110,14 @@ namespace ServerBI
           
                 while (!netStr.DataAvailable)
                 {
-                    //exit point for function in order to complete task  
+                    //exit point for the function in order to complete the task  
                     if (!ServerProps.ServerisOnline)
                         return;
 
                     if(!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
+                        //StopListening();
                         Finalising();
                         return;
                     }
@@ -177,7 +191,10 @@ namespace ServerBI
             byebye.Textmessage = "\n Goodbye to Everyone \n You were disconnected ";
             byebye.action = NetworkAction.SeverDisconnection;
             NetworkStream ns = null;
-            publicmessage(byebye, ns);
+
+         
+               ServerEventHandlers.PublicMessageHandler(byebye, ns);
+            Finalising();
 
         }
 
