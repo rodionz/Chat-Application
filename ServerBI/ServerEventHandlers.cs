@@ -65,7 +65,7 @@ namespace ServerBI
 
 
                 }
-                continue;
+                //continue;
             }
             messgesent(mData);
 
