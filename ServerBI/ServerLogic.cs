@@ -64,7 +64,7 @@ namespace ServerBI
                     if (!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
-                        //StopListening();
+                       
                         Finalising();
                         return;
                     }
@@ -79,9 +79,7 @@ namespace ServerBI
             catch (SocketException)
             {
                 ServerProps.ServerisOnline = false;
-                //WrongIPorPort();
-                //ServerShutDown();
-                //StopListening();
+             
                 if (!ServerProps.ManualSidconnection)
                 {
                     WrongIPorPort();
@@ -117,7 +115,6 @@ namespace ServerBI
                     if(!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
-                        //StopListening();
                         Finalising();
                         return;
                     }
@@ -162,7 +159,10 @@ namespace ServerBI
                     case NetworkAction.UserDisconnection:
                         UserData uData = mData.Userdat;
 
-                        // Deleting of users from those lists costed a lot of troubles because of inconsistency of list sizes, so i decided to to replase them whith null's
+                        /* Deleting of users from those lists costed a lot of troubles 
+                         * because of inconsistency of list sizes, 
+                        so i decided to replase them whith null's
+                            */
                         ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
                         ServerProps.StreamsofClients[mData.Userdat.Userid] = null;  
                                                                                         
