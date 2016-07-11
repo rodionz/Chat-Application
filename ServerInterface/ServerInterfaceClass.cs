@@ -36,7 +36,7 @@ namespace ServerInterface
                 ServerLogic.ServerOnline(sData);
                 StartServerButton.Enabled = false;
                 StopServerButton.Enabled = true;
-                ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
+                
             }
                  
         }
@@ -49,6 +49,7 @@ namespace ServerInterface
 
         private void StopServerButton_Click(object sender, EventArgs e)
         {
+            ServerLogic.Finalising();
             ServerProps.ServerisOnline = false;
             ServerLogic.StopListening();
             StartServerButton.Enabled = true;
@@ -56,7 +57,8 @@ namespace ServerInterface
             GreenLightPanel.Visible = false;
             RedLightPanel.Visible = true;
             ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
-            ServerLogic.Finalising();
+            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
+            
         }
 
     

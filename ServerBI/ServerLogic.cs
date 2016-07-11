@@ -57,6 +57,10 @@ namespace ServerBI
                     if (!ServerProps.ServerisOnline)
                         return;
 
+                    /*
+         This property servs as a detector of network interferences (like Network Cabble disconnection)
+         Please see more information inside of ClientProps class
+               */
                     if (!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;

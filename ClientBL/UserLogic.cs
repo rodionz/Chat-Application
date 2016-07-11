@@ -167,39 +167,34 @@ namespace ClientBL
                 sendingformatter.Serialize(localstrem, outcoming);
 
 
-          // Please see more information inside of ClientProps class
+          /*
+          This property servs as a detector of network interferences (like Network Cabble disconnection)
+          Please see more information inside of ClientProps class
+                */
                 if (!ClientProps.NetworkisOK)
                 {
 
                     ClientProps.UserisOnline = false;
                     NoConnectionWhithServerEvent("Connection Was Lost!");
                     client.Close();
+                    return;
                 }
 
-                else
-                { 
-                    // In the case of cable disconnection
-                    throw new ArgumentException();
-                }
+               
             }
 
-            catch (IOException io)
+            catch (Exception io)
 
             {
                 ClientProps.UserisOnline = false;
                 NoConnectionWhithServerEvent(io.Message);
                 client.Close();
+                return;
             }
 
 
-            // This exeption has been throwing when network cable disconnects on the clientside
-            catch (ArgumentException ae)
-            {
-
-                ClientProps.UserisOnline = false;
-                NoConnectionWhithServerEvent(ae.Message);
-                client.Close();
-            }
+          
+            
         }
 
 
