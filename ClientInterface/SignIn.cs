@@ -37,11 +37,8 @@ namespace ClientInterface
         {
 
            
-            WarningLabel.ForeColor = Color.Silver;
-            WarningLabel.Text = "Connection in Progress, please wait...";
+           
             ConfirmIPandPortButton.Enabled = false;
-
-
             this.IPmaskedTextBox.ValidatingType = typeof(IPAddress);
             char[] delimit = { ' ' };
             string[] str = IPmaskedTextBox.Text.Split();
@@ -103,6 +100,7 @@ namespace ClientInterface
 
         private void clearIP_Click(object sender, EventArgs e)
         {
+            ConfirmIPandPortButton.Enabled = true;
             IPmaskedTextBox.Clear();
             WarningLabel.Text = "";
         }
@@ -115,6 +113,7 @@ namespace ClientInterface
 
         private void Clearportbutton_Click(object sender, EventArgs e)
         {
+            ConfirmIPandPortButton.Enabled = true;
             portTextBox.Clear();
            
         }

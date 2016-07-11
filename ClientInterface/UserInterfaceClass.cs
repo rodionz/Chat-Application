@@ -154,11 +154,11 @@ namespace ClientInterface
 
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
         {
-            
+            UserInterfaceDisconnection();
             ClientProps.UserisOnline = false;
             ClientProps.shutdown = true;     
             UserLogic.Disconnection(uData);
-            UserInterfaceDisconnection();
+           
 
         }
 

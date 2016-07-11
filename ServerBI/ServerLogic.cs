@@ -32,7 +32,7 @@ namespace ServerBI
                 ipandportvalidation += ServerEventHandlers.IPandPortValidationHandler;
                 connection += ServerEventHandlers.ConnectionHandler;
                 publicmessage += ServerEventHandlers.PublicMessageHandler;
-                ListofUsersRequest += ServerEventHandlers.UserREquestHandler;
+                ListofUsersRequest += ServerEventHandlers.UsersListRequestHandler;
                 Userdicsconnecter += ServerEventHandlers.DisconnectUser;
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
@@ -207,7 +207,7 @@ namespace ServerBI
             ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
             connection -= ServerEventHandlers.ConnectionHandler;
             publicmessage -= ServerEventHandlers.PublicMessageHandler;
-            ListofUsersRequest -= ServerEventHandlers.UserREquestHandler;
+            ListofUsersRequest -= ServerEventHandlers.UsersListRequestHandler;
             Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
             ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;

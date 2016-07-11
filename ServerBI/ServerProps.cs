@@ -17,6 +17,8 @@ namespace ServerBI
         at the present time
         Adn a third function that recieves parameters from those two function and return final result(True of False)
         I use same algorithm both on client side and server side
+
+        
                      */
 
 
@@ -34,7 +36,19 @@ namespace ServerBI
                 }
 
             }
-            catch
+
+            catch (WebException WE)
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.cnn.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            catch (Exception e)
             {
                 return false;
             }

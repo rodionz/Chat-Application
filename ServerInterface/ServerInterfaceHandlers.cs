@@ -111,6 +111,7 @@ namespace ServerInterface
                 GreenLightPanel.Visible = false;
                 StartServerButton.Enabled = true;
                 StopServerButton.Enabled = false;
+                MessageBox.Show("Connection was suddenly lost ", "Network Error",  MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

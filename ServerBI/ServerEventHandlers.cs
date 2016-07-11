@@ -3,6 +3,7 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using CommonTypes;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ServerBI
 {
@@ -75,11 +76,18 @@ namespace ServerBI
 
 
 
-        internal static void UserREquestHandler( MessageData mData, NetworkStream nStr)
+        internal static void UsersListRequestHandler( MessageData mData, NetworkStream nStr)
         {
             
-            BinaryFormatter bf = new BinaryFormatter(); 
-            mData.listofUsers = ServerProps.listofUsersontheserver;
+            BinaryFormatter bf = new BinaryFormatter();
+            mData.listofUsers = new List<UserData>();
+            foreach(UserData ud in ServerProps.listofUsersontheserver)
+            {
+                if (ud != null)
+                    mData.listofUsers.Add(ud);
+            }
+
+            //mData.listofUsers = ServerProps.listofUsersontheserver;
             mData.action = NetworkAction.RequestforListofUsers;
             bf.Serialize(nStr, mData);
         }
@@ -119,12 +127,9 @@ namespace ServerBI
 
         internal static  void UnexpectedDisconnectionHandler(MessageData mData, NetworkStream nStream, int index)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            NetworkStream netStream = ServerProps.StreamsofClients[index];
-            UserData lostuser = ServerProps.listofUsersontheserver[index];
-            mData.Userdat = lostuser;           
-            ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
-            ServerProps.StreamsofClients[mData.Userdat.Userid] = null;          
+            BinaryFormatter bf = new BinaryFormatter();          
+            ServerProps.listofUsersontheserver[index] = null;
+            ServerProps.StreamsofClients[index] = null;          
             mData.action = NetworkAction.UserDisconnection;
 
 

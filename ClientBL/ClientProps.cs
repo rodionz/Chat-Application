@@ -35,6 +35,18 @@ namespace ClientBL
                     }
                 }
             }
+
+            catch (WebException WE)
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.cnn.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+
             catch (Exception)
             {
                 return false;
