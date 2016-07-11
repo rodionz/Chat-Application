@@ -73,7 +73,7 @@ namespace ServerBI
             get
 
             {
-                if (CheckForInternetConnection() == true && Network_Works == true)
+                if (CheckForInternetConnection() == true || Network_Works == true)
                 {
                     return true;
                 }
