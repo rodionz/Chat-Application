@@ -13,50 +13,25 @@ namespace ServerBI
 
         /* This is a only way i could find the solutioin
         for the "Network Cabel Disconnection" issue:
-        I have Iwo functions that cheks is there any connection (both local and internet)
+        I have Two functions that cheks is there any connection (both local and internet)
         at the present time
         Adn a third function that recieves parameters from those two function and return final result(True of False)
         I use same algorithm both on client side and server side
-
-
-         amendmend: i stoped to use CheckForInternetConnection() function, because of frequent Web Exeptions's. I guess mi IP was banned there
-         because of multyply connection attempts
-        
+      
                      */
 
+// This method was found on Stackoverflow. It checks if three is a internet connection availiable(including wifi)
 
-
-        internal static bool CheckForInternetConnection()
+        [System.Runtime.InteropServices.DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+        public static bool CheckNet()
         {
-            try
-            {
-                using (var client = new WebClient())
-                {
-                    using (var stream = client.OpenRead("http://www.google.com"))
-                    {
-                        return true;
-                    }
-                }
-
-            }
-
-            catch (WebException WE)
-            {
-                using (var client = new WebClient())
-                {
-                    using (var stream = client.OpenRead("http://www.cnn.com"))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            catch (Exception e)
-            {
-                return false;
-            }
+            int desc;
+            return InternetGetConnectedState(out desc, 0);
         }
 
+
+// This method cheks for any network aviliable, including local network
         internal static bool Network_Works
         {
          get
@@ -76,7 +51,7 @@ namespace ServerBI
             get
 
             {
-                if (CheckForInternetConnection() == true || Network_Works == true)
+                if (CheckNet() == true && Network_Works == true)
                 {
                     return true;
                 }

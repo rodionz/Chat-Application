@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using CommonTypes;
 using System.IO;
 using System.Net.NetworkInformation;
+using System.Threading;
 
 namespace ClientBL
 {
@@ -116,6 +117,28 @@ namespace ClientBL
 
             while (ClientProps.UserisOnline)
             {
+                /* I found out that every infinity loop creates heavy load on the processor. 
+               For example this apllication took close to 100% of CPU, he simpliest solution
+               that i found was to include small time delay in every infinity loop
+                   */
+                Thread.Sleep(100);
+
+
+
+
+                /*
+        This property servs as a detector of network interferences (like Network Cable disconnection)
+        Please see more information inside of ClientProps class
+              */
+                if (!ClientProps.NetworkisOK)
+                {
+                    NoConnectionWhithServerEvent("Internet connection was lost");
+
+                    Disconnection(currentUser);
+
+                    return;
+                }
+
 
                 if (!usernetstream.CanRead || ClientProps.shutdown)
                 {
@@ -170,7 +193,7 @@ namespace ClientBL
 
 
           /*
-          This property servs as a detector of network interferences (like Network Cabble disconnection)
+          This property servs as a detector of network interferences (like Network Cable disconnection)
           Please see more information inside of ClientProps class
                 */
                 if (!ClientProps.Network_Works)

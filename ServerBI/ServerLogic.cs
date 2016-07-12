@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using CommonTypes;
 using System.Net.NetworkInformation;
+using System.Threading;
 
 namespace ServerBI
 {
@@ -61,7 +62,7 @@ namespace ServerBI
          This property servs as a detector of network interferences (like Network Cabble disconnection)
          Please see more information inside of ClientProps class
                */
-                    if (!ServerProps.Network_Works)
+                    if (!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
                        
@@ -70,7 +71,8 @@ namespace ServerBI
                     }
 
                     TcpClient client = serv.AcceptTcpClient();                
-                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));                    
+                     StarttoListen = Task.Run(() => StartListeningtoMessages(client));     
+                                   
                 }
                 return;              
             }
@@ -112,12 +114,20 @@ namespace ServerBI
                     if (!ServerProps.ServerisOnline)
                         return;
 
-                    if(!ServerProps.Network_Works)
+                    if(!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
                         Finalising();
                         return;
                     }
+                    /* I found out that every infinity loop creates heavy load on the processor. 
+                For example this apllication took close to 100% of CPU, he simpliest solution
+                that i found was to include small time delay in every infinity loop
+                    */
+                    Thread.Sleep(100);
+
+
+                    
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
