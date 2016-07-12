@@ -94,27 +94,32 @@ namespace ServerInterface
 
         public  void NoServerHandler()
         {
-        
-            if (ServerPanel.InvokeRequired)
-            {
-                Action dicon = NoServerHandler;
-                this.Invoke(dicon, new object[] {  });
+            try
+        {
+                if (ServerPanel.InvokeRequired)
+                {
+                    Action dicon = NoServerHandler;
+                    this.Invoke(dicon, new object[] { });
 
+                }
+
+                else
+                {
+                    CurrentUsersListbox.Items.Clear();
+                    HistoryListbox.Items.Clear();
+                    ChatListBox.Items.Clear();
+                    RedLightPanel.Visible = true;
+                    GreenLightPanel.Visible = false;
+                    StartServerButton.Enabled = true;
+                    StopServerButton.Enabled = false;
+                    MessageBox.Show("Connection was suddenly lost ", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
-
-            else
+            catch (ObjectDisposedException oe)
             {
-                CurrentUsersListbox.Items.Clear();
-                HistoryListbox.Items.Clear();
-                ChatListBox.Items.Clear();
-                RedLightPanel.Visible = true;
-                GreenLightPanel.Visible = false;
-                StartServerButton.Enabled = true;
-                StopServerButton.Enabled = false;
-                MessageBox.Show("Connection was suddenly lost ", "Network Error",  MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
             }
-        }
-
+            }
 
         // For usual user disconnection
         public void DisconnectUserHAndler(UserData uData)

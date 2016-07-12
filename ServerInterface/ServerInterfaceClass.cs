@@ -78,12 +78,12 @@ namespace ServerInterface
 
         private void ServerInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(ServerProps.ServerisOnline)
-            {
-                e.Cancel = true;
-                MessageBox.Show("Please, disconnect the server before closing application", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                
-            }
+            
+               
+
+                ServerProps.ManualSidconnection = true;
+                ServerLogic.StopListening();
+            
 
            
 
