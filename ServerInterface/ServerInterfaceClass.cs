@@ -68,7 +68,7 @@ namespace ServerInterface
         {
             ServerEventHandlers.newuserconnected += NewUserEvenHandler;
             ServerEventHandlers.messgesent += MessagesentHandler;
-            ServerEventHandlers.UsualUserDisconnection_forhteUnterface += DisconnectUserHAndler;
+            ServerEventHandlers.UserRemovalfromtheInterface += DisconnectUserHAndler;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -91,7 +91,7 @@ namespace ServerInterface
 
         private void ServerInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ServerEventHandlers.UsualUserDisconnection_forhteUnterface -= DisconnectUserHAndler;
+            ServerEventHandlers.UserRemovalfromtheInterface -= DisconnectUserHAndler;
             ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
         }
     }

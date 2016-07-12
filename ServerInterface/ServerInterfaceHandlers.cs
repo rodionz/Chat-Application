@@ -121,7 +121,7 @@ namespace ServerInterface
             }
             }
 
-        // For usual user disconnection
+      
         public void DisconnectUserHAndler(UserData uData)
         {
             if (ServerPanel.InvokeRequired)

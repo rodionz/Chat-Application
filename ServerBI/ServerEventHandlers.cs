@@ -12,8 +12,8 @@ namespace ServerBI
       
         public static event Action<MessageData> newuserconnected;
         public static event Action<MessageData> messgesent;
-        public static event Action<UserData> UsualUserDisconnection_forhteUnterface;
-        public static event Action<MessageData, NetworkStream, int> unexpectedUserDisconnection_fortheInterface;
+        public static event Action<UserData> UserRemovalfromtheInterface;
+        public static event Action<MessageData, NetworkStream, int> UserDisconnectedUnexpected;
 
 
         internal static void IPandPortValidationHandler( MessageData mData, NetworkStream nStr)
@@ -60,7 +60,7 @@ namespace ServerBI
                 catch(IOException)
                 {
 
-                    unexpectedUserDisconnection_fortheInterface(mData, nstr, i);
+                    UserDisconnectedUnexpected(mData, nstr, i);
 
 
                 }
@@ -120,7 +120,7 @@ namespace ServerBI
                
             }
 
-            UsualUserDisconnection_forhteUnterface(uData);
+            UserRemovalfromtheInterface(uData);
         }
 
 
@@ -130,16 +130,12 @@ namespace ServerBI
             UserData LostUser = ServerProps.listofUsersontheserver[index];
             BinaryFormatter bf = new BinaryFormatter();          
             ServerProps.listofUsersontheserver[index] = null;
-            ServerProps.StreamsofClients[index] = null;          
-          
-            
+            ServerProps.StreamsofClients[index] = null;
+            mData.Textmessage = LostUser.Username + " was disconnected";
 
-            
 
             for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
             {
-                mData.Textmessage = LostUser.Username + " was disconnected";
-
                 if (ServerProps.StreamsofClients[x] != null)
                 {
                     mData.action = NetworkAction.UserDisconnection;
@@ -148,6 +144,8 @@ namespace ServerBI
                     bf.Serialize(_netStream, mData);
                 }
             }
+
+            UserRemovalfromtheInterface(LostUser);
         }
 
 
@@ -174,7 +172,7 @@ namespace ServerBI
                 catch(IOException)
                 {
 
-                    unexpectedUserDisconnection_fortheInterface(mData, nStream, i);
+                    UserDisconnectedUnexpected(mData, nStream, i);
 
                 }
             }

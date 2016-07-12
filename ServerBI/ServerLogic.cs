@@ -37,7 +37,7 @@ namespace ServerBI
                 ListofUsersRequest += ServerEventHandlers.UsersListRequestHandler;
                 Userdicsconnecter += ServerEventHandlers.DisconnectUser;
                 PrivateMessage += ServerEventHandlers.PrivatemessageHandler;
-                ServerEventHandlers.unexpectedUserDisconnection_fortheInterface += ServerEventHandlers.UnexpectedDisconnectionHandler;
+                ServerEventHandlers.UserDisconnectedUnexpected += ServerEventHandlers.UnexpectedDisconnectionHandler;
                 mainTask = Task.Run(() => WaitingforNewConnections(server, NetworkAction.Connection));
                 await mainTask;
                 mainTask.Dispose();
@@ -221,7 +221,7 @@ namespace ServerBI
             ListofUsersRequest -= ServerEventHandlers.UsersListRequestHandler;
             Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
             PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
-            ServerEventHandlers.unexpectedUserDisconnection_fortheInterface -= ServerEventHandlers.UnexpectedDisconnectionHandler;
+            ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
         }
 
         }
