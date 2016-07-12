@@ -173,7 +173,7 @@ namespace ClientBL
           This property servs as a detector of network interferences (like Network Cabble disconnection)
           Please see more information inside of ClientProps class
                 */
-                if (!ClientProps.NetworkisOK)
+                if (!ClientProps.Network_Works)
                 {
 
                     ClientProps.UserisOnline = false;

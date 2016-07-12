@@ -18,6 +18,9 @@ namespace ServerBI
         Adn a third function that recieves parameters from those two function and return final result(True of False)
         I use same algorithm both on client side and server side
 
+
+         amendmend: i stoped to use CheckForInternetConnection() function, because of frequent Web Exeptions's. I guess mi IP was banned there
+         because of multyply connection attempts
         
                      */
 

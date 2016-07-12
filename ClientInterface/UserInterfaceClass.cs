@@ -45,30 +45,12 @@ namespace ClientInterface
             }
         }
 
-        private void changeFontButton_Click(object sender, EventArgs e)
-        {
-            fontDialog1.AllowScriptChange = true;
-            fontDialog1.AllowSimulations = true;
-            fontDialog1.ShowEffects = true;
-          
-
-            DialogResult result = fontDialog1.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                uData.font = fontDialog1.Font;
-                MesData.font = fontDialog1.Font;
-                this.TextMessages.Font = fontDialog1.Font;
-            
-
-            }
-        }
+     
 
         private void ConnectToserverButton_Click(object sender, EventArgs e)
         {
 
-            UserLogic.MessageRecieved += IncomingMessageHandler;
-            UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+         
 
 
             registration.ShowDialog();
@@ -80,7 +62,7 @@ namespace ClientInterface
                 sendmessageButton.Enabled = true;
                 PrivateMessageButton.Enabled = true;
                 ColorChoosing.Enabled = true;
-                changeFontButton.Enabled = true;
+              
 
                 RedLightPanel.Visible = false;
                 GreenLightPanel.Visible = true;
@@ -140,16 +122,12 @@ namespace ClientInterface
            
         }
 
-        private void TextMessages_FontChanged(object sender, EventArgs e)
-        {
-            uData.color = this.TextMessages.ForeColor;
-
-        }
+     
 
         private void TextMessages_ForeColorChanged(object sender, EventArgs e)
         {
-            uData.font = this.TextMessages.Font;
-           
+            uData.color = this.TextMessages.ForeColor;
+
         }
 
         private void DisconnectFromServerButton_Click(object sender, EventArgs e)
@@ -203,11 +181,10 @@ namespace ClientInterface
                 sendmessageButton.Enabled = false;
                 PrivateMessageButton.Enabled = false;
                 ColorChoosing.Enabled = false;
-                changeFontButton.Enabled = false;
+             
 
 
-                UserLogic.ServerDisconnected -= UserInterfaceDisconnection;
-                UserLogic.MessageRecieved -= IncomingMessageHandler;
+                
             }
         }
 
@@ -242,14 +219,18 @@ namespace ClientInterface
 
         private void UserInterfaceClass_Load(object sender, EventArgs e)
         {
-            UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
-           
-           
+            /*In the case that previous sesiion was closes unexpectedly, we need to unsubcribe from events
+              to avoid duplicate event shooting
+             */
+            UnsubscribeFromAllEvents();
+
+            SubscibetoAllEvents();
+
         }
 
         private void UserInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
         {
-            UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
+            UnsubscribeFromAllEvents();
            
         }
 
@@ -262,6 +243,23 @@ namespace ClientInterface
                 ClientProps.UserisOnline = false;
 
             }
+        }
+
+        private void SubscibetoAllEvents()
+        {
+            UserLogic.NoConnectionWhithServerEvent += NoServerHandler;
+            UserLogic.MessageRecieved += IncomingMessageHandler;
+            UserLogic.ServerDisconnected += UserInterfaceDisconnection;
+        }
+
+        private void UnsubscribeFromAllEvents()
+        {
+          
+            UserLogic.MessageRecieved -= IncomingMessageHandler;
+            UserLogic.ServerDisconnected -= UserInterfaceDisconnection;
+            UserLogic.NoConnectionWhithServerEvent -= NoServerHandler;
+           
+            
         }
     }
 }

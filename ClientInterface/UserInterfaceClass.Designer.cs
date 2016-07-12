@@ -33,7 +33,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.TextMessages = new System.Windows.Forms.TextBox();
             this.sendmessageButton = new System.Windows.Forms.Button();
-            this.changeFontButton = new System.Windows.Forms.Button();
             this.ColorChoosing = new System.Windows.Forms.Button();
             this.ConnectToserverButton = new System.Windows.Forms.Button();
             this.DisconnectFromServerButton = new System.Windows.Forms.Button();
@@ -93,8 +92,7 @@
             this.TextMessages.Multiline = true;
             this.TextMessages.Name = "TextMessages";
             this.TextMessages.Size = new System.Drawing.Size(306, 39);
-            this.TextMessages.TabIndex = 0;
-            this.TextMessages.FontChanged += new System.EventHandler(this.TextMessages_FontChanged);
+            this.TextMessages.TabIndex = 0;        
             this.TextMessages.ForeColorChanged += new System.EventHandler(this.TextMessages_ForeColorChanged);
             // 
             // sendmessageButton
@@ -109,19 +107,6 @@
             this.sendmessageButton.Text = "SEND";
             this.sendmessageButton.UseVisualStyleBackColor = true;
             this.sendmessageButton.Click += new System.EventHandler(this.sendmessageButton_Click);
-            // 
-            // changeFontButton
-            // 
-            this.changeFontButton.Enabled = false;
-            this.changeFontButton.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeFontButton.ForeColor = System.Drawing.Color.MediumBlue;
-            this.changeFontButton.Location = new System.Drawing.Point(11, 293);
-            this.changeFontButton.Name = "changeFontButton";
-            this.changeFontButton.Size = new System.Drawing.Size(118, 36);
-            this.changeFontButton.TabIndex = 10;
-            this.changeFontButton.Text = "Change Font";
-            this.changeFontButton.UseVisualStyleBackColor = true;
-            this.changeFontButton.Click += new System.EventHandler(this.changeFontButton_Click);
             // 
             // ColorChoosing
             // 
@@ -275,7 +260,6 @@
             this.UserPanel.Controls.Add(this.RedLightPanel);
             this.UserPanel.Controls.Add(this.panel5);
             this.UserPanel.Controls.Add(this.ColorChoosing);
-            this.UserPanel.Controls.Add(this.changeFontButton);
             this.UserPanel.Controls.Add(this.PrivateMessageButton);
             this.UserPanel.Controls.Add(this.ConnectToserverButton);
             this.UserPanel.Controls.Add(this.DisconnectFromServerButton);
@@ -320,7 +304,6 @@
         public System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.TextBox TextMessages;
         public System.Windows.Forms.Button sendmessageButton;
-        private System.Windows.Forms.Button changeFontButton;
         public System.Windows.Forms.Button ColorChoosing;
         private System.Windows.Forms.Button ConnectToserverButton;
         private System.Windows.Forms.Button DisconnectFromServerButton;

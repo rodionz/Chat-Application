@@ -26,8 +26,7 @@ namespace CommonTypes
         public Color color
         { get; set; }
 
-        public Font font
-        { get; set; }
+       
 
         public string IPadress
         { get; set; }

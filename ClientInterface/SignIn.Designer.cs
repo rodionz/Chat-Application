@@ -42,6 +42,7 @@
             this.ConnectButton = new System.Windows.Forms.Button();
             this.NickNameConfirmationLabel = new System.Windows.Forms.Label();
             this.WarningLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -138,7 +139,7 @@
             // 
             this.ConfirmIPandPortButton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmIPandPortButton.ForeColor = System.Drawing.Color.DarkBlue;
-            this.ConfirmIPandPortButton.Location = new System.Drawing.Point(296, 115);
+            this.ConfirmIPandPortButton.Location = new System.Drawing.Point(296, 136);
             this.ConfirmIPandPortButton.Name = "ConfirmIPandPortButton";
             this.ConfirmIPandPortButton.Size = new System.Drawing.Size(160, 34);
             this.ConfirmIPandPortButton.TabIndex = 23;
@@ -190,12 +191,24 @@
             this.WarningLabel.Size = new System.Drawing.Size(0, 19);
             this.WarningLabel.TabIndex = 30;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(121, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(551, 15);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Please pay attention that  an attempt to connect to enexisting server will cause " +
+    "a delay (about 10 sec)";
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(728, 355);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.WarningLabel);
             this.Controls.Add(this.NickNameConfirmationLabel);
             this.Controls.Add(this.ConnectButton);
@@ -234,5 +247,6 @@
         public System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.Label NickNameConfirmationLabel;
         private System.Windows.Forms.Label WarningLabel;
+        private System.Windows.Forms.Label label4;
     }
 }
