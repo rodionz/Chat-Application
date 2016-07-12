@@ -59,6 +59,7 @@ namespace ServerInterface
 
         }
 
+        public static bool WasPrinted;
 
     }
 }

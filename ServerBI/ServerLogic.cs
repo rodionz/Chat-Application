@@ -211,19 +211,25 @@ namespace ServerBI
 
         public static void Finalising()
         {
-            ServerShutDown();      
-            server.Stop();
-            ServerProps.listofUsersontheserver.Clear();
-            ServerProps.StreamsofClients.Clear();
-            ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
-            connection -= ServerEventHandlers.ConnectionHandler;
-            publicmessage -= ServerEventHandlers.PublicMessageHandler;
-            ListofUsersRequest -= ServerEventHandlers.UsersListRequestHandler;
-            Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
-            PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
-            ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
-        }
-
+            try
+            {
+                ServerShutDown();
+                server.Stop();
+                ServerProps.listofUsersontheserver.Clear();
+                ServerProps.StreamsofClients.Clear();
+                ipandportvalidation -= ServerEventHandlers.IPandPortValidationHandler;
+                connection -= ServerEventHandlers.ConnectionHandler;
+                publicmessage -= ServerEventHandlers.PublicMessageHandler;
+                ListofUsersRequest -= ServerEventHandlers.UsersListRequestHandler;
+                Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
+                PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
+                ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
+            }
+            catch(NullReferenceException)
+            {
+                return;
+            }
+            }
         }
     }
 
