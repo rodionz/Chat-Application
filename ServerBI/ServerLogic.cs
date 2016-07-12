@@ -13,7 +13,8 @@ namespace ServerBI
     {
       
         public static event Action ServerShutDown;
-        public static event Action WrongIPorPort;        
+        public static event Action WrongIPorPort;
+     
         public static event Action<MessageData, NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;

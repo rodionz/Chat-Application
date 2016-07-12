@@ -53,8 +53,7 @@ namespace ServerBI
                         bf.Serialize(netStream, mData);
                     }
 
-                    else
-                        continue;
+                    
                 }
 
                 // Unexpected Client Disconnection
@@ -127,15 +126,19 @@ namespace ServerBI
 
         internal static  void UnexpectedDisconnectionHandler(MessageData mData, NetworkStream nStream, int index)
         {
+            mData = new MessageData();
+            UserData LostUser = ServerProps.listofUsersontheserver[index];
             BinaryFormatter bf = new BinaryFormatter();          
             ServerProps.listofUsersontheserver[index] = null;
             ServerProps.StreamsofClients[index] = null;          
-            mData.action = NetworkAction.UserDisconnection;
+          
+            
 
+            
 
             for (int x = 0; x < ServerProps.StreamsofClients.Count; x++)
             {
-                mData.Textmessage = mData.Userdat.Username + " was disconnected";
+                mData.Textmessage = LostUser.Username + " was disconnected";
 
                 if (ServerProps.StreamsofClients[x] != null)
                 {
