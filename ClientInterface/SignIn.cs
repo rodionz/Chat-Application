@@ -33,12 +33,13 @@ namespace ClientInterface
                a delay (7 - 10 seconds) untill it throws an exeption
                */
 
-        private void ConfirmIP_Click(object sender, EventArgs e)
+        public void ConfirmIP_Click(object sender, EventArgs e)
         {
 
            
            
             ConfirmIPandPortButton.Enabled = false;
+
             this.IPmaskedTextBox.ValidatingType = typeof(IPAddress);
             char[] delimit = { ' ' };
             string[] str = IPmaskedTextBox.Text.Split();

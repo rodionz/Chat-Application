@@ -13,17 +13,20 @@ namespace ServerBI
     {
       
         public static event Action ServerShutDown;
-        public static event Action ConnecionWhithWrongIPorPort;
-     
+        public static event Action ConnecionWhithWrongIPorPort;     
         public static event Action<MessageData, NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
         public static event Action<MessageData, NetworkStream> publicmessage;
         public static event Action<MessageData, NetworkStream> ListofUsersRequest;
         public static event Action<MessageData, NetworkStream, UserData> Userdicsconnecter;      
         public static event Action<MessageData, NetworkStream> PrivateMessage;
+
+
         private static TcpListener server;
         static Task mainTask;
         static Task StarttoListen;
+
+
 
         public async static void ServerOnline(ServerData sData)
 

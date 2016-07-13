@@ -81,34 +81,46 @@ namespace ClientBL
         public async static void ConnecttoServer(MessageData mData, UserData uData)
         {
 
-            client = new TcpClient();
-            MessageData returning = new MessageData();
-            UserData Localuser = uData;
-            client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
-            ClientProps.LocalClient = client;
-            BinaryFormatter Bformat = new BinaryFormatter();
-            NetworkStream stream = client.GetStream();
-            ClientProps.clientStream = stream;
+            try
+            {
+                client = new TcpClient();
+                MessageData returning = new MessageData();
+                UserData Localuser = uData;
+                client.Connect(IPAddress.Parse(mData.Userdat.IPadress), mData.Userdat.Portnumber);
+                ClientProps.LocalClient = client;
+                BinaryFormatter Bformat = new BinaryFormatter();
+                NetworkStream stream = client.GetStream();
+                ClientProps.clientStream = stream;
 
 
-            // This Feature Provides information of each clent's IP and Port to the Server
+                // This Feature Provides information about each clent's IP and Port to the Server
 
-            string local = client.Client.LocalEndPoint.ToString();
-            char[] separ = { ':' };
-            string[] ipandport = local.Split(separ);
-            mData.Userdat.IPadress = ipandport[0];
-            mData.Userdat.Portnumber = int.Parse(ipandport[1]);
-            //////////////////////////////////////////////////////////////////////////
+                string local = client.Client.LocalEndPoint.ToString();
+                char[] separ = { ':' };
+                string[] ipandport = local.Split(separ);
+                mData.Userdat.IPadress = ipandport[0];
+                mData.Userdat.Portnumber = int.Parse(ipandport[1]);
+                //////////////////////////////////////////////////////////////////////////
 
 
-            Bformat.Serialize(stream, mData);
-            ClientProps.UserisOnline = true;
-            stream.Flush();
-            listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
-            await listening;
-            listening.Dispose();
-        }
+                Bformat.Serialize(stream, mData);
+                ClientProps.UserisOnline = true;
+                stream.Flush();
+                listening = Task.Run(() => StariListenToIncomingMessages(Localuser));
+                await listening;
+                listening.Dispose();
+            }
 
+
+            catch
+            {
+                NoConnectionWhithServerEvent("Server is offline");
+                ServerDisconnected();
+            }
+            
+
+
+            }
         private static void StariListenToIncomingMessages(UserData currentUser)
         {
             BinaryFormatter listerformatter = new BinaryFormatter();
@@ -118,7 +130,7 @@ namespace ClientBL
             while (ClientProps.UserisOnline)
             {
                 /* I found out that every infinity loop creates heavy load on the processor. 
-               For example this apllication took close to 100% of CPU, he simpliest solution
+               For example this apllication took close to 100% of CPU, the simpliest solution
                that i found was to include small time delay in every infinity loop
                    */
                 Thread.Sleep(100);
