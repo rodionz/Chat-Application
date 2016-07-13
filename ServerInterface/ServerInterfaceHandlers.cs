@@ -33,11 +33,11 @@ namespace ServerInterface
 
 
 
-        public static void WrongIPandPOrthandler()
+        public static void AtemmttoconnectWhithWrongIPandPort_Handler()
         {
 
             MessageBox.Show("Creating of Server has failed, please choose another IP adress and port and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
+            ServerLogic.ConnecionWhithWrongIPorPort -= ServerInterfaceClass.AtemmttoconnectWhithWrongIPandPort_Handler;
         }
 
     
@@ -115,7 +115,7 @@ namespace ServerInterface
                     StartServerButton.Enabled = true;
                     StopServerButton.Enabled = false;
                     if(!ServerBools.WasPrinted)
-                    MessageBox.Show("Connection was suddenly lost ", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Connection was suddenly lost ", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     ServerBools.WasPrinted = true;
                 }
             }

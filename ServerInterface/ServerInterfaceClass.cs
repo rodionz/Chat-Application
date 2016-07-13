@@ -92,7 +92,7 @@ namespace ServerInterface
         private void ServerInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
         {
             ServerEventHandlers.UserRemovalfromtheInterface -= DisconnectUserHAndler;
-            ServerLogic.WrongIPorPort -= ServerInterfaceClass.WrongIPandPOrthandler;
+            ServerLogic.ConnecionWhithWrongIPorPort -= ServerInterfaceClass.AtemmttoconnectWhithWrongIPandPort_Handler;
         }
     }
 }

@@ -69,7 +69,7 @@ namespace ServerBI
         public static bool  ServerisOnline
         { get; set; }
 
-        public static bool ManualSidconnection;
+        public static bool ManualSidconnection = false;
 
         public static List<UserData> listofUsersontheserver = new List<UserData>();
 

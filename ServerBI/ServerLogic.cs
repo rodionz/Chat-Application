@@ -13,7 +13,7 @@ namespace ServerBI
     {
       
         public static event Action ServerShutDown;
-        public static event Action WrongIPorPort;
+        public static event Action ConnecionWhithWrongIPorPort;
      
         public static event Action<MessageData, NetworkStream>   ipandportvalidation;
         public static event Action<MessageData, NetworkStream> connection;
@@ -66,7 +66,7 @@ namespace ServerBI
                     if (!ServerProps.NetworkisOK)
                     {
                         ServerProps.ServerisOnline = false;
-                       
+                        ServerShutDown();
                         Finalising();
                         return;
                     }
@@ -83,10 +83,10 @@ namespace ServerBI
             {
                 ServerProps.ServerisOnline = false;
              
-                if (!ServerProps.ManualSidconnection)
+                if (!ServerProps.ManualSidconnection && ServerProps.ServerisOnline)
                 {
-                    WrongIPorPort();
-                    ServerProps.ManualSidconnection = false;
+                    ConnecionWhithWrongIPorPort();
+                    
                 }
                 Finalising();
                 // another exit point in the case of exeption
@@ -95,7 +95,8 @@ namespace ServerBI
 
             catch(Exception ex)
             {
-               
+                Finalising();
+                return;
             }
         }                                                                                   
                                                        

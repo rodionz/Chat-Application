@@ -100,7 +100,7 @@ namespace ServerInterface
 
         private void ServerConnection_Load(object sender, EventArgs e)
         {
-            ServerLogic.WrongIPorPort += ServerInterfaceClass.WrongIPandPOrthandler;
+            ServerLogic.ConnecionWhithWrongIPorPort += ServerInterfaceClass.AtemmttoconnectWhithWrongIPandPort_Handler;
         }
 
         private void ServerConnection_FormClosing(object sender, FormClosingEventArgs e)
