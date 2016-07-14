@@ -112,27 +112,35 @@ namespace ServerBI
             while (ServerProps.ServerisOnline)
 
             {
-          
-                while (!netStr.DataAvailable)
+
+                try
                 {
-                    //exit point for the function in order to complete the task  
-                    if (!ServerProps.ServerisOnline)
-                        return;
-
-                    if(!ServerProps.NetworkisOK)
+                    while (!netStr.DataAvailable)
                     {
-                        ServerProps.ServerisOnline = false;
-                        Finalising();
-                        return;
+                        //exit point for the function in order to complete the task  
+                        if (!ServerProps.ServerisOnline)
+                            return;
+
+                        if (!ServerProps.NetworkisOK)
+                        {
+                            ServerProps.ServerisOnline = false;
+                            Finalising();
+                            return;
+                        }
+                        /* I found out that every infinity loop creates heavy load on the processor. 
+                    For example this apllication took close to 100% of CPU, he simpliest solution
+                    that i found was to include small time delay in every infinity loop
+                        */
+                        Thread.Sleep(100);
+
+
+
                     }
-                    /* I found out that every infinity loop creates heavy load on the processor. 
-                For example this apllication took close to 100% of CPU, he simpliest solution
-                that i found was to include small time delay in every infinity loop
-                    */
-                    Thread.Sleep(100);
+                }
 
-
-                    
+                catch
+                {
+                    return;
                 }
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
@@ -178,6 +186,17 @@ namespace ServerBI
                          * because of inconsistency of list sizes, 
                         so i decided to replase them whith null's
                             */
+                        try
+                        {
+                            ServerProps.StreamsofClients[mData.Userdat.Userid].Close();
+                            ServerProps.StreamsofClients[mData.Userdat.Userid].Dispose();
+                        }
+
+                        catch
+                        {
+
+                        }
+
                         ServerProps.listofUsersontheserver[mData.Userdat.Userid] = null;
                         ServerProps.StreamsofClients[mData.Userdat.Userid] = null;  
                                                                                         
@@ -217,6 +236,23 @@ namespace ServerBI
         {
             try
             {
+
+                foreach (NetworkStream ns in ServerProps.StreamsofClients)
+                {
+                    if (ns != null && ns.CanRead)
+                    {
+                        ns.Close();
+                        ns.Dispose();
+                    }
+                }
+
+            }
+
+            catch
+            { }
+
+
+            try { 
                 ServerShutDown();
                 server.Stop();
                 ServerProps.listofUsersontheserver.Clear();
@@ -228,8 +264,9 @@ namespace ServerBI
                 Userdicsconnecter -= ServerEventHandlers.DisconnectUser;
                 PrivateMessage -= ServerEventHandlers.PrivatemessageHandler;
                 ServerEventHandlers.UserDisconnectedUnexpected -= ServerEventHandlers.UnexpectedDisconnectionHandler;
-            }
-            catch(NullReferenceException)
+                }
+
+            catch
             {
                 return;
             }

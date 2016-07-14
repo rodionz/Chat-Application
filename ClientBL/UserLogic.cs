@@ -247,15 +247,36 @@ namespace ClientBL
             MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);
             BinaryFormatter disconnect = new BinaryFormatter();
             NetworkStream local = ClientProps.clientStream;
+
+          
+
+
             try
             {
                 disconnect.Serialize(local, mData);
+                
             }
 
-           catch(IOException Ioe)
+           catch
+            {
+                
+            }
+
+
+
+
+            try
+            {
+                ClientProps.clientStream.Close();
+                ClientProps.clientStream.Dispose();
+            }
+
+
+            finally
             {
                 client.Close();
             }
+
         }
 
 

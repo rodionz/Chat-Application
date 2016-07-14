@@ -128,7 +128,15 @@ namespace ServerBI
         {
             mData = new MessageData();
             UserData LostUser = ServerProps.listofUsersontheserver[index];
-            BinaryFormatter bf = new BinaryFormatter();          
+            BinaryFormatter bf = new BinaryFormatter();
+            try
+            {
+                ServerProps.StreamsofClients[index].Close();
+                ServerProps.StreamsofClients[index].Dispose();
+            }
+
+            catch { }
+                            
             ServerProps.listofUsersontheserver[index] = null;
             ServerProps.StreamsofClients[index] = null;
             mData.Textmessage = LostUser.Username + " was disconnected";

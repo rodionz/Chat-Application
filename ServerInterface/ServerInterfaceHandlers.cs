@@ -114,12 +114,12 @@ namespace ServerInterface
                     GreenLightPanel.Visible = false;
                     StartServerButton.Enabled = true;
                     StopServerButton.Enabled = false;
-                    if(!ServerBools.WasPrinted)
-                        MessageBox.Show("Connection was suddenly lost ", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    ServerBools.WasPrinted = true;
+                    //if(!ServerBools.WasPrinted)
+                        //MessageBox.Show("Connection was suddenly lost ", "Network Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        //ServerBools.WasPrinted = true;
                 }
             }
-            catch (ObjectDisposedException oe)
+            catch 
             {
                 return;
             }
