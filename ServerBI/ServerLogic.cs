@@ -84,7 +84,7 @@ namespace ServerBI
 
             catch (SocketException)
             {
-                ServerProps.ServerisOnline = false;
+              
              
                 if (!ServerProps.ManualSidconnection && ServerProps.ServerisOnline)
                 {
@@ -93,6 +93,7 @@ namespace ServerBI
                 }
                 Finalising();
                 // another exit point in the case of exeption
+                ServerProps.ServerisOnline = false;
                 return;
             }
 
@@ -142,6 +143,9 @@ namespace ServerBI
                 {
                     return;
                 }
+
+
+
                 MessageData mData = (MessageData)bf.Deserialize(netStr);
 
             

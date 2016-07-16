@@ -127,6 +127,8 @@ namespace ClientBL
             MessageData incoming = new MessageData();
             NetworkStream usernetstream = ClientProps.clientStream;
 
+            
+
             while (ClientProps.UserisOnline)
             {
                 /* I found out that every infinity loop creates heavy load on the processor. 
@@ -242,7 +244,7 @@ namespace ClientBL
         public static void Disconnection(UserData uData)
 
         {
-
+            
             GlobalValidIpandPort = false;
             MessageData mData = new MessageData(uData, NetworkAction.UserDisconnection);
             BinaryFormatter disconnect = new BinaryFormatter();

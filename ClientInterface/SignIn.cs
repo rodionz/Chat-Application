@@ -38,7 +38,7 @@ namespace ClientInterface
 
            
            
-            ConfirmIPandPortButton.Enabled = false;
+          
 
             this.IPmaskedTextBox.ValidatingType = typeof(IPAddress);
             char[] delimit = { ' ' };
@@ -71,7 +71,7 @@ namespace ClientInterface
 
             else
             {
-                ConfirmIPandPortButton.Enabled = false;
+                
                 mData = new MessageData(new UserData(IPasString, userPort), NetworkAction.IpandPortValidaton);
                UserLogic.IPAndPortValidation(mData);
 
@@ -197,7 +197,7 @@ namespace ClientInterface
             else
             {
                 MessageBox.Show("You need to confirm IPAdress, Port and UserName before connecting server", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                ClientInterfaceProps.ResetBooleans();
+                //ClientInterfaceProps.ResetBooleans();
 
             }
         }

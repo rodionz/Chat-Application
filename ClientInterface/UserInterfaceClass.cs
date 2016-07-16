@@ -5,7 +5,7 @@ using CommonTypes;
 using ClientBL;
 using System.Diagnostics;
 using System.Drawing;
-
+using System.Threading;
 
 namespace ClientInterface
 {
@@ -74,6 +74,10 @@ namespace ClientInterface
 
               
                 ClientInterfaceProps.ResetBooleans();
+
+                // This delay is necessry to avoid a bug when User Push Disconnect Button immidiatly after connection
+                Thread.Sleep(2000);
+                DisconnectFromServerButton.Enabled = true;
             }
 
 

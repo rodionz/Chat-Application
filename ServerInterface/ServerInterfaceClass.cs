@@ -77,16 +77,12 @@ namespace ServerInterface
         }
 
         private void ServerInterfaceClass_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-               
 
+        {
+                          
                 ServerProps.ManualSidconnection = true;
                 ServerLogic.StopListening();
-            
-
-           
-
+          
         }
 
         private void ServerInterfaceClass_FormClosed(object sender, FormClosedEventArgs e)
