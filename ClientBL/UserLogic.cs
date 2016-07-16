@@ -226,7 +226,7 @@ namespace ClientBL
 
             {
                 ClientProps.UserisOnline = false;
-                NoConnectionWhithServerEvent(io.Message);
+                NoConnectionWhithServerEvent("Connection whith the server Was Lost!");
                 client.Close();
                 return;
             }
