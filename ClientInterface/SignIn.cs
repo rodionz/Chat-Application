@@ -190,6 +190,7 @@ namespace ClientInterface
                 mData.action = NetworkAction.Connection;
                 UserLogic.LolacAction = NetworkAction.Connection;               
                 UserLogic.ConnecttoServer(mData , new_user);
+                ClientProps.shutdown = false;
                 ClearAll();
                 Close();
             }
