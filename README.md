@@ -2,14 +2,14 @@
 Final Project in Advanced C# course (JB)
 
 
-סוג הפרויקט: WinForms Application, Class Libraries.
+ WinForms Application, Class Libraries.
 הדרישה: אפליקציית צ'אט בין מחשבים.
 ידע נדרש: 
 Delegates & Events
 עבודה עם TCP בעזרת המחלקות: TcpClient, TcpListener
 Serialization
 Threading
-עבודה עם טפסים
+
 
 כיצד האפליקציה תעבוד?
 במערכת תהיה אפליקציה אשר תותקן אצל משתמש המעוניין להשתתף בצ'אט ולשוחח עם משתמשים אחרים ברשת. לאפליקציה זו נקרא "צד הלקוח”. בעזרת אפליקציית הלקוח המשתמש יוכל לשלוח הודעות לשאר המשתתפים בצ'אט ולקבל מהם הודעות בחזרה.
